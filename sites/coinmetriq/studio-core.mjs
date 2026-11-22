@@ -1,3 +1,4 @@
+import {advancedTools,calculateAdvanced} from "./advanced-core.mjs";
 /* CoinMetriq Research Studio: deterministic, local-only financial arithmetic.
    No live prices, private keys, custodial wallet connection, or investment advice. */
 const fmt=(n,d=2)=>Number(n).toLocaleString("en-US",{minimumFractionDigits:d,maximumFractionDigits:d});
@@ -29,6 +30,7 @@ export const tools=[
  {slug:"mining-cost",title:"Crypto Mining Electricity Cost",short:"Estimate electricity expense and hypothetical profit after a user-entered revenue estimate.",formula:"Electricity = power kW × operating hours × tariff",fields:[["watts","Power draw (watts)",1200],["hours","Operating hours",720],["tariff","Electricity price (USD/kWh)",0.12],["gross","Hypothetical revenue for same period (USD)",140],["other","Other period expense (USD)",15]]},
  {slug:"impermanent-loss",title:"Liquidity Pool Impermanent Loss",short:"Explore theoretical impermanent loss for a constant-product 50/50 pool (excluding fees).",formula:"IL = 2 × sqrt(price ratio) ÷ (1 + price ratio) − 1",fields:[["ratio","New price ÷ initial price",2]]},
  {slug:"token-unlock",title:"Token Unlock Dilution Scenario",short:"Model approximate ownership share change after additional token supply enters circulation.",formula:"Change in share = initial supply ÷ (initial supply + unlocked tokens) − 1",fields:[["supply","Initial circulating tokens",10000000],["unlock","Newly unlocked tokens",2500000]]}
+ ,...advancedTools
 ];
 export function calculateStudio(slug,input){
  if(!tools.some(t=>t.slug===slug))throw Error("Unknown research calculator.");
@@ -103,5 +105,5 @@ export function calculateStudio(slug,input){
   return result(fmt(Math.abs(change))+"% illustrative ownership dilution","Simplified constant-holdings share of supply. This does not predict token price.",[],[["Initial supply",fmt(supply,0)],["New total supply",fmt(supply+unlock,0)],["Share of new supply vs old",fmt(supply/(supply+unlock)*100)+"%"]]);
  }
  }
- throw Error("Unsupported calculation.");
+ return calculateAdvanced(slug,input);
 }
