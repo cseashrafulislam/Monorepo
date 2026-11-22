@@ -88,3 +88,14 @@ test("Five additional CSV and scenario calculators",()=>{
  assert.throws(()=>calculateStudio("portfolio-rebalancer",{allocation:"BTC,100,60\nETH,100,20"}),/Targets must total/);
  assert.throws(()=>calculateStudio("daily-volatility",{series:"2026-11-01,100\n2026-11-03,105\n2026-11-04,98\n2026-11-05,102"}),/consecutive/);
 });
+
+test("CoinMetriq Fun Lab contains ten distinct working-client mini game forms",()=>{
+ const html=read("/fun/");
+ const names=[...html.matchAll(/data-cm-fun="([^"]+)"/g)].map(x=>x[1]);
+ assert.equal(names.length,10);
+ assert.equal(new Set(names).size,10);
+ for(const id of ["fee-goblin","dca-time-machine","hodl-rollercoaster","moon-math","portfolio-personality","coin-split","mining-monster","unlock-surprise","scam-bingo","emoji-decoder"])assert.ok(names.includes(id),id);
+ assert.match(html,/data-cm-share/);
+ assert.match(html,/data-cm-download/);
+ assert.match(html,/No personal accounts, wallet connection or live prices/);
+});
