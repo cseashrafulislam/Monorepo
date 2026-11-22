@@ -5,6 +5,7 @@ import path from "node:path";
 import { calculate } from "../packages/site-core/calculator.js";
 
 const ids=["coinmetriq","earthviora","solarqentra","techorvia","moneyavora","industryluma","worldorixa","vitaloryx","edunovira","lifealora"];
+const encodeHtml=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;");
 const slug=s=>s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 test("Ten distinct brands, 300 fully described topics, single source of truth",()=>{
  assert.equal(ids.length,10);
@@ -54,8 +55,8 @@ test("Static build: all 300 topic routes, unique designs, SEO & site isolation",
    const topicFile=path.join(base,"topics",slug(topic.name),"index.html");
    assert.ok(fs.existsSync(topicFile),id+" "+topic.name);
    const doc=fs.readFileSync(topicFile,"utf8");
-   assert.ok(doc.includes(topic.overview),id+" description");
-   assert.ok(doc.includes(topic.practice),id+" practical");
+   assert.ok(doc.includes(encodeHtml(topic.overview)),id+" description");
+   assert.ok(doc.includes(encodeHtml(topic.practice)),id+" practical");
    assert.ok(doc.includes('content="noindex,follow"'),id+" review required");
    assert.ok(doc.includes('BreadcrumbList'),id+" breadcrumb structured data");
   }
