@@ -1,0 +1,83 @@
+{
+  "id": "solarqentra",
+  "name": "SolarQentra",
+  "sector": "Solar, Energy & EV",
+  "tagline": "Understand electricity, solar panels, batteries and the cost of everyday power.",
+  "accent": "#d99428",
+  "categories": [
+    "Solar Calculator",
+    "Solar Installation",
+    "Electricity Bills",
+    "Battery Backup",
+    "Inverters",
+    "UPS",
+    "Generators",
+    "Solar ROI",
+    "Energy Saving",
+    "Home Appliances",
+    "Commercial Energy",
+    "EV Charging",
+    "EV Range",
+    "EV Battery Health",
+    "EV vs Petrol",
+    "Car Ownership Cost",
+    "Fuel Calculator",
+    "Vehicle Maintenance",
+    "Energy Prices",
+    "Renewable Energy"
+  ],
+  "countries": [
+    "US",
+    "AU",
+    "DE",
+    "IN",
+    "GB",
+    "AE"
+  ],
+  "tool": {
+    "kind": "solar",
+    "slug": "solar-energy-estimator",
+    "title": "Solar Energy & Savings Calculator",
+    "intro": "Estimate daily solar production and 30-day electricity value from your local inputs.",
+    "formula": "Daily energy = installed capacity × peak sun hours × performance ratio. Estimated monthly electricity value uses 30 days.",
+    "caution": "Not an installer quote: orientation, shading, weather, grid rules, taxes and time-of-use rates affect actual savings.",
+    "inputs": [
+      {
+        "key": "capacity",
+        "label": "Installed solar capacity (kW)",
+        "default": 5,
+        "min": 0.01,
+        "max": 100000,
+        "step": 0.5,
+        "type": "number"
+      },
+      {
+        "key": "sunHours",
+        "label": "Peak sun hours per day",
+        "default": 4.5,
+        "min": 0,
+        "max": 24,
+        "step": 0.5,
+        "type": "number"
+      },
+      {
+        "key": "performance",
+        "label": "Performance ratio (%)",
+        "default": 78,
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "type": "number"
+      },
+      {
+        "key": "tariff",
+        "label": "Electricity value per kWh (local currency)",
+        "default": 0.18,
+        "min": 0,
+        "max": 100000,
+        "step": 0.01,
+        "type": "number"
+      }
+    ]
+  }
+}

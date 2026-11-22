@@ -1,0 +1,92 @@
+{
+  "id": "lifealora",
+  "name": "LifeAlora",
+  "sector": "Travel, Home & Lifestyle",
+  "tagline": "Everyday calculators for trips, homes and practical life choices.",
+  "accent": "#bd745e",
+  "categories": [
+    "Countries & Cities",
+    "Travel Destinations",
+    "Travel Budget",
+    "Visa Information",
+    "Hotels",
+    "Flights",
+    "Transportation",
+    "Cost of Living",
+    "Real Estate",
+    "Rent vs Buy",
+    "Construction Cost",
+    "Building Materials",
+    "Renovation",
+    "Home Improvement",
+    "Interior Design",
+    "Home Utilities",
+    "Shopping Comparison",
+    "Food & Restaurants",
+    "Pet Care",
+    "Daily Life Calculators"
+  ],
+  "countries": [
+    "US",
+    "GB",
+    "CA",
+    "AU",
+    "AE",
+    "IN"
+  ],
+  "tool": {
+    "kind": "trip",
+    "slug": "trip-budget",
+    "title": "Trip Budget Calculator",
+    "intro": "Plan a trip budget from days, daily expenses, accommodation, transport and extra costs.",
+    "formula": "Total estimated cost = days × (daily expenses + accommodation per night) + transport + extra costs.",
+    "caution": "Use one currency consistently. Visa costs, taxes, currency exchange and unexpected charges may increase actual costs.",
+    "inputs": [
+      {
+        "key": "days",
+        "label": "Trip length (days)",
+        "default": 7,
+        "min": 1,
+        "max": 365,
+        "step": 1,
+        "type": "number"
+      },
+      {
+        "key": "daily",
+        "label": "Daily spending (local currency)",
+        "default": 85,
+        "min": 0,
+        "max": 100000000,
+        "step": 1,
+        "type": "number"
+      },
+      {
+        "key": "hotel",
+        "label": "Accommodation per night (local currency)",
+        "default": 55,
+        "min": 0,
+        "max": 100000000,
+        "step": 1,
+        "type": "number"
+      },
+      {
+        "key": "transport",
+        "label": "Round-trip transport cost",
+        "default": 450,
+        "min": 0,
+        "max": 1000000000,
+        "step": 1,
+        "type": "number"
+      },
+      {
+        "key": "extras",
+        "label": "Other trip costs",
+        "default": 120,
+        "min": 0,
+        "max": 1000000000,
+        "step": 1,
+        "type": "number"
+      }
+    ]
+  }
+}

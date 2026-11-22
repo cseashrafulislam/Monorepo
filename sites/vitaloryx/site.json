@@ -1,0 +1,65 @@
+{
+  "id": "vitaloryx",
+  "name": "VitalOryx",
+  "sector": "Health, Fitness & Wellness",
+  "tagline": "Understand everyday wellness metrics through transparent educational calculators.",
+  "accent": "#ba6b85",
+  "categories": [
+    "General Health",
+    "Nutrition",
+    "Calories",
+    "BMI & Body Metrics",
+    "Fitness",
+    "Exercise",
+    "Weight Management",
+    "Sleep",
+    "Mental Wellbeing",
+    "Preventive Care",
+    "Women's Health",
+    "Men's Health",
+    "Child Health",
+    "Senior Care",
+    "Accessibility",
+    "Home Safety",
+    "Healthy Recipes",
+    "Public Health",
+    "Medical Research",
+    "Healthcare Technology"
+  ],
+  "countries": [
+    "US",
+    "GB",
+    "CA",
+    "AU",
+    "IN",
+    "SG"
+  ],
+  "tool": {
+    "kind": "bmi",
+    "slug": "bmi-calculator",
+    "title": "Adult BMI Calculator",
+    "intro": "Calculate body mass index from height and weight using the standard metric equation.",
+    "formula": "BMI = weight in kilograms ÷ (height in meters) squared. It is a screening metric, not a diagnosis.",
+    "caution": "BMI has important limitations and is not suitable for individual medical decisions. Consult a qualified clinician when needed.",
+    "inputs": [
+      {
+        "key": "height",
+        "label": "Height (cm)",
+        "default": 170,
+        "min": 50,
+        "max": 250,
+        "step": 1,
+        "type": "number"
+      },
+      {
+        "key": "weight",
+        "label": "Weight (kg)",
+        "default": 68,
+        "min": 1,
+        "max": 500,
+        "step": 0.5,
+        "type": "number"
+      }
+    ]
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "id": "coinmetriq",
+  "name": "CoinMetriq",
+  "sector": "Crypto & Blockchain",
+  "tagline": "Market data without the noise. Understand digital assets with free, practical tools.",
+  "accent": "#c18b32",
+  "categories": [
+    "Bitcoin",
+    "Ethereum",
+    "Altcoins",
+    "Coin Prices",
+    "Tokenomics",
+    "Mining",
+    "Staking",
+    "Gas Fees",
+    "Stablecoins",
+    "DeFi",
+    "Web3",
+    "Wallet Security",
+    "Crypto Regulations",
+    "Blockchain Explorer",
+    "Crypto Security",
+    "Crypto News",
+    "Market Sentiment",
+    "On-chain Analytics",
+    "Portfolio Tools",
+    "Coin Comparisons"
+  ],
+  "countries": [
+    "US",
+    "GB",
+    "CA",
+    "DE",
+    "AE",
+    "SG"
+  ],
+  "tool": {
+    "kind": "marketcap",
+    "slug": "token-market-cap",
+    "title": "Token Market Cap Calculator",
+    "intro": "Estimate the market capitalization of a token using a price and circulating supply.",
+    "formula": "Multiply the unit price by circulating token supply. This is a mathematical estimate, not a live market quote.",
+    "caution": "Prices and supply are entered by you; check reliable market sources before making decisions.",
+    "inputs": [
+      {
+        "key": "price",
+        "label": "Token price (USD)",
+        "default": 0.25,
+        "min": 0,
+        "max": 1000000000,
+        "step": 0.01,
+        "type": "number"
+      },
+      {
+        "key": "supply",
+        "label": "Circulating supply (tokens)",
+        "default": 10000000,
+        "min": 0,
+        "max": 1000000000000000,
+        "step": 1,
+        "type": "number"
+      }
+    ]
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "id": "earthviora",
+  "name": "EarthViora",
+  "sector": "Earth, Climate & Space",
+  "tagline": "Explore the planet through useful environmental measurements and practical map-ready tools.",
+  "accent": "#267e70",
+  "categories": [
+    "Weather",
+    "Climate",
+    "Earthquakes",
+    "Floods",
+    "River Erosion",
+    "Cyclones",
+    "Wildfires",
+    "Air Quality",
+    "Water Quality",
+    "Groundwater",
+    "Oceans",
+    "Land Change",
+    "Satellite Maps",
+    "Forests",
+    "Crop Health",
+    "Drought",
+    "Heatwaves",
+    "Biodiversity",
+    "Space & Astronomy",
+    "Satellite Tracking"
+  ],
+  "countries": [
+    "US",
+    "IN",
+    "BD",
+    "ID",
+    "BR",
+    "AU"
+  ],
+  "tool": {
+    "kind": "rainwater",
+    "slug": "rainwater-harvesting",
+    "title": "Rainwater Harvest Calculator",
+    "intro": "Estimate how many liters of rainwater a roof can collect from a rainfall event.",
+    "formula": "A 1 mm rainfall over 1 square meter equals 1 liter. The efficiency factor accounts for losses.",
+    "caution": "Rainfall, catchment area and collection efficiency must reflect local conditions. This is not flood forecasting.",
+    "inputs": [
+      {
+        "key": "area",
+        "label": "Roof catchment area (m²)",
+        "default": 120,
+        "min": 0.01,
+        "max": 100000,
+        "step": 1,
+        "type": "number"
+      },
+      {
+        "key": "rainfall",
+        "label": "Rainfall (mm)",
+        "default": 85,
+        "min": 0,
+        "max": 10000,
+        "step": 1,
+        "type": "number"
+      },
+      {
+        "key": "efficiency",
+        "label": "Collection efficiency (%)",
+        "default": 80,
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "type": "number"
+      }
+    ]
+  }
+}

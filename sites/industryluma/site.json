@@ -1,0 +1,74 @@
+{
+  "id": "industryluma",
+  "name": "IndustryLuma",
+  "sector": "Manufacturing, Agriculture & Recycling",
+  "tagline": "Factory performance, resource efficiency and practical industry calculations.",
+  "accent": "#8d7055",
+  "categories": [
+    "Manufacturing Cost",
+    "Production Efficiency",
+    "OEE",
+    "Factory Capacity",
+    "Quality Control",
+    "Industrial Machinery",
+    "Industrial Safety",
+    "ETP",
+    "Energy Efficiency",
+    "Packaging",
+    "Plastic Recycling",
+    "EPR",
+    "E-Waste",
+    "Scrap Prices",
+    "Carbon Footprint",
+    "Farming",
+    "Livestock",
+    "Fisheries",
+    "Food Production",
+    "Industrial Automation"
+  ],
+  "countries": [
+    "US",
+    "DE",
+    "CN",
+    "IN",
+    "VN",
+    "BD"
+  ],
+  "tool": {
+    "kind": "oee",
+    "slug": "oee-calculator",
+    "title": "Overall Equipment Effectiveness Calculator",
+    "intro": "Calculate OEE using availability, performance and quality percentages.",
+    "formula": "OEE = Availability × Performance × Quality, expressed as proportions. It helps compare operational effectiveness.",
+    "caution": "The result is a diagnostic KPI, not a financial or regulatory certification. Enter comparable periods.",
+    "inputs": [
+      {
+        "key": "availability",
+        "label": "Availability (%)",
+        "default": 92.5,
+        "min": 0,
+        "max": 100,
+        "step": 0.5,
+        "type": "number"
+      },
+      {
+        "key": "performance",
+        "label": "Performance (%)",
+        "default": 87,
+        "min": 0,
+        "max": 100,
+        "step": 0.5,
+        "type": "number"
+      },
+      {
+        "key": "quality",
+        "label": "Quality (%)",
+        "default": 98,
+        "min": 0,
+        "max": 100,
+        "step": 0.5,
+        "type": "number"
+      }
+    ]
+  }
+}

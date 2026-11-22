@@ -1,0 +1,74 @@
+{
+  "id": "moneyavora",
+  "name": "MoneyAvora",
+  "sector": "Finance, Business & Trade",
+  "tagline": "Clear personal finance and international business calculations.",
+  "accent": "#237b79",
+  "categories": [
+    "Banking",
+    "Loan & EMI",
+    "Savings",
+    "Fixed Deposits",
+    "Income Tax",
+    "Salary Calculator",
+    "Stock Market",
+    "Forex",
+    "Gold & Silver",
+    "Inflation",
+    "Insurance",
+    "Investment Calculator",
+    "Business Profit",
+    "Break-even",
+    "Import Cost",
+    "Export Cost",
+    "Customs & HS Codes",
+    "Freight & Shipping",
+    "Container Calculator",
+    "Economic Indicators"
+  ],
+  "countries": [
+    "US",
+    "GB",
+    "CA",
+    "AU",
+    "SG",
+    "DE"
+  ],
+  "tool": {
+    "kind": "emi",
+    "slug": "loan-emi",
+    "title": "Loan EMI Calculator",
+    "intro": "Estimate a fixed monthly loan repayment from principal, annual interest rate and term.",
+    "formula": "For fixed-rate amortizing loans, monthly payment uses the standard annuity formula; zero-interest loans divide principal by months.",
+    "caution": "Excludes fees, variable-rate changes, taxes and insurance. Not financial advice or a lending offer.",
+    "inputs": [
+      {
+        "key": "principal",
+        "label": "Loan principal (local currency)",
+        "default": 250000,
+        "min": 0.01,
+        "max": 1000000000000000,
+        "step": 1000,
+        "type": "number"
+      },
+      {
+        "key": "annualRate",
+        "label": "Annual nominal interest rate (%)",
+        "default": 8.5,
+        "min": 0,
+        "max": 100,
+        "step": 0.1,
+        "type": "number"
+      },
+      {
+        "key": "months",
+        "label": "Loan term (months)",
+        "default": 60,
+        "min": 1,
+        "max": 1200,
+        "step": 1,
+        "type": "number"
+      }
+    ]
+  }
+}

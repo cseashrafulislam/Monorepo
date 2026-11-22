@@ -1,0 +1,65 @@
+{
+  "id": "worldorixa",
+  "name": "WorldOrixa",
+  "sector": "World News, Politics & Culture",
+  "tagline": "Global context, useful calendars and country-focused information.",
+  "accent": "#4375b5",
+  "categories": [
+    "World News",
+    "Country News",
+    "Politics",
+    "Elections",
+    "Government",
+    "Public Policy",
+    "Legal Information",
+    "Public Services",
+    "International Relations",
+    "Human Rights",
+    "Global Statistics",
+    "Population Data",
+    "Sports News",
+    "Cricket",
+    "Football",
+    "Sports Scores",
+    "Movies & TV",
+    "Music & Culture",
+    "Global Events",
+    "Holidays & Festivals"
+  ],
+  "countries": [
+    "US",
+    "GB",
+    "IN",
+    "CA",
+    "AU",
+    "BD"
+  ],
+  "tool": {
+    "kind": "days",
+    "slug": "days-between-dates",
+    "title": "Days Between Dates Calculator",
+    "intro": "Calculate the number of calendar days between two dates without timezone ambiguity.",
+    "formula": "Both dates are interpreted as calendar dates and compared at UTC midnight. The absolute difference excludes the start date.",
+    "caution": "This is a date calculation, not an official event or public-holiday announcement.",
+    "inputs": [
+      {
+        "key": "startDate",
+        "label": "Start date",
+        "default": "2027-01-01",
+        "min": null,
+        "max": null,
+        "step": null,
+        "type": "date"
+      },
+      {
+        "key": "endDate",
+        "label": "End date",
+        "default": "2028-01-01",
+        "min": null,
+        "max": null,
+        "step": null,
+        "type": "date"
+      }
+    ]
+  }
+}

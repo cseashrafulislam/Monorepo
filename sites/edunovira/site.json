@@ -1,0 +1,101 @@
+{
+  "id": "edunovira",
+  "name": "EduNovira",
+  "sector": "Education, Careers & Skills",
+  "tagline": "Straightforward study, grades and career-preparation tools.",
+  "accent": "#387da8",
+  "categories": [
+    "School Education",
+    "University",
+    "GPA & CGPA",
+    "Exam Preparation",
+    "Scholarships",
+    "Study Abroad",
+    "Online Courses",
+    "Mathematics Tools",
+    "Science Tools",
+    "English Learning",
+    "Coding Education",
+    "Certifications",
+    "Career Guidance",
+    "Government Jobs",
+    "Private Jobs",
+    "Remote Jobs",
+    "Freelancing",
+    "CV Builder",
+    "Interview Preparation",
+    "Skill Assessment"
+  ],
+  "countries": [
+    "US",
+    "IN",
+    "GB",
+    "CA",
+    "AU",
+    "BD"
+  ],
+  "tool": {
+    "kind": "gpa",
+    "slug": "weighted-gpa",
+    "title": "Weighted GPA Calculator",
+    "intro": "Calculate a credit-weighted GPA for three courses on a 4.0 scale.",
+    "formula": "Weighted GPA = sum of grade points times course credits, divided by total credits.",
+    "caution": "Institutional scales vary; this tool uses grade points you enter and does not convert local letter grades.",
+    "inputs": [
+      {
+        "key": "credit1",
+        "label": "Course 1 credits",
+        "default": 3,
+        "min": 0.01,
+        "max": 100,
+        "step": 1,
+        "type": "number"
+      },
+      {
+        "key": "grade1",
+        "label": "Course 1 grade points",
+        "default": 4,
+        "min": 0,
+        "max": 4,
+        "step": 0.1,
+        "type": "number"
+      },
+      {
+        "key": "credit2",
+        "label": "Course 2 credits",
+        "default": 3,
+        "min": 0.01,
+        "max": 100,
+        "step": 1,
+        "type": "number"
+      },
+      {
+        "key": "grade2",
+        "label": "Course 2 grade points",
+        "default": 3.7,
+        "min": 0,
+        "max": 4,
+        "step": 0.1,
+        "type": "number"
+      },
+      {
+        "key": "credit3",
+        "label": "Course 3 credits",
+        "default": 4,
+        "min": 0.01,
+        "max": 100,
+        "step": 1,
+        "type": "number"
+      },
+      {
+        "key": "grade3",
+        "label": "Course 3 grade points",
+        "default": 3.3,
+        "min": 0,
+        "max": 4,
+        "step": 0.1,
+        "type": "number"
+      }
+    ]
+  }
+}

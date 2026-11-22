@@ -1,0 +1,83 @@
+{
+  "id": "techorvia",
+  "name": "TechOrvia",
+  "sector": "AI, Technology & Digital Tools",
+  "tagline": "Practical tools for AI builders, developers, creators and online safety.",
+  "accent": "#6b63c9",
+  "categories": [
+    "AI Models",
+    "AI Cost Calculator",
+    "AI Tools",
+    "GPU & Cloud Pricing",
+    "Software",
+    "Programming",
+    "Developer Tools",
+    "Cybersecurity",
+    "Privacy",
+    "Domain & Hosting",
+    "File & PDF Tools",
+    "Image Tools",
+    "Creator Tools",
+    "YouTube Tools",
+    "Social Media Tools",
+    "Robotics",
+    "Drones",
+    "IoT & Electronics",
+    "3D Printing",
+    "Tech News"
+  ],
+  "countries": [
+    "US",
+    "IN",
+    "GB",
+    "CA",
+    "DE",
+    "SG"
+  ],
+  "tool": {
+    "kind": "ai",
+    "slug": "ai-token-cost",
+    "title": "AI API Token Cost Calculator",
+    "intro": "Estimate API costs from input/output tokens and the rates you supply.",
+    "formula": "Costs are calculated by multiplying each token count by its price per million and adding the two totals.",
+    "caution": "Model rates change frequently. Enter published rates from your provider; this page does not provide live pricing.",
+    "inputs": [
+      {
+        "key": "inputTokens",
+        "label": "Input tokens",
+        "default": 2000000,
+        "min": 0,
+        "max": 1000000000000,
+        "step": 1000,
+        "type": "number"
+      },
+      {
+        "key": "outputTokens",
+        "label": "Output tokens",
+        "default": 800000,
+        "min": 0,
+        "max": 1000000000000,
+        "step": 1000,
+        "type": "number"
+      },
+      {
+        "key": "inputRate",
+        "label": "Input price per 1M tokens (USD)",
+        "default": 1.25,
+        "min": 0,
+        "max": 1000000,
+        "step": 0.01,
+        "type": "number"
+      },
+      {
+        "key": "outputRate",
+        "label": "Output price per 1M tokens (USD)",
+        "default": 5,
+        "min": 0,
+        "max": 1000000,
+        "step": 0.01,
+        "type": "number"
+      }
+    ]
+  }
+}
