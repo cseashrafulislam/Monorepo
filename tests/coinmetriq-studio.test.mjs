@@ -8,9 +8,9 @@ import {calculate} from "../packages/site-core/calculator.js";
 const root="dist/coinmetriq";
 const read=(route)=>fs.readFileSync(path.join(root,route,"index.html"),"utf8");
 
-test("CoinMetriq ten unique private research calculators",()=>{
+test("CoinMetriq fifteen unique private research calculators",()=>{
  assert.equal(tools.length,15);
- assert.equal(new Set(tools.map(x=>x.slug)).size,10);
+ assert.equal(new Set(tools.map(x=>x.slug)).size,15);
  assert.ok(tools.every(t=>t.title&&t.short&&t.formula));
 });
 test("Crypto fees include both sides and handle small losing trades",()=>{
