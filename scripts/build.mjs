@@ -46,7 +46,7 @@ function groupLinks(groups) {
 }
 function siteNav(c,groups) {
  const menu = groups.slice(0,3).map(g=>'<a href="/topics/#'+slugify(g.name)+'">'+escape(g.name)+'</a>').join("");
- return '<header class="topbar"><div class="shell nav"><a class="brand" href="/" aria-label="'+escape(c.name)+' homepage"><span class="brand-mark" aria-hidden="true">'+escape(c.design.marker)+'</span>'+escape(c.name)+'</a><nav class="navlinks" aria-label="Main navigation">'+menu+'<a href="/topics/">All 30 topics</a><a href="/tools/'+escape(c.tool.slug)+'/">Calculator</a></nav></div></header>';
+ return '<header class="topbar"><div class="shell nav"><a class="brand" href="/" aria-label="'+escape(c.name)+' homepage"><span class="brand-mark" aria-hidden="true">'+escape(c.design.marker)+'</span>'+escape(c.name)+'</a><nav class="navlinks" aria-label="Main navigation">'+menu+'<a href="/topics/">All '+groups.reduce((n,g)=>n+g.topics.length,0)+' topics</a><a href="/tools/'+escape(c.tool.slug)+'/">Calculator</a></nav></div></header>';
 }
 function structured(c,p,topics){
  const root=getBase(c);
@@ -92,23 +92,23 @@ function home(c,topics,groups){
  const pillars=groups.map((g,i)=>'<a class="pillar-card" href="/topics/#'+slugify(g.name)+'"><small>0'+(i+1)+' / 06 subjects</small><h3>'+e(g.name)+'</h3><p>'+e(g.topics[0].overview)+'</p><span class="arrow" aria-hidden="true">↗</span></a>').join("");
  const feature=topics.filter((_,i)=>[0,6,12,18,24,29].includes(i)).map((t,i)=>topicCard(t,i)).join("");
  const chips=c.countries.map(code=>'<span class="chip">'+e(code)+'</span>').join("");
- const html='<section class="page-hero"><div class="shell hero-layout"><div><div class="eyebrow">'+e(c.design.heroEyebrow)+'</div><h1>'+e(c.design.heroTitle)+'</h1><p class="lead">'+e(c.design.heroNote)+'</p><div class="actions"><a class="btn" href="/tools/'+e(c.tool.slug)+'/">Try '+e(c.tool.title)+'</a><a class="btn secondary" href="/topics/">Explore 30 topics</a></div><p class="hero-caption">No account needed · Original topic guides · Transparent tool assumptions</p></div>'+heroStage(c,groups)+'</div></section>'+
- '<section class="section"><div class="shell"><div class="section-heading"><div><div class="eyebrow">'+e(meta.badge)+'</div><h2>Five paths into '+e(c.sector)+'</h2></div><p class="section-lede">Thirty carefully organized subjects with concrete guidance, divided into five logical groups.</p></div><div class="pillar-grid">'+pillars+'</div></div></section>'+
+ const html='<section class="page-hero"><div class="shell hero-layout"><div><div class="eyebrow">'+e(c.design.heroEyebrow)+'</div><h1>'+e(c.design.heroTitle)+'</h1><p class="lead">'+e(c.design.heroNote)+'</p><div class="actions"><a class="btn" href="/tools/'+e(c.tool.slug)+'/">Try '+e(c.tool.title)+'</a><a class="btn secondary" href="/topics/">Explore '+topics.length+' topics</a></div><p class="hero-caption">No account needed · Original topic guides · Transparent tool assumptions</p></div>'+heroStage(c,groups)+'</div></section>'+
+ '<section class="section"><div class="shell"><div class="section-heading"><div><div class="eyebrow">'+e(meta.badge)+'</div><h2>'+groups.length+' paths into '+e(c.sector)+'</h2></div><p class="section-lede">'+topics.length+' carefully organized subjects with concrete guidance, divided into '+groups.length+' research groups.</p></div><div class="pillar-grid">'+pillars+'</div></div></section>'+
  '<section class="section"><div class="shell"><div class="tool-promo"><div><div class="eyebrow">WORKING CALCULATOR · FREE</div><h2>'+e(c.tool.title)+'</h2><p>'+e(c.tool.intro)+'</p><a class="btn" href="/tools/'+e(c.tool.slug)+'/">Open interactive tool</a><p class="note">Runs in your browser. Calculations use the numbers you enter; no fabricated live data.</p></div><div class="tool-equation"><small>Transparent method</small><strong>'+e(c.tool.formula)+'</strong></div></div></div></section>'+
- '<section class="section"><div class="shell"><div class="section-heading"><div><div class="eyebrow">TOPIC EXPLORER</div><h2>Start with these guides</h2></div><a href="/topics/">Browse all 30 topics</a></div><div class="category-collection">'+feature+'</div></div></section>'+
+ '<section class="section"><div class="shell"><div class="section-heading"><div><div class="eyebrow">TOPIC EXPLORER</div><h2>Start with these guides</h2></div><a href="/topics/">Browse all '+topics.length+' topics</a></div><div class="category-collection">'+feature+'</div></div></section>'+
  '<section class="section"><div class="shell card"><h2>Regional coverage, with meaningful local context</h2><p class="section-lede">These are target research markets, not live national datasets. We only add country pages when verified local information genuinely differs.</p><div class="chips" style="margin-top:16px">'+chips+'</div><p class="note">'+e(meta.motto)+'</p></div></section>';
  return layout(c,{title:c.name,description:c.design.heroNote,route:"/"},html,topics,groups);
 }
 function topicIndex(c,topics,groups){
  const e=escape;
- let content='<section class="content-hero"><div class="shell">'+crumbs([{name:"Home",href:"/"},{name:"Topics"}])+'<div class="eyebrow">'+e(c.design.heroEyebrow)+'</div><h1>Explore all 30 '+e(c.sector)+' topics</h1><p class="lead">Browse five curated groups of six specific topics. Each guide explains the subject, practical checks and how to evaluate information responsibly.</p><div class="group-links">'+groupLinks(groups)+'</div></div></section>';
+ let content='<section class="content-hero"><div class="shell">'+crumbs([{name:"Home",href:"/"},{name:"Topics"}])+'<div class="eyebrow">'+e(c.design.heroEyebrow)+'</div><h1>Explore all '+topics.length+' '+e(c.sector)+' topics</h1><p class="lead">Browse '+groups.length+' curated research groups. Each guide explains the subject, practical checks and how to evaluate information responsibly.</p><div class="group-links">'+groupLinks(groups)+'</div></div></section>';
  content+='<section class="section"><div class="shell">';
  let index=0;
  for(const g of groups) {
-  content+='<section aria-labelledby="group-'+slugify(g.name)+'" id="'+slugify(g.name)+'"><div class="group-title"><h2 id="group-'+slugify(g.name)+'">'+e(g.name)+'</h2><span>06 subject guides</span></div><div class="category-collection">'+g.topics.map(t=>topicCard(t,index++)).join("")+'</div></section>';
+  content+='<section aria-labelledby="group-'+slugify(g.name)+'" id="'+slugify(g.name)+'"><div class="group-title"><h2 id="group-'+slugify(g.name)+'">'+e(g.name)+'</h2><span>'+g.topics.length+' subject guides</span></div><div class="category-collection">'+g.topics.map(t=>topicCard(t,index++)).join("")+'</div></section>';
  }
  content+='</div></section>';
- return layout(c,{title:"All 30 Topics",description:"Thirty organized "+c.sector+" topic guides, methods and practical decision tips.",route:"/topics/",type:"collection",breadcrumbs:[{name:"Home",path:"/"},{name:"Topics",path:"/topics/"}]},content,topics,groups);
+ return layout(c,{title:"All 30 Topics",description:"'+topics.length+' organized "+c.sector+" topic guides, methods and practical decision tips.",route:"/topics/",type:"collection",breadcrumbs:[{name:"Home",path:"/"},{name:"Topics",path:"/topics/"}]},content,topics,groups);
 }
 function topicPage(c,t,topics,groups){
  const e=escape, guide=groupMeta[c.id];const same=topics.filter(x=>x.group===t.group&&x.name!==t.name).slice(0,4);
@@ -132,12 +132,12 @@ function toolPage(c,topics,groups){
 }
 function infoPage(c,kind,topics,groups){
  const e=escape;const about=kind==="about";const title=about?"About "+c.name:"Privacy Policy";
- const paragraphs=about?'<p>'+e(c.design.heroNote)+'</p><p>'+e(c.name)+' is a free public educational and utility website for '+e(c.design.audience)+' We organize 30 subjects into five discoverable topic groups, with practical overview guides and a working browser-only calculator.</p><p>Some topic guides are brief initial overviews and are intentionally not indexed in search until they contain sufficient original, reviewed material. We do not fabricate real-time prices, news, official regulations or alerts.</p><p>New calculators, verified local data and research may be added progressively; the existing site is freely accessible without login.</p>':'<p>This site does not require registration. Calculator input stays in your browser and is not sent to our servers by the provided calculator code.</p><p>Cloudflare hosts the pages and may process connection details such as IP addresses and request metadata to deliver and secure the service. Consult Cloudflare privacy documentation for its infrastructure practices.</p><p>This version does not include advertising tags, third-party analytics trackers or marketing cookies. If advertising, analytics or sponsorship tracking is added later, the policy will be updated and consent controls implemented where required before enabling those services.</p><p>No form on this initial site requests sensitive personal data. Treat our informational content as general guidance, not personalized legal, medical or financial advice.</p>';
+ const paragraphs=about?'<p>'+e(c.design.heroNote)+'</p><p>'+e(c.name)+' is a free public educational and utility website for '+e(c.design.audience)+' We organize '+topics.length+' subjects into five discoverable topic groups, with practical overview guides and a working browser-only calculator.</p><p>Some topic guides are brief initial overviews and are intentionally not indexed in search until they contain sufficient original, reviewed material. We do not fabricate real-time prices, news, official regulations or alerts.</p><p>New calculators, verified local data and research may be added progressively; the existing site is freely accessible without login.</p>':'<p>This site does not require registration. Calculator input stays in your browser and is not sent to our servers by the provided calculator code.</p><p>Cloudflare hosts the pages and may process connection details such as IP addresses and request metadata to deliver and secure the service. Consult Cloudflare privacy documentation for its infrastructure practices.</p><p>This version does not include advertising tags, third-party analytics trackers or marketing cookies. If advertising, analytics or sponsorship tracking is added later, the policy will be updated and consent controls implemented where required before enabling those services.</p><p>No form on this initial site requests sensitive personal data. Treat our informational content as general guidance, not personalized legal, medical or financial advice.</p>';
  const content='<section class="content-hero"><div class="shell">'+crumbs([{name:"Home",href:"/"},{name:title}])+'<h1>'+e(title)+'</h1></div></section><section class="section"><div class="shell readable card">'+paragraphs+'</div></section>';
  return layout(c,{title,description:(about?"About ":"Privacy details for ")+c.name,route:"/"+kind+"/",breadcrumbs:[{name:"Home",path:"/"},{name:title,path:"/"+kind+"/"}]},content,topics,groups);
 }
 function page404(c,topics,groups){
- return layout(c,{title:"Page not found",description:"The requested page could not be found.",route:"/404.html",indexable:false},'<section class="section"><div class="shell error-page"><div class="eyebrow">404 · Not found</div><h1>This page has moved or does not exist.</h1><p class="lead">Return to the homepage or browse the topic directory.</p><div class="actions"><a class="btn" href="/">Go home</a><a class="btn secondary" href="/topics/">Explore 30 topics</a></div></div></section>',topics,groups);
+ return layout(c,{title:"Page not found",description:"The requested page could not be found.",route:"/404.html",indexable:false},'<section class="section"><div class="shell error-page"><div class="eyebrow">404 · Not found</div><h1>This page has moved or does not exist.</h1><p class="lead">Return to the homepage or browse the topic directory.</p><div class="actions"><a class="btn" href="/">Go home</a><a class="btn secondary" href="/topics/">Explore '+topics.length+' topics</a></div></div></section>',topics,groups);
 }
 function favicon(c) {
  const color=c.accent;const monogram=c.name.slice(0,1).toUpperCase();
@@ -147,10 +147,10 @@ function validate(c,topics){
  if(c.id!==c.id.toLowerCase()||!siteIds.includes(c.id))throw new Error("Invalid id");
  if(!c.design||!c.design.design||!c.design.marker)throw new Error("Missing brand identity: "+c.id);
  if(!/^#[0-9a-f]{6}$/i.test(c.accent))throw new Error("Invalid accent: "+c.id);
- if(!Array.isArray(topics)||topics.length!==30)throw new Error(c.id+": exactly 30 topics required");
+ if(!Array.isArray(topics)||topics.length<1)throw new Error(c.id+": at least one topic required");
  if(!unique(topics.map(t=>t.name))||!unique(topics.map(t=>t.slug)))throw new Error("Duplicate topic: "+c.id);
  const groups=groupBy(topics);
- if(groups.length!==5||groups.some(g=>g.topics.length!==6))throw new Error("Five groups of six required: "+c.id);
+ if(!groups.length||groups.some(g=>!g.topics.length))throw new Error("Each topic group must be nonempty: "+c.id);
  for(const t of topics) if(t.overview.length<35||t.practice.length<35)throw new Error("Incomplete topic detail: "+c.id+" "+t.name);
  if(!c.tool?.inputs?.length)throw new Error("Working calculator required: "+c.id);
  return groups;
@@ -168,9 +168,18 @@ for(const id of targets){
  write(out,"about/index.html",infoPage(config,"about",topics,groups));
  write(out,"privacy/index.html",infoPage(config,"privacy",topics,groups));
  write(out,"404.html",page404(config,topics,groups));
+ if(id==="coinmetriq") {
+  const { renderCoinMetriq } = await import("../sites/coinmetriq/render.mjs");
+  const rendered = renderCoinMetriq(config,topics,groups,getBase(config));
+  for(const [relative,html] of Object.entries(rendered)) write(out,relative,html);
+ }
  fs.mkdirSync(path.join(out,"assets"),{recursive:true});
  for (const filename of ["style.css","experience.css","calculator.js"])fs.copyFileSync(path.join(ROOT,"packages/site-core",filename),path.join(out,"assets",filename));
  write(out,"assets/favicon.svg",favicon(config));
+ if(id==="coinmetriq") {
+  fs.copyFileSync(path.join(SITES,id,"site.css"),path.join(out,"assets","cm.css"));
+  fs.copyFileSync(path.join(SITES,id,"site.js"),path.join(out,"assets","cm.js"));
+ }
  const urls=["/","/topics/","/tools/"+config.tool.slug+"/","/about/","/privacy/"];
  for(const t of topics)if(t.editorialReviewed===true&&Array.isArray(t.sources)&&t.sources.length)urls.push(linkTopic(t));
  write(out,"sitemap.xml",'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+urls.map(route=>'<url><loc>'+getBase(config)+route+'</loc></url>').join("")+'</urlset>');
