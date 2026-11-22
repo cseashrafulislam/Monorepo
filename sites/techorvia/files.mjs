@@ -6,7 +6,7 @@ const LIBS={
  pdfworker:"https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.worker.min.mjs",
  mammoth:"https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.9.1/mammoth.browser.min.js",
  ocr:"https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js",
- qr:"https://cdn.jsdelivr.net/npm/qrcode@1.5.4/build/qrcode.min.js"
+ qr:"https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
 };
 const cached=new Map();
 async function script(key,globalName){
@@ -201,8 +201,11 @@ export async function processFile(tool,files,fields={},text=""){
  if(tool.mode==="qr"){
   if(op==="qr-read"){if(!("BarcodeDetector" in window))throw Error("QR reading needs BarcodeDetector, unavailable here. Try Chrome or Edge on a supported device.");const detector=new BarcodeDetector({formats:["qr_code"]}),img=await createImageBitmap(firstFile(list));const found=await detector.detect(img);img.close();if(!found.length)throw Error("No QR code found.");return textResult(found.map(x=>x.rawValue).join("\n"));}
   const q=await script("qr","QRCode"),content=op==="wifi-qr"?"WIFI:T:WPA;S:"+String(fields.ssid||"").replace(/([\\;,":])/g,"\\$1")+";P:"+String(fields.password||"").replace(/([\\;,":])/g,"\\$1")+";;":text;
-  if(!content.trim())throw Error("Enter QR content.");const cv=document.createElement("canvas");
-  await q.toCanvas(cv,content,{width:512,margin:3,errorCorrectionLevel:"M"});return {blob:await canvasBlob(cv),name:"qr-code.png"};
+  if(!content.trim())throw Error("Enter QR content.");
+  const holder=document.createElement("div");
+  new q(holder,{text:content,width:512,height:512,colorDark:"#000000",colorLight:"#ffffff",correctLevel:q.CorrectLevel.M});
+  const cv=holder.querySelector("canvas");if(!cv||!cv.width)throw Error("QR library did not create a canvas.");
+  return {blob:await canvasBlob(cv),name:"qr-code.png"};
  }
  if(tool.mode==="network"){
   if(op==="browser")return textResult(JSON.stringify({userAgent:navigator.userAgent,language:navigator.language,cookiesEnabled:navigator.cookieEnabled,crypto:!!crypto.subtle,webAssembly:typeof WebAssembly!=="undefined",barcodeDetector:"BarcodeDetector" in window,mediaRecorder:"MediaRecorder" in window},null,2));
