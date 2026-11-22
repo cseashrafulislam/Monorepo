@@ -4,6 +4,24 @@
 
 > **চূড়ান্ত ব্যবসায়িক সিদ্ধান্ত:** ১৪টি স্বাধীন Website = ১৪টি UNIQUE Product। সব visitor-facing Tools, Advanced Workspaces এবং Useful Content ১০০% Free, Login ছাড়া। AdSense/নীতিসম্মত Ads মালিকের মূল আয়ের উৎস। কোনো paid tier, version, phase, MVP বা staged feature roadmap নেই। সব কাজ এই একই Master Checklist-এ থাকবে।
 
+## LIVE IMPLEMENTATION EVIDENCE — SEQUENTIAL PRODUCT RULE
+
+**Active product: CoinMetriq only.** Owner instruction: complete and independently verify the active site before starting implementation work on the next product. This status records work already committed; it does **not** certify CoinMetriq as complete or authorize marking all checklist boxes checked.
+
+**Source evidence (2026-11-23):**
+- [CoinMetriq Research Studio PR #1](https://github.com/cseashrafulislam/Monorepo/pull/1) — merged, 10 deterministic local calculators, Crypto Chaos Lab, 3 original worked articles, private result cards, assets, SEO routes, sitemap and regression tests.
+- [Advanced Analytics PR #2](https://github.com/cseashrafulislam/Monorepo/pull/2) — merged, 5 additional CSV/manual-input rebalancing, lump sum/DCA, volatility, slippage and peg deviation tools.
+- [Crypto Chaos Lab PR #3](https://github.com/cseashrafulislam/Monorepo/pull/3) — merged, 10 distinct interactive fun mini-tools with user-initiated share/copy/PNG.
+- [Latest successful GitHub Actions full build/test](https://github.com/cseashrafulislam/Monorepo/actions/runs/45065429899) — verifies static build for all 10 Monorepo sites, regression calculators, site paths, TechOrvia browser smoke and country browser smoke. A previous analytics test expectation failed and was corrected; latest run passed.
+- The existing 30 CoinMetriq topic overview URLs, their `noindex` status and the original token market cap calculator were preserved.
+- Current confirmed SOURCE scope: **15 new crypto calculators, 10 fun games, 3 original educational article pages**. The brand's original token-market-cap calculator remains separate.
+- Only source build/tests are verified. Actual Cloudflare live deployment, search indexing, AdSense eligibility/revenue and full mobile user interaction are **not independently verified**.
+- Existing other 13 products' source code was not changed by these new CoinMetriq feature PRs. Shared Monorepo build script was only extended for CoinMetriq-specific static asset/routes generation.
+
+**Unfinished on CoinMetriq:** full portfolio transaction import and FIFO/weighted tax lot ledger, TWR/XIRR, OHLCV CSV charts, strategy backtest, trade journal, correlation, historical reports, complete original topic editorial reviews, ongoing article publishing system, verified commercial data licensing or user-CSV-only fallback, WCAG/low-end mobile QA, real Cloudflare deploy check, Search Console/GEO/Ads authorization, actual compliant ad inventory and remaining CM/ART/FUN/SEO/GLOBAL checks. Keep all not-evidenced tasks unchecked.
+
+**Sequential gate:** Do not mark CoinMetriq fully complete or switch implementation to EarthViora until every relevant CoinMetriq master checklist item has actual code, fixtures, verified live URL, rights checks and required external-owner authorization; note any capability legitimately blocked by a free-only or third-party limitation. No artificial phases, staged plans or invented completion percentages.
+
 ## OPERATING RULE: PAGE SEO SHIPS WITH THE PAGE; REMAINING SITE WORK IS SEPARATE
 
 **Owner clarification (2026-11-23):** Do page-level SEO **during the original creation/upgrade of that page**. A page is not functionally complete until it ships its unique search intent, correct canonical, index/noindex decision, accurate title/meta/H1, crawlable primary content, task-first UI, methodology/example, proper schema where appropriate, source/date/rights, internal links, mobile performance and accessibility. Do NOT create a separate future task called “do SEO for this finished page” merely to repeat the work.
