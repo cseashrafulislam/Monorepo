@@ -16,3 +16,5 @@ jobs:
           node-version: '22'
       - name: Test and build all ten sites
         run: npm run check
+      - name: Browser smoke-test TechOrvia tools
+        run: node scripts/techorvia-browser-smoke.mjs
