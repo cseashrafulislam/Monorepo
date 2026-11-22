@@ -4,6 +4,47 @@
 
 > **চূড়ান্ত ব্যবসায়িক সিদ্ধান্ত:** ১৪টি স্বাধীন Website = ১৪টি UNIQUE Product। সব visitor-facing Tools, Advanced Workspaces এবং Useful Content ১০০% Free, Login ছাড়া। AdSense/নীতিসম্মত Ads মালিকের মূল আয়ের উৎস। কোনো paid tier, version, phase, MVP বা staged feature roadmap নেই। সব কাজ এই একই Master Checklist-এ থাকবে।
 
+## OPERATING RULE: PAGE SEO SHIPS WITH THE PAGE; REMAINING SITE WORK IS SEPARATE
+
+**Owner clarification (2026-11-23):** Do page-level SEO **during the original creation/upgrade of that page**. A page is not functionally complete until it ships its unique search intent, correct canonical, index/noindex decision, accurate title/meta/H1, crawlable primary content, task-first UI, methodology/example, proper schema where appropriate, source/date/rights, internal links, mobile performance and accessibility. Do NOT create a separate future task called “do SEO for this finished page” merely to repeat the work.
+
+Existing checklist IDs `SEO-*` and `GEO-*` are incorporated into the **Definition of Done for each corresponding page**, wherever they describe individual page content or HTML. Global tasks below remain distinct. A later correction to a page is only required when real Search Console data, errors, stale sources, broken URLs or better functionality justify it. Do not assume that “SEO added in HTML” guarantees search indexing, traffic, citations or ad approval.
+
+### Tasks that remain after pages are built (one shared operations checklist, not a phase)
+
+- [ ] **OPS-001** Verify exact deployed production host and canonical status for all 14 independent products, not README-only deployment claims.
+- [ ] **OPS-002** Verify property ownership for each site in Google Search Console.
+- [ ] **OPS-003** Verify property ownership for each site in Bing Webmaster Tools.
+- [ ] **OPS-004** Submit site-specific sitemaps and inspect actual acceptance/crawl status.
+- [ ] **OPS-005** Validate `robots.txt`, crawl rules, redirect chains and custom-domain versus `*.pages.dev` canonical consistency.
+- [ ] **OPS-006** Inspect Google/Bing indexing coverage; remedy genuine “not indexed”, duplicate-canonical and crawler errors without mass-indexing thin topics.
+- [ ] **OPS-007** Confirm representative live rendered HTML and browser behavior from both low-memory phone and desktop.
+- [ ] **OPS-008** Set up privacy-compliant free site analytics and consent-respecting task-completion metrics.
+- [ ] **OPS-009** Build a 14-site portfolio dashboard for indexed URLs, organic clicks, impressions, CTR, tool use, downtime, ad approval and actual revenue.
+- [ ] **OPS-010** Verify AdSense site addition and approval status separately for all 14 hostnames; `*.pages.dev` eligibility must be checked in the real AdSense account rather than assumed.
+- [ ] **OPS-011** Where a chosen hostname is ineligible for monetization, document the alternative (for example, legitimately owned custom domain) and update canonical/redirect/search properties consistently; domain purchase is NOT assumed free.
+- [ ] **OPS-012** Complete Ads.txt, publisher verification, applicable Google-certified consent setup and policy-compliant ad positioning using genuine publisher IDs only.
+- [ ] **OPS-013** Audit legacy Adsterra popunder/social-bar placements for accidental click risk and policy/experience conflicts before displaying AdSense.
+- [ ] **OPS-014** Track actual AdSense/advertising page RPM and revenue by site; no speculative incomes are treated as measured.
+- [ ] **OPS-015** Review Search Console query/impression/click reports and identify real query intent gaps per unique product.
+- [ ] **OPS-016** Improve real low-CTR snippets and high-impression low-tool-completion user journeys, using evidence not arbitrary rewrites.
+- [ ] **OPS-017** Publish original, accurate screen recordings/demos of actual tools for relevant YouTube and social audiences without automating spam.
+- [ ] **OPS-018** Share useful original calculations, maps, reports and research in relevant communities when relevant and allowed; no link exchange or bought backlinks.
+- [ ] **OPS-019** Make legitimate results naturally shareable with privacy-safe exports and accessible explanatory context, creating authentic citations.
+- [ ] **OPS-020** Review Bing AI Performance citations and Google generative-AI visibility reports when available; distinguish citations from actual referral clicks.
+- [ ] **OPS-021** Record source rights/licensing, new API quota use, last checked time, broken data feeds and safe fallback behaviors.
+- [ ] **OPS-022** Monitor actual live errors, 404s, low-memory crashes, regressions, security vulnerabilities and map-tile/API failures.
+- [ ] **OPS-023** Watch Cloudflare account-wide Pages build limits, Workers Free requests, D1 quotas and GitHub scheduled workflow allowances.
+- [ ] **OPS-024** Run real mobile Web Vitals and test that ad load does not degrade LCP/INP/CLS or obstruct the tool.
+- [ ] **OPS-025** Fix genuine source-staleness, broken external source links, incorrect official rules and factual updates; never fake freshness via mass lastmod changes.
+- [ ] **OPS-026** Retain independent editorial review and corrections for consequential financial, health, veterinary, legal, disaster or political claims.
+- [ ] **OPS-027** Maintain a repeat-use experience: local favorites, saved projects or work history where genuinely useful and privacy-safe, without registration.
+- [ ] **OPS-028** Check that related-tools recommendations and on-site navigation lead to task success without excessive ad clicks or inter-site SEO networks.
+- [ ] **OPS-029** Assess real traffic, task success and valid ad yield per property and invest maintenance where user demand exists without merging the 14 products.
+- [ ] **OPS-030** Record public URLs, source commit, test evidence, Search Console proof (when permitted), ad-account status and actual results against checklist IDs; never check done for configuration alone.
+
+**Separation of responsibility:** **Page build** = function + design + content + technical/on-page SEO + GEO-compatible trust elements + testing; **site operations** = search ownership/index monitoring, authentic discovery, webmaster insights, social/community distribution, ad verification, business measurement, performance and ongoing maintenance. They are in the same master backlog. There are no versions/phases.
+
 ## Product identity & exclusion matrix
 
 | Product | Unique product | Main workflow | Must not duplicate |
