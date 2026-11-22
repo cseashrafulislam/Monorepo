@@ -1226,3 +1226,255 @@ When continuing the work, read this exact Markdown file first. Identify unchecke
 - USGS Earthquake feeds: https://earthquake.usgs.gov/earthquakes/feed/v1.0/
 - NIST NVD: https://nvd.nist.gov/developers
 - OpenAlex: https://openalex.org/
+
+
+## SEO AND GEO ORGANIC TRAFFIC MASTER CHECKLIST
+
+**Single backlog expansion, not a version/phase.** The 14 unique free product sites must earn legitimate traffic; being hosted does not prove indexing, visitors, AI citations, monetization approval or revenue. All tasks start unchecked.
+
+### Existing audit findings
+
+- Monorepo README confirms 300 short topic overviews held noindex,follow until substantive original content is created. Preserve those exclusions.
+- BrowserPixel, FileSwiftTools and ShiftCalcTools homepage HTML was accessible to a public text fetch, but this is not end-to-end browser functionality or indexing verification.
+- TechDailyNews README describes RSS ingestion and 8 pre-rendered topic hubs, but RSS metadata alone is not original reporting.
+- Search tool could not retrieve CoinMetriq and TechDailyNews hostnames on this check. It does not establish downtime; verify actual Cloudflare deploy/crawl logs.
+- Search Console verification and site-by-site impressions, SEO clicks, actual revenue and GEO citation status remain unverified.
+
+### Technical SEO across all 14 products
+
+- [ ] **SEO-GLOBAL-001** Verify canonical live production URL and domain for each site; repository README is not live proof
+- [ ] **SEO-GLOBAL-002** Verify and record each of 14 website properties in Google Search Console
+- [ ] **SEO-GLOBAL-003** Verify and record each of 14 website properties in Bing Webmaster Tools
+- [ ] **SEO-GLOBAL-004** Validate robots.txt, crawlability and snippet eligibility for useful pages
+- [ ] **SEO-GLOBAL-005** Generate correct public sitemap.xml including indexable canonical URLs only
+- [ ] **SEO-GLOBAL-006** Update sitemap lastmod only for material content changes
+- [ ] **SEO-GLOBAL-007** Keep 300 short Monorepo topic stubs noindex until genuinely useful and originally researched
+- [ ] **SEO-GLOBAL-008** Audit redirects, www/pages.dev/custom domain canonical consistency
+- [ ] **SEO-GLOBAL-009** Render useful content, titles, methods, links and examples as crawlable HTML
+- [ ] **SEO-GLOBAL-010** Each tool gets a distinct search intent with one canonical landing page
+- [ ] **SEO-GLOBAL-011** Unique title, H1, meta description, breadcrumb, actual working UI and examples
+- [ ] **SEO-GLOBAL-012** Original real input/output demonstration, formula, units, error cases and method
+- [ ] **SEO-GLOBAL-013** Use only accurately applicable structured data; never fake ratings or authors
+- [ ] **SEO-GLOBAL-014** Publish source, license, data observation date and limitation where external data appears
+- [ ] **SEO-GLOBAL-015** Check finance, veterinary, health, legal, safety and news sources with higher scrutiny
+- [ ] **SEO-GLOBAL-016** Keep intuitive internal related-tool links within each unique brand
+- [ ] **SEO-GLOBAL-017** Prevent unnatural reciprocal links across the portfolio of 14 sites
+- [ ] **SEO-GLOBAL-018** Fix 404, accidental noindex and other crawl issues found from actual webmaster reports
+- [ ] **SEO-GLOBAL-019** Optimize mobile layout, keyboard accessibility, load speed, CLS, LCP and INP
+- [ ] **SEO-GLOBAL-020** Lazy load ML, PDF OCR, large map and image packages after main tool load
+- [ ] **SEO-GLOBAL-021** Run real mobile browser QA for calculators, export, input and error states
+- [ ] **SEO-GLOBAL-022** Add tool page and sitemap automated checks to repo CI
+- [ ] **SEO-GLOBAL-023** Inspect actual SEO clicks/impressions/search CTR and index status, do not invent metrics
+- [ ] **SEO-GLOBAL-024** Use accurate OpenGraph previews and owned or licensed images
+- [ ] **SEO-GLOBAL-025** Create each product's original tutorial/demo assets with real working screenshots
+- [ ] **SEO-GLOBAL-026** Never mass-publish low-value country/year/keyword variation pages
+- [ ] **SEO-GLOBAL-027** New pages published only after distinct working task or substantive sourced answer exists
+- [ ] **SEO-GLOBAL-028** Submit sitemap via webmaster tools; submission is not guaranteed indexing
+- [ ] **SEO-GLOBAL-029** Optional Bing IndexNow on genuine page change; no fake new URL submission
+- [ ] **SEO-GLOBAL-030** Review ad placements separately from process, input and download buttons
+- [ ] **SEO-GLOBAL-031** Record per-site approved advertising, organic traffic, task completion and page RPM
+- [ ] **SEO-GLOBAL-032** Update search content only after real improvement, not fake freshness changes
+
+### GEO / AI search visibility across all 14
+
+- [ ] **GEO-GLOBAL-001** Google AI Overviews/AI Mode require foundational SEO quality, not special GEO files or markup
+- [ ] **GEO-GLOBAL-002** Do not treat llms.txt or GEO-only schema as a Google ranking requirement
+- [ ] **GEO-GLOBAL-003** Create easy-to-understand original explanations and concise practical answers for humans
+- [ ] **GEO-GLOBAL-004** Expose exact method, equation, assumptions and result ranges to aid trustworthy citations
+- [ ] **GEO-GLOBAL-005** Show real source links, dates and provenance and never invent statistics
+- [ ] **GEO-GLOBAL-006** Provide accessible text and tables alongside map/chart/canvas output
+- [ ] **GEO-GLOBAL-007** Differentiate example/user-input data from observed up-to-date official data
+- [ ] **GEO-GLOBAL-008** Use original source-backed event timeline and release change comparison for news
+- [ ] **GEO-GLOBAL-009** Keep correction and source review policy visible for high-stakes topics
+- [ ] **GEO-GLOBAL-010** Never fabricate AI citations, reviews, backlinks, author identity or popularity
+- [ ] **GEO-GLOBAL-011** Track Bing Webmaster AI Performance citation pages and grounding queries when available
+- [ ] **GEO-GLOBAL-012** Track Google generative search reports when account-accessible
+- [ ] **GEO-GLOBAL-013** Measure AI citations separately from real referral visits and AdSense income
+- [ ] **GEO-GLOBAL-014** No full copyrighted article copying or AI paraphrase mass content
+- [ ] **GEO-GLOBAL-015** No paid GEO tricks, artificial link exchange or unsupported ranking guarantees
+
+### Organic acquisition and compliant ad revenue tracking
+
+- [ ] **GROWTH-GLOBAL-001** Track organic query impressions, clicks, CTR, indexed pages and tool completions per site
+- [ ] **GROWTH-GLOBAL-002** Find high-impression and low-completion real pages and repair UX or content
+- [ ] **GROWTH-GLOBAL-003** Post authentic video walkthroughs of real tool outputs where useful
+- [ ] **GROWTH-GLOBAL-004** Create unique original comparisons and printable outputs that users may share
+- [ ] **GROWTH-GLOBAL-005** Answer relevant community questions with genuine help without spam links
+- [ ] **GROWTH-GLOBAL-006** Measure search -> task success -> return visitor -> eligible ads impression funnel
+- [ ] **GROWTH-GLOBAL-007** Do not buy artificial traffic, encourage ad clicks or promise revenue
+- [ ] **GROWTH-GLOBAL-008** Keep site-specific dashboards for changes, actual organic trends and policy reviews
+
+### Unique search ownership by product
+
+#### CoinMetriq
+
+- [ ] **SEO-CM-001** Validate candidate query-intent clusters using real search data, no invented keyword volumes: crypto average buy price; DCA investment; crypto trading fees; drawdown simulator
+- [ ] **SEO-CM-002** Ensure only one canonical functional landing page per distinct tool or data task; protect previous working URLs
+- [ ] **SEO-CM-003** Create original useful job-to-be-done tutorial: Original CSV portfolio and fee risk walkthrough
+- [ ] **SEO-CM-004** Expose accurate method, real output, input units, evidence/last-checked date and limitations in crawlable HTML
+- [ ] **SEO-CM-005** Build genuinely relevant in-product internal links without copying other brands' guides
+- [ ] **SEO-CM-006** Verify this product boundary: No MoneyAvora credit loans or generic news
+- [ ] **SEO-CM-007** Test metadata, indexability, crawl and mobile behavior on public canonical URL
+- [ ] **SEO-CM-008** Measure search query clicks and real tool completion, plus actual ad account metrics separately
+
+#### EarthViora
+
+- [ ] **SEO-EV-001** Validate candidate query-intent clusters using real search data, no invented keyword volumes: satellite before after map; land area; NDVI viewer; earthquake map
+- [ ] **SEO-EV-002** Ensure only one canonical functional landing page per distinct tool or data task; protect previous working URLs
+- [ ] **SEO-EV-003** Create original useful job-to-be-done tutorial: Real dated satellite comparison with source, scale and image license
+- [ ] **SEO-EV-004** Expose accurate method, real output, input units, evidence/last-checked date and limitations in crawlable HTML
+- [ ] **SEO-EV-005** Build genuinely relevant in-product internal links without copying other brands' guides
+- [ ] **SEO-EV-006** Verify this product boundary: No IndustryLuma feed/production calculator
+- [ ] **SEO-EV-007** Test metadata, indexability, crawl and mobile behavior on public canonical URL
+- [ ] **SEO-EV-008** Measure search query clicks and real tool completion, plus actual ad account metrics separately
+
+#### SolarQentra
+
+- [ ] **SEO-SQ-001** Validate candidate query-intent clusters using real search data, no invented keyword volumes: solar size for home; battery backup hours; inverter size; solar yield
+- [ ] **SEO-SQ-002** Ensure only one canonical functional landing page per distinct tool or data task; protect previous working URLs
+- [ ] **SEO-SQ-003** Create original useful job-to-be-done tutorial: Appliance load to solar panel and battery calculations with source
+- [ ] **SEO-SQ-004** Expose accurate method, real output, input units, evidence/last-checked date and limitations in crawlable HTML
+- [ ] **SEO-SQ-005** Build genuinely relevant in-product internal links without copying other brands' guides
+- [ ] **SEO-SQ-006** Verify this product boundary: No bank loan or unsupported electrical compliance
+- [ ] **SEO-SQ-007** Test metadata, indexability, crawl and mobile behavior on public canonical URL
+- [ ] **SEO-SQ-008** Measure search query clicks and real tool completion, plus actual ad account metrics separately
+
+#### TechOrvia
+
+- [ ] **SEO-TO-001** Validate candidate query-intent clusters using real search data, no invented keyword volumes: JSON schema validator; regex tester; cron generator; JWT verifier
+- [ ] **SEO-TO-002** Ensure only one canonical functional landing page per distinct tool or data task; protect previous working URLs
+- [ ] **SEO-TO-003** Create original useful job-to-be-done tutorial: Reproducible code/test input-output examples and error cases
+- [ ] **SEO-TO-004** Expose accurate method, real output, input units, evidence/last-checked date and limitations in crawlable HTML
+- [ ] **SEO-TO-005** Build genuinely relevant in-product internal links without copying other brands' guides
+- [ ] **SEO-TO-006** Verify this product boundary: No PDF/image editor duplication
+- [ ] **SEO-TO-007** Test metadata, indexability, crawl and mobile behavior on public canonical URL
+- [ ] **SEO-TO-008** Measure search query clicks and real tool completion, plus actual ad account metrics separately
+
+#### MoneyAvora
+
+- [ ] **SEO-MA-001** Validate candidate query-intent clusters using real search data, no invented keyword volumes: loan amortization; debt payoff; landed import cost; compound interest
+- [ ] **SEO-MA-002** Ensure only one canonical functional landing page per distinct tool or data task; protect previous working URLs
+- [ ] **SEO-MA-003** Create original useful job-to-be-done tutorial: Actual amortization and financial assumptions with clear examples
+- [ ] **SEO-MA-004** Expose accurate method, real output, input units, evidence/last-checked date and limitations in crawlable HTML
+- [ ] **SEO-MA-005** Build genuinely relevant in-product internal links without copying other brands' guides
+- [ ] **SEO-MA-006** Verify this product boundary: No ShiftCalc payroll and overtime
+- [ ] **SEO-MA-007** Test metadata, indexability, crawl and mobile behavior on public canonical URL
+- [ ] **SEO-MA-008** Measure search query clicks and real tool completion, plus actual ad account metrics separately
+
+#### IndustryLuma
+
+- [ ] **SEO-IL-001** Validate candidate query-intent clusters using real search data, no invented keyword volumes: poultry FCR; cow milk cost; fish feed; farm profit; factory OEE; ETP balance
+- [ ] **SEO-IL-002** Ensure only one canonical functional landing page per distinct tool or data task; protect previous working URLs
+- [ ] **SEO-IL-003** Create original useful job-to-be-done tutorial: Distinct crop, dairy, poultry, fish and factory operational walkthroughs
+- [ ] **SEO-IL-004** Expose accurate method, real output, input units, evidence/last-checked date and limitations in crawlable HTML
+- [ ] **SEO-IL-005** Build genuinely relevant in-product internal links without copying other brands' guides
+- [ ] **SEO-IL-006** Verify this product boundary: No LifeAlora pet-care pages
+- [ ] **SEO-IL-007** Test metadata, indexability, crawl and mobile behavior on public canonical URL
+- [ ] **SEO-IL-008** Measure search query clicks and real tool completion, plus actual ad account metrics separately
+
+#### WorldOrixa
+
+- [ ] **SEO-WO-001** Validate candidate query-intent clusters using real search data, no invented keyword volumes: world news timeline; country data; global economic ranking; official elections
+- [ ] **SEO-WO-002** Ensure only one canonical functional landing page per distinct tool or data task; protect previous working URLs
+- [ ] **SEO-WO-003** Create original useful job-to-be-done tutorial: Verified multi-source event chronology and public-data contextual comparisons
+- [ ] **SEO-WO-004** Expose accurate method, real output, input units, evidence/last-checked date and limitations in crawlable HTML
+- [ ] **SEO-WO-005** Build genuinely relevant in-product internal links without copying other brands' guides
+- [ ] **SEO-WO-006** Verify this product boundary: No TechDailyNews technology release duplicate
+- [ ] **SEO-WO-007** Test metadata, indexability, crawl and mobile behavior on public canonical URL
+- [ ] **SEO-WO-008** Measure search query clicks and real tool completion, plus actual ad account metrics separately
+
+#### VitalOryx
+
+- [ ] **SEO-VO-001** Validate candidate query-intent clusters using real search data, no invented keyword volumes: BMI calculator; walking pace; sleep planner; fitness schedule
+- [ ] **SEO-VO-002** Ensure only one canonical functional landing page per distinct tool or data task; protect previous working URLs
+- [ ] **SEO-VO-003** Create original useful job-to-be-done tutorial: Evidence-based human wellness explanations and non-diagnostic examples
+- [ ] **SEO-VO-004** Expose accurate method, real output, input units, evidence/last-checked date and limitations in crawlable HTML
+- [ ] **SEO-VO-005** Build genuinely relevant in-product internal links without copying other brands' guides
+- [ ] **SEO-VO-006** Verify this product boundary: No clinical diagnosis or animal health
+- [ ] **SEO-VO-007** Test metadata, indexability, crawl and mobile behavior on public canonical URL
+- [ ] **SEO-VO-008** Measure search query clicks and real tool completion, plus actual ad account metrics separately
+
+#### EduNovira
+
+- [ ] **SEO-EN-001** Validate candidate query-intent clusters using real search data, no invented keyword volumes: CGPA planner; attendance calculator; exam revision timetable; flashcards
+- [ ] **SEO-EN-002** Ensure only one canonical functional landing page per distinct tool or data task; protect previous working URLs
+- [ ] **SEO-EN-003** Create original useful job-to-be-done tutorial: Grade-scale examples and effective interactive study plans
+- [ ] **SEO-EN-004** Expose accurate method, real output, input units, evidence/last-checked date and limitations in crawlable HTML
+- [ ] **SEO-EN-005** Build genuinely relevant in-product internal links without copying other brands' guides
+- [ ] **SEO-EN-006** Verify this product boundary: No institutional ERP or invented vacancies
+- [ ] **SEO-EN-007** Test metadata, indexability, crawl and mobile behavior on public canonical URL
+- [ ] **SEO-EN-008** Measure search query clicks and real tool completion, plus actual ad account metrics separately
+
+#### LifeAlora
+
+- [ ] **SEO-LA-001** Validate candidate query-intent clusters using real search data, no invented keyword volumes: room paint cost; furniture layout; travel itinerary; pet expenses; cat care
+- [ ] **SEO-LA-002** Ensure only one canonical functional landing page per distinct tool or data task; protect previous working URLs
+- [ ] **SEO-LA-003** Create original useful job-to-be-done tutorial: Illustrated room material and pet/travel project example
+- [ ] **SEO-LA-004** Expose accurate method, real output, input units, evidence/last-checked date and limitations in crawlable HTML
+- [ ] **SEO-LA-005** Build genuinely relevant in-product internal links without copying other brands' guides
+- [ ] **SEO-LA-006** Verify this product boundary: No industrial or farming animal calculations
+- [ ] **SEO-LA-007** Test metadata, indexability, crawl and mobile behavior on public canonical URL
+- [ ] **SEO-LA-008** Measure search query clicks and real tool completion, plus actual ad account metrics separately
+
+#### TechDailyNews
+
+- [ ] **SEO-TD-001** Validate candidate query-intent clusters using real search data, no invented keyword volumes: AI model releases; security patch timeline; CVE explorer; software change log
+- [ ] **SEO-TD-002** Ensure only one canonical functional landing page per distinct tool or data task; protect previous working URLs
+- [ ] **SEO-TD-003** Create original useful job-to-be-done tutorial: Cited actual upstream release differences with corrected dates
+- [ ] **SEO-TD-004** Expose accurate method, real output, input units, evidence/last-checked date and limitations in crawlable HTML
+- [ ] **SEO-TD-005** Build genuinely relevant in-product internal links without copying other brands' guides
+- [ ] **SEO-TD-006** Verify this product boundary: No RSS-only mirrors or geopolitical general headlines
+- [ ] **SEO-TD-007** Test metadata, indexability, crawl and mobile behavior on public canonical URL
+- [ ] **SEO-TD-008** Measure search query clicks and real tool completion, plus actual ad account metrics separately
+
+#### BrowserPixel
+
+- [ ] **SEO-BP-001** Validate candidate query-intent clusters using real search data, no invented keyword volumes: compress image to 100KB; bulk image resize; background editor; ecommerce product image
+- [ ] **SEO-BP-002** Ensure only one canonical functional landing page per distinct tool or data task; protect previous working URLs
+- [ ] **SEO-BP-003** Create original useful job-to-be-done tutorial: Before/after image sample with dimensions, output and safe comparison
+- [ ] **SEO-BP-004** Expose accurate method, real output, input units, evidence/last-checked date and limitations in crawlable HTML
+- [ ] **SEO-BP-005** Build genuinely relevant in-product internal links without copying other brands' guides
+- [ ] **SEO-BP-006** Verify this product boundary: No document-level PDF editor
+- [ ] **SEO-BP-007** Test metadata, indexability, crawl and mobile behavior on public canonical URL
+- [ ] **SEO-BP-008** Measure search query clicks and real tool completion, plus actual ad account metrics separately
+
+#### FileSwiftTools
+
+- [ ] **SEO-FS-001** Validate candidate query-intent clusters using real search data, no invented keyword volumes: merge PDF without upload; scanned OCR PDF; PDF compression; fill PDF forms
+- [ ] **SEO-FS-002** Ensure only one canonical functional landing page per distinct tool or data task; protect previous working URLs
+- [ ] **SEO-FS-003** Create original useful job-to-be-done tutorial: Sample PDF output with preserved-vs-lost text comparison
+- [ ] **SEO-FS-004** Expose accurate method, real output, input units, evidence/last-checked date and limitations in crawlable HTML
+- [ ] **SEO-FS-005** Build genuinely relevant in-product internal links without copying other brands' guides
+- [ ] **SEO-FS-006** Verify this product boundary: No image retouch or fake guaranteed OCR fidelity
+- [ ] **SEO-FS-007** Test metadata, indexability, crawl and mobile behavior on public canonical URL
+- [ ] **SEO-FS-008** Measure search query clicks and real tool completion, plus actual ad account metrics separately
+
+#### ShiftCalcTools
+
+- [ ] **SEO-SC-001** Validate candidate query-intent clusters using real search data, no invented keyword volumes: overnight hours; shift schedule; overtime pay; PTO balance; timesheet
+- [ ] **SEO-SC-002** Ensure only one canonical functional landing page per distinct tool or data task; protect previous working URLs
+- [ ] **SEO-SC-003** Create original useful job-to-be-done tutorial: Overnight/break/DST examples and clear pay rule calculations
+- [ ] **SEO-SC-004** Expose accurate method, real output, input units, evidence/last-checked date and limitations in crawlable HTML
+- [ ] **SEO-SC-005** Build genuinely relevant in-product internal links without copying other brands' guides
+- [ ] **SEO-SC-006** Verify this product boundary: No MoneyAvora loan/credit products
+- [ ] **SEO-SC-007** Test metadata, indexability, crawl and mobile behavior on public canonical URL
+- [ ] **SEO-SC-008** Measure search query clicks and real tool completion, plus actual ad account metrics separately
+
+### Measurement definition and official policy sources
+
+| Metric | Data source | Important distinction |
+|---|---|---|
+| Organic search impressions/clicks and CTR | Verified Search Console property | Traffic is not guaranteed by indexability |
+| Indexing/coverage | Google Search Console and Bing Webmaster | Sitemap submission does not guarantee inclusion |
+| AI Search citation counts | Bing AI Performance / available Google reports | Citation is not a referral visit or revenue |
+| Successful tool processing | Anonymous privacy-respecting tool completion event | Not the same as pageview |
+| RPM/ad revenue | Actual publisher advertising reports | Never estimate as a confirmed outcome |
+
+- Google AI optimization (SEO remains fundamental, no special Google GEO file): https://developers.google.com/search/docs/fundamentals/ai-optimization-guide
+- Google people-first content: https://developers.google.com/search/docs/fundamentals/creating-helpful-content
+- Google accurate sitemap lastmod: https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap
+- Google structured data policy: https://developers.google.com/search/docs/appearance/structured-data/sd-policies
+- Bing IndexNow: https://www.bing.com/indexnow/getstarted
+- Bing AI citation performance: https://blogs.bing.com/webmaster/2026/2/Introducing-AI-Performance-in-Bing-Webmaster-Tools-Public-Preview/
+
+**Complete only after code/deployment, verifiable original content, crawl evidence and account-based SEO visibility when available. A planning checklist is not completed SEO implementation.**
