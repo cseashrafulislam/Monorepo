@@ -17,6 +17,7 @@ test("Ten independent site builds include country selector, news and source filt
   const root=path.join("dist",id);
   const home=fs.readFileSync(path.join(root,"index.html"),"utf8");
   assert.ok(home.includes('/assets/country.js'),id+" country runtime");
+  assert.ok(home.includes("data-country-preview"),id+" homepage country-aware news");
   assert.ok(home.includes('/assets/country.css'),id+" country stylesheet");
   assert.ok(fs.existsSync(path.join(root,"news","index.html")),id+" news route");
   const page=fs.readFileSync(path.join(root,"news","index.html"),"utf8");
