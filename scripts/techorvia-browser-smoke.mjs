@@ -59,6 +59,14 @@ try{
  await test("/tools/json-formatter/","document.querySelector('[data-input]').value='{\\\"x\\\":1}';document.querySelector('[data-tv-tool]').requestSubmit();",x=>x.text?.includes('"x": 1'));
  await test("/tools/text-to-word/","document.querySelector('[data-input]').value='Example Word file';document.querySelector('[data-tv-tool]').requestSubmit();",x=>x.download==="converted.docx");
  await test("/tools/image-compressor/","(async()=>{const c=document.createElement('canvas');c.width=80;c.height=40;c.getContext('2d').fillRect(0,0,80,40);const blob=await new Promise(r=>c.toBlob(r,'image/png'));const f=new File([blob],'test.png',{type:'image/png'});const dt=new DataTransfer();dt.items.add(f);document.querySelector('[data-files]').files=dt.files;document.querySelector('[data-tv-tool]').requestSubmit();})()",x=>x.download==="converted.webp");
+
+ // Validate actual browser-side PDF and QR libraries, not only generated markup.
+ const fakeImage="(async()=>{const c=document.createElement('canvas');c.width=64;c.height=48;c.getContext('2d').fillRect(0,0,64,48);const blob=await new Promise(r=>c.toBlob(r,'image/png'));const f=new File([blob],'sample.png',{type:'image/png'});const dt=new DataTransfer();dt.items.add(f);document.querySelector('[data-files]').files=dt.files;document.querySelector('[data-tv-tool]').requestSubmit();})()";
+ await test("/tools/images-to-pdf/",fakeImage,x=>x.download==="images.pdf",45000);
+ const pdfBase64=await evalJs("(async()=>{const b=await(await fetch(document.querySelector('[data-download]').href)).arrayBuffer();let binary='';for(const n of new Uint8Array(b))binary+=String.fromCharCode(n);return btoa(binary);})()");
+ if(pdfBase64.length<100)throw Error("PDF output unexpectedly small.");
+ await test("/tools/pdf-to-png/","(()=>{const bytes=Uint8Array.from(atob('"+pdfBase64+"'),c=>c.charCodeAt(0));const f=new File([bytes],'sample.pdf',{type:'application/pdf'});const dt=new DataTransfer();dt.items.add(f);document.querySelector('[data-files]').files=dt.files;document.querySelector('[data-tv-tool]').requestSubmit();})()",x=>x.download==="page-1.png",45000);
+ await test("/tools/qr-code-generator/","document.querySelector('[data-input]').value='https://example.com/';document.querySelector('[data-tv-tool]').requestSubmit();",x=>x.download==="qr-code.png",45000);
  await navigate("/tools/");
  const cards=await evalJs('document.querySelectorAll("[data-tool-card]").length');
  if(cards<100)throw Error("Catalog search lists too few tools.");
