@@ -58,6 +58,8 @@ try{
  await test("/tools/overtime-calculator/","document.querySelector('[data-tv-tool]').requestSubmit();",x=>x.text?.includes("950"));
  await test("/tools/json-formatter/","document.querySelector('[data-input]').value='{\\\"x\\\":1}';document.querySelector('[data-tv-tool]').requestSubmit();",x=>x.text?.includes('"x": 1'));
  await test("/tools/text-to-word/","document.querySelector('[data-input]').value='Example Word file';document.querySelector('[data-tv-tool]').requestSubmit();",x=>x.download==="converted.docx");
+ const docxBase64=await evalJs("(async()=>{const b=await(await fetch(document.querySelector('[data-download]').href)).arrayBuffer();let binary='';for(const n of new Uint8Array(b))binary+=String.fromCharCode(n);return btoa(binary);})()");
+ if(docxBase64.length<200)throw Error("DOCX output unexpectedly small.");
  await test("/tools/image-compressor/","(async()=>{const c=document.createElement('canvas');c.width=80;c.height=40;c.getContext('2d').fillRect(0,0,80,40);const blob=await new Promise(r=>c.toBlob(r,'image/png'));const f=new File([blob],'test.png',{type:'image/png'});const dt=new DataTransfer();dt.items.add(f);document.querySelector('[data-files]').files=dt.files;document.querySelector('[data-tv-tool]').requestSubmit();})()",x=>x.download==="converted.webp");
 
  // Validate actual browser-side PDF and QR libraries, not only generated markup.
@@ -66,6 +68,8 @@ try{
  const pdfBase64=await evalJs("(async()=>{const b=await(await fetch(document.querySelector('[data-download]').href)).arrayBuffer();let binary='';for(const n of new Uint8Array(b))binary+=String.fromCharCode(n);return btoa(binary);})()");
  if(pdfBase64.length<100)throw Error("PDF output unexpectedly small.");
  await test("/tools/pdf-to-png/","(()=>{const bytes=Uint8Array.from(atob('"+pdfBase64+"'),c=>c.charCodeAt(0));const f=new File([bytes],'sample.pdf',{type:'application/pdf'});const dt=new DataTransfer();dt.items.add(f);document.querySelector('[data-files]').files=dt.files;document.querySelector('[data-tv-tool]').requestSubmit();})()",x=>x.download==="page-1.png",45000);
+ await test("/tools/word-to-pdf/","(()=>{const bytes=Uint8Array.from(atob('"+docxBase64+"'),c=>c.charCodeAt(0));const f=new File([bytes],'sample.docx',{type:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'});const dt=new DataTransfer();dt.items.add(f);document.querySelector('[data-files]').files=dt.files;document.querySelector('[data-tv-tool]').requestSubmit();})()",x=>x.download==="converted.pdf",45000);
+ await test("/tools/image-to-text/","(async()=>{const c=document.createElement('canvas');c.width=900;c.height=160;const x=c.getContext('2d');x.fillStyle='#ffffff';x.fillRect(0,0,900,160);x.font='bold 85px Arial';x.fillStyle='#000000';x.fillText('HELLO WORLD',40,110);const blob=await new Promise(r=>c.toBlob(r,'image/png'));const dt=new DataTransfer();dt.items.add(new File([blob],'ocr.png',{type:'image/png'}));document.querySelector('[data-files]').files=dt.files;document.querySelector('[data-tv-tool]').requestSubmit();})()",x=>x.text?.toUpperCase().includes("HELLO"),90000);
  await test("/tools/qr-code-generator/","document.querySelector('[data-input]').value='https://example.com/';document.querySelector('[data-tv-tool]').requestSubmit();",x=>x.download==="qr-code.png",45000);
  await navigate("/tools/");
  const cards=await evalJs('document.querySelectorAll("[data-tool-card]").length');
