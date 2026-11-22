@@ -1519,3 +1519,204 @@ When continuing the work, read this exact Markdown file first. Identify unchecke
 - Bing AI citation performance: https://blogs.bing.com/webmaster/2026/2/Introducing-AI-Performance-in-Bing-Webmaster-Tools-Public-Preview/
 
 **Complete only after code/deployment, verifiable original content, crawl evidence and account-based SEO visibility when available. A planning checklist is not completed SEO implementation.**
+
+
+## ARTICLE PUBLISHING ENGINE FOR ALL 14 UNIQUE PRODUCTS
+
+**Owner intent:** Give every product a relevant article/publishing area in addition to its functioning free tools. Daily publication is optional only when quality and real original value can be maintained. Site-specific articles are not duplicate blog copies and do not replace useful tools. No versions or phases.
+
+### Editorial ownership matrix — 14 independent article experiences
+
+| Product | Editorial identity | Example topics | Required useful connection |
+|---|---|---|---|
+| **CoinMetriq** | Crypto explainers and portfolio research | DCA vs lump sum; transaction fees; slippage; average entry; risk metrics | Local portfolio/DCA/fees tools |
+| **EarthViora** | Satellite/mapping interpretation with dataset evidence | NDVI reading; land change comparison; map scale; flood history | Satellite atlas/area measurement/map comparisons |
+| **SolarQentra** | Energy engineering calculations and verified sources | Solar sizing worked example; battery DoD; backup hours; PV yield | Energy sizing studio and calculator |
+| **TechOrvia** | Code-oriented tutorials with runnable input/output | JSON schema; regex captures; JWT verification; cron expression | Developer workbench |
+| **MoneyAvora** | Personal/business/trade finance methods | Loan amortization; debt comparison; import costs; break-even | Financial planning calculators |
+| **IndustryLuma** | Agro, dairy, livestock, poultry, fish, ETP and factory guidance | Poultry FCR; fish pond stocking; cow milk costs; OEE; EPR | Correct crop/animal/factory calculator |
+| **WorldOrixa** | Original global event research, country data and source comparisons | Event chronology; elections official references; country indicators | Event explorer, sourced comparison |
+| **VitalOryx** | Evidence-based human wellness explainers | Running pace; BMI limits; workout routines; sleep methods | Human wellness calculator/tracker |
+| **EduNovira** | Learning and career practice with usable templates | CGPA method; revision plan; citation examples; skills | Student tools and offline flashcards |
+| **LifeAlora** | Home, travel and companion pet owner guides | Paint calculation; 2D layout; dog/cat budget; packing | Room, travel and pet tools |
+| **TechDailyNews** | Time-stamped original technology release/security context | Verified model changes; official software releases; CVE timelines | Release diff and security explorer |
+| **BrowserPixel** | Creator and ecommerce image editing tutorials | Image size quality; AVIF/WebP; product backgrounds | Original before/after sample in image tools |
+| **FileSwiftTools** | PDF/OCR/form/document examples | OCR pitfalls; preserving PDF text; form fields; real metadata | Sample PDF operation preview |
+| **ShiftCalcTools** | Work-hour, shift and gross pay explained | Overnight break examples; rotating roster; paid vs unpaid | Work time and pay calculator |
+
+### Automated article selection, creation, verification, publication and growth controls
+
+- [ ] **ART-GLOBAL-001** Every brand owns its own editorial /articles/ or /guides/ (news brands use /news/ and /analysis/ or source-led /stories/); do not replicate a shared generic blog template
+- [ ] **ART-GLOBAL-002** Publish only when the article adds demonstrable original user value; 'daily' is a scheduling target, not a quality waiver
+- [ ] **ART-GLOBAL-003** Select topic from verified organic query intent, genuine user pain, actual tool functionality, or a real authoritative new fact
+- [ ] **ART-GLOBAL-004** Prevent duplicate intent against existing tool pages: tool canonical remains the primary task page, article covers a different genuine question
+- [ ] **ART-GLOBAL-005** Use stable distinct slugs without duplicate keyword aliases, clickbait, templated city/country/year rewrites
+- [ ] **ART-GLOBAL-006** Attach article to exact same-brand functioning tool; where no tool exists, link a verified original dataset, factual comparison or practical interactive example
+- [ ] **ART-GLOBAL-007** Each original article includes verified input/output example, table, tested calculation or materially new source-based analysis
+- [ ] **ART-GLOBAL-008** AI may brainstorm, outline, draft and catch formatting issues; AI text never self-certifies factual correctness or commercial source rights
+- [ ] **ART-GLOBAL-009** Workers AI must remain inside verified Free quota, with hard stop/fallback when capacity is exhausted; do not automatically switch to paid models
+- [ ] **ART-GLOBAL-010** Use original published authoritative references with direct URLs and correct data/publication date
+- [ ] **ART-GLOBAL-011** Never fabricate statistics, human testing, quotes, editors, author credentials, screenshots, AI citations, pageviews or keyword volume
+- [ ] **ART-GLOBAL-012** Require stronger editorial review for medicine, veterinary treatment, law, personal finance/investments, disasters and politically sensitive updates
+- [ ] **ART-GLOBAL-013** RSS/news content must add original corroborated context and never republish full copyrighted article text/images without permission
+- [ ] **ART-GLOBAL-014** Articles about changing laws, tariffs, prices or technical specs get a verifiable review/expiry date and stale-data fallback
+- [ ] **ART-GLOBAL-015** Draft -> source verification -> unique usefulness QA -> brand ownership QA -> citation/media rights -> user experience -> publish; low-quality draft stays unpublished/noindex
+- [ ] **ART-GLOBAL-016** Article titles/meta/H1, canonical, robots decision, accessible semantic HTML and accurate schema are created with the article, not deferred SEO work
+- [ ] **ART-GLOBAL-017** Article must include actual author/publisher responsibility and correction/report mechanism; do not invent expert bylines
+- [ ] **ART-GLOBAL-018** Generate article sitemap when accepted and published; sitemap lastmod changes only on material update
+- [ ] **ART-GLOBAL-019** Make a unique article search section per website with categories, search, recent articles, related tool and breadcrumb
+- [ ] **ART-GLOBAL-020** News pages use correct original event date, publication date, last updated date; news sitemap rules apply to genuine news article URLs
+- [ ] **ART-GLOBAL-021** Add article-specific demo images or reproducible chart when genuinely helpful, using original/licensed assets
+- [ ] **ART-GLOBAL-022** Ads stay outside article TOC, formulas, input fields, copied code and tool results; reserve slots to avoid CLS
+- [ ] **ART-GLOBAL-023** Don't create 'empty article' pages, thin AI summaries or auto-generated pages solely to earn AdSense inventory
+- [ ] **ART-GLOBAL-024** Check actual live build/response after publish before declaring article complete
+- [ ] **ART-GLOBAL-025** Measure organic impressions, engaged time, relevant tool click-through, task completion and valid ad impressions separately
+- [ ] **ART-GLOBAL-026** Repair or consolidate overlapping weak older articles using source evidence and redirect/canonical carefully, never rewrite solely for fake freshness
+- [ ] **ART-GLOBAL-027** Keep image/PDF/private file data off-server when examples involve user uploads; article previews use safe sample files
+- [ ] **ART-GLOBAL-028** Use legitimate educational/industry community distribution only where relevant and permitted; no automated spam posting
+- [ ] **ART-GLOBAL-029** Enforce one queue across 14 brands with independent product topic/quality rules, not 14 identical daily AI outputs
+- [ ] **ART-GLOBAL-030** At 1 original post per site per day, 14 sites produce 420 posts in a 30-day month; maintain realistic source verification effort
+- [ ] **ART-GLOBAL-031** Cloudflare Pages Free currently includes 500 builds/month account-wide; daily build per 14 sites = 420 builds/month, plus an existing TechDailyNews four-per-day refresh = 120 further builds/month -> at least 540 if all same account and every refresh triggers a build (other updates excluded)
+- [ ] **ART-GLOBAL-032** Do not assume daily publishing requires daily Cloudflare deploy: schedule batches and avoid unnecessary news feed commits/builds; confirm current Pages build allowance
+- [ ] **ART-GLOBAL-033** Only a completed, substantively useful article counts as published; holding drafts until ready is acceptable and safer than a forced daily release
+- [ ] **ART-GLOBAL-034** User-facing articles remain completely free, without login, paywall, ad-click lock or mandatory sign up
+- [ ] **ART-GLOBAL-035** Record repo, canonical URL, publish date, cited sources, content test evidence, indexing status and source review in same Master Checklist
+
+### Per-product implementation requirements
+
+#### CoinMetriq
+
+- [ ] **ART-CM-001** Create site-specific original article listing and category navigation with different layout/voice for Crypto explainers and portfolio research.
+- [ ] **ART-CM-002** Offer relevant original and researched content about: DCA vs lump sum; transaction fees; slippage; average entry; risk metrics.
+- [ ] **ART-CM-003** Link each applicable article to the actual working Local portfolio/DCA/fees tools; preserve existing tool canonical/URL.
+- [ ] **ART-CM-004** Make category/source/FAQ/example/schema and SEO/GEO suitability part of publication, not retrofitted later.
+- [ ] **ART-CM-005** Apply domain-specific source rights, examples, accuracy and review requirements before article is indexable.
+- [ ] **ART-CM-006** Track original article organic search performance and task completions separately from tool landing pages.
+
+#### EarthViora
+
+- [ ] **ART-EV-001** Create site-specific original article listing and category navigation with different layout/voice for Satellite/mapping interpretation with dataset evidence.
+- [ ] **ART-EV-002** Offer relevant original and researched content about: NDVI reading; land change comparison; map scale; flood history.
+- [ ] **ART-EV-003** Link each applicable article to the actual working Satellite atlas/area measurement/map comparisons; preserve existing tool canonical/URL.
+- [ ] **ART-EV-004** Make category/source/FAQ/example/schema and SEO/GEO suitability part of publication, not retrofitted later.
+- [ ] **ART-EV-005** Apply domain-specific source rights, examples, accuracy and review requirements before article is indexable.
+- [ ] **ART-EV-006** Track original article organic search performance and task completions separately from tool landing pages.
+
+#### SolarQentra
+
+- [ ] **ART-SQ-001** Create site-specific original article listing and category navigation with different layout/voice for Energy engineering calculations and verified sources.
+- [ ] **ART-SQ-002** Offer relevant original and researched content about: Solar sizing worked example; battery DoD; backup hours; PV yield.
+- [ ] **ART-SQ-003** Link each applicable article to the actual working Energy sizing studio and calculator; preserve existing tool canonical/URL.
+- [ ] **ART-SQ-004** Make category/source/FAQ/example/schema and SEO/GEO suitability part of publication, not retrofitted later.
+- [ ] **ART-SQ-005** Apply domain-specific source rights, examples, accuracy and review requirements before article is indexable.
+- [ ] **ART-SQ-006** Track original article organic search performance and task completions separately from tool landing pages.
+
+#### TechOrvia
+
+- [ ] **ART-TO-001** Create site-specific original article listing and category navigation with different layout/voice for Code-oriented tutorials with runnable input/output.
+- [ ] **ART-TO-002** Offer relevant original and researched content about: JSON schema; regex captures; JWT verification; cron expression.
+- [ ] **ART-TO-003** Link each applicable article to the actual working Developer workbench; preserve existing tool canonical/URL.
+- [ ] **ART-TO-004** Make category/source/FAQ/example/schema and SEO/GEO suitability part of publication, not retrofitted later.
+- [ ] **ART-TO-005** Apply domain-specific source rights, examples, accuracy and review requirements before article is indexable.
+- [ ] **ART-TO-006** Track original article organic search performance and task completions separately from tool landing pages.
+
+#### MoneyAvora
+
+- [ ] **ART-MA-001** Create site-specific original article listing and category navigation with different layout/voice for Personal/business/trade finance methods.
+- [ ] **ART-MA-002** Offer relevant original and researched content about: Loan amortization; debt comparison; import costs; break-even.
+- [ ] **ART-MA-003** Link each applicable article to the actual working Financial planning calculators; preserve existing tool canonical/URL.
+- [ ] **ART-MA-004** Make category/source/FAQ/example/schema and SEO/GEO suitability part of publication, not retrofitted later.
+- [ ] **ART-MA-005** Apply domain-specific source rights, examples, accuracy and review requirements before article is indexable.
+- [ ] **ART-MA-006** Track original article organic search performance and task completions separately from tool landing pages.
+
+#### IndustryLuma
+
+- [ ] **ART-IL-001** Create site-specific original article listing and category navigation with different layout/voice for Agro, dairy, livestock, poultry, fish, ETP and factory guidance.
+- [ ] **ART-IL-002** Offer relevant original and researched content about: Poultry FCR; fish pond stocking; cow milk costs; OEE; EPR.
+- [ ] **ART-IL-003** Link each applicable article to the actual working Correct crop/animal/factory calculator; preserve existing tool canonical/URL.
+- [ ] **ART-IL-004** Make category/source/FAQ/example/schema and SEO/GEO suitability part of publication, not retrofitted later.
+- [ ] **ART-IL-005** Apply domain-specific source rights, examples, accuracy and review requirements before article is indexable.
+- [ ] **ART-IL-006** Track original article organic search performance and task completions separately from tool landing pages.
+
+#### WorldOrixa
+
+- [ ] **ART-WO-001** Create site-specific original article listing and category navigation with different layout/voice for Original global event research, country data and source comparisons.
+- [ ] **ART-WO-002** Offer relevant original and researched content about: Event chronology; elections official references; country indicators.
+- [ ] **ART-WO-003** Link each applicable article to the actual working Event explorer, sourced comparison; preserve existing tool canonical/URL.
+- [ ] **ART-WO-004** Make category/source/FAQ/example/schema and SEO/GEO suitability part of publication, not retrofitted later.
+- [ ] **ART-WO-005** Apply domain-specific source rights, examples, accuracy and review requirements before article is indexable.
+- [ ] **ART-WO-006** Track original article organic search performance and task completions separately from tool landing pages.
+
+#### VitalOryx
+
+- [ ] **ART-VO-001** Create site-specific original article listing and category navigation with different layout/voice for Evidence-based human wellness explainers.
+- [ ] **ART-VO-002** Offer relevant original and researched content about: Running pace; BMI limits; workout routines; sleep methods.
+- [ ] **ART-VO-003** Link each applicable article to the actual working Human wellness calculator/tracker; preserve existing tool canonical/URL.
+- [ ] **ART-VO-004** Make category/source/FAQ/example/schema and SEO/GEO suitability part of publication, not retrofitted later.
+- [ ] **ART-VO-005** Apply domain-specific source rights, examples, accuracy and review requirements before article is indexable.
+- [ ] **ART-VO-006** Track original article organic search performance and task completions separately from tool landing pages.
+
+#### EduNovira
+
+- [ ] **ART-EN-001** Create site-specific original article listing and category navigation with different layout/voice for Learning and career practice with usable templates.
+- [ ] **ART-EN-002** Offer relevant original and researched content about: CGPA method; revision plan; citation examples; skills.
+- [ ] **ART-EN-003** Link each applicable article to the actual working Student tools and offline flashcards; preserve existing tool canonical/URL.
+- [ ] **ART-EN-004** Make category/source/FAQ/example/schema and SEO/GEO suitability part of publication, not retrofitted later.
+- [ ] **ART-EN-005** Apply domain-specific source rights, examples, accuracy and review requirements before article is indexable.
+- [ ] **ART-EN-006** Track original article organic search performance and task completions separately from tool landing pages.
+
+#### LifeAlora
+
+- [ ] **ART-LA-001** Create site-specific original article listing and category navigation with different layout/voice for Home, travel and companion pet owner guides.
+- [ ] **ART-LA-002** Offer relevant original and researched content about: Paint calculation; 2D layout; dog/cat budget; packing.
+- [ ] **ART-LA-003** Link each applicable article to the actual working Room, travel and pet tools; preserve existing tool canonical/URL.
+- [ ] **ART-LA-004** Make category/source/FAQ/example/schema and SEO/GEO suitability part of publication, not retrofitted later.
+- [ ] **ART-LA-005** Apply domain-specific source rights, examples, accuracy and review requirements before article is indexable.
+- [ ] **ART-LA-006** Track original article organic search performance and task completions separately from tool landing pages.
+
+#### TechDailyNews
+
+- [ ] **ART-TD-001** Create site-specific original article listing and category navigation with different layout/voice for Time-stamped original technology release/security context.
+- [ ] **ART-TD-002** Offer relevant original and researched content about: Verified model changes; official software releases; CVE timelines.
+- [ ] **ART-TD-003** Link each applicable article to the actual working Release diff and security explorer; preserve existing tool canonical/URL.
+- [ ] **ART-TD-004** Make category/source/FAQ/example/schema and SEO/GEO suitability part of publication, not retrofitted later.
+- [ ] **ART-TD-005** Apply domain-specific source rights, examples, accuracy and review requirements before article is indexable.
+- [ ] **ART-TD-006** Track original article organic search performance and task completions separately from tool landing pages.
+
+#### BrowserPixel
+
+- [ ] **ART-BP-001** Create site-specific original article listing and category navigation with different layout/voice for Creator and ecommerce image editing tutorials.
+- [ ] **ART-BP-002** Offer relevant original and researched content about: Image size quality; AVIF/WebP; product backgrounds.
+- [ ] **ART-BP-003** Link each applicable article to the actual working Original before/after sample in image tools; preserve existing tool canonical/URL.
+- [ ] **ART-BP-004** Make category/source/FAQ/example/schema and SEO/GEO suitability part of publication, not retrofitted later.
+- [ ] **ART-BP-005** Apply domain-specific source rights, examples, accuracy and review requirements before article is indexable.
+- [ ] **ART-BP-006** Track original article organic search performance and task completions separately from tool landing pages.
+
+#### FileSwiftTools
+
+- [ ] **ART-FS-001** Create site-specific original article listing and category navigation with different layout/voice for PDF/OCR/form/document examples.
+- [ ] **ART-FS-002** Offer relevant original and researched content about: OCR pitfalls; preserving PDF text; form fields; real metadata.
+- [ ] **ART-FS-003** Link each applicable article to the actual working Sample PDF operation preview; preserve existing tool canonical/URL.
+- [ ] **ART-FS-004** Make category/source/FAQ/example/schema and SEO/GEO suitability part of publication, not retrofitted later.
+- [ ] **ART-FS-005** Apply domain-specific source rights, examples, accuracy and review requirements before article is indexable.
+- [ ] **ART-FS-006** Track original article organic search performance and task completions separately from tool landing pages.
+
+#### ShiftCalcTools
+
+- [ ] **ART-SC-001** Create site-specific original article listing and category navigation with different layout/voice for Work-hour, shift and gross pay explained.
+- [ ] **ART-SC-002** Offer relevant original and researched content about: Overnight break examples; rotating roster; paid vs unpaid.
+- [ ] **ART-SC-003** Link each applicable article to the actual working Work time and pay calculator; preserve existing tool canonical/URL.
+- [ ] **ART-SC-004** Make category/source/FAQ/example/schema and SEO/GEO suitability part of publication, not retrofitted later.
+- [ ] **ART-SC-005** Apply domain-specific source rights, examples, accuracy and review requirements before article is indexable.
+- [ ] **ART-SC-006** Track original article organic search performance and task completions separately from tool landing pages.
+
+### Explicit business/safety policy
+
+- Original helpful content matters more than post count. 14 low-value articles per day does not create an indexing or AdSense entitlement. Source verification and user experience remain necessary.
+- AI-generated content is not categorically prohibited; creating many low-value pages mainly to manipulate ranking violates Google's scaled content abuse policy. See: https://developers.google.com/search/docs/fundamentals/using-gen-ai-content
+- Helpful reliable people-first content and originality guidance: https://developers.google.com/search/docs/fundamentals/creating-helpful-content
+- Google news sitemap guideline: https://developers.google.com/search/docs/crawling-indexing/sitemaps/news-sitemap
+- Cloudflare Pages free build limits (check current plan): https://developers.cloudflare.com/pages/platform/limits/
+- Cloudflare Workers AI pricing and free quota: https://developers.cloudflare.com/workers-ai/platform/pricing/
+
+**Definition of complete:** A category or post is done only when relevant genuinely useful article(s) are visible at a live canonical URL, sourced and rights-cleared, unique to the product, tested, appropriately indexed, ads safe, and linked to the relevant active user workflow; a placeholder blog link is not complete.
