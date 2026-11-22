@@ -6,6 +6,8 @@ on:
   push:
     paths:
       - .github/workflows/techorvia-news.yml
+      - scripts/update-techorvia-news.mjs
+      - scripts/country-tags.mjs
 permissions:
   contents: write
 concurrency:

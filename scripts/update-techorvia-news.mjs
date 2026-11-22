@@ -9,12 +9,13 @@ const feeds=[
  {name:"GitHub Blog",url:"https://github.blog/feed/"},
  {name:"Cloudflare Blog",url:"https://blog.cloudflare.com/rss/"},
  {name:"Digi Bangla Local",url:"https://digibanglatech.news/rss/category/local-40",forceCountry:"BD"},
- {name:"Digi Bangla English",url:"https://digibanglatech.news/rss/category/english",forceCountry:"BD"}
+ {name:"Digi Bangla English",url:"https://digibanglatech.news/rss/category/english"},
+ {name:"TBS ICT",url:"https://www.tbsnews.net/tech/ict/rss.xml"}
 ];
 const all=[];let good=0;
 for(const source of feeds){
  try{const response=await fetch(source.url,{signal:AbortSignal.timeout(12000),headers:{"User-Agent":"TechOrvia-HeadlineBot/1.0 (+https://techorvia.pages.dev/news/)","Accept":"application/rss+xml, application/atom+xml, text/xml"}});if(!response.ok)throw Error("HTTP "+response.status);
- const xml=await response.text();if(xml.length>2500000)throw Error("Feed too large.");
+ const xml=await response.text();if(xml.length>(source.name.startsWith("Digi Bangla")?10000000:2500000))throw Error("Feed too large.");
  const entries=parseFeed(xml,source).map(item=>({...item,countries:tagCountries(item.title,source.forceCountry)}));if(!entries.length)throw Error("No valid entries.");all.push(...entries);good++;
  console.log(source.name+": "+entries.length+" metadata records");
  }catch(err){console.warn(source.name+" unavailable:",err.message);}
