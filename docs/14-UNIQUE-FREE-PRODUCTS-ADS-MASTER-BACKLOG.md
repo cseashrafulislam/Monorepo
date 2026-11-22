@@ -253,3 +253,225 @@ Sections indicate distinct product ownership, not versions, phases or chronology
 - [ ] **TO-034** Video analytics CSV reader and retention charts
 - [ ] **TO-035** Reusable local snippets and keyboard shortcuts
 - [ ] **TO-036** No copy of PDF editing or visual image workflows
+
+### MoneyAvora — one unique product checklist
+
+**User:** Individuals, SMEs, importers and exporters. **Interface:** Finance scenario grids, amortization plots, cashflow forecasts, linked assumptions. **Scope:** Personal and trade finance; work hours/payroll belongs to ShiftCalcTools.
+
+- [ ] **MA-001** Loan EMI and full amortization schedule
+- [ ] **MA-002** Mortgage affordability scenario with user-defined costs
+- [ ] **MA-003** Extra debt payment payoff planner
+- [ ] **MA-004** Loan refinance and balance transfer comparison
+- [ ] **MA-005** Fixed deposit effective annual interest
+- [ ] **MA-006** Compound interest with recurring savings
+- [ ] **MA-007** Savings goal required monthly contribution
+- [ ] **MA-008** Emergency savings runway
+- [ ] **MA-009** Household monthly budget and envelope tracker
+- [ ] **MA-010** Household cashflow and net worth chart
+- [ ] **MA-011** Credit card repayment and true interest cost
+- [ ] **MA-012** Debt snowball and avalanche payoff comparison
+- [ ] **MA-013** Debt-to-income ratio and credit utilization
+- [ ] **MA-014** Rent versus buy financial scenario
+- [ ] **MA-015** Retirement accumulation and drawdown
+- [ ] **MA-016** Inflation adjustment and purchase-power curve
+- [ ] **MA-017** Investment ROI CAGR and dividend reinvestment
+- [ ] **MA-018** Insurance premium, deductible, coverage comparison inputs
+- [ ] **MA-019** Foreign exchange converter with user rate/date
+- [ ] **MA-020** Historical GDP, inflation and economic trends from licensed official datasets
+- [ ] **MA-021** Small business margin, markup and break-even
+- [ ] **MA-022** Cash conversion cycle and working capital
+- [ ] **MA-023** SME income and expense forecasts
+- [ ] **MA-024** Invoice discount, penalty and due date arithmetic
+- [ ] **MA-025** Scenario analysis for inventory financing
+- [ ] **MA-026** Import landed cost with freight, duties and insurance entered by user
+- [ ] **MA-027** Export price and margin planner
+- [ ] **MA-028** International freight dimensional weight
+- [ ] **MA-029** Container size/volume loading arithmetic
+- [ ] **MA-030** Incoterms trade cost/risk allocation explainer with sources
+- [ ] **MA-031** HS code and customs official-reference navigator
+- [ ] **MA-032** Shipment and transport quote comparison
+- [ ] **MA-033** Business tax/VAT educational forms only with verified country rules
+- [ ] **MA-034** Gold and savings investment scenario inputs
+- [ ] **MA-035** Printable financial assumptions and cashflow forecast
+- [ ] **MA-036** Local private scenario project export and import
+- [ ] **MA-037** No bank rate, exchange rate or legal rule claimed live without licensed data
+
+### IndustryLuma — one unique product checklist
+
+**User:** Cattle, dairy, poultry, fish and crop farms; factory and recycling managers. **Interface:** Dedicated operational workspaces, per-batch record tables, production metrics and visual charts. **Scope:** Agricultural/factory production management, not personal dog/cat care.
+
+- [ ] **IL-001** Farm acreage and land plot converter
+- [ ] **IL-002** Crop seed rate and seed cost worksheet
+- [ ] **IL-003** Crop spacing and plant population
+- [ ] **IL-004** Crop fertilizer nutrient arithmetic based on user label inputs, not dosing advice
+- [ ] **IL-005** Irrigation volume and pump runtime
+- [ ] **IL-006** Crop yield and harvest weight calculations
+- [ ] **IL-007** Crop seasonal farm cost and profit
+- [ ] **IL-008** Crop calendar, sowing/harvest milestones
+- [ ] **IL-009** Crop rotation and soil test record
+- [ ] **IL-010** Agricultural equipment running-cost model
+- [ ] **IL-011** Greenhouse sensor measurement history
+- [ ] **IL-012** Dairy cattle size-based approximate body weight
+- [ ] **IL-013** Cow age and lifecycle tracking
+- [ ] **IL-014** Cow breeding/insemination and gestation calendar
+- [ ] **IL-015** Calving interval and herd growth scenarios
+- [ ] **IL-016** Animal pedigree/local herd family-tree display
+- [ ] **IL-017** Dairy milk yield per animal/day/month
+- [ ] **IL-018** Milk feed-to-output cost and profitability
+- [ ] **IL-019** Dairy feed inventory and animal allocation
+- [ ] **IL-020** Cow purchase/sale economic comparison
+- [ ] **IL-021** Goat and sheep growth/feed cost
+- [ ] **IL-022** Vet visit, vaccination and deworming record; no clinical recommendation
+- [ ] **IL-023** Broiler flock feed conversion ratio
+- [ ] **IL-024** Broiler growth/stocking/mortality log
+- [ ] **IL-025** Layer egg production and cost per egg
+- [ ] **IL-026** Poultry batch expenses and gross margin
+- [ ] **IL-027** Hatchability and egg grading statistics
+- [ ] **IL-028** Fish pond dimensions, area and volume
+- [ ] **IL-029** Fish stocking density planning arithmetic
+- [ ] **IL-030** Fish feed schedule records, FCR and cost
+- [ ] **IL-031** Fish survival/mortality and growth curves
+- [ ] **IL-032** Aquaculture water quality sensor observation log
+- [ ] **IL-033** Fish harvest time/weight and profitability scenarios
+- [ ] **IL-034** Factory overall equipment effectiveness OEE
+- [ ] **IL-035** Takt time, cycle time and production capacity
+- [ ] **IL-036** Production line efficiency and bottleneck simulation
+- [ ] **IL-037** Factory downtime Pareto and reasons
+- [ ] **IL-038** MTBF and MTTR maintenance measurements
+- [ ] **IL-039** Machine maintenance task and downtime planner
+- [ ] **IL-040** Factory unit costing and scrap/rejection rate
+- [ ] **IL-041** Product raw material requirement and packaging estimator
+- [ ] **IL-042** Cold-chain temperature and loss journal
+- [ ] **IL-043** Food processing mass balance and yield
+- [ ] **IL-044** ETP inlet/outlet flow balance and observation tracking
+- [ ] **IL-045** ETP energy/chemical quantity ACCOUNTING only; no chemical dosing advice
+- [ ] **IL-046** Plastic EPR packaging recovery mass tracker
+- [ ] **IL-047** Plastic recycling input/output yield and waste
+- [ ] **IL-048** E-waste type/category collection weight organizer
+- [ ] **IL-049** Factory electricity per output unit and carbon assumptions
+- [ ] **IL-050** Supply chain delivery/lead-time KPI chart
+- [ ] **IL-051** CSV imports, browser project export and printable audit reports
+- [ ] **IL-052** Medical, veterinary, pesticide and ETP compliance certification excluded
+
+### WorldOrixa — one unique product checklist
+
+**User:** General world news and event readers. **Interface:** Source-based editorial timeline, country map, verified event context. **Scope:** World affairs, policy, global data, sports and culture; never technology release news clone.
+
+- [ ] **WO-001** Licensed RSS and official headline sources register
+- [ ] **WO-002** Scheduled rights-checked news collection
+- [ ] **WO-003** Headline URL/title deduplication
+- [ ] **WO-004** Multi-source event clustering and event canonical URL
+- [ ] **WO-005** Official event time versus publisher publication time
+- [ ] **WO-006** Country news filtering and regional edition
+- [ ] **WO-007** World events map with verified coordinates
+- [ ] **WO-008** Chronological event timeline with source anchors
+- [ ] **WO-009** Original short factual context with primary-source citations
+- [ ] **WO-010** Direct publisher links, publisher credits and correction log
+- [ ] **WO-011** International diplomacy and public policy official document index
+- [ ] **WO-012** Neutral elections and policy timeline from official sources
+- [ ] **WO-013** Country profile pages with sourced public data
+- [ ] **WO-014** Country population, economics and demographics comparison
+- [ ] **WO-015** World economic indicator data chart
+- [ ] **WO-016** World time-zone comparison for events
+- [ ] **WO-017** Country-by-country public holiday calendar from verified sources
+- [ ] **WO-018** Historical events reference with source citations
+- [ ] **WO-019** Major international event annual calendar
+- [ ] **WO-020** International sports match/event date information when licensed
+- [ ] **WO-021** Cricket historical tournament results from legal datasets
+- [ ] **WO-022** Football historic competition explorer when licensed
+- [ ] **WO-023** Tennis, basketball and motorsport archive metadata when licensed
+- [ ] **WO-024** Olympic and athletics historically sourced data explorer
+- [ ] **WO-025** World music, books and films cultural event guide
+- [ ] **WO-026** Country festivals/traditions dates with citations
+- [ ] **WO-027** Interactive historical timeline and original explainer maps
+- [ ] **WO-028** Saved stories and local reading interests
+- [ ] **WO-029** Search by event, date, country, source and category
+- [ ] **WO-030** Article freshness indicator and stale sources alert
+- [ ] **WO-031** Publisher thumbnail permission and safe fallback
+- [ ] **WO-032** No republished entire copyrighted articles
+- [ ] **WO-033** Source diversity and conflicts-of-claims disclosure
+- [ ] **WO-034** No fabricated breaking badge or automated fake commentary
+- [ ] **WO-035** Index only unique original sourced event pages
+- [ ] **WO-036** Official-disaster alerts should link to responsible agencies and never promise risk prediction
+
+### VitalOryx — one unique product checklist
+
+**User:** Individuals looking for educational wellness and self-tracking. **Interface:** Calm accessible human wellbeing dashboard and habits calendar. **Scope:** Human fitness, sleep, stress, nutrition—not animal medicine or medical diagnosis.
+
+- [ ] **VO-001** BMI calculator with interpretation limitations
+- [ ] **VO-002** BMR calculator and displayed formula
+- [ ] **VO-003** TDEE daily calorie range estimation
+- [ ] **VO-004** Calorie budget scenario with nonprescriptive language
+- [ ] **VO-005** Protein/macronutrient arithmetic with warnings
+- [ ] **VO-006** Portion and food label comparison tool
+- [ ] **VO-007** USDA or licensed food nutrition reference lookup
+- [ ] **VO-008** Hydration and water habit log (not medical advice)
+- [ ] **VO-009** Walking pace and distance calculator
+- [ ] **VO-010** Running pace and target time calculator
+- [ ] **VO-011** Heart rate training zone estimate educational tool
+- [ ] **VO-012** Workout interval and rest timer
+- [ ] **VO-013** Strength reps/sets/volume local tracker
+- [ ] **VO-014** Weekly physical activity planner
+- [ ] **VO-015** Running and walking mileage progress
+- [ ] **VO-016** Mobility/stretching schedule checklist
+- [ ] **VO-017** Fitness goal and weight trend visualization avoiding shame
+- [ ] **VO-018** Daily wellness habit calendar
+- [ ] **VO-019** Sleep schedule consistency tool
+- [ ] **VO-020** Sleep debt estimation limitations
+- [ ] **VO-021** Screen time and digital wellbeing planner
+- [ ] **VO-022** Stress journaling and mindfulness breathing timer
+- [ ] **VO-023** Home ergonomics checklist and stretch breaks
+- [ ] **VO-024** Senior care visit and routine scheduler
+- [ ] **VO-025** Caregiving task log with local export
+- [ ] **VO-026** Medication appointment REMINDER record from clinician instructions only
+- [ ] **VO-027** Menstrual period history log without pregnancy diagnosis
+- [ ] **VO-028** Public health official guidance reference directory
+- [ ] **VO-029** Preventive screening official information links
+- [ ] **VO-030** Personal wellbeing CSV import/export with privacy
+- [ ] **VO-031** Large-text and accessibility-first interface
+- [ ] **VO-032** Privacy-preserving no-login health-related data storage
+- [ ] **VO-033** Disclaimers on every health-sensitive calculator
+- [ ] **VO-034** No symptom diagnosis, medical prescriptions or personalized treatment
+
+### EduNovira — one unique product checklist
+
+**User:** School/college/university students and independent jobseekers. **Interface:** Study planner, flashcards, practice quizzes, progress dashboard. **Scope:** Individual student success tools, no institutional ERP.
+
+- [ ] **EN-001** Editable institutional GPA and CGPA scales
+- [ ] **EN-002** Credit-weighted semester planning
+- [ ] **EN-003** Required marks for grade target
+- [ ] **EN-004** Attendance percentage and required additional attendance
+- [ ] **EN-005** Exam countdown calendar
+- [ ] **EN-006** Study time-block timetable maker
+- [ ] **EN-007** Syllabus chapter completion progress
+- [ ] **EN-008** Subject backlog planner
+- [ ] **EN-009** Spaced repetition algorithm flashcards
+- [ ] **EN-010** Vocabulary spaced repetition collections
+- [ ] **EN-011** Local personal MCQ bank editor
+- [ ] **EN-012** Timed quiz with review and explanations
+- [ ] **EN-013** Rule-based study notes-to-quiz prompts without fake AI
+- [ ] **EN-014** Math formula practice and unit arithmetic
+- [ ] **EN-015** Science formula and unit conversion cards
+- [ ] **EN-016** Pomodoro and focus timer
+- [ ] **EN-017** Revision timeline based on exam dates
+- [ ] **EN-018** Weak topics analytics from user practice
+- [ ] **EN-019** Reading/comprehension progress planner
+- [ ] **EN-020** Course/prerequisite path planning
+- [ ] **EN-021** Academic writing outline assistant (templates only)
+- [ ] **EN-022** Citation format builder with source verification
+- [ ] **EN-023** Research literature matrix organizer
+- [ ] **EN-024** Research paper discovery using licensed metadata and links
+- [ ] **EN-025** Scholarship application checklist and official references
+- [ ] **EN-026** University comparison decision matrix from sourced info
+- [ ] **EN-027** Language-test progress tracker
+- [ ] **EN-028** Career skills assessment worksheet
+- [ ] **EN-029** Resume/CV structured composer and PDF export
+- [ ] **EN-030** Interview practice question library and self-review
+- [ ] **EN-031** Coding project/portfolio planning tracker
+- [ ] **EN-032** Job and internship application tracker
+- [ ] **EN-033** Official government job announcement link navigator with dates verified
+- [ ] **EN-034** Local course/certificate progress log
+- [ ] **EN-035** Offline flashcards and study exports
+- [ ] **EN-036** Local backup and no account requirement
+- [ ] **EN-037** No claims of verified jobs from headline-only aggregates
+
