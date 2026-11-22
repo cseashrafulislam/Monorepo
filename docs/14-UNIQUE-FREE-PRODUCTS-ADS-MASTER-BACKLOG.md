@@ -475,3 +475,225 @@ Sections indicate distinct product ownership, not versions, phases or chronology
 - [ ] **EN-036** Local backup and no account requirement
 - [ ] **EN-037** No claims of verified jobs from headline-only aggregates
 
+
+### LifeAlora — one unique product checklist
+
+**User:** Homeowners, renters, travellers and companion-pet owners. **Interface:** Home design canvas, travel budget itinerary and pet care cards. **Scope:** Home/travel/pet-owner utility; NOT livestock commercial farm tools or human health advice.
+
+- [ ] **LA-001** 2D room planner with movable furniture shapes
+- [ ] **LA-002** Room/wall/ceiling area calculator
+- [ ] **LA-003** Furniture size/door clearance checker
+- [ ] **LA-004** Room paint amount and costs
+- [ ] **LA-005** Floor tile/plank quantity estimator
+- [ ] **LA-006** Wallpaper rolls and pattern-repeat estimator
+- [ ] **LA-007** Concrete volume for home project planning
+- [ ] **LA-008** Brick/block count and mortar estimate
+- [ ] **LA-009** Roofing/ceiling materials estimator
+- [ ] **LA-010** Fence/deck board length arithmetic
+- [ ] **LA-011** Renovation itemized cost tracker
+- [ ] **LA-012** Household appliance electricity cost planning
+- [ ] **LA-013** House utility use log
+- [ ] **LA-014** Property/rental recurring costs worksheet
+- [ ] **LA-015** Home maintenance calendar
+- [ ] **LA-016** Moving inventory/boxes and transport volume
+- [ ] **LA-017** Moving abroad relocation budget planner
+- [ ] **LA-018** Travel itinerary calendar and trip schedule
+- [ ] **LA-019** Daily travel budget and group expense split
+- [ ] **LA-020** Travel packing checklist builder
+- [ ] **LA-021** Destination and visa official-document reference organizer
+- [ ] **LA-022** Trip route export links without fake travel time
+- [ ] **LA-023** Travel currency spending log from user-entered rates
+- [ ] **LA-024** Travel insurance quote comparison from user input
+- [ ] **LA-025** Dog/cat/other household pet profiles
+- [ ] **LA-026** Pet age and milestone calendar with educational disclaimer
+- [ ] **LA-027** Dog weight trend and growth history
+- [ ] **LA-028** Cat weight trend and growth history
+- [ ] **LA-029** Pet food monthly budget and label quantity recording
+- [ ] **LA-030** Vet visit records and vaccinations based on vet's schedule
+- [ ] **LA-031** Medication record from veterinary prescription, NO dosage advice
+- [ ] **LA-032** Pet grooming and nail care reminder
+- [ ] **LA-033** Dog walking/activity tracker
+- [ ] **LA-034** Cat play enrichment scheduling
+- [ ] **LA-035** Multiple pets feeding and expenses schedule
+- [ ] **LA-036** Pet first-year adoption cost calculator
+- [ ] **LA-037** Pet boarding and travel checklist
+- [ ] **LA-038** Pet insurance quote comparison
+- [ ] **LA-039** Lost-pet printable emergency profile
+- [ ] **LA-040** Pet local record backup and restore
+- [ ] **LA-041** Home, trip and pet outputs are visually different workspaces
+- [ ] **LA-042** Pet content has official animal welfare references and zero clinical diagnosis
+
+### TechDailyNews — one unique product checklist
+
+**User:** Readers monitoring AI, software, startups, cyber threats and product releases. **Interface:** Tech newsroom plus official release-diff and security timeline. **Scope:** Technology intelligence, not geopolitical newsroom or JSON developer editor.
+
+- [ ] **TD-001** Keep existing RSS/Atom 21-feed ingestion and refresh behavior
+- [ ] **TD-002** Publisher per-feed rights and metadata permissions register
+- [ ] **TD-003** Source health checks, delays and rate throttling
+- [ ] **TD-004** RSS headline/time deduplication
+- [ ] **TD-005** Same-company release and story clustering
+- [ ] **TD-006** AI vendor model release tracker with official notes
+- [ ] **TD-007** Documented new AI model features comparison
+- [ ] **TD-008** AI version differences and change chronology
+- [ ] **TD-009** Software version and release notes timeline
+- [ ] **TD-010** Programming framework/runtime official releases
+- [ ] **TD-011** Open-source GitHub project changelog index
+- [ ] **TD-012** Operating system and browser security updates
+- [ ] **TD-013** NIST NVD CVE explorer with source/updated date
+- [ ] **TD-014** CVE patch/vendor advisory linking
+- [ ] **TD-015** Security vulnerability status and severity cited correctly
+- [ ] **TD-016** Tech outage and incident reporting source navigator, not false live status
+- [ ] **TD-017** Startup funding announcement event clustering
+- [ ] **TD-018** Technology acquisition and IPO announcement timeline
+- [ ] **TD-019** Gadget product specification comparison only from sourced data
+- [ ] **TD-020** Cloud service feature changes and roadmap announcements
+- [ ] **TD-021** Robotics/semiconductor and electronics releases coverage
+- [ ] **TD-022** Research paper discovery from authorized OpenAlex metadata
+- [ ] **TD-023** Technology event and conference official calendar
+- [ ] **TD-024** Software license change announcements
+- [ ] **TD-025** Daily AI/software/security topical digests with source links
+- [ ] **TD-026** Search by brand, vendor, tech keyword and date
+- [ ] **TD-027** News source attribution with published versus fetched dates
+- [ ] **TD-028** Story freshness badges based on real date
+- [ ] **TD-029** Local saved stories and topic watchlist
+- [ ] **TD-030** No copied full article text, unlicensed publisher images or fabricated reporting
+- [ ] **TD-031** Rights-safe placeholder artwork
+- [ ] **TD-032** News sitemap, category pages only if useful original content
+- [ ] **TD-033** Tech product version explorer as a repeat-visit utility
+- [ ] **TD-034** Automatic feed refresh with failure recovery and source audit
+- [ ] **TD-035** Link each tech story to upstream official documents and original unique context
+- [ ] **TD-036** No cross-posting general WorldOrixa politics, sports or cultures
+
+### BrowserPixel — one unique product checklist
+
+**User:** Image editors, creators, ecommerce sellers and designers. **Interface:** Canvas first, layer controls, batch output and before/after previews. **Scope:** Images only; advanced PDF document workspace belongs FileSwiftTools.
+
+- [ ] **BP-001** Preserve all 30 original image utility URLs, calculations and exports
+- [ ] **BP-002** Non-destructive layer-based image studio
+- [ ] **BP-003** History undo/redo timeline
+- [ ] **BP-004** Smart target file size compressor with quality estimate
+- [ ] **BP-005** Before/after pixel and size comparison
+- [ ] **BP-006** Color corrections brightness/exposure/contrast/saturation
+- [ ] **BP-007** Tone curves and histogram with movable points
+- [ ] **BP-008** White balance and color temperature
+- [ ] **BP-009** Selective blur and privacy mosaic brushes
+- [ ] **BP-010** Mask/selection with brush and eraser
+- [ ] **BP-011** Perspective transform and photo deskew
+- [ ] **BP-012** Image crop assistant with subject-aware heuristic
+- [ ] **BP-013** On-device foreground/background remover when compatible
+- [ ] **BP-014** Background color/gradient/custom background replacement
+- [ ] **BP-015** Product photo white background and correct centering
+- [ ] **BP-016** Ecommerce photo shadow and reflection generator
+- [ ] **BP-017** Ecommerce batch image presets for marketplaces
+- [ ] **BP-018** Brand kit: local palette, fonts, logo and layout presets
+- [ ] **BP-019** Thumbnail design editor with text/shapes/layers
+- [ ] **BP-020** Social graphic safe-zone overlay and editable presets
+- [ ] **BP-021** Batch logo watermark with positioning
+- [ ] **BP-022** Bulk conversion with original file names or rename templates
+- [ ] **BP-023** Responsive image srcset generator
+- [ ] **BP-024** Multiple export sizes and formats in ZIP
+- [ ] **BP-025** AVIF support only when encoding/decoding available
+- [ ] **BP-026** Print contact sheet and photo-grid collages
+- [ ] **BP-027** Image overlays, blending and opacity
+- [ ] **BP-028** Animated GIF frame extractor and creator
+- [ ] **BP-029** Sprite sheet and multi-size favicon package
+- [ ] **BP-030** Passport print sheet from sizes with government compliance caution
+- [ ] **BP-031** Face/subject crop optional local model with device warnings
+- [ ] **BP-032** Optional local image denoise and upscale, never paid API
+- [ ] **BP-033** Image color palette and WCAG contrast inspection
+- [ ] **BP-034** Clipboard paste and drag-drop upload
+- [ ] **BP-035** Local design project save/import/export
+- [ ] **BP-036** Large canvas memory guard and Web Worker progress
+- [ ] **BP-037** SVG sanitization and file input validation
+- [ ] **BP-038** EXIF orientation correction and metadata audit
+- [ ] **BP-039** Keyboard and touch-friendly visual editor
+- [ ] **BP-040** Clear per-tool examples, result preview, device support and no-upload privacy text
+
+### FileSwiftTools — one unique product checklist
+
+**User:** Office users, document workers, students and small businesses. **Interface:** Multi-PDF workspace with page thumbnails, comparison, annotations and export. **Scope:** PDF and file processing only; standalone photo editor belongs BrowserPixel.
+
+- [ ] **FS-001** Preserve existing 30 PDF/file utility URLs and output compatibility
+- [ ] **FS-002** Visual PDF thumbnail drag-and-drop page organizer
+- [ ] **FS-003** Split and merge PDF with multi-file previews
+- [ ] **FS-004** Custom page-range extractor and insert
+- [ ] **FS-005** Interleave scanned front/back pages
+- [ ] **FS-006** PDF booklet and N-up printing
+- [ ] **FS-007** PDF form fields filler, with supported field caveats
+- [ ] **FS-008** Supported PDF form creation interface
+- [ ] **FS-009** Highlight, shapes, notes and annotations
+- [ ] **FS-010** Header/footer and page-number templates
+- [ ] **FS-011** Bates numbering by user pattern
+- [ ] **FS-012** Crop/rotate/page size normalization preview
+- [ ] **FS-013** PDF text compare two documents
+- [ ] **FS-014** Visual PDF diff overlay across pages
+- [ ] **FS-015** PDF font/image/metadata inspector
+- [ ] **FS-016** OCR scanned PDF text extraction in browser
+- [ ] **FS-017** Optional Bangla and English OCR models
+- [ ] **FS-018** Searchable PDF text layer creation where validated
+- [ ] **FS-019** Region-based OCR text selection and correction
+- [ ] **FS-020** Scan deskew and contrast improvement
+- [ ] **FS-021** Blank page and duplicate page identification
+- [ ] **FS-022** PDF bookmarks/outline viewer and compatible editor
+- [ ] **FS-023** PDF attachments list and safe extraction
+- [ ] **FS-024** Extract text-based tables into CSV where possible
+- [ ] **FS-025** Digital signature presence status; never falsely claim verified
+- [ ] **FS-026** Draw/type/position visible signature, not cryptographic signature
+- [ ] **FS-027** Password-protect/authorized unlock with vetted local library
+- [ ] **FS-028** PDF redaction only when underlying content removal is verified
+- [ ] **FS-029** File compression to user target size with achievable quality caveat
+- [ ] **FS-030** Text-preserving compression option where supported
+- [ ] **FS-031** ZIP archive inspect and path traversal protection
+- [ ] **FS-032** SHA-256 file integrity checker
+- [ ] **FS-033** Batch operations workflow editor, order/undo and progress
+- [ ] **FS-034** Local PDF project history stored only on device
+- [ ] **FS-035** Memory-aware large document operation and cancellation
+- [ ] **FS-036** Document privacy/no-server upload explanations
+- [ ] **FS-037** Warning signed PDFs may lose validity after modification
+- [ ] **FS-038** PDF-to-Word fidelity not advertised without proven implementation
+- [ ] **FS-039** Document outputs keyboard accessible, mobile-ready and downloadable
+
+### ShiftCalcTools — one unique product checklist
+
+**User:** Shift workers, freelancers, HR/payroll assistants and small employers. **Interface:** Shift calendar, time-entry grid, pay scenarios and printable rosters. **Scope:** Paid-work time and gross payroll estimates, not mortgages/financial investments.
+
+- [ ] **SC-001** Preserve all existing 50 calculator URLs and formulas
+- [ ] **SC-002** Drag-drop weekly/monthly shift schedule calendar
+- [ ] **SC-003** Rotating schedule presets and custom cycles
+- [ ] **SC-004** 24-hour coverage map for a team
+- [ ] **SC-005** Employee availability inputs and time-off requests
+- [ ] **SC-006** Shift overlap and schedule conflict detection
+- [ ] **SC-007** User-configured minimum rest between shifts
+- [ ] **SC-008** Weekend/night shift fairness distribution
+- [ ] **SC-009** Time zone and daylight saving accurate shift length
+- [ ] **SC-010** Multi-time-zone cross-location shift comparison
+- [ ] **SC-011** Personal clock-in/out and time logs
+- [ ] **SC-012** Missed punch and invalid entry warnings
+- [ ] **SC-013** Timesheet CSV import with column mapping
+- [ ] **SC-014** Timetable edit with break time adjustments
+- [ ] **SC-015** Daily/weekly overtime threshold rule builder
+- [ ] **SC-016** Overnight shift split by local date
+- [ ] **SC-017** Premium stacking rules for holiday/night/weekend
+- [ ] **SC-018** Multiple hourly rates and blended overtime
+- [ ] **SC-019** Salary/gross paycheck scenarios with optional assumptions
+- [ ] **SC-020** Planned versus actual worked hours reconciliation
+- [ ] **SC-021** Payment date and pay period calendar
+- [ ] **SC-022** Monthly/annual earning forecast from entered shifts
+- [ ] **SC-023** PTO accrual and usage tracking across calendar
+- [ ] **SC-024** Leave request conflict and balance simulation
+- [ ] **SC-025** Shift swaps and coverage recalculation
+- [ ] **SC-026** Freelancer client-wise billable hour tracker
+- [ ] **SC-027** Tips sharing and commission tier scenarios
+- [ ] **SC-028** Labor budget and worker allocation scenarios
+- [ ] **SC-029** Staff requirement/coverage heatmap
+- [ ] **SC-030** Shift load and work-rest pattern chart
+- [ ] **SC-031** User-defined rounding rules and audit details
+- [ ] **SC-032** Export timecards as CSV/printable PDF
+- [ ] **SC-033** ICS calendar export to Google/Outlook apps
+- [ ] **SC-034** Editable currency/units/locale presentation
+- [ ] **SC-035** Local project export and cross-device import
+- [ ] **SC-036** Work hours tests including overnight and DST edge cases
+- [ ] **SC-037** No automatic tax or national labor law assumed without verified jurisdiction rules
+- [ ] **SC-038** Mobile accessible calendar and payroll worksheet
+- [ ] **SC-039** Related original guides for shift patterns, break and payroll methods
+
