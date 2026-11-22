@@ -1,3 +1,555 @@
 {
-  "items": []
+  "updatedAt": "2026-11-22T18:16:35.298Z",
+  "items": [
+    {
+      "title": "The future of onchain FX could start with users, not institutional liquidity",
+      "url": "https://cointelegraph.com/opinion/future-onchain-fx-could-start-with-users-not-institutional-liquidity?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "date": "2026-11-22T14:30:00.000Z",
+      "source": "Cointelegraph",
+      "summary": "Onchain FX does not need to recreate the trillion-dollar institutional market to become useful. Real demand can make",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "Bitcoin's quantum security challenge extends to bridges, custodians and millions of coins",
+      "url": "https://www.coindesk.com/tech/2026/11/22/bitcoin-s-quantum-security-challenge-extends-to-bridges-custodians-and-millions-of-coins",
+      "date": "2026-11-22T14:00:00.000Z",
+      "source": "CoinDesk",
+      "summary": "Quantum computers can’t break Bitcoin network’s security yet, but Leo Fan warns that upgrading it and moving funds",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "Here’s what happened in crypto today",
+      "url": "https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "date": "2026-11-22T11:25:27.000Z",
+      "source": "Cointelegraph",
+      "summary": "Need to know what happened in crypto today? Here is the latest news on daily trends and events",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "Bitcoin briefly drops to $17K on Kraken, exchange upholds trades",
+      "url": "https://cointelegraph.com/news/bitcoin-17k-kraken-canadian-dollar-market-trades-stand?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "date": "2026-11-22T09:33:06.000Z",
+      "source": "Cointelegraph",
+      "summary": "Kraken said all orders were processed correctly and found no evidence of a security breach or compromised accounts.",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "South Korean exchanges halt CYBER transfers amid suspected bridge exploit",
+      "url": "https://cointelegraph.com/news/upbit-bithumb-suspend-cyber-transfers-bridge-exploit?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "date": "2026-11-22T07:24:05.000Z",
+      "source": "Cointelegraph",
+      "summary": "Cyber reported unexpected minting of CYBER tokens on Solana, followed by tokens moving out of its Ethereum bridge",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "Chainflip confirms $12M hack, offers attacker 10% bounty",
+      "url": "https://cointelegraph.com/news/chainflip-12m-crypto-hack-10-percent-bounty?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "date": "2026-11-22T05:28:43.000Z",
+      "source": "Cointelegraph",
+      "summary": "Chainflip offered the attacker a 10% bounty to return 90% of the stolen funds by Nov. 23, promising",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "Bitcoin rebounds above $60,000 after $1.8 billion crypto liquidation wave",
+      "url": "https://www.coindesk.com/markets/2026/11/21/bitcoin-bounces-9-from-two-year-low-to-retake-usd60-000-as-traders-eye-monday-s-stock-open",
+      "date": "2026-11-21T17:50:00.000Z",
+      "source": "CoinDesk",
+      "summary": "The selloff wiped out $1.8 billion in leveraged crypto positions, mostly from bullish bets on rising prices.",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "Cross-chain protocol Chainflip's FLIP tanks 30% after suspected $4.86 million vault drain",
+      "url": "https://www.coindesk.com/business/2026/11/21/cross-chain-protocol-chainflip-s-flip-tanks-30-after-suspected-usd4-86-million-vault-drain",
+      "date": "2026-11-21T16:41:00.000Z",
+      "source": "CoinDesk",
+      "summary": "The withdrawal carried a valid signature, which Onchain Lens said points to a possible compromise of the key",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "OpenAI, Anthropic and rivals seek AI agent rules to prevent commerce chaos",
+      "url": "https://www.coindesk.com/tech/2026/11/21/openai-anthropic-and-rivals-seek-ai-agent-rules-to-prevent-commerce-chaos",
+      "date": "2026-11-21T14:00:00.000Z",
+      "source": "CoinDesk",
+      "summary": "OpenAI, Anthropic, and other technology giants are backing standards designed to enable agents to work together without putting",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "Ether treasury firm BTCS warns SEC its $54 million Aave loan could be liquidated",
+      "url": "https://www.coindesk.com/markets/2026/11/21/ether-treasury-firm-btcs-warns-sec-its-usd54-million-aave-loan-could-be-liquidated",
+      "date": "2026-11-21T12:30:00.000Z",
+      "source": "CoinDesk",
+      "summary": "BTCS cut its reported Aave debt by about $10 million in ten days, but falling ether prices are",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "ECB seeks industry partners for tokenized deposits, securities experiments",
+      "url": "https://cointelegraph.com/news/ecb-tokenized-deposits-securities-experiments-appia?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "date": "2026-11-21T09:48:56.000Z",
+      "source": "Cointelegraph",
+      "summary": "Industry groups have until Dec. 11 to apply for the ECB’s first experimental exercises under its Appia initiative,",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "US lawmakers propose up to 30% rewards for prediction market whistleblowers",
+      "url": "https://cointelegraph.com/news/us-prediction-market-whistleblower-rewards-30-percent?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "date": "2026-11-21T07:51:47.000Z",
+      "source": "Cointelegraph",
+      "summary": "Whistleblowers could receive 10% to 30% of monetary sanctions in qualifying prediction market fraud cases exceeding $1 million",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "Bitcoin nodes could be stalled by repeating one ID 50,000 times. AI found the bug",
+      "url": "https://www.coindesk.com/markets/2026/11/21/bitcoin-nodes-could-be-stalled-by-repeating-one-id-50-000-times-ai-found-the-bug",
+      "date": "2026-11-21T06:16:42.000Z",
+      "source": "CoinDesk",
+      "summary": "Bitcoin Core shipped fixes on Friday for a bug flagged by Loupe, an open-source scanner from Block’s Spiral",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "XRP falls 10% as long bets unwind and ETF assets slip below $1 billion",
+      "url": "https://www.coindesk.com/markets/2026/11/21/xrp-falls-10-as-long-bets-unwind-and-etf-assets-slip-below-usd1-billion",
+      "date": "2026-11-21T05:59:19.000Z",
+      "source": "CoinDesk",
+      "summary": "The token broke its previous November lows during Saturday's crypto selloff, with long positions accounting for most XRP",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "Hong Kong pushes to bring crypto custodians, advisers under licensing rules",
+      "url": "https://cointelegraph.com/news/hong-kong-crypto-custody-advisory-licensing-bill?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "date": "2026-11-21T05:40:35.000Z",
+      "source": "Cointelegraph",
+      "summary": "Hong Kong’s securities regulator says the proposal would strengthen investor protections, with the bill set for its first",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "Bitcoin tanks below $57,000 for the first time in two years, and its not alone",
+      "url": "https://www.coindesk.com/markets/2026/11/21/bitcoin-tanks-below-usd57-000-for-the-first-time-in-two-years-and-its-not-alone",
+      "date": "2026-11-21T04:10:07.000Z",
+      "source": "CoinDesk",
+      "summary": "BTC's sell-off deepened on Saturday, with prices hitting two-year lows under $57,000.",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "Kalshi races to get ahead of New York order that could shut down exchange",
+      "url": "https://www.coindesk.com/policy/2026/11/20/kalshi-races-to-get-ahead-of-new-york-order-that-could-shut-down-exchange",
+      "date": "2026-11-20T22:51:14.000Z",
+      "source": "CoinDesk",
+      "summary": "The U.S. prediction market firm asked a New York court to give the company a chance to argue",
+      "countries": [
+        "US"
+      ]
+    },
+    {
+      "title": "Fairmint plans tokenized stock venue on Canton, Ethereum under SEC experiment",
+      "url": "https://www.coindesk.com/business/2026/11/20/fairmint-plans-tokenized-stock-venue-on-canton-ethereum-under-sec-experiment",
+      "date": "2026-11-20T22:05:31.000Z",
+      "source": "CoinDesk",
+      "summary": "The firm is the latest to join in building blockchain-based stock markets under the agency’s five-year \"innovation exemption\"",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "Wrapped Monero token crashes 99.8% amid suspected $13.5M exploit",
+      "url": "https://cointelegraph.com/news/wrapped-monero-token-crashes-998-amid-suspected-135m-exploit?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "date": "2026-11-20T19:37:27.000Z",
+      "source": "Cointelegraph",
+      "summary": "Bitquery traced $13.5 million in suspicious sales of the wrapped Monero token, as its operator blamed a security",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "Sky Protocol sees $2 billion in stablecoin withdrawals, disputes illicit fund claims",
+      "url": "https://cointelegraph.com/news/sky-protocol-sees-2b-in-stablecoin-withdrawals-disputes-illicit-fund-claims?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "date": "2026-11-20T18:37:10.000Z",
+      "source": "Cointelegraph",
+      "summary": "Sky says its USDS stablecoin held its $1 value despite more than $2 billion in withdrawals, as it",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "Bitcoin plunges below $59,000 as rush to cash puts new bear market lows back in play",
+      "url": "https://www.coindesk.com/markets/2026/11/20/bitcoin-plunges-below-usd59-000-as-rush-to-cash-puts-new-bear-market-lows-back-in-play",
+      "date": "2026-11-20T18:13:52.000Z",
+      "source": "CoinDesk",
+      "summary": "Bitcoin is closing in on its $57,700 summer low as Delphi Digital strategist warns the Fed could make",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "Bitcoin falls below $60K for first time since July amid broader market selloff",
+      "url": "https://cointelegraph.com/markets/bitcoin-falls-below-60k-for-first-time-since-july-amid-broader-market-selloff?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "date": "2026-11-20T16:55:51.000Z",
+      "source": "Cointelegraph",
+      "summary": "Bitcoin fell nearly 6% as US stocks declined, with the Nasdaq dropping more than 2% and Anthropic shares",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "US Senate advances prediction market restrictions with DEATH BETS Act",
+      "url": "https://cointelegraph.com/news/us-senate-advances-prediction-market-restrictions-with-death-bets-act?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "date": "2026-11-20T15:55:22.000Z",
+      "source": "Cointelegraph",
+      "summary": "The Senate-approved bill would ban prediction market contracts tied to war, assassination and death amid concerns over potential",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "Bitcoin price drops to $60K as Anthropic drops to $87 in tech sell-off",
+      "url": "https://cointelegraph.com/markets/bitcoin-hits-new-20-week-low-anthropic-drops-87-tech-sell-off?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "date": "2026-11-20T15:52:06.000Z",
+      "source": "Cointelegraph",
+      "summary": "Bitcoin price strength felt pressure from falling US equities as traders reassessed AI prospects after Anthropic’s IPO.",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "DBS bets it can lose the deposit and keep the client",
+      "url": "https://cointelegraph.com/news/dbs-bets-it-can-lose-the-deposit-and-keep-the-client?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "date": "2026-11-20T15:32:30.000Z",
+      "source": "Cointelegraph",
+      "summary": "The Singapore bank earned a record $208 million in transaction services fees in the third quarter — now",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "Former Point72 head of proprietary research says AI could turn data into a new asset class for Wall Street",
+      "url": "https://www.coindesk.com/markets/2026/11/20/former-point72-head-of-proprietary-research-says-ai-could-turn-data-into-a-new-asset-class-for-wall-street",
+      "date": "2026-11-20T14:54:30.000Z",
+      "source": "CoinDesk",
+      "summary": "A former Point72 executive says AI could reshape Wall Street's data market, turning once-exclusive information into a source",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "Hong Kong moves to extend crypto licensing rules to brokers, advisers and custodians",
+      "url": "https://www.coindesk.com/policy/2026/11/20/hong-kong-moves-to-extend-crypto-licensing-rules-to-brokers-advisers-and-custodians",
+      "date": "2026-11-20T14:38:30.000Z",
+      "source": "CoinDesk",
+      "summary": "Hong Kong wants to bring crypto brokers, advisers, asset managers and custodians under its existing regulatory framework.",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "U.S. Senate passes bill to ban prediction market bets on war and death",
+      "url": "https://www.coindesk.com/policy/2026/11/20/u-s-senated-passes-bill-to-ban-prediction-market-best-on-war-and-death",
+      "date": "2026-11-20T14:25:57.000Z",
+      "source": "CoinDesk",
+      "summary": "The bill would ban bets on war, assassinations and military operations amid concerns that traders could profit from",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "Live news: Bitcoin slips to fresh lows below $59,000 as Anthropic slides after Nasdaq debut",
+      "url": "https://www.coindesk.com/tech/2026/11/20/live-news-bitcoin-hovers-just-above-usd61-000-as-anthropic-slides-13-after-nasdaq-debut",
+      "date": "2026-11-20T13:35:33.000Z",
+      "source": "CoinDesk",
+      "summary": "BlackRock’s bitcoin ETF saw a record $541.1 million outflow as the U.S. tech selloff spread to Asia, sending",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "Bitcoin bots pounced within seconds when researchers exposed their wallet keys",
+      "url": "https://www.coindesk.com/tech/2026/11/20/bitcoin-bots-pounced-within-seconds-when-researchers-exposed-their-keys",
+      "date": "2026-11-20T13:30:22.000Z",
+      "source": "CoinDesk",
+      "summary": "University of Liège researchers put a few dollars into deliberately vulnerable bitcoin addresses and watched rival bots race",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "Lagarde warns Europe could miss chance to unify tokenized markets",
+      "url": "https://cointelegraph.com/news/lagarde-europe-limited-window-tokenization-rules?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "date": "2026-11-20T13:21:39.000Z",
+      "source": "Cointelegraph",
+      "summary": "The ECB president said Europe’s market for tokenized securities could split into platforms that cannot settle trades with",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "ECB’s Lagarde warns Europe could lose control of growing tokenized asset market",
+      "url": "https://www.coindesk.com/policy/2026/11/20/ecb-s-largarde-warns-europe-could-lose-control-of-growing-tokenized-asset-market",
+      "date": "2026-11-20T13:11:49.000Z",
+      "source": "CoinDesk",
+      "summary": "The ECB president called for common rules as the EU's new blockchain settlement system handled a 1 billion-euro",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "Bitcoin, stocks and gold traders getting nervous, and volatility gauges are surging",
+      "url": "https://www.coindesk.com/daybook-us/2026/11/20/bitcoin-stocks-and-gold-traders-getting-nervous-and-volatility-gauges-are-surging",
+      "date": "2026-11-20T12:15:08.000Z",
+      "source": "CoinDesk",
+      "summary": "Your day-ahead look for Nov. 20, 2026",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "Bitcoin drops for third straight day as Asian tech shares slide",
+      "url": "https://www.coindesk.com/markets/2026/11/20/bitcoin-drops-for-third-straight-day-as-asian-tech-shares-slide",
+      "date": "2026-11-20T11:42:02.000Z",
+      "source": "CoinDesk",
+      "summary": "BlackRock’s spot bitcoin ETF recorded the largest single-day outflow since its introduction more than two years ago as",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "Binance hacker moves nearly $600M in ETH, routes funds through THORChain, Chainflip",
+      "url": "https://cointelegraph.com/news/binance-hacker-600m-eth-routes-thorchain-chainflip?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "date": "2026-11-20T11:31:41.000Z",
+      "source": "Cointelegraph",
+      "summary": "OnChain Lens tracked nearly $600 million in ETH transfers over two days as the Binance hackers moved the",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "VanEck to end Gemini ETF custody deals, keeps Coinbase",
+      "url": "https://cointelegraph.com/news/vaneck-gemini-etf-custody-end-keep-coinbase?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "date": "2026-11-20T10:54:38.000Z",
+      "source": "Cointelegraph",
+      "summary": "VanEck plans to end Gemini’s custody agreements for three crypto ETFs in February 2027, while Coinbase will continue",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "Coinbase targets first-half 2027 for its own prediction market contracts",
+      "url": "https://www.coindesk.com/business/2026/11/20/coinbase-targets-first-half-2027-for-its-own-prediction-market-contracts",
+      "date": "2026-11-20T10:48:04.000Z",
+      "source": "CoinDesk",
+      "summary": "The move would reduce Coinbase's reliance on a partnership Kalshi, which brought in $200 million in annualized revenue",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "Bitcoin nears repeat of chart pattern that preceded 2023’s $25K retest",
+      "url": "https://cointelegraph.com/markets/bitcoin-first-death-cross-repeat-2023-bottom-25k?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "date": "2026-11-20T10:29:10.000Z",
+      "source": "Cointelegraph",
+      "summary": "Bitcoin’s 21-day moving average fell below its 200-day average, and analyst Keith Alan expects a second bearish crossover",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "No special rules for Hyperliquid or other onchain trading platforms, CFTC says",
+      "url": "https://www.coindesk.com/markets/2026/11/20/cftc-tells-hyperliquid-and-crypto-rivals-no-special-rules-for-onchain-trading",
+      "date": "2026-11-20T10:02:03.000Z",
+      "source": "CoinDesk",
+      "summary": "Hyperliquid and other onchain exchanges can offer derivatives to U.S. traders if they obtain the required licenses or",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "Cathie Wood's Ark Invest piled into Anthropic IPO, buying $90 million worth of shares",
+      "url": "https://www.coindesk.com/markets/2026/11/20/cathie-wood-s-ark-invest-piled-into-anthropic-ipo-buying-usd90-million-worth-of-shares",
+      "date": "2026-11-20T09:48:52.000Z",
+      "source": "CoinDesk",
+      "summary": "ARK Invest snapped up $90 million in Anthropic stock across six funds during the AI maker’s historic Nasdaq",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "BlackRock’s IBIT loses record $541M amid Anthropic market debut",
+      "url": "https://cointelegraph.com/markets/blackrock-ibit-record-single-day-outflow?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "date": "2026-11-20T08:18:42.000Z",
+      "source": "Cointelegraph",
+      "summary": "BlackRock’s IBIT posted its largest daily outflow on record, taking three-session outflows near $900 million as BTC dipped",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "Wrapped Monero token plunges 99% as issuer-linked wallet sells $13.5 million",
+      "url": "https://www.coindesk.com/markets/2026/11/20/wrapped-monero-token-plunges-99-as-issuer-linked-wallet-sells-usd13-5-million",
+      "date": "2026-11-20T08:04:40.000Z",
+      "source": "CoinDesk",
+      "summary": "The sell-off hit Wagyu’s XMR1 token, separate from Monero and Hyperliquid’s XMR futures market.",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "SEC charges 8 firms over fake crypto platforms tied to $37M fraud",
+      "url": "https://cointelegraph.com/news/sec-charges-eight-fake-crypto-platforms-37m-fraud?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "date": "2026-11-20T08:03:34.000Z",
+      "source": "Cointelegraph",
+      "summary": "The SEC says the operators showed investors fake certificates and pointed them to filings on the agency’s website",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "Anthropic’s $81B IPO draws half the net retail buying of SpaceX’s",
+      "url": "https://cointelegraph.com/markets/anthropic-ipo-spacex-retail-buying-first-day-gains?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "date": "2026-11-20T06:24:41.000Z",
+      "source": "Cointelegraph",
+      "summary": "Retail investors traded $772 million in Anthropic shares on Thursday, the most Vanda Research has recorded for a",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "Here's what's crashing gold and likely weighing on bitcoin too",
+      "url": "https://www.coindesk.com/markets/2026/11/20/here-s-what-s-crashing-gold-and-likely-weighing-on-bitcoin-too",
+      "date": "2026-11-20T06:12:15.000Z",
+      "source": "CoinDesk",
+      "summary": "Gold fell to its lowest level since September 2025 on Friday, and the same catalyst driving its decline",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "Anthropic shares may fall 5% at Friday’s open, crypto futures suggest",
+      "url": "https://www.coindesk.com/markets/2026/11/20/crypto-traders-have-anthropic-trading-below-its-first-nasdaq-close-on-hyperliquid",
+      "date": "2026-11-20T06:08:28.000Z",
+      "source": "CoinDesk",
+      "summary": "About $1.7 billion traded through a Hyperliquid contract on the AI company’s shares in 24 hours, and the",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "Institutions pile back into US Bitcoin ETFs in Q3 after selling streak",
+      "url": "https://cointelegraph.com/markets/institutional-bitcoin-etf-holdings-clock-record-quarter-after-selling-streak?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "date": "2026-11-20T03:33:22.000Z",
+      "source": "Cointelegraph",
+      "summary": "Asset managers added the equivalent of 49,229 Bitcoin to their US Bitcoin ETF holdings in the third quarter,",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "Ledger CTO Charles Guillemet to leave after nine years at company",
+      "url": "https://cointelegraph.com/news/ledger-cto-charles-guillemet-to-leave-after-nine-years-at-company?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "date": "2026-11-19T23:44:02.000Z",
+      "source": "Cointelegraph",
+      "summary": "Guillemet helped establish Ledger’s Donjon security lab and says his departure has been planned for months.",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "Binance’s $6.5B freeze order, Hong Kong ‘suspicious’ of HYPE: Asia Express",
+      "url": "https://cointelegraph.com/magazine/binances-65b-freeze-order-hong-kong-suspicious-of-hype-asia-express?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "date": "2026-11-19T22:25:18.000Z",
+      "source": "Cointelegraph",
+      "summary": "Binance obtains court orders freezing assets stolen in October’s hack. Hong Kong warns citizens about Hyperliquid, and Thai",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "MoonPay seeks US bank charter for stablecoin, custody services",
+      "url": "https://cointelegraph.com/news/moonpay-seeks-us-bank-charter-for-stablecoin-custody-services?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "date": "2026-11-19T21:01:42.000Z",
+      "source": "Cointelegraph",
+      "summary": "MoonPay’s proposed national trust bank would offer stablecoin issuance and redemption, reserve management and digital asset custody under",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "Hyperliquid Anthropic futures priced within 1% of Nasdaq opening price",
+      "url": "https://cointelegraph.com/markets/hyperliquid-anthropic-futures-nasdaq-opening-price?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "date": "2026-11-19T20:33:24.000Z",
+      "source": "Cointelegraph",
+      "summary": "Hyperliquid traders priced Anthropic futures within 1% of the stock’s Nasdaq opening price, as trading surged ahead of",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "Trump’s SEC nominee Johnson backs formal rulemaking for tokenized stock trading",
+      "url": "https://cointelegraph.com/news/sec-nominees-johnson-levine-tokenized-stocks?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "date": "2026-11-19T20:06:34.000Z",
+      "source": "Cointelegraph",
+      "summary": "Former CFTC Commissioner and Democrat Kristin Johnson and ex-SEC aide Steven Levine appeared before lawmakers Thursday.",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "Ethereum’s Glamsterdam upgrade could slip to May 2027 over compatibility concerns",
+      "url": "https://cointelegraph.com/news/ethereum-glamsterdam-could-slip-to-may-2027?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "date": "2026-11-19T18:20:49.000Z",
+      "source": "Cointelegraph",
+      "summary": "Ethereum developers are weighing changes to gas pricing proposals that could disrupt existing smart contracts, after contacting at",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "Why higher rates could slow Bitcoin buying at treasury firms",
+      "url": "https://cointelegraph.com/news/why-higher-rates-could-slow-bitcoin-buying-at-treasury-firms?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "date": "2026-11-19T18:09:32.000Z",
+      "source": "Cointelegraph",
+      "summary": "A treasury company can have years of dividends covered and still struggle to sell new shares on terms",
+      "countries": [
+        "WORLD"
+      ]
+    },
+    {
+      "title": "Bitcoin price ignores Anthropic debut as ANT share price dips below $100",
+      "url": "https://cointelegraph.com/markets/bitcoin-price-ignores-anthropic-debut-ant-share-price-dips-below-100?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "date": "2026-11-19T18:06:50.000Z",
+      "source": "Cointelegraph",
+      "summary": "Bitcoin dropped toward a third retest of $62,000 as Anthropic debuted on the Nasdaq, hitting highs of $115",
+      "countries": [
+        "WORLD"
+      ]
+    }
+  ]
 }
