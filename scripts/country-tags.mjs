@@ -12,6 +12,6 @@ export const REGION_RULES=Object.freeze([
 ]);
 export function tagCountries(title,force=null){
  if(force)return [force];
- const tags=REGION_RULES.filter(([,rx])=>rx.test(String(title||""))).map(([code])=>code);
+ const tags=REGION_RULES.filter(([code,rx])=>rx.test(String(title||""))||(code==="US"&&/\bUS\b/.test(String(title||"")))).map(([code])=>code);
  return tags.length?tags:["WORLD"];
 }
