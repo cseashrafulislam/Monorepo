@@ -228,6 +228,7 @@ for(const id of targets){
  if(id==="coinmetriq") {
   fs.copyFileSync(path.join(SITES,id,"site.css"),path.join(out,"assets","cm.css"));
   fs.copyFileSync(path.join(SITES,id,"site.js"),path.join(out,"assets","cm.js"));
+   for(const [from,to] of [["studio-core.mjs","studio-core.mjs"],["studio-app.mjs","cm-studio.js"],["studio.css","cm-studio.css"]]) fs.copyFileSync(path.join(SITES,id,from),path.join(out,"assets",to));
  }
  if(id==="worldorixa") {
   const homepage=path.join(out,"index.html");
@@ -239,6 +240,7 @@ for(const id of targets){
  const urls=["/","/topics/","/tools/"+config.tool.slug+"/","/about/","/privacy/"];
  if(id==="worldorixa")urls.push("/news/");
  if(id==="techorvia")for(const route of tvRoutes)if(!urls.includes(route))urls.push(route);
+  if(id==="coinmetriq"){const {extraRoutes}=await import("../sites/coinmetriq/extra.mjs");for(const route of extraRoutes())if(!urls.includes(route))urls.push(route);}
  for(const t of topics)if(t.editorialReviewed===true&&Array.isArray(t.sources)&&t.sources.length)urls.push(linkTopic(t));
  write(out,"sitemap.xml",'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+urls.map(route=>'<url><loc>'+getBase(config)+route+'</loc></url>').join("")+'</urlset>');
  if(id!=="worldorixa")write(out,"_redirects","/news/ /tools/"+config.tool.slug+"/ 301\n/news/* /tools/"+config.tool.slug+"/ 301\n");
