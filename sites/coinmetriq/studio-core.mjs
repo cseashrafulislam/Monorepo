@@ -38,7 +38,7 @@ export function calculateStudio(slug,input){
   const bf=pct(input,"buyFee"),sf=pct(input,"sellFee");
   if(bf>100||sf>100)throw Error("Fee percentages must not exceed 100%.");
   const cost=safe(buy*qty*(1+bf/100)),proceeds=safe(sell*qty*(1-sf/100)),net=safe(proceeds-cost);
-  return result(fmt(net)+" USD "+(net>=0?"profit":"loss"),"The entry cost includes the buy fee; exit proceeds exclude the sell fee.",[],[["Initial cost",fmt(cost)+" USD"],["Exit proceeds",fmt(proceeds)+" USD"],["ROI on cost",fmt(net/cost*100)+"%"],["Break-even sell price",fmt(cost/(qty*(1-sf/100)))+" USD"]]);
+  return result(fmt(net,4)+" USD "+(net>=0?"profit":"loss"),"The entry cost includes the buy fee; exit proceeds exclude the sell fee.",[],[["Initial cost",fmt(cost)+" USD"],["Exit proceeds",fmt(proceeds)+" USD"],["ROI on cost",fmt(net/cost*100)+"%"],["Break-even sell price",fmt(cost/(qty*(1-sf/100)))+" USD"]]);
  }
  case "average-entry":{
   const rows=rowList(input.fills,["price","qty","fee"]);let cost=0,units=0;
