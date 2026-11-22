@@ -163,6 +163,14 @@ function newsPage(c,topics,groups,records=[]){
  const body=intro+'<section class="section"><div class="shell"><h2>Recent source headlines <small>(<span data-edition-count>'+valid.length+'</span>)</small></h2><div class="category-collection" data-country-news>'+cards+'</div><p data-edition-empty '+(valid.length?"hidden":"")+' class="card">No recent verified headlines available. News appears after the scheduled feed update.</p></div></section>';
  return layout(c,{title:"Latest News",description:"Verified latest "+c.sector+" news headlines with source attribution and country-specific filtering.",route:"/news/"},body,topics,groups);
 }
+
+function homeNewsPreview(c,records=[]){
+ const list=(Array.isArray(records)?records:[]).filter(x=>x&&/^https:\/\//.test(x.url)&&x.title).slice(0,75);
+ const tech=c.id==="techorvia";
+ const wrap=tech?"tv-container":"shell",section=tech?"tv-section":"section",grid=tech?"tv-news-grid":"category-collection",card=tech?"tv-news-card":"topic-card";
+ const cards=list.map(x=>'<article class="'+card+'" data-edition-story="'+escape((x.countries||[x.country||"WORLD"]).join(","))+'"><small class="meta">'+escape(x.source||"Publisher")+' · '+escape((x.date||"").slice(0,10))+'</small><h3><a href="'+escape(x.url)+'" target="_blank" rel="noopener noreferrer external">'+escape(x.title)+'</a></h3><p>'+escape(x.summary||"Read the publisher’s original coverage.")+'</p><a href="'+escape(x.url)+'" target="_blank" rel="noopener noreferrer external">Read at source ↗</a></article>').join("");
+ return '<section class="'+section+'" aria-label="Verified news headlines"><div class="'+wrap+'"><div class="section-heading"><div><div class="eyebrow">VERIFIED PUBLISHER LINKS · COUNTRY EDITIONS</div><h2>Latest '+escape(c.sector)+' News (<span data-edition-count>'+Math.min(list.length,8)+'</span>)</h2><p class="section-lede">Select your country at the top. Headlines are displayed only when relevant geography is verified.</p></div><a href="/news/">More news ↗</a></div><div class="'+grid+'" data-country-preview>'+cards+'</div><p data-edition-empty '+(list.length?"hidden":"")+' class="card">No verified headlines available for the selected country.</p></div></section>';
+}
 function countryAssets(out){
  const assets=path.join(ROOT,"packages","site-core");
  for(const file of ["country.js","country.css"])fs.copyFileSync(path.join(assets,file),path.join(out,"assets",file));
@@ -222,6 +230,10 @@ for(const id of targets){
   fs.copyFileSync(path.join(SITES,id,"site.css"),path.join(out,"assets","cm.css"));
   fs.copyFileSync(path.join(SITES,id,"site.js"),path.join(out,"assets","cm.js"));
  }
+ const homepage=path.join(out,"index.html");
+ const headlines=JSON.parse(fs.readFileSync(path.join(SITES,id,"news.json"),"utf8")).items||[];
+ const homeHtml=fs.readFileSync(homepage,"utf8");
+ fs.writeFileSync(homepage,homeHtml.replace("</main>",homeNewsPreview(config,headlines)+"</main>"),"utf8");
  countryAssets(out);
  const urls=["/","/topics/","/tools/"+config.tool.slug+"/","/about/","/privacy/","/news/"];
  if(id==="techorvia")for(const route of tvRoutes)if(!urls.includes(route))urls.push(route);

@@ -40,12 +40,14 @@ function save(code){
  document.dispatchEvent(new CustomEvent("editionchange",{detail:{country:current}}));
 }
 function filterNews(){
- let count=0;
+ let count=0,shownPreview=0;
  const stories=[...document.querySelectorAll("[data-edition-story]")];
  for(const story of stories){
   const c=story.getAttribute("data-edition-story")||"WORLD";
-  const visible=current==="WORLD"||c.split(",").map(x=>x.trim()).includes(current);
-  story.hidden=!visible;if(visible)count++;
+  const match=current==="WORLD"||c.split(",").map(x=>x.trim()).includes(current);
+  const preview=!!story.closest("[data-country-preview]");
+  const visible=match&&(!preview||shownPreview<8);
+  story.hidden=!visible;if(visible){count++;if(preview)shownPreview++;}
  }
  const noNews=document.querySelector("[data-edition-empty]");
  if(noNews){noNews.hidden=count>0;noNews.textContent=current==="WORLD"?"No recent verified headlines available.":"No verified "+name(current)+" headlines available in this section. Select Worldwide to see global reporting.";}
