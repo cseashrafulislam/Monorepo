@@ -46,7 +46,7 @@ function groupLinks(groups) {
 }
 function siteNav(c,groups) {
  const menu = groups.slice(0,3).map(g=>'<a href="/topics/#'+slugify(g.name)+'">'+escape(g.name)+'</a>').join("");
- return '<header class="topbar"><div class="shell nav"><a class="brand" href="/" aria-label="'+escape(c.name)+' homepage"><span class="brand-mark" aria-hidden="true">'+escape(c.design.marker)+'</span>'+escape(c.name)+'</a><nav class="navlinks" aria-label="Main navigation">'+menu+'<a href="/topics/">All '+groups.reduce((n,g)=>n+g.topics.length,0)+' topics</a><a href="/news/">News</a><a href="/tools/'+escape(c.tool.slug)+'/">Calculator</a></nav></div></header>';
+ return '<header class="topbar"><div class="shell nav"><a class="brand" href="/" aria-label="'+escape(c.name)+' homepage"><span class="brand-mark" aria-hidden="true">'+escape(c.design.marker)+'</span>'+escape(c.name)+'</a><nav class="navlinks" aria-label="Main navigation">'+menu+'<a href="/topics/">All '+groups.reduce((n,g)=>n+g.topics.length,0)+' topics</a>'+(c.id==="worldorixa"?'<a href="/news/">Latest News</a>':"")+'<a href="/tools/'+escape(c.tool.slug)+'/">Calculator</a></nav></div></header>';
 }
 function structured(c,p,topics){
  const root=getBase(c);
@@ -210,12 +210,11 @@ for(const id of targets){
  let tvRoutes=[];
  if(id==="techorvia") {
   const {renderTechOrvia}=await import("../sites/techorvia/render.mjs");
-  const news=JSON.parse(fs.readFileSync(path.join(SITES,id,"news.json"),"utf8"));
-  const rendered=renderTechOrvia(config,getBase(config),news.items);
+  const rendered=renderTechOrvia(config,getBase(config));
   for(const [relative,html] of Object.entries(rendered.files))write(out,relative,html);
   tvRoutes=rendered.routes;
  }
- if(id!=="techorvia") {
+ if(id==="worldorixa") {
   const newsData=JSON.parse(fs.readFileSync(path.join(SITES,id,"news.json"),"utf8"));
   write(out,"news/index.html",newsPage(config,topics,groups,newsData.items));
  }
@@ -230,15 +229,19 @@ for(const id of targets){
   fs.copyFileSync(path.join(SITES,id,"site.css"),path.join(out,"assets","cm.css"));
   fs.copyFileSync(path.join(SITES,id,"site.js"),path.join(out,"assets","cm.js"));
  }
- const homepage=path.join(out,"index.html");
- const headlines=JSON.parse(fs.readFileSync(path.join(SITES,id,"news.json"),"utf8")).items||[];
- const homeHtml=fs.readFileSync(homepage,"utf8");
- fs.writeFileSync(homepage,homeHtml.replace("</main>",homeNewsPreview(config,headlines)+"</main>"),"utf8");
+ if(id==="worldorixa") {
+  const homepage=path.join(out,"index.html");
+  const headlines=JSON.parse(fs.readFileSync(path.join(SITES,id,"news.json"),"utf8")).items||[];
+  const homeHtml=fs.readFileSync(homepage,"utf8");
+  fs.writeFileSync(homepage,homeHtml.replace('<main id="main">','<main id="main">'+homeNewsPreview(config,headlines)),"utf8");
+ }
  countryAssets(out);
- const urls=["/","/topics/","/tools/"+config.tool.slug+"/","/about/","/privacy/","/news/"];
+ const urls=["/","/topics/","/tools/"+config.tool.slug+"/","/about/","/privacy/"];
+ if(id==="worldorixa")urls.push("/news/");
  if(id==="techorvia")for(const route of tvRoutes)if(!urls.includes(route))urls.push(route);
  for(const t of topics)if(t.editorialReviewed===true&&Array.isArray(t.sources)&&t.sources.length)urls.push(linkTopic(t));
  write(out,"sitemap.xml",'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+urls.map(route=>'<url><loc>'+getBase(config)+route+'</loc></url>').join("")+'</urlset>');
+ if(id!=="worldorixa")write(out,"_redirects","/news/ /tools/"+config.tool.slug+"/ 301\n/news/* /tools/"+config.tool.slug+"/ 301\n");
  write(out,"robots.txt","User-agent: *\nAllow: /\nSitemap: "+getBase(config)+"/sitemap.xml\n");
  write(out,"_headers","/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  X-Frame-Options: DENY\n  Permissions-Policy: camera=(), microphone=(), geolocation=()\n");
  console.log("Built "+config.name+": "+topics.length+" topic guides"+(id==="techorvia"?" and "+tvRoutes.length+" tool/site routes":"")+".");

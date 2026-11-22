@@ -63,6 +63,13 @@ Ads and analytics require accurate privacy disclosures and legally appropriate v
 
 TechOrvia uses its own `sites/techorvia/` renderer, CSS, browser processing code and extensible catalog. It does not share the marketing layout of other sites. Tool entries in `catalog.mjs` automatically produce `/tools/<slug>/` pages and `/categories/<slug>/` directory pages; no arbitrary category or tool count limit exists.
 
-Files remain client-side. PDF, OCR, DOCX and QR tools require pinned third-party browser libraries downloaded on demand; cloud or network restrictions can block those libraries. `PDF to Word` / `Word to PDF` are explicitly text-only conversions, not full fidelity document layout conversion. News metadata only (headlines/date/source link) is updated from trusted official RSS sources three times daily using GitHub Actions. No copyrighted full news text or speculative AI generated coverage.
+Files remain client-side. PDF, OCR, DOCX and QR tools require pinned third-party browser libraries downloaded on demand; cloud or network restrictions can block those libraries. `PDF to Word` / `Word to PDF` are explicitly text-only conversions, not full fidelity document layout conversion. TechOrvia is tools-first with no news-feed or news portal. WorldOrixa and the separately deployed TechDailyNews are the only news-oriented websites. Source headlines for WorldOrixa are refreshed by its dedicated GitHub Action.
 
 Run `npm run check` to validate all sites and TechOrvia tools. GitHub CI deployment will verify static routes. The website does not claim that third-party CDN/browser functionality is exhaustively browser-tested or that unsupported AI models/remote scanners exist.
+
+## Fixed product boundaries
+
+- News-first: **WorldOrixa** (this monorepo) and **TechDailyNews** (separate repository).
+- Tools-first: **CoinMetriq, EarthViora, SolarQentra, TechOrvia, MoneyAvora, IndustryLuma, VitalOryx, EduNovira, LifeAlora**.
+- All ten monorepo properties offer Worldwide + 10 country choices; only WorldOrixa filters news. For tools-first sites, the selected country sets regional reference context; unsupported tax, labor, energy or education formulas are not silently altered.
+- News paths previously published on tools-first sites redirect permanently to their main calculator. No site-wide cross-promotional network links are introduced.

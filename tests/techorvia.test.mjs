@@ -38,7 +38,7 @@ test("All TechOrvia pages are real, indexable software tool pages",()=>{
  }
  for(const f of ["tv.css","tv-app.mjs","tv-core.mjs","tv-files.mjs"])
   assert.ok(fs.existsSync(path.join(base,"assets",f)),"Missing asset "+f);
- assert.ok(fs.existsSync(path.join(base,"news","index.html")));
+ assert.ok(!fs.existsSync(path.join(base,"news","index.html")),"TechOrvia is a tools-only website");
 });
 test("TechOrvia calculations, dates and invalid inputs",async()=>{
  const overtime=await runPure("overtime","",{rate:20,hours:45,threshold:40,multiplier:1.5});
@@ -79,6 +79,6 @@ test("RSS metadata ingestion retains only official links and dates",()=>{
  assert.ok(sources[0].title.includes("Google announces"));
  assert.equal(curateNews([...sources,...sources],new Date("2026-11-22T06:00:00Z")).length,1);
  assert.equal(curateNews(sources,new Date("2027-03-01T00:00:00Z")).length,0);
- const news=JSON.parse(fs.readFileSync("sites/techorvia/news.json","utf8"));
+ const news=JSON.parse(fs.readFileSync("sites/worldorixa/news.json","utf8"));
  assert.ok(Array.isArray(news.items));
 });

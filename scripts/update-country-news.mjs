@@ -4,32 +4,14 @@ import {fileURLToPath} from "node:url";
 import {parseFeed,curateNews} from "./techorvia-news-core.mjs";
 import {tagCountries} from "./country-tags.mjs";
 const ROOT=path.resolve(path.dirname(fileURLToPath(import.meta.url)),"..");
-const SITES=["coinmetriq","earthviora","solarqentra","moneyavora","industryluma","worldorixa","vitaloryx","edunovira","lifealora"];
+const SITES=["worldorixa"];
 const sources=[
  {name:"The Guardian World",url:"https://www.theguardian.com/world/rss",sites:["worldorixa"]},
- {name:"The Guardian Environment",url:"https://www.theguardian.com/environment/rss",sites:["earthviora","worldorixa"]},
- {name:"The Guardian Science",url:"https://www.theguardian.com/science/rss",sites:["earthviora","vitaloryx","worldorixa"]},
- {name:"The Guardian Education",url:"https://www.theguardian.com/education/rss",sites:["edunovira"]},
- {name:"The Guardian Business",url:"https://www.theguardian.com/business/rss",sites:["moneyavora","worldorixa"]},
- {name:"The Guardian Travel",url:"https://www.theguardian.com/travel/rss",sites:["lifealora"]},
- {name:"NASA Earth Observatory",url:"https://earthobservatory.nasa.gov/feeds/image-of-the-day.rss",sites:["earthviora"]},
- {name:"pv magazine",url:"https://www.pv-magazine.com/feed/",sites:["solarqentra"]},
- {name:"CleanTechnica",url:"https://cleantechnica.com/feed/",sites:["solarqentra","industryluma"]},
- {name:"Cointelegraph",url:"https://cointelegraph.com/rss",sites:["coinmetriq"]},
- {name:"CoinDesk",url:"https://www.coindesk.com/arc/outboundfeeds/rss/",sites:["coinmetriq"]},
- {name:"The Business Standard Bangladesh",url:"https://www.tbsnews.net/bangladesh/rss.xml",country:"BD",sites:SITES}
+ {name:"The Guardian Environment",url:"https://www.theguardian.com/environment/rss",sites:["worldorixa"]},
+ {name:"The Guardian Science",url:"https://www.theguardian.com/science/rss",sites:["worldorixa"]},
+ {name:"The Guardian Business",url:"https://www.theguardian.com/business/rss",sites:["worldorixa"]},
+ {name:"The Business Standard Bangladesh",url:"https://www.tbsnews.net/bangladesh/rss.xml",country:"BD",sites:["worldorixa"]}
 ];
-const localKeywords={
- coinmetriq:/bitcoin|crypto|blockchain|digital.asset|coin|token|financial.technology|fintech/i,
- earthviora:/climate|flood|earthquake|cyclone|river|weather|temperature|air.pollution|environment|coast|warming|বন্যা|পরিবেশ|ভূমিকম্প/i,
- solarqentra:/solar|renewable|electricity|energy|power.grid|ev.charging|battery|বিদ্যুৎ|সৌর|জ্বালানি/i,
- moneyavora:/economy|bank|inflation|interest.rate|investment|finance|market|budget|tax|trade|অর্থনীতি|ব্যাংক|বাজার|কর/i,
- industryluma:/manufactur|factory|industrial|recycling|plastic|textile|garment|agriculture|production|supply.chain|কারখানা|শিল্প|কৃষি/i,
- worldorixa:/.+/,
- vitaloryx:/health|hospital|medicine|disease|diet|nutrition|medical|wellness|vaccin|স্বাস্থ্য|হাসপাতাল|রোগ|চিকিৎসা/i,
- edunovira:/education|school|college|university|student|exam|teacher|scholarship|job|training|শিক্ষা|বিশ্ববিদ্যালয়|পরীক্ষা|চাকরি|ভর্তি/i,
- lifealora:/travel|tourism|visa|flight|hotel|home|house|living|migration|holiday|পর্যটন|ভ্রমণ|ভিসা|বাড়ি/i
-};
 const out=Object.fromEntries(SITES.map(id=>[id,[]]));
 let success=0;
 for(const source of sources){
@@ -41,7 +23,7 @@ for(const source of sources){
   success++;let used=0;
   for(const site of source.sites){
    for(const item of items){
-    if(source.country && !localKeywords[site].test(item.title+" "+item.summary))continue;
+    // WorldOrixa reports international and country-specific events.
     out[site].push({...item,countries:tagCountries(item.title,source.country||null)});
     used++;
    }

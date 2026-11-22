@@ -12,19 +12,27 @@ test("Country metadata cannot invent local news",()=>{
  assert.deepEqual(tagCountries("Unrelated research from outside country","BD"),["BD"]);
  assert.deepEqual(tagCountries("Solar expansion in Japan"),["JP"]);
 });
-test("Ten independent site builds include country selector, news and source filtering",()=>{
+test("Ten-site builds keep country selection but news only on WorldOrixa",()=>{
  for(const id of ids){
   const root=path.join("dist",id);
   const home=fs.readFileSync(path.join(root,"index.html"),"utf8");
   assert.ok(home.includes('/assets/country.js'),id+" country runtime");
-  assert.ok(home.includes("data-country-preview"),id+" homepage country-aware news");
+  if(id==="worldorixa")assert.ok(home.includes("data-country-preview"),"WorldOrixa news-first homepage");
+  else assert.ok(!home.includes("data-country-preview"),id+" tools-only homepage");
   assert.ok(home.includes('/assets/country.css'),id+" country stylesheet");
-  assert.ok(fs.existsSync(path.join(root,"news","index.html")),id+" news route");
-  const page=fs.readFileSync(path.join(root,"news","index.html"),"utf8");
-  if(id!=="techorvia")assert.ok(page.includes("data-edition-empty"),id);
-  const json=JSON.parse(fs.readFileSync(path.join("sites",id,"news.json"),"utf8"));
-  assert.ok(Array.isArray(json.items),id+" news data");
-  for(const news of json.items)if(news.countries)for(const country of news.countries)assert.ok(validCountries.includes(country)||country==="WORLD");
+  const hasNews=fs.existsSync(path.join(root,"news","index.html"));
+  assert.equal(hasNews,id==="worldorixa",id+" matches news/tools architecture");
+  assert.equal(fs.readFileSync(path.join(root,"sitemap.xml"),"utf8").includes("/news/"),id==="worldorixa",id+" news sitemap only for news property");
+  if(id==="worldorixa"){
+   const page=fs.readFileSync(path.join(root,"news","index.html"),"utf8");
+   assert.ok(page.includes("data-edition-empty"));
+   const json=JSON.parse(fs.readFileSync(path.join("sites",id,"news.json"),"utf8"));
+   assert.ok(Array.isArray(json.items));
+   for(const news of json.items)if(news.countries)for(const code of news.countries)assert.ok(validCountries.includes(code)||code==="WORLD");
+  }else{
+   assert.ok(!home.includes("href=\"/news/\""),id+" no news navigation");
+   assert.ok(!fs.readFileSync(path.join(root,"tools",JSON.parse(fs.readFileSync(path.join("sites",id,"site.json"),"utf8")).tool.slug,"index.html"),"utf8").includes("data-edition-story"),id+" tools remain tools");
+  }
  }
  const script=fs.readFileSync("packages/site-core/country.js","utf8");
  for(const country of validCountries)assert.ok(script.includes('["'+country+'"'),country+" top ten choice");

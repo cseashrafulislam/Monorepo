@@ -1,4 +1,4 @@
-name: Country-aware News Editions
+name: WorldOrixa Country-aware News
 on:
   schedule:
     - cron: "37 3,11,19 * * *"
@@ -23,14 +23,14 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - name: Refresh verified country-aware news
+      - name: Refresh verified WorldOrixa country news
         run: node scripts/update-country-news.mjs
       - name: Commit new headlines when changed
         run: |
-          if ! git diff --quiet -- sites/*/news.json; then
+          if ! git diff --quiet -- sites/worldorixa/news.json; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add sites/*/news.json
+            git add sites/worldorixa/news.json
             git commit -m "Refresh country-aware news feeds"
             git push origin HEAD:main
           fi

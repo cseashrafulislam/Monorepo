@@ -12,7 +12,7 @@ const vertical={
  coinmetriq:["crypto markets","local digital-asset regulations, applicable exchange access and country-specific risk disclosures"],
  earthviora:["earth and climate","local hazard advisories, weather observations and environmental authority information"],
  solarqentra:["solar and energy","regional sunlight, utility tariffs, equipment assumptions and grid connection guidance"],
- techorvia:["technology tools","regional technology news and relevant software, privacy and online safety guidance"],
+ techorvia:["technology tools","relevant software, privacy and online safety guidance"],
  moneyavora:["finance","local currencies, financial rules, tax rules and comparable business cost assumptions"],
  industryluma:["manufacturing","regional production standards, safety guidance, environmental permits and supply-chain context"],
  worldorixa:["world news","verified national reporting, government developments and local source links"],
@@ -55,13 +55,13 @@ function filterNews(){
 }
 function update(){
  const selected=countries.find(x=>x[0]===current),s=selected?selected[1]:"Worldwide";
- const hasNews=!!document.querySelector("[data-edition-story]")||!!document.querySelector("[data-edition-empty]");
+ const hasNews=site==="worldorixa"&&(!!document.querySelector("[data-edition-story]")||!!document.querySelector("[data-edition-empty]"));
  if(banner){
   banner.hidden=current==="WORLD";
   if(selected){
    banner.querySelector("[data-edition-heading]").textContent=s+" edition · "+focus[0];
-   banner.querySelector("[data-edition-summary]").textContent="Showing verified "+s+" coverage where available. Focus: "+focus[1]+". General guides and tools remain available worldwide.";
-   banner.querySelector("[data-edition-currency]").textContent="Reference currency: "+selected[2]+" ("+selected[3]+"). Calculators do not change tax, labor or regulatory formulas automatically.";
+   banner.querySelector("[data-edition-summary]").textContent=site==="worldorixa"?"Showing verified "+s+" news where available. Focus: "+focus[1]+".":"Country preference set to "+s+". Focus: "+focus[1]+". These calculators and guides remain available globally; country-specific regulations and formulas are not changed without verified rules.";
+   banner.querySelector("[data-edition-currency]").textContent="Reference currency: "+selected[2]+" ("+selected[3]+"). Currency is informational; monetary inputs are not converted automatically.";
   }
  }
  const title=document.querySelector("[data-edition-label]");
