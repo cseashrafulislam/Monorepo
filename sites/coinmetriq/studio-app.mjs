@@ -17,7 +17,7 @@ function renderResult(box,data){
  if(data.rows?.length){
   const wrap=document.createElement("div");wrap.className="cm-table-scroll";
   const table=document.createElement("table"),caption=document.createElement("caption");caption.textContent="Calculated holdings";table.append(caption);
-  const head=document.createElement("thead");head.innerHTML="<tr><th scope='col'>Asset</th><th scope='col'>Estimated value</th><th scope='col'>Share</th></tr>";table.append(head);
+  const labels=data.rows[0].length===4?["Asset","Current value","Target allocation","Proposed adjustment"]:["Asset","Estimated value","Share"];const head=document.createElement("thead"),header=document.createElement("tr");for(const label of labels){const th=document.createElement("th");th.scope="col";th.textContent=label;header.append(th);}head.append(header);table.append(head);
   const tbody=document.createElement("tbody");
   for(const cells of data.rows){const tr=document.createElement("tr");for(const cell of cells){const td=document.createElement("td");td.textContent=cell;tr.append(td);}tbody.append(tr);}table.append(tbody);wrap.append(table);box.append(wrap);
  }
