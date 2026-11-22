@@ -57,5 +57,20 @@
         "type": "number"
       }
     ]
+  },
+  "design": {
+    "design": "energy",
+    "heroTitle": "Make every kilowatt count.",
+    "heroEyebrow": "Smarter energy planning",
+    "heroNote": "Plan solar capacity, compare battery assumptions and better understand daily electricity decisions.",
+    "nav": [
+      "Solar",
+      "Electricity",
+      "EV",
+      "Equipment"
+    ],
+    "marker": "☼",
+    "short": "Energy decisions, made practical.",
+    "audience": "Homeowners, EV drivers and energy professionals."
   }
 }

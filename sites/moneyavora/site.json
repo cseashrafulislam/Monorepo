@@ -48,5 +48,20 @@
         "type": "number"
       }
     ]
+  },
+  "design": {
+    "design": "finance",
+    "heroTitle": "Better numbers. Clearer choices.",
+    "heroEyebrow": "Finance & trade explained",
+    "heroNote": "Understand loans, business margins, financial decisions and trade costs with transparent assumptions.",
+    "nav": [
+      "Money",
+      "Markets",
+      "Business",
+      "Trade"
+    ],
+    "marker": "∑",
+    "short": "Financial understanding without complexity.",
+    "audience": "Households, entrepreneurs and trade professionals."
   }
 }

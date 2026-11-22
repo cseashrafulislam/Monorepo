@@ -39,5 +39,20 @@
         "type": "date"
       }
     ]
+  },
+  "design": {
+    "design": "news",
+    "heroTitle": "The world, with the context that matters.",
+    "heroEyebrow": "World affairs & culture",
+    "heroNote": "A navigable reference for international affairs, public data, sport and cultural understanding.",
+    "nav": [
+      "World",
+      "Government",
+      "Sport",
+      "Culture"
+    ],
+    "marker": "✳",
+    "short": "Global topics, carefully organized.",
+    "audience": "Readers seeking context beyond headlines."
   }
 }

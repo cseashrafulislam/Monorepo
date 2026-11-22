@@ -39,5 +39,20 @@
         "type": "number"
       }
     ]
+  },
+  "design": {
+    "design": "wellness",
+    "heroTitle": "Small steps toward informed wellbeing.",
+    "heroEyebrow": "Health & wellness library",
+    "heroNote": "Explore health literacy, fitness measures and everyday wellbeing with careful medical boundaries.",
+    "nav": [
+      "Nutrition",
+      "Fitness",
+      "Mind",
+      "Care"
+    ],
+    "marker": "♡",
+    "short": "Wellbeing information with perspective.",
+    "audience": "Readers learning about everyday wellness."
   }
 }

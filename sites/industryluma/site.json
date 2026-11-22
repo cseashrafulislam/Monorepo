@@ -48,5 +48,20 @@
         "type": "number"
       }
     ]
+  },
+  "design": {
+    "design": "factory",
+    "heroTitle": "From production floor to performance.",
+    "heroEyebrow": "Industrial intelligence desk",
+    "heroNote": "Practical calculations for factories, agriculture, resource efficiency and responsible operations.",
+    "nav": [
+      "Operations",
+      "Quality",
+      "Materials",
+      "Agriculture"
+    ],
+    "marker": "▣",
+    "short": "Measure processes. Improve decisions.",
+    "audience": "Production managers, engineers and operations teams."
   }
 }

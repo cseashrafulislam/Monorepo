@@ -39,5 +39,20 @@
         "type": "number"
       }
     ]
+  },
+  "design": {
+    "design": "terminal",
+    "heroTitle": "Clarity for every crypto decision.",
+    "heroEyebrow": "Digital asset intelligence",
+    "heroNote": "Learn token mechanics, evaluate network risks and run transparent calculations without an account.",
+    "nav": [
+      "Markets",
+      "Networks",
+      "Risk",
+      "Research"
+    ],
+    "marker": "◈",
+    "short": "Crypto intelligence, clearly explained.",
+    "audience": "Independent researchers and curious learners."
   }
 }

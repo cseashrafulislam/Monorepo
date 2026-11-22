@@ -57,5 +57,20 @@
         "type": "number"
       }
     ]
+  },
+  "design": {
+    "design": "lab",
+    "heroTitle": "Build smarter. Understand the technology.",
+    "heroEyebrow": "The digital tools laboratory",
+    "heroNote": "Explore AI costs, digital security, developer workflows and the modern creator toolkit.",
+    "nav": [
+      "AI",
+      "Developers",
+      "Security",
+      "Creators"
+    ],
+    "marker": "⌘",
+    "short": "Tools and explanations for builders.",
+    "audience": "Developers, creators and technology teams."
   }
 }

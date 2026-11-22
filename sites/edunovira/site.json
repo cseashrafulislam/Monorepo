@@ -75,5 +75,20 @@
         "type": "number"
       }
     ]
+  },
+  "design": {
+    "design": "campus",
+    "heroTitle": "Turn learning into progress.",
+    "heroEyebrow": "Study & career toolkit",
+    "heroNote": "Make sense of grades, study plans, scholarships and the skills that support meaningful careers.",
+    "nav": [
+      "Learn",
+      "Grades",
+      "Study Abroad",
+      "Careers"
+    ],
+    "marker": "✦",
+    "short": "Study confidently. Grow deliberately.",
+    "audience": "Students, learners and career starters."
   }
 }

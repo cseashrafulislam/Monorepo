@@ -66,5 +66,20 @@
         "type": "number"
       }
     ]
+  },
+  "design": {
+    "design": "journey",
+    "heroTitle": "Practical ideas for everywhere life takes you.",
+    "heroEyebrow": "Travel, home & living",
+    "heroNote": "Compare everyday choices across trips, moving, property, home projects and pet care.",
+    "nav": [
+      "Travel",
+      "Living",
+      "Home",
+      "Pets"
+    ],
+    "marker": "✺",
+    "short": "Plan well. Live curiously.",
+    "audience": "Travelers, households and everyday planners."
   }
 }

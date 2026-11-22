@@ -48,5 +48,20 @@
         "type": "number"
       }
     ]
+  },
+  "design": {
+    "design": "atlas",
+    "heroTitle": "See our changing planet in context.",
+    "heroEyebrow": "Earth observation atlas",
+    "heroNote": "Understand hazards, satellite measurements and environmental indicators with source-aware explanations.",
+    "nav": [
+      "Hazards",
+      "Land",
+      "Water",
+      "Space"
+    ],
+    "marker": "◎",
+    "short": "A practical atlas for our planet.",
+    "audience": "Students, communities and environmental observers."
   }
 }
