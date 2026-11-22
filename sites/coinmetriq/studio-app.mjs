@@ -107,6 +107,48 @@ for(const form of document.querySelectorAll("form[data-cm-fun]")){
      if(!(k>1&&k<=1e6&&Number.isFinite(k)))throw Error("Enter a multiplier above 1 and at most 1,000,000.");
      out={headline:fmt((k-1)*100,1)+"% return needed for "+fmt(k,1)+"×",detail:"That is "+fmt(Math.log2(k),2)+" successive doublings. Pure percentage arithmetic, not a forecast or endorsement of a target."};break;
     }
+    case "dca-time-machine":{
+     const values=String(v.prices||"").split(",").map(x=>Number(x.trim()));
+     const amount=Number(v.amount);
+     if(values.length<2||values.length>50||values.some(x=>!Number.isFinite(x)||x<=0||x>1e12)||!(amount>0&&amount<=1e12))throw Error("Use 2–50 positive sample prices and a positive contribution.");
+     const units=values.reduce((sum,p)=>sum+amount/p,0),spent=values.length*amount;
+     out={headline:"Time Machine average: $"+fmt(spent/units,4),detail:"You contributed $"+fmt(spent)+" over "+values.length+" fictional purchases and collected "+fmt(units,6)+" units. Not a historical performance claim."};break;
+    }
+    case "hodl-rollercoaster":{
+     const values=String(v.values||"").split(",").map(x=>Number(x.trim()));
+     if(values.length<2||values.length>50||values.some(x=>!Number.isFinite(x)||x<=0||x>1e15))throw Error("Use 2–50 positive hypothetical portfolio values.");
+     let peak=values[0],maximum=0;
+     for(const x of values){peak=Math.max(peak,x);maximum=Math.max(maximum,(peak-x)/peak);}
+     out={headline:"Your fictional rollercoaster dropped "+fmt(maximum*100,2)+"% from a peak",detail:"That is the worst peak-to-trough drop across your "+values.length+" example values. Historical-style math, not a forecast."};break;
+    }
+    case "portfolio-personality":{
+     const names={math:["Spreadsheet Owl","You enjoy checking the numbers in a fictional research adventure."],maps:["Curious Chart Fox","You enjoy reading patterns on sample charts and asking new questions."],notes:["Patient Research Turtle","You enjoy writing things down before exploring more options."]};
+     if(!Object.prototype.hasOwnProperty.call(names,v.style))throw Error("Choose a playful research activity.");
+     const [name,detail]=names[v.style];
+     out={headline:"You unlocked: "+name,detail:detail+" Pure entertainment: not a personality assessment or financial recommendation."};break;
+    }
+    case "coin-split":{
+     const share=Number(v.share);
+     if(!Number.isFinite(share)||share<0||share>100)throw Error("Coin share must be between 0% and 100%.");
+     const other=100-share,hhi=(share/100)**2+(other/100)**2;
+     out={headline:fmt(share,1)+"% Coin A / "+fmt(other,1)+"% Coin B",detail:"Example concentration score (sum of squared shares) is "+fmt(hhi,3)+". Equal halves have score 0.500; all in one has 1.000. No actual assets or advice."};break;
+    }
+    case "mining-monster":{
+     const watts=Number(v.watts),hours=Number(v.hours),tariff=Number(v.tariff);
+     if(!(watts>0&&watts<=1e7&&hours>0&&hours<=87600&&tariff>=0&&tariff<=1e5&&Number.isFinite(tariff)))throw Error("Enter realistic positive watts/hours and a nonnegative tariff.");
+     const energy=watts*hours/1000;
+     out={headline:"The power monster munched "+fmt(energy,2)+" kWh",detail:"The illustrative electricity bill would be $"+fmt(energy*tariff)+". Mining profitability requires additional user data; no live rewards are assumed."};break;
+    }
+    case "unlock-surprise":{
+     const supply=Number(v.supply),unlock=Number(v.unlock);
+     if(!(supply>0&&supply<=1e24&&unlock>=0&&unlock<=1e24&&Number.isFinite(unlock)))throw Error("Enter positive initial supply and a nonnegative unlock quantity.");
+     const dilution=unlock/(supply+unlock)*100;
+     out={headline:fmt(dilution,2)+"% illustrative share dilution",detail:"Keeping a fixed quantity while total hypothetical supply expands changes its relative share. This game cannot predict token price."};break;
+    }
+    case "emoji-decoder":{
+     if(!["gas","mining","wallet"].includes(v.term))throw Error("Choose an option.");
+     out={headline:v.term==="gas"?"Correct! ⛽ represents network gas/transaction fees":"Good try — ⛽ is used here for network transaction fees",detail:"In many blockchain conversations, gas refers to a network execution/transaction fee. The exact definition and fee mechanism differ by chain."};break;
+    }
     case "scam-bingo":{
      const marked=form.querySelectorAll('input[name="warning"]:checked').length;
      out={headline:marked+" of 3 warning signals identified",detail:"Fictional scenarios: guaranteed high returns, recovery phrase requests and withdrawal unlock fees are warning signals. Never enter recovery phrases or trust this quiz as a complete fraud detector."};break;
