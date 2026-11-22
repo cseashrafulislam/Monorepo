@@ -15,7 +15,8 @@ export function parseFeed(xml,source){
   const allowed=new URL(source.url).hostname.replace(/^www\./,"");
   const host=u.hostname.replace(/^www\./,"");if(host!==allowed&&!host.endsWith("."+allowed))continue;
   if(title.length<15)continue;
-  items.push({title,url:u.href,date:new Date(time).toISOString(),source:source.name});
+  const excerpt=decode(decode(tag(node,"description")||tag(node,"summary"))).split(/\s+/).filter(Boolean).slice(0,18).join(" ");
+  items.push({title,url:u.href,date:new Date(time).toISOString(),source:source.name,summary:excerpt});
  }
  return items;
 }

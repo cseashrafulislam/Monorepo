@@ -76,6 +76,7 @@ test("RSS metadata ingestion retains only official links and dates",()=>{
  const feed='<rss><channel><item><title>Google announces a new research feature</title><link>https://blog.google/technology/ai/example</link><pubDate>Sun, 22 Nov 2026 00:00:00 GMT</pubDate></item><item><title>External phishing website publishes fake report</title><link>https://attacker.example/steal</link><pubDate>Sun, 22 Nov 2026 00:00:00 GMT</pubDate></item></channel></rss>';
  const sources=parseFeed(feed,{name:"Google AI Blog",url:"https://blog.google/technology/ai/rss/"});
  assert.equal(sources.length,1);
+ assert.ok(sources[0].title.includes("Google announces"));
  assert.equal(curateNews([...sources,...sources],new Date("2026-11-22T06:00:00Z")).length,1);
  assert.equal(curateNews(sources,new Date("2027-03-01T00:00:00Z")).length,0);
  const news=JSON.parse(fs.readFileSync("sites/techorvia/news.json","utf8"));

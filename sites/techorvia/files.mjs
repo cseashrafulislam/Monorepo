@@ -49,7 +49,7 @@ export function zipStore(entries) {
  const local=[],central=[];let pos=0;
  if(!entries.length||entries.length>500)throw Error("ZIP contains an unsupported file count.");
  for(const e of entries){
-  if(!/^(?:\[Content_Types\]\.xml|[a-zA-Z0-9][a-zA-Z0-9._/-]{0,150})$/.test(e.name)||e.name.includes(".."))throw Error("Invalid ZIP entry name.");
+  if(!/^(?:\[Content_Types\]\.xml|[a-zA-Z0-9_][a-zA-Z0-9._/-]{0,150})$/.test(e.name)||e.name.includes(".."))throw Error("Invalid ZIP entry name.");
   const name=utf8(e.name),content=e.bytes instanceof Uint8Array?e.bytes:new Uint8Array(e.bytes);
   const crc=crc32(content);const flag=u16(0x0800);
   const lh=concat([u32(0x04034b50),u16(20),flag,u16(0),u16(0),u16(0),u32(crc),u32(content.length),u32(content.length),u16(name.length),u16(0),name,content]);
@@ -182,7 +182,7 @@ export async function processFile(tool,files,fields={},text=""){
    try{
     await new Promise((resolve,reject)=>{video.onloadedmetadata=resolve;video.onerror=()=>reject(Error("Browser cannot read this video."));});
     const time=Math.max(0,Math.min(Number(fields.time)||0,Math.max(0,video.duration-.05)));
-    await new Promise((resolve,reject)=>{video.onseeked=resolve;video.onerror=()=>reject(Error("Unable to seek video."));video.currentTime=time;});
+    await new Promise((resolve,reject)=>{video.onseeked=resolve;video.onerror=()=>reject(Error("Unable to seek video."));if(time===0&&video.readyState>=2)resolve();else video.currentTime=time;});
     const cv=document.createElement("canvas");cv.width=video.videoWidth;cv.height=video.videoHeight;if(cv.width*cv.height>35e6)throw Error("Frame too large.");
     cv.getContext("2d").drawImage(video,0,0);const mime=op==="frame-jpg"?"image/jpeg":"image/png";return {blob:await canvasBlob(cv,mime,.9),name:"frame."+imageExt(mime)};
    }finally{video.removeAttribute("src");video.load();URL.revokeObjectURL(u);}
