@@ -697,3 +697,532 @@ Sections indicate distinct product ownership, not versions, phases or chronology
 - [ ] **SC-038** Mobile accessible calendar and payroll worksheet
 - [ ] **SC-039** Related original guides for shift patterns, break and payroll methods
 
+
+## PRESERVE ALL 110 EXISTING TOOL URLS — REGRESSION CHECKLIST
+
+This inventory is generated from the repository files. Checked only after actual browser test, output fixture, error-path test, phone test and deployed compatibility. Do not remove/rename existing working tools simply to fit new brand boundaries.
+
+### BrowserPixel — existing URLs (30)
+
+- [ ] **BP-EXIST-001** Preserve /compress-image/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **BP-EXIST-002** Preserve /resize-image/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **BP-EXIST-003** Preserve /crop-image/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **BP-EXIST-004** Preserve /rotate-image/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **BP-EXIST-005** Preserve /flip-image/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **BP-EXIST-006** Preserve /bulk-image-compressor/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **BP-EXIST-007** Preserve /bulk-image-resizer/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **BP-EXIST-008** Preserve /reduce-image-quality/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **BP-EXIST-009** Preserve /image-dimensions-checker/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **BP-EXIST-010** Preserve /image-file-size-checker/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **BP-EXIST-011** Preserve /jpg-to-png/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **BP-EXIST-012** Preserve /png-to-jpg/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **BP-EXIST-013** Preserve /webp-to-jpg/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **BP-EXIST-014** Preserve /jpg-to-webp/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **BP-EXIST-015** Preserve /png-to-webp/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **BP-EXIST-016** Preserve /webp-to-png/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **BP-EXIST-017** Preserve /svg-to-png/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **BP-EXIST-018** Preserve /bmp-to-jpg/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **BP-EXIST-019** Preserve /image-to-pdf/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **BP-EXIST-020** Preserve /passport-photo-maker/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **BP-EXIST-021** Preserve /profile-picture-maker/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **BP-EXIST-022** Preserve /favicon-generator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **BP-EXIST-023** Preserve /thumbnail-maker/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **BP-EXIST-024** Preserve /watermark-image/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **BP-EXIST-025** Preserve /remove-image-metadata/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **BP-EXIST-026** Preserve /change-image-dpi/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **BP-EXIST-027** Preserve /aspect-ratio-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **BP-EXIST-028** Preserve /pixel-to-inch-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **BP-EXIST-029** Preserve /grayscale-image/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **BP-EXIST-030** Preserve /social-media-image-resizer/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+
+### FileSwiftTools — existing URLs (30)
+
+- [ ] **FS-EXIST-001** Preserve /merge-pdf/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **FS-EXIST-002** Preserve /compress-pdf/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **FS-EXIST-003** Preserve /split-pdf/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **FS-EXIST-004** Preserve /pdf-to-jpg/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **FS-EXIST-005** Preserve /images-to-pdf/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **FS-EXIST-006** Preserve /remove-pdf-metadata/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **FS-EXIST-007** Preserve /rotate-pdf/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **FS-EXIST-008** Preserve /delete-pdf-pages/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **FS-EXIST-009** Preserve /extract-pdf-pages/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **FS-EXIST-010** Preserve /reorder-pdf-pages/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **FS-EXIST-011** Preserve /add-page-numbers/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **FS-EXIST-012** Preserve /add-watermark/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **FS-EXIST-013** Preserve /crop-pdf-pages/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **FS-EXIST-014** Preserve /flatten-pdf-forms/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **FS-EXIST-015** Preserve /grayscale-pdf/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **FS-EXIST-016** Preserve /pdf-to-png/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **FS-EXIST-017** Preserve /jpg-to-pdf/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **FS-EXIST-018** Preserve /png-to-pdf/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **FS-EXIST-019** Preserve /webp-to-pdf/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **FS-EXIST-020** Preserve /text-to-pdf/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **FS-EXIST-021** Preserve /markdown-to-pdf/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **FS-EXIST-022** Preserve /pdf-to-text/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **FS-EXIST-023** Preserve /pdf-page-counter/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **FS-EXIST-024** Preserve /pdf-page-size-checker/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **FS-EXIST-025** Preserve /pdf-file-size-checker/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **FS-EXIST-026** Preserve /view-pdf-metadata/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **FS-EXIST-027** Preserve /zip-file-creator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **FS-EXIST-028** Preserve /zip-file-extractor/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **FS-EXIST-029** Preserve /file-hash-generator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **FS-EXIST-030** Preserve /file-to-base64/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+
+### ShiftCalcTools — existing URLs (50)
+
+- [ ] **SC-EXIST-001** Preserve /work-hours-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-002** Preserve /time-card-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-003** Preserve /break-time-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-004** Preserve /shift-length-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-005** Preserve /overnight-shift-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-006** Preserve /weekly-hours-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-007** Preserve /biweekly-hours-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-008** Preserve /monthly-work-hours-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-009** Preserve /annual-work-hours-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-010** Preserve /multiple-shift-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-011** Preserve /shift-overlap-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-012** Preserve /decimal-hours-converter/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-013** Preserve /hourly-to-salary-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-014** Preserve /salary-to-hourly-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-015** Preserve /daily-pay-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-016** Preserve /weekly-pay-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-017** Preserve /biweekly-pay-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-018** Preserve /semi-monthly-pay-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-019** Preserve /monthly-pay-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-020** Preserve /paycheck-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-021** Preserve /salary-raise-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-022** Preserve /pay-cut-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-023** Preserve /unpaid-time-deduction-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-024** Preserve /bonus-pay-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-025** Preserve /commission-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-026** Preserve /tip-income-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-027** Preserve /freelance-rate-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-028** Preserve /earnings-per-shift-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-029** Preserve /overtime-pay-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-030** Preserve /double-time-pay-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-031** Preserve /holiday-pay-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-032** Preserve /weekend-pay-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-033** Preserve /shift-differential-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-034** Preserve /night-shift-pay-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-035** Preserve /blended-overtime-rate-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-036** Preserve /overtime-hours-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-037** Preserve /comp-time-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-038** Preserve /premium-pay-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-039** Preserve /pto-accrual-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-040** Preserve /pto-payout-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-041** Preserve /leave-balance-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-042** Preserve /vacation-days-to-hours-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-043** Preserve /work-experience-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-044** Preserve /notice-period-date-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-045** Preserve /mileage-reimbursement-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-046** Preserve /fuel-cost-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-047** Preserve /commute-cost-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-048** Preserve /cost-per-mile-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-049** Preserve /trip-cost-split-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+- [ ] **SC-EXIST-050** Preserve /mileage-log-total-calculator/: verify working input, existing output, downloads, errors, keyboard, and mobile.
+
+## MONOREPO EXISTING 300 TOPIC INDEXING/UTILITY AUDIT
+
+Topic audit does NOT mean a topic is an already working advanced tool or deserves indexing. Check it only after distinct search intent, a useful interactive tool or substantial researched primary-source content, accurate claims, unique ownership and tested index/noindex status.
+
+### CoinMetriq — 30 known topics
+
+- [ ] **TOP-CM-01** Bitcoin Price (Markets & Prices): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-CM-02** Ethereum Markets (Markets & Prices): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-CM-03** Altcoin Research (Markets & Prices): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-CM-04** Stablecoins (Markets & Prices): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-CM-05** Market Heatmaps (Markets & Prices): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-CM-06** Crypto Market Capitalization (Markets & Prices): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-CM-07** Tokenomics (Tokens & Networks): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-CM-08** Gas Fees (Tokens & Networks): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-CM-09** Layer 2 Networks (Tokens & Networks): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-CM-10** Blockchain Explorers (Tokens & Networks): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-CM-11** Mining Economics (Tokens & Networks): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-CM-12** Staking Basics (Tokens & Networks): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-CM-13** Decentralized Finance (Participation & DeFi): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-CM-14** Liquidity Pools (Participation & DeFi): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-CM-15** Wallet Management (Participation & DeFi): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-CM-16** Hardware Wallets (Participation & DeFi): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-CM-17** Phishing & Scam Signals (Participation & DeFi): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-CM-18** Smart Contract Risk (Participation & DeFi): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-CM-19** Crypto Regulations (Risk & Security): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-CM-20** Crypto Tax Concepts (Risk & Security): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-CM-21** Portfolio Allocation (Risk & Security): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-CM-22** Profit & Loss Calculator (Risk & Security): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-CM-23** Volatility Analytics (Risk & Security): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-CM-24** Market Sentiment (Risk & Security): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-CM-25** On-chain Activity (Research & Utilities): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-CM-26** Exchange Comparison (Research & Utilities): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-CM-27** Cross-chain Bridges (Research & Utilities): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-CM-28** Bitcoin Halving (Research & Utilities): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-CM-29** Crypto Glossary (Research & Utilities): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-CM-30** Crypto News & Research (Research & Utilities): validate original value, unique canonical owner, sources and indexing choice.
+
+### EarthViora — 30 known topics
+
+- [ ] **TOP-EV-01** Global Weather (Weather & Hazards): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EV-02** Flood Risk (Weather & Hazards): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EV-03** Cyclones & Storms (Weather & Hazards): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EV-04** Earthquake Monitoring (Weather & Hazards): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EV-05** Wildfire Monitoring (Weather & Hazards): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EV-06** Heatwaves (Weather & Hazards): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EV-07** Satellite Imagery (Land & Satellite): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EV-08** Land-cover Change (Land & Satellite): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EV-09** River Erosion (Land & Satellite): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EV-10** Urban Expansion (Land & Satellite): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EV-11** Forest Monitoring (Land & Satellite): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EV-12** Crop Vegetation Indices (Land & Satellite): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EV-13** Agricultural Drought (Water & Air): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EV-14** Soil Moisture (Water & Air): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EV-15** Ground Motion (Water & Air): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EV-16** Water Quality (Water & Air): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EV-17** Groundwater Trends (Water & Air): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EV-18** Rainwater Harvesting (Water & Air): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EV-19** Ocean Conditions (Climate & Ecology): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EV-20** Sea-level Change (Climate & Ecology): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EV-21** Air Quality (Climate & Ecology): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EV-22** Climate Indicators (Climate & Ecology): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EV-23** Carbon Emissions (Climate & Ecology): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EV-24** Biodiversity Maps (Climate & Ecology): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EV-25** Protected Areas (Space & Research): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EV-26** Space Weather (Space & Research): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EV-27** Satellite Tracking (Space & Research): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EV-28** Astronomy Events (Space & Research): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EV-29** Environmental Data Sources (Space & Research): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EV-30** Disaster Preparedness (Space & Research): validate original value, unique canonical owner, sources and indexing choice.
+
+### SolarQentra — 30 known topics
+
+- [ ] **TOP-SQ-01** Solar Panel Sizing (Solar Planning): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-SQ-02** Solar Production Calculator (Solar Planning): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-SQ-03** Solar Installation Planning (Solar Planning): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-SQ-04** Solar Return on Investment (Solar Planning): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-SQ-05** Solar Inverter Sizing (Solar Planning): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-SQ-06** Solar Panel Comparison (Solar Planning): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-SQ-07** Residential Electricity Bills (Electricity & Backup): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-SQ-08** Electricity Tariffs (Electricity & Backup): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-SQ-09** Appliance Energy Costs (Electricity & Backup): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-SQ-10** Energy Saving Planner (Electricity & Backup): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-SQ-11** Battery Backup Calculator (Electricity & Backup): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-SQ-12** Lithium vs Lead-acid (Electricity & Backup): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-SQ-13** UPS Runtime (EV & Transport): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-SQ-14** Generator Sizing (EV & Transport): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-SQ-15** Commercial Energy Audit (EV & Transport): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-SQ-16** EV Charging Cost (EV & Transport): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-SQ-17** EV Range Estimator (EV & Transport): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-SQ-18** EV Battery Health (EV & Transport): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-SQ-19** EV vs Petrol Costs (Equipment & Ownership): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-SQ-20** Home Charger Installation (Equipment & Ownership): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-SQ-21** Public Charging Networks (Equipment & Ownership): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-SQ-22** E-bike Range (Equipment & Ownership): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-SQ-23** Vehicle Fuel Cost (Equipment & Ownership): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-SQ-24** Car Ownership Cost (Equipment & Ownership): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-SQ-25** Vehicle Maintenance (Market & Efficiency): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-SQ-26** Home Power Load (Market & Efficiency): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-SQ-27** Wind & Hybrid Energy (Market & Efficiency): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-SQ-28** Energy Storage Economics (Market & Efficiency): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-SQ-29** Grid & Net Metering (Market & Efficiency): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-SQ-30** Clean Energy Trends (Market & Efficiency): validate original value, unique canonical owner, sources and indexing choice.
+
+### TechOrvia — 30 known topics
+
+- [ ] **TOP-TO-01** AI Model Comparison (AI & Computation): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-TO-02** AI API Cost Calculator (AI & Computation): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-TO-03** Prompt Engineering (AI & Computation): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-TO-04** AI Agents (AI & Computation): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-TO-05** Local AI Hardware (AI & Computation): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-TO-06** GPU Cloud Pricing (AI & Computation): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-TO-07** AI Safety & Privacy (Software & Developer Tools): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-TO-08** Open Source AI (Software & Developer Tools): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-TO-09** Programming Tools (Software & Developer Tools): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-TO-10** API Testing (Software & Developer Tools): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-TO-11** JSON Tools (Software & Developer Tools): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-TO-12** Regex & Text Utilities (Software & Developer Tools): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-TO-13** PDF Utilities (Security & Web): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-TO-14** Image Utilities (Security & Web): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-TO-15** Domain & DNS (Security & Web): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-TO-16** Cloud Hosting (Security & Web): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-TO-17** Cybersecurity Basics (Security & Web): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-TO-18** Password Security (Security & Web): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-TO-19** Privacy Protection (Creator Studio): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-TO-20** Website Performance (Creator Studio): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-TO-21** YouTube SEO (Creator Studio): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-TO-22** Video Creator Tools (Creator Studio): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-TO-23** Thumbnail Planning (Creator Studio): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-TO-24** Social Media Analytics (Creator Studio): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-TO-25** Content Calendar (Robotics & Devices): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-TO-26** Robotics (Robotics & Devices): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-TO-27** Drones (Robotics & Devices): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-TO-28** IoT & Microcontrollers (Robotics & Devices): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-TO-29** 3D Printing (Robotics & Devices): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-TO-30** Technology News (Robotics & Devices): validate original value, unique canonical owner, sources and indexing choice.
+
+### MoneyAvora — 30 known topics
+
+- [ ] **TOP-MA-01** Loan EMI Calculator (Personal Finance): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-MA-02** Savings Planner (Personal Finance): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-MA-03** Fixed Deposits (Personal Finance): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-MA-04** Banking Fees (Personal Finance): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-MA-05** Credit Card Interest (Personal Finance): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-MA-06** Personal Budget (Personal Finance): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-MA-07** Stock Market Basics (Investing & Markets): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-MA-08** Portfolio Diversification (Investing & Markets): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-MA-09** Forex & Currency (Investing & Markets): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-MA-10** Gold & Silver (Investing & Markets): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-MA-11** Inflation Calculator (Investing & Markets): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-MA-12** Insurance Planning (Investing & Markets): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-MA-13** Business Break-even (Business Calculators): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-MA-14** Profit Margin (Business Calculators): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-MA-15** Cash Flow Forecasting (Business Calculators): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-MA-16** Invoice & Tax Concepts (Business Calculators): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-MA-17** Salary & Payroll (Business Calculators): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-MA-18** Small Business KPIs (Business Calculators): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-MA-19** Import Cost (Import & Export): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-MA-20** Export Pricing (Import & Export): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-MA-21** Freight Cost (Import & Export): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-MA-22** Container Capacity (Import & Export): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-MA-23** HS Codes (Import & Export): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-MA-24** Customs Duties (Import & Export): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-MA-25** International Shipping (Economic Intelligence): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-MA-26** Trade Documents (Economic Intelligence): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-MA-27** Global GDP (Economic Intelligence): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-MA-28** Interest Rates (Economic Intelligence): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-MA-29** Economic Indicators (Economic Intelligence): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-MA-30** Business News (Economic Intelligence): validate original value, unique canonical owner, sources and indexing choice.
+
+### IndustryLuma — 30 known topics
+
+- [ ] **TOP-IL-01** Factory OEE (Factory Operations): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-IL-02** Production Capacity (Factory Operations): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-IL-03** Manufacturing Cost (Factory Operations): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-IL-04** Downtime Tracking (Factory Operations): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-IL-05** Production Scheduling (Factory Operations): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-IL-06** Labor Productivity (Factory Operations): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-IL-07** Quality Control (Quality & Safety): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-IL-08** Defect Rate (Quality & Safety): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-IL-09** Industrial Safety (Quality & Safety): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-IL-10** Machine Maintenance (Quality & Safety): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-IL-11** ETP & Effluent (Quality & Safety): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-IL-12** Industrial Water Use (Quality & Safety): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-IL-13** Packaging Cost (Materials & Sustainability): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-IL-14** Plastic Recycling (Materials & Sustainability): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-IL-15** Extended Producer Responsibility (Materials & Sustainability): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-IL-16** E-Waste Management (Materials & Sustainability): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-IL-17** Scrap Materials (Materials & Sustainability): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-IL-18** Carbon Footprint (Materials & Sustainability): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-IL-19** Farming Operations (Agriculture & Food): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-IL-20** Livestock Management (Agriculture & Food): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-IL-21** Fisheries & Aquaculture (Agriculture & Food): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-IL-22** Crop Yield (Agriculture & Food): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-IL-23** Food Processing (Agriculture & Food): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-IL-24** Cold Chain (Agriculture & Food): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-IL-25** Agricultural Equipment (Automation & Analytics): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-IL-26** Factory Automation (Automation & Analytics): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-IL-27** Industrial Robotics (Automation & Analytics): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-IL-28** Factory Energy (Automation & Analytics): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-IL-29** Supply Chain KPIs (Automation & Analytics): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-IL-30** Industrial Data Analytics (Automation & Analytics): validate original value, unique canonical owner, sources and indexing choice.
+
+### WorldOrixa — 30 known topics
+
+- [ ] **TOP-WO-01** World Headlines (Global Affairs): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-WO-02** United States News (Global Affairs): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-WO-03** Europe & EU (Global Affairs): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-WO-04** Asia Pacific (Global Affairs): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-WO-05** Middle East (Global Affairs): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-WO-06** Africa & Emerging Regions (Global Affairs): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-WO-07** Global Politics (Government & Society): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-WO-08** Elections & Voting (Government & Society): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-WO-09** Government & Policy (Government & Society): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-WO-10** International Law (Government & Society): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-WO-11** Human Rights (Government & Society): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-WO-12** Global Diplomacy (Government & Society): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-WO-13** Country Profiles (World Data): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-WO-14** Population Statistics (World Data): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-WO-15** Economic Rankings (World Data): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-WO-16** World Maps & Geography (World Data): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-WO-17** Cricket (World Data): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-WO-18** Football (World Data): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-WO-19** Basketball (Sports): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-WO-20** Tennis (Sports): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-WO-21** Motorsport (Sports): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-WO-22** Olympics & Athletics (Sports): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-WO-23** Movies & TV (Sports): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-WO-24** Music & Culture (Sports): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-WO-25** Gaming & Esports (Culture & Events): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-WO-26** Books & Arts (Culture & Events): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-WO-27** Global Events (Culture & Events): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-WO-28** Public Holidays (Culture & Events): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-WO-29** Festivals & Traditions (Culture & Events): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-WO-30** World Data Explorer (Culture & Events): validate original value, unique canonical owner, sources and indexing choice.
+
+### VitalOryx — 30 known topics
+
+- [ ] **TOP-VO-01** Nutrition Basics (Nutrition & Physical Health): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-VO-02** Calories & Energy (Nutrition & Physical Health): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-VO-03** BMI Calculator (Nutrition & Physical Health): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-VO-04** Protein Intake (Nutrition & Physical Health): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-VO-05** Hydration (Nutrition & Physical Health): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-VO-06** Food Labels (Nutrition & Physical Health): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-VO-07** Walking & Cardio (Movement & Fitness): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-VO-08** Strength Training (Movement & Fitness): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-VO-09** Flexibility & Mobility (Movement & Fitness): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-VO-10** Fitness Metrics (Movement & Fitness): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-VO-11** Weight Management (Movement & Fitness): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-VO-12** Workout Planning (Movement & Fitness): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-VO-13** Sleep Basics (Mental Wellbeing): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-VO-14** Stress Management (Mental Wellbeing): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-VO-15** Mindfulness (Mental Wellbeing): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-VO-16** Digital Wellbeing (Mental Wellbeing): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-VO-17** Healthy Habits (Mental Wellbeing): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-VO-18** Mental Health Literacy (Mental Wellbeing): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-VO-19** Women's Health (Life Stages): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-VO-20** Men's Health (Life Stages): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-VO-21** Children's Health (Life Stages): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-VO-22** Senior Wellness (Life Stages): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-VO-23** Accessibility (Life Stages): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-VO-24** Home Safety (Life Stages): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-VO-25** Caregiving Basics (Public Health & Care): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-VO-26** Public Health (Public Health & Care): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-VO-27** Preventive Screening (Public Health & Care): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-VO-28** Medical Research (Public Health & Care): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-VO-29** Health Technology (Public Health & Care): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-VO-30** Wellness Recipes (Public Health & Care): validate original value, unique canonical owner, sources and indexing choice.
+
+### EduNovira — 30 known topics
+
+- [ ] **TOP-EN-01** School Learning (Learning Foundations): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EN-02** Mathematics (Learning Foundations): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EN-03** Science Learning (Learning Foundations): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EN-04** English Learning (Learning Foundations): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EN-05** Coding Fundamentals (Learning Foundations): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EN-06** Digital Literacy (Learning Foundations): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EN-07** GPA Calculator (Academic Success): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EN-08** CGPA Planning (Academic Success): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EN-09** Exam Preparation (Academic Success): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EN-10** Study Planner (Academic Success): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EN-11** Academic Writing (Academic Success): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EN-12** Research Skills (Academic Success): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EN-13** Scholarships (Study Abroad & Credentials): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EN-14** Study Abroad (Study Abroad & Credentials): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EN-15** Universities & Courses (Study Abroad & Credentials): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EN-16** Online Courses (Study Abroad & Credentials): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EN-17** Professional Certifications (Study Abroad & Credentials): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EN-18** Language Tests (Study Abroad & Credentials): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EN-19** Government Jobs (Jobs & Careers): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EN-20** Private Sector Careers (Jobs & Careers): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EN-21** Remote Work (Jobs & Careers): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EN-22** Freelancing (Jobs & Careers): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EN-23** Internships (Jobs & Careers): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EN-24** Career Change (Jobs & Careers): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EN-25** Job Market Skills (Career Tools & Skills): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EN-26** CV Builder Guide (Career Tools & Skills): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EN-27** Interview Preparation (Career Tools & Skills): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EN-28** Portfolio Projects (Career Tools & Skills): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EN-29** Skill Assessment (Career Tools & Skills): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-EN-30** Career Learning Roadmap (Career Tools & Skills): validate original value, unique canonical owner, sources and indexing choice.
+
+### LifeAlora — 30 known topics
+
+- [ ] **TOP-LA-01** Travel Destinations (Travel Planning): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-LA-02** Travel Budget (Travel Planning): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-LA-03** Visa Information (Travel Planning): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-LA-04** Flights & Airports (Travel Planning): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-LA-05** Hotels & Stays (Travel Planning): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-LA-06** Local Transport (Travel Planning): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-LA-07** Travel Insurance (Moving & Living): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-LA-08** Travel Packing (Moving & Living): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-LA-09** Country Guides (Moving & Living): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-LA-10** Trip Itinerary (Moving & Living): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-LA-11** Cost of Living (Moving & Living): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-LA-12** Moving Abroad (Moving & Living): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-LA-13** Real Estate Basics (Property & Construction): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-LA-14** Rent vs Buy (Property & Construction): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-LA-15** Mortgage Planning (Property & Construction): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-LA-16** Construction Cost (Property & Construction): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-LA-17** Building Materials (Property & Construction): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-LA-18** Home Renovation (Property & Construction): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-LA-19** Interior Design (Home & Everyday Life): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-LA-20** Space Planning (Home & Everyday Life): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-LA-21** Home Utilities (Home & Everyday Life): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-LA-22** Home Maintenance (Home & Everyday Life): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-LA-23** Kitchen & Appliances (Home & Everyday Life): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-LA-24** Food & Restaurants (Home & Everyday Life): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-LA-25** Everyday Calculators (Pets & Shopping): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-LA-26** Pet Care Basics (Pets & Shopping): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-LA-27** Dog Care (Pets & Shopping): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-LA-28** Cat Care (Pets & Shopping): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-LA-29** Pet Budget (Pets & Shopping): validate original value, unique canonical owner, sources and indexing choice.
+- [ ] **TOP-LA-30** Consumer Buying Guides (Pets & Shopping): validate original value, unique canonical owner, sources and indexing choice.
+
+## DATA SOURCE RIGHTS / ZERO-COST RULES
+
+| Source | Products | Free-commercial rule |
+|---|---|---|
+| NASA GIBS / EONET | EarthViora | Attribute NASA, inspect image-level third-party permissions, measure freshness; never imply NASA endorsement |
+| USGS earthquake feeds | EarthViora | Show event date and agency, no prediction claim |
+| Copernicus Sentinel/CDSE | EarthViora | Check license, account and processing quotas; attribution |
+| PVGIS European Commission/JRC | SolarQentra | Check official usage terms and credit data and assumptions |
+| World Bank public indicators | MoneyAvora / WorldOrixa | Individual dataset license, timestamp and attribution |
+| NIST NVD | TechDailyNews | CVE links, API key budget/rate limits, do not fake patched status |
+| OpenAlex | EduNovira / TechDailyNews | Free daily budget, lawful metadata, links not copyrighted full text |
+| USDA FoodData Central | VitalOryx | Commercial reuse/credits and API key handling checked |
+| Publisher RSS/Atom feeds | WorldOrixa / TechDailyNews | Terms per source: snippet/headline access is not full article/image republication rights |
+| MapLibre / Leaflet / OpenStreetMap tiles | EarthViora / LifeAlora | Open source rendering libraries do NOT mean limitless free map tile hosting; attribution and tile policy |
+| Open-Meteo standard free hosted API | Weather-related products | Noncommercial only: NEVER use in ad-funded service absent appropriate license |
+| CoinGecko Demo/free API | CoinMetriq | Do not presume ad-funded commercial license; rely on CSV/manual input unless lawful source approved |
+| WASM, models, OCR packages | BrowserPixel / FileSwiftTools / TechOrvia | Separate model-weight, software, assets and language-pack commercial licenses are checked |
+
+## AD-FIRST WITHOUT DESTROYING USER VALUE
+
+- [ ] **ADS-001** One independent product design per site; ad revenue depends on real organic visits and useful tasks, not page inflation
+- [ ] **ADS-002** AdSense account/site acceptance is external and must be verified; no guarantee of approval or income
+- [ ] **ADS-003** AdSense ads only on eligible, substantial original content/real useful tools
+- [ ] **ADS-004** Keep ad labels and positions separate from upload, calculate, download, map controls or editors
+- [ ] **ADS-005** No required ad interaction, no aggressive popunder, no misleading link disguised as tool UI
+- [ ] **ADS-006** Review existing Adsterra popunder/social-bar implementations for policy and UX conflicts
+- [ ] **ADS-007** Use accurate privacy disclosure, consent and certified CMP where legally and contractually required
+- [ ] **ADS-008** Use real publisher-authorized ads.txt; do not invent AdSense IDs
+- [ ] **ADS-009** Reserve ad dimensions to avoid layout shift, test mobile accidental taps
+- [ ] **ADS-010** Analytics track valid traffic, task completions, organic queries, page RPM and ads policy status
+- [ ] **ADS-011** Each product gets independently written examples and original data-backed explanations, not repetitive filler
+- [ ] **ADS-012** One site that grows organically may justify more maintenance, but all 14 remain on this single unified backlog
+- [ ] **ADS-013** No duplicate cross-site keyword pages and no unnatural backlink network
+- [ ] **ADS-014** News content uses direct source links, meaningful verification and context, not full copied publisher stories
+- [ ] **ADS-015** Monitor ad performance with per-site measurement while protecting visitor local data
+
+## DEFINITION OF DONE AND CONTINUATION CONTRACT
+
+- [ ] **DONE-001** Feature executes correctly at actual deployed canonical public URL, not merely a README description
+- [ ] **DONE-002** No visitor account, payment, subscription or required ad click
+- [ ] **DONE-003** Existing tool functionality and URLs retained with regression fixtures
+- [ ] **DONE-004** Outputs tested against known cases plus invalid, empty and low-memory mobile cases
+- [ ] **DONE-005** Source/license documented for any remote public data, images, ML model or library
+- [ ] **DONE-006** Original page-specific useful content and correct indexability choice
+- [ ] **DONE-007** Actual accessible interface with keyboard/touch and safe error handling
+- [ ] **DONE-008** No unsupported claims (real-time, medical, financial, legal, veterinary, engineering or breaking news)
+- [ ] **DONE-009** No off-device private file upload by default; local data erase/export controls
+- [ ] **DONE-010** Ads policy, consent, ads.txt and publisher approval independently checked before monetization
+- [ ] **DONE-011** GitHub commit SHA and live deployed evidence recorded against checklist ID
+- [ ] **DONE-012** Checklist can be checked ONLY after all evidence exists; no phase/version/status inflation
+
+When continuing the work, read this exact Markdown file first. Identify unchecked task IDs, inspect the actual owner repository, preserve existing behavior, implement feature end-to-end and attach tests, source/rights notes, deploy proof and commit. One task list, zero phases/versions, fourteen unique products. Do not mark incomplete work as completed.
+
+## VERIFIED POLICY / DOCUMENTATION REFERENCES
+
+- Google Search spam policies: https://developers.google.com/search/docs/essentials/spam-policies
+- Google Publisher Policies: https://support.google.com/adsense/answer/10502938
+- Google AdSense ad placement: https://support.google.com/adsense/answer/1346295
+- Google AdSense program policy: https://support.google.com/adsense/answer/48182
+- Cloudflare Pages quotas: https://developers.cloudflare.com/pages/platform/limits/
+- Cloudflare Workers quotas: https://developers.cloudflare.com/workers/platform/limits/
+- Cloudflare D1 limits: https://developers.cloudflare.com/d1/platform/limits/
+- Cloudflare D1 Free daily enforcement: https://developers.cloudflare.com/changelog/post/2026-09-01-d1-free-tier-limit-enforcement/
+- Open-Meteo pricing and terms: https://open-meteo.com/en/pricing
+- CoinGecko API license: https://support.coingecko.com/articles/1043089972-what-are-the-differences-between-commercial-and-custom-licenses
+- Copernicus source portal: https://dataspace.copernicus.eu/
+- NASA GIBS: https://gibs.earthdata.nasa.gov/
+- PVGIS: https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis_en
+- USGS Earthquake feeds: https://earthquake.usgs.gov/earthquakes/feed/v1.0/
+- NIST NVD: https://nvd.nist.gov/developers
+- OpenAlex: https://openalex.org/
