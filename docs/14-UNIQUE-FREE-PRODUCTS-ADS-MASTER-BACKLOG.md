@@ -1720,3 +1720,326 @@ When continuing the work, read this exact Markdown file first. Identify unchecke
 - Cloudflare Workers AI pricing and free quota: https://developers.cloudflare.com/workers-ai/platform/pricing/
 
 **Definition of complete:** A category or post is done only when relevant genuinely useful article(s) are visible at a live canonical URL, sourced and rights-cleared, unique to the product, tested, appropriately indexed, ads safe, and linked to the relevant active user workflow; a placeholder blog link is not complete.
+
+
+## FUN & SHARE LABS — 14 DISTINCT PRODUCTS
+
+**Owner decision (2026-11-23):** Add ONE dedicated on-brand interactive fun section to EACH of the 14 free, independent products. The intended marketing mechanism is *genuine visitor delight + useful/shareable creative results*, not blog filler or manipulated social shares. Everything remains completely free with no registration or forced ads. These are OPEN tasks in the SAME existing master backlog; no phases or versions.
+
+| Product | Unique fun-section name | User value |
+|---|---|---|
+| **CoinMetriq** | Crypto Chaos Lab | Playful crypto-risk literacy based on transparent math and hypothetical/sample data, not real investment predictions. |
+| **EarthViora** | Planet Playground | Geography and Earth observation challenges with verifiable coordinates, imagery and source-aware explanations. |
+| **SolarQentra** | Power Play Lab | Electricity and solar energy mini challenges linked to real calculations and stated engineering assumptions. |
+| **TechOrvia** | Dev Arcade | Light-hearted developer puzzles that teach real parsing, APIs and computing rather than generating fake code reviews. |
+| **MoneyAvora** | Money Challenge Room | Practical money literacy with entertaining scenarios that never mock debt hardship or imply financial guarantees. |
+| **IndustryLuma** | Farm & Factory Fun | Playful educational farm and industrial mini-simulators; never animal clinical care, pesticide dosing or compliance approval. |
+| **WorldOrixa** | World Trivia Arena | Fact-checked geographical, cultural and historical challenges, avoiding unverified political claims or fake news. |
+| **VitalOryx** | Wellness Joy Lab | Nonclinical and nonjudgmental wellness mini games encouraging learning and habits without medical advice. |
+| **EduNovira** | Study Fun Arcade | Small skill-building games linked to educational tools and honest progress, not fake exams or scores. |
+| **LifeAlora** | Happy Life Playground | Home, travel and pet-owner humor that creates useful cards/checklists, not animal medicine or farm calculators. |
+| **TechDailyNews** | Tech Trivia Pulse | News-adjacent quizzes and release-history games backed by dated official documentation, no fabricated headlines. |
+| **BrowserPixel** | Creative Meme Playground | Local-only amusing image creativity tools and shareable output, not unauthorized copyright reuse or PDF editing. |
+| **FileSwiftTools** | PDF Puzzle Lab | Useful document-handling puzzles based on user-owned or safe demo files, while retaining privacy. |
+| **ShiftCalcTools** | Shift Life Arcade | Gentle scheduling and timekeeping puzzles that teach real hours math and respect worker wellbeing. |
+
+### Shared interactive fun, privacy, social distribution and AdSense safety requirements
+
+- [ ] **FUN-CORE-001** Each of 14 brands gets exactly one visible top-level themed section at /fun/ (or existing valid equivalent) with 10 distinct curated interactive concepts; no extra public brand or 15th site.
+- [ ] **FUN-CORE-002** Use a unique section name, audience, illustration and design language per product; shared infrastructure is allowed but no cloned user experience.
+- [ ] **FUN-CORE-003** Every mini tool produces an immediately meaningful, demonstrably correct, amusing or creative outcome; avoid random-sentence spam.
+- [ ] **FUN-CORE-004** Provide original sample data/assets for first-time visitors so all games work without uploads or sign-in.
+- [ ] **FUN-CORE-005** Provide Replay/Remix, Try Another, View Method, and contextual link to the relevant full working tool.
+- [ ] **FUN-CORE-006** Native user-click Web Share API for link/text and optionally generated PNG where supported; no automatic posting or unsolicited social messages.
+- [ ] **FUN-CORE-007** Provide Copy Link fallback and Download PNG/SVG/text card fallback for unsupported browsers; clipboard requires secure context/gesture.
+- [ ] **FUN-CORE-008** Privacy-safe URL state may contain only benign short input selections; no sensitive payroll, finances, medical or pet/private information in URLs or query strings.
+- [ ] **FUN-CORE-009** Use local Canvas/SVG to create shareable result card with unique branding, short understandable result, optional attribution, and optional user-approved image.
+- [ ] **FUN-CORE-010** Where useful, generate a deterministic no-account shareable challenge code or encoded safe options; include reproducibility and size limits, no public database by default.
+- [ ] **FUN-CORE-011** Optional open challenge or leaderboard only if secure privacy-safe verification possible on free resources; do not fabricate public scores, rankings or user counts.
+- [ ] **FUN-CORE-012** Keep fun content free with no paywall, login, watch-an-ad-to-reveal, forced share or reward for ad-click.
+- [ ] **FUN-CORE-013** Make share button explicitly user-triggered; do not force messenger or platform app link, ask for social permissions or upload contact lists.
+- [ ] **FUN-CORE-014** Place ads outside game canvas, answer feedback, share/try-again buttons and download controls; prevent misclicks and layout shifts.
+- [ ] **FUN-CORE-015** Provide accessibility alternatives: keyboard play, visible focus, reduced motion, screen-reader feedback and non-timed option for quiz activities.
+- [ ] **FUN-CORE-016** Show clear simulation/entertainment labels on fictional results and jokes; no stock price prediction, legal guarantee, diagnosis, disaster warning or fabricated headline.
+- [ ] **FUN-CORE-017** Do not shame or mock individuals, pets, workers, medical conditions, financial hardships or vulnerable groups.
+- [ ] **FUN-CORE-018** Use only user-owned/appropriately licensed photos, emojis, icons, fonts and media; no copyrighted template/logo or unauthorized image imports.
+- [ ] **FUN-CORE-019** Don't create mass-indexed result or personalized share URL variants; canonical fun tool page only, share-result state not crawl/index spam.
+- [ ] **FUN-CORE-020** Only index pages with functional interactions and original useful instructions, not placeholder quiz or thin catchphrase landing pages.
+- [ ] **FUN-CORE-021** Each mini tool gets SEO/GEO, canonical, schema where truly applicable, and tested outputs as part of creation.
+- [ ] **FUN-CORE-022** Measure opt-in anonymous fun-start, completion, share-button use, successful native share where observable, shared-link landing and next real tool usage.
+- [ ] **FUN-CORE-023** Share counts reflect measured events only; no fake '10k shares', artificial virality or inflated social proof.
+- [ ] **FUN-CORE-024** Use UTM parameters only when appropriate, non-personal and compliant; never track copied user files or private question answers.
+- [ ] **FUN-CORE-025** Use a light static-browser-first engine to avoid Workers requests for each visit; protect the account's shared Cloudflare Free quotas.
+- [ ] **FUN-CORE-026** Use Workers AI only for clearly optional safe creative drafting where free-plan model and quota support it, with deterministic offline fallback.
+- [ ] **FUN-CORE-027** System performance: on-device generation, small asset size, lazy-load photo editor/maps and handle low-memory mobiles gracefully.
+- [ ] **FUN-CORE-028** Release an actually runnable demo before social promotion, with optional short clip and privacy-safe result card.
+- [ ] **FUN-CORE-029** Keep mini game facts sourced when tied to history, medicine, climate, energy, finance, engineering, cybersecurity or law.
+- [ ] **FUN-CORE-030** Respect separate product ownership: pet fun only LifeAlora, farm animal fun only IndustryLuma, image memes only BrowserPixel, PDF puzzles only FileSwiftTools.
+
+### Site-owned original fun mini tools (not duplicate product apps)
+
+#### CoinMetriq — Crypto Chaos Lab
+
+**Purpose:** Playful crypto-risk literacy based on transparent math and hypothetical/sample data, not real investment predictions.
+
+- [ ] **FUN-CM-001** Fee Goblin: see tiny transaction fees eat hypothetical profits across trading frequency
+- [ ] **FUN-CM-002** DCA Time Machine: compare fictional buy schedules using user-imported price CSV
+- [ ] **FUN-CM-003** HODL Rollercoaster: animated drawdown and recovery ride from dated user-entered values
+- [ ] **FUN-CM-004** Moon Math vs Reality: humorous unrealistic return target deconstruction with calculator
+- [ ] **FUN-CM-005** Portfolio Personality Card: fun risk-habit quiz explicitly not psychometric/investment advice
+- [ ] **FUN-CM-006** What-if Coin Split: allocation bar game and concentration explanations
+- [ ] **FUN-CM-007** Mining Electric Bill Monster: animated energy expense versus hypothetical revenue
+- [ ] **FUN-CM-008** Token Unlock Surprise: visually demonstrate dilution from a fictional token schedule
+- [ ] **FUN-CM-009** Scam Red Flag Bingo: identify common bogus promises and wallet security cues
+- [ ] **FUN-CM-010** Crypto Terms Emoji Decoder: learn network, gas and liquidity vocabulary through playful quizzes
+- [ ] **FUN-CM-011** Implement one brand-specific /fun/ home with accurate preview, relevant links and original artwork, accessible on mobile.
+- [ ] **FUN-CM-012** Generate user-triggered safe share card + copy link/download alternative; link meaningful next product utility without forcing a share.
+- [ ] **FUN-CM-013** Regression-test sample inputs, joke/trivia accuracy, privacy controls, unique SEO intent and nonintrusive ad placement.
+
+#### EarthViora — Planet Playground
+
+**Purpose:** Geography and Earth observation challenges with verifiable coordinates, imagery and source-aware explanations.
+
+- [ ] **FUN-EV-001** Guess the Country Shape: outline-to-map geography challenge
+- [ ] **FUN-EV-002** Satellite Spot the Difference: compare properly licensed imagery dates and explain actual visible change
+- [ ] **FUN-EV-003** How Many Football Fields: convert drawn land area into familiar scales, with standardized reference
+- [ ] **FUN-EV-004** Map Coordinate Treasure Hunt: find a marked location by latitude/longitude clues
+- [ ] **FUN-EV-005** River Meander Puzzle: identify historical bend locations from cited map data
+- [ ] **FUN-EV-006** Earth Layers Explorer: match terrain, vegetation, water and city layers to their actual use
+- [ ] **FUN-EV-007** Land Cover Detective: classify visible features with an uncertainty/confusion note
+- [ ] **FUN-EV-008** Satellite Orbit Trivia: identify pass/orbit facts from verified reference
+- [ ] **FUN-EV-009** Continent Distance Guess: predict distance then reveal calculated geodesic result
+- [ ] **FUN-EV-010** Earth Data Myth Buster: short quiz about map accuracy, dates and satellite resolution
+- [ ] **FUN-EV-011** Implement one brand-specific /fun/ home with accurate preview, relevant links and original artwork, accessible on mobile.
+- [ ] **FUN-EV-012** Generate user-triggered safe share card + copy link/download alternative; link meaningful next product utility without forcing a share.
+- [ ] **FUN-EV-013** Regression-test sample inputs, joke/trivia accuracy, privacy controls, unique SEO intent and nonintrusive ad placement.
+
+#### SolarQentra — Power Play Lab
+
+**Purpose:** Electricity and solar energy mini challenges linked to real calculations and stated engineering assumptions.
+
+- [ ] **FUN-SQ-001** Energy Vampire Hunt: spot high-consumption appliances in a sample home
+- [ ] **FUN-SQ-002** Which Appliance Wins: calculate use costs in playful head-to-head comparison
+- [ ] **FUN-SQ-003** Battery Backup Countdown: how long could user-selected loads run hypothetically
+- [ ] **FUN-SQ-004** Solar Roof Puzzle: arrange sample panels on a fictional rooftop size grid
+- [ ] **FUN-SQ-005** Cloudy Day Challenge: explore what lower sunshine does to monthly generation
+- [ ] **FUN-SQ-006** Lights On Challenge: how many example LED bulbs run on a battery
+- [ ] **FUN-SQ-007** EV Charging Race: compare charger powers and realistic energy/time assumptions
+- [ ] **FUN-SQ-008** Off-grid Cabin Builder: choose loads, panels and storage within a sample budget
+- [ ] **FUN-SQ-009** Solar Savings Myth Quiz: distinguish model assumptions from guaranteed savings
+- [ ] **FUN-SQ-010** Home Power Quiz Card: explain watts, kWh, kW, peak demand and efficiency
+- [ ] **FUN-SQ-011** Implement one brand-specific /fun/ home with accurate preview, relevant links and original artwork, accessible on mobile.
+- [ ] **FUN-SQ-012** Generate user-triggered safe share card + copy link/download alternative; link meaningful next product utility without forcing a share.
+- [ ] **FUN-SQ-013** Regression-test sample inputs, joke/trivia accuracy, privacy controls, unique SEO intent and nonintrusive ad placement.
+
+#### TechOrvia — Dev Arcade
+
+**Purpose:** Light-hearted developer puzzles that teach real parsing, APIs and computing rather than generating fake code reviews.
+
+- [ ] **FUN-TO-001** Regex Escape Room: solve progressively harder realistic match puzzles
+- [ ] **FUN-TO-002** JSON Detective: locate deliberately invalid syntax and repair a sample document
+- [ ] **FUN-TO-003** HTTP Status Emoji Quiz: match status codes to actual meanings
+- [ ] **FUN-TO-004** Cron Time Travel Puzzle: guess the next scheduled run with timezone explanation
+- [ ] **FUN-TO-005** Bug Hunt: inspect tiny sample snippets and choose actual corrective diff
+- [ ] **FUN-TO-006** JWT Myth Buster: decode harmless mock payloads and explain decode vs verify
+- [ ] **FUN-TO-007** CSS Selector Showdown: identify matching selectors and specificity
+- [ ] **FUN-TO-008** API Response Mystery: compare fictional JSON and find the breaking contract change
+- [ ] **FUN-TO-009** Unix Timestamp Challenge: convert and predict dated timestamps
+- [ ] **FUN-TO-010** Code Comment Fortune Cards: humorous opt-in prompts, not real executable code analysis
+- [ ] **FUN-TO-011** Implement one brand-specific /fun/ home with accurate preview, relevant links and original artwork, accessible on mobile.
+- [ ] **FUN-TO-012** Generate user-triggered safe share card + copy link/download alternative; link meaningful next product utility without forcing a share.
+- [ ] **FUN-TO-013** Regression-test sample inputs, joke/trivia accuracy, privacy controls, unique SEO intent and nonintrusive ad placement.
+
+#### MoneyAvora — Money Challenge Room
+
+**Purpose:** Practical money literacy with entertaining scenarios that never mock debt hardship or imply financial guarantees.
+
+- [ ] **FUN-MA-001** Coffee Budget Time Machine: repeated small spending over a hypothetical year
+- [ ] **FUN-MA-002** Budget Leak Detective: identify overspending in a fictional expense sheet
+- [ ] **FUN-MA-003** Debt Snowball Race: compare repayment orders from editable example assumptions
+- [ ] **FUN-MA-004** Savings Goal Bingo: check off user-defined no-cost saving habits
+- [ ] **FUN-MA-005** Inflation Time Travel: visualize same purchasing power with example inflation data
+- [ ] **FUN-MA-006** Spend or Save Simulator: compare user-entered opportunity costs without advice
+- [ ] **FUN-MA-007** Emergency Fund Builder: challenge to construct a monthly savings schedule
+- [ ] **FUN-MA-008** Price Markup Guess: predict actual margin from sample shop costs
+- [ ] **FUN-MA-009** Import Cost Surprise: uncover hidden freight/insurance line items
+- [ ] **FUN-MA-010** Compounding Myth or Fact Quiz: distinguish APY, APR and contribution effects
+- [ ] **FUN-MA-011** Implement one brand-specific /fun/ home with accurate preview, relevant links and original artwork, accessible on mobile.
+- [ ] **FUN-MA-012** Generate user-triggered safe share card + copy link/download alternative; link meaningful next product utility without forcing a share.
+- [ ] **FUN-MA-013** Regression-test sample inputs, joke/trivia accuracy, privacy controls, unique SEO intent and nonintrusive ad placement.
+
+#### IndustryLuma — Farm & Factory Fun
+
+**Purpose:** Playful educational farm and industrial mini-simulators; never animal clinical care, pesticide dosing or compliance approval.
+
+- [ ] **FUN-IL-001** Guess the Cow Weight: compare rough body-measure estimate to guesses, with approximation disclaimer
+- [ ] **FUN-IL-002** Milk Yield Challenge: predict total milk from an example herd day
+- [ ] **FUN-IL-003** Feed Cost Detective: find an over-budget feed item in fictional dairy records
+- [ ] **FUN-IL-004** Poultry FCR Puzzle: solve feed conversion from sample batch inputs
+- [ ] **FUN-IL-005** Fish Pond Stocking Puzzle: explore illustrative stocking and pond volume arithmetic
+- [ ] **FUN-IL-006** Crop Spacing Grid: place seedlings in a plot to learn density
+- [ ] **FUN-IL-007** Factory Bottleneck Hunt: identify limiting workstation from sample cycle times
+- [ ] **FUN-IL-008** OEE Score Challenge: compute availability, performance and quality components
+- [ ] **FUN-IL-009** Waste Sorting Mini Quiz: categorize common packaging and process scraps
+- [ ] **FUN-IL-010** ETP Water Balance Puzzle: locate missing volume in a hypothetical flow chart
+- [ ] **FUN-IL-011** Implement one brand-specific /fun/ home with accurate preview, relevant links and original artwork, accessible on mobile.
+- [ ] **FUN-IL-012** Generate user-triggered safe share card + copy link/download alternative; link meaningful next product utility without forcing a share.
+- [ ] **FUN-IL-013** Regression-test sample inputs, joke/trivia accuracy, privacy controls, unique SEO intent and nonintrusive ad placement.
+
+#### WorldOrixa — World Trivia Arena
+
+**Purpose:** Fact-checked geographical, cultural and historical challenges, avoiding unverified political claims or fake news.
+
+- [ ] **FUN-WO-001** Guess the Country on Map: clickable geography puzzle
+- [ ] **FUN-WO-002** Flag Match Challenge: match flag to country with accurate ownership
+- [ ] **FUN-WO-003** World Timezone Guess: predict local clock time in a chosen city
+- [ ] **FUN-WO-004** Timeline Shuffle: order dated historical world events with references
+- [ ] **FUN-WO-005** Capital City Match: choose capitals with source/region information
+- [ ] **FUN-WO-006** Population Estimate Challenge: guess from labeled dated public statistical data
+- [ ] **FUN-WO-007** Festival Match Quiz: match culture events to countries with cited factual background
+- [ ] **FUN-WO-008** Sports History Quiz: only legally sourced historical verified outcomes
+- [ ] **FUN-WO-009** Fact or Fiction News Check: learn to verify an actual claim via original sources
+- [ ] **FUN-WO-010** Country Silhouette and Distance Quiz: guess neighboring country and map distance
+- [ ] **FUN-WO-011** Implement one brand-specific /fun/ home with accurate preview, relevant links and original artwork, accessible on mobile.
+- [ ] **FUN-WO-012** Generate user-triggered safe share card + copy link/download alternative; link meaningful next product utility without forcing a share.
+- [ ] **FUN-WO-013** Regression-test sample inputs, joke/trivia accuracy, privacy controls, unique SEO intent and nonintrusive ad placement.
+
+#### VitalOryx — Wellness Joy Lab
+
+**Purpose:** Nonclinical and nonjudgmental wellness mini games encouraging learning and habits without medical advice.
+
+- [ ] **FUN-VO-001** Desk Stretch Bingo: user-selected movement breaks with accessibility options
+- [ ] **FUN-VO-002** Walking Pace Challenge: guess then calculate pace from hypothetical distance and time
+- [ ] **FUN-VO-003** Hydration Habit Garden: celebrate self-chosen check-ins without prescribing intake
+- [ ] **FUN-VO-004** Sleep Routine Builder: assemble a calming fictional bedtime plan
+- [ ] **FUN-VO-005** Movement Break Spin: choose between safe low-effort stretch suggestions, skip freely
+- [ ] **FUN-VO-006** Healthy Label Detective: interpret food labels using sample numbers
+- [ ] **FUN-VO-007** Screen Break Quest: opt-in focus and break timer rewards
+- [ ] **FUN-VO-008** Fitness Vocabulary Match: learn terms and measurement units
+- [ ] **FUN-VO-009** Breathing Animation Garden: nonmedical timed calm visuals with opt-out
+- [ ] **FUN-VO-010** Kind Habit Streak Cards: positive local check-ins without body shaming or clinical scoring
+- [ ] **FUN-VO-011** Implement one brand-specific /fun/ home with accurate preview, relevant links and original artwork, accessible on mobile.
+- [ ] **FUN-VO-012** Generate user-triggered safe share card + copy link/download alternative; link meaningful next product utility without forcing a share.
+- [ ] **FUN-VO-013** Regression-test sample inputs, joke/trivia accuracy, privacy controls, unique SEO intent and nonintrusive ad placement.
+
+#### EduNovira — Study Fun Arcade
+
+**Purpose:** Small skill-building games linked to educational tools and honest progress, not fake exams or scores.
+
+- [ ] **FUN-EN-001** Math Speed Round: optional timer with validated arithmetic answers
+- [ ] **FUN-EN-002** GPA Target Puzzle: determine required grade from editable example weights
+- [ ] **FUN-EN-003** Memory Match Cards: pair terms and user-created flashcards
+- [ ] **FUN-EN-004** Vocabulary Word Challenge: spell and identify meaning from verified word lists
+- [ ] **FUN-EN-005** Exam Planner Puzzle: rearrange tasks into available study slots
+- [ ] **FUN-EN-006** Science Myth Quiz: sourced fact questions with explanation
+- [ ] **FUN-EN-007** Coding Bug Mini Quiz: debug simple code snippets
+- [ ] **FUN-EN-008** Geography Flash Challenge: country and place knowledge with source
+- [ ] **FUN-EN-009** Pomodoro Study Quest: distraction-free focus timer with local accomplishments
+- [ ] **FUN-EN-010** Career Skill Bingo: opt-in self-assessment prompts, not fake job recommendations
+- [ ] **FUN-EN-011** Implement one brand-specific /fun/ home with accurate preview, relevant links and original artwork, accessible on mobile.
+- [ ] **FUN-EN-012** Generate user-triggered safe share card + copy link/download alternative; link meaningful next product utility without forcing a share.
+- [ ] **FUN-EN-013** Regression-test sample inputs, joke/trivia accuracy, privacy controls, unique SEO intent and nonintrusive ad placement.
+
+#### LifeAlora — Happy Life Playground
+
+**Purpose:** Home, travel and pet-owner humor that creates useful cards/checklists, not animal medicine or farm calculators.
+
+- [ ] **FUN-LA-001** Pet Name Mixer: funny dog/cat names using user-chosen themes
+- [ ] **FUN-LA-002** Dog or Cat Personality Fun Quiz: playful fictional result explicitly not behavior diagnosis
+- [ ] **FUN-LA-003** Pet Budget Surprise: guess costs from owner-entered numbers and see breakdown
+- [ ] **FUN-LA-004** Paw Adventure Card: create illustrated text-only pet adventure story card locally
+- [ ] **FUN-LA-005** Room Makeover Shuffle: try harmless furniture arrangements on a sample 2D plan
+- [ ] **FUN-LA-006** Paint Color Match: playful combinations with real accessibility/color contrast explanation
+- [ ] **FUN-LA-007** Travel Packing Challenge: pack essentials for user-selected itinerary constraints
+- [ ] **FUN-LA-008** Where Would You Travel Quiz: preference-based ideas without fabricated prices
+- [ ] **FUN-LA-009** Moving Box Tetris-like Puzzle: fit rectangular fictional boxes in a storage layout (original design)
+- [ ] **FUN-LA-010** Household Chore Bingo: turn opt-in room chores into playful checklists
+- [ ] **FUN-LA-011** Implement one brand-specific /fun/ home with accurate preview, relevant links and original artwork, accessible on mobile.
+- [ ] **FUN-LA-012** Generate user-triggered safe share card + copy link/download alternative; link meaningful next product utility without forcing a share.
+- [ ] **FUN-LA-013** Regression-test sample inputs, joke/trivia accuracy, privacy controls, unique SEO intent and nonintrusive ad placement.
+
+#### TechDailyNews — Tech Trivia Pulse
+
+**Purpose:** News-adjacent quizzes and release-history games backed by dated official documentation, no fabricated headlines.
+
+- [ ] **FUN-TD-001** Guess the Release Year: match historical software release to year from verified notes
+- [ ] **FUN-TD-002** Release Notes Spot the Difference: compare two sourced version changelogs
+- [ ] **FUN-TD-003** AI Terminology Emoji Quiz: match terms and sourced technical definitions
+- [ ] **FUN-TD-004** CVE Facts Challenge: distinguish ID, severity, publication and patch state with cited sample
+- [ ] **FUN-TD-005** Security Myth Buster: identify accurate general digital safety guidance
+- [ ] **FUN-TD-006** Tech Acronym Speed Quiz: expand common technical abbreviations
+- [ ] **FUN-TD-007** Open Source Milestone Timeline: order verified software events
+- [ ] **FUN-TD-008** Vendor Product Feature Match: choose documented feature without promotional claims
+- [ ] **FUN-TD-009** Tech Headline Credibility Check: pick primary source and distinguish speculation
+- [ ] **FUN-TD-010** Weekly Tech Knowledge Card: share a verified finding with publication/source date
+- [ ] **FUN-TD-011** Implement one brand-specific /fun/ home with accurate preview, relevant links and original artwork, accessible on mobile.
+- [ ] **FUN-TD-012** Generate user-triggered safe share card + copy link/download alternative; link meaningful next product utility without forcing a share.
+- [ ] **FUN-TD-013** Regression-test sample inputs, joke/trivia accuracy, privacy controls, unique SEO intent and nonintrusive ad placement.
+
+#### BrowserPixel — Creative Meme Playground
+
+**Purpose:** Local-only amusing image creativity tools and shareable output, not unauthorized copyright reuse or PDF editing.
+
+- [ ] **FUN-BP-001** Meme Maker: overlay user-supplied image and text with templates
+- [ ] **FUN-BP-002** Sticker Maker: cut out simple shape/transparent background and save PNG
+- [ ] **FUN-BP-003** Emoji Mosaic Builder: approximate photo with emoji shapes locally
+- [ ] **FUN-BP-004** Comic Strip Layout: panels, speech bubbles and captions
+- [ ] **FUN-BP-005** Pixel Art Painter: retro grid drawing and palette
+- [ ] **FUN-BP-006** Funny Photo Filters: adjustable sketch, duotone, posterize and cartoon style
+- [ ] **FUN-BP-007** Reaction Image Caption Lab: original text and user-owned images
+- [ ] **FUN-BP-008** Pop-art Grid Generator: repeat colorized panel composition
+- [ ] **FUN-BP-009** Caption Guess Challenge: optional local image caption prompt card
+- [ ] **FUN-BP-010** Avatar Frame and Badge Maker: original themed frames without identity or sensitive assumptions
+- [ ] **FUN-BP-011** Implement one brand-specific /fun/ home with accurate preview, relevant links and original artwork, accessible on mobile.
+- [ ] **FUN-BP-012** Generate user-triggered safe share card + copy link/download alternative; link meaningful next product utility without forcing a share.
+- [ ] **FUN-BP-013** Regression-test sample inputs, joke/trivia accuracy, privacy controls, unique SEO intent and nonintrusive ad placement.
+
+#### FileSwiftTools — PDF Puzzle Lab
+
+**Purpose:** Useful document-handling puzzles based on user-owned or safe demo files, while retaining privacy.
+
+- [ ] **FUN-FS-001** PDF Page Order Puzzle: drag scrambled demo pages into the correct sequence
+- [ ] **FUN-FS-002** PDF Size Challenge: predict and measure output size with honest compression limits
+- [ ] **FUN-FS-003** Rotate the Scan Game: fix orientation of sample document pages
+- [ ] **FUN-FS-004** Find the Duplicate Page: compare demo PDF thumbnails and pick repeats
+- [ ] **FUN-FS-005** PDF Trivia Challenge: test page size, searchable text and metadata understanding
+- [ ] **FUN-FS-006** Blank Page Detective: identify blank or low-ink pages in a safe demo
+- [ ] **FUN-FS-007** Form Field Finder: locate sample editable form fields
+- [ ] **FUN-FS-008** Scanned or Searchable Quiz: reveal if sample PDFs contain text layers
+- [ ] **FUN-FS-009** Document Version Spot the Difference: locate actual changes in demo pages
+- [ ] **FUN-FS-010** PDF Bookmark Treasure Hunt: navigate sample outline/bookmarks to a targeted section
+- [ ] **FUN-FS-011** Implement one brand-specific /fun/ home with accurate preview, relevant links and original artwork, accessible on mobile.
+- [ ] **FUN-FS-012** Generate user-triggered safe share card + copy link/download alternative; link meaningful next product utility without forcing a share.
+- [ ] **FUN-FS-013** Regression-test sample inputs, joke/trivia accuracy, privacy controls, unique SEO intent and nonintrusive ad placement.
+
+#### ShiftCalcTools — Shift Life Arcade
+
+**Purpose:** Gentle scheduling and timekeeping puzzles that teach real hours math and respect worker wellbeing.
+
+- [ ] **FUN-SC-001** Night Owl vs Early Bird Fun Quiz: self-reported schedule preference only
+- [ ] **FUN-SC-002** Shift Swap Puzzle: find conflict-free swap for sample worker roster
+- [ ] **FUN-SC-003** Overtime Math Challenge: solve gross pay from user-entered hypothetical rates
+- [ ] **FUN-SC-004** Break Time Bingo: understand paid versus unpaid break rules with editable settings
+- [ ] **FUN-SC-005** Rotating Shift Pattern Puzzle: match recurring schedule patterns to days
+- [ ] **FUN-SC-006** Shift Conflict Detective: spot overlapping assignments in sample calendars
+- [ ] **FUN-SC-007** Guess the Work Hours: predict elapsed hours of overnight shifts
+- [ ] **FUN-SC-008** Time Zone Challenge: match cross-border coworker shift times
+- [ ] **FUN-SC-009** PTO Calendar Quest: use a fictional balance to plan breaks
+- [ ] **FUN-SC-010** Paycheck Guess and Reveal: compare gross calculations without asserting tax law
+- [ ] **FUN-SC-011** Implement one brand-specific /fun/ home with accurate preview, relevant links and original artwork, accessible on mobile.
+- [ ] **FUN-SC-012** Generate user-triggered safe share card + copy link/download alternative; link meaningful next product utility without forcing a share.
+- [ ] **FUN-SC-013** Regression-test sample inputs, joke/trivia accuracy, privacy controls, unique SEO intent and nonintrusive ad placement.
+
+### Conversion funnel and measurable results
+
+**Fun page discovered (search/social/direct) → mini tool completed → share initiated by user → genuine shared-link visitor → relevant full tool discovered → legitimate return visit → compliant ad impression.** Not every share becomes a referral and no traffic or AdSense earnings are guaranteed.
+
+**No account free architecture:** Cloudflare Pages static HTML/CSS/JS, client-side SVG/Canvas/Web Share API, optional IndexedDB. External data/facts only after commercial-use rights review and cited freshness. A URL with embedded answer must never include sensitive personal/private inputs. No centralized public leaderboard necessary.
+
+**User-share mechanism:** Native Share where user gesture/platform supports it; otherwise Copy Link, copy plain text, Save Result Image. Export the result itself, not just a generic advertisement for the site. Generated share cards disclose simulation status when appropriate.
+
+**Ad & indexing protection:** ads never within game actions, result reveal, share or download controls. No rewards for clicking ads. Unique functional fun tools can be indexable, but millions of generated result URLs, copied jokes and stub pages must not be indexed.
+
+**Relevant references:** Web Share API https://developer.mozilla.org/en-US/docs/Web/API/Web_Share_API ; Google scaled content abuse https://developers.google.com/search/docs/essentials/spam-policies ; Google ad placement https://support.google.com/adsense/answer/1346295 .
+
+**Definition of done:** A branded fun section with genuinely working mini tools, sample inputs, accurate sources where needed, accessible controls, user-initiated share/copy/download, privacy safety, existing real-tool links, tested mobile performance and appropriate Google/AdSense compliance. No checkbox means complete merely because its idea appears here.
