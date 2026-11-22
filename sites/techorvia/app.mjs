@@ -25,6 +25,20 @@ function fail(message){
 }
 function formValues(form){const out={};for(const f of form.querySelectorAll("[data-field]"))out[f.dataset.field]=f.value;return out;}
 const fileFormats=new Set(["pdf","image","office","media","network"]);
+async function safeRegex(input,fields){
+ if(!window.Worker)throw Error("Regex testing requires Web Worker support.");
+ const code='self.onmessage=e=>{try{const {input,pattern,flags}=e.data;const re=new RegExp(pattern,flags);const actual=re.global?re:new RegExp(re.source,re.flags+"g");const matches=[];for(const x of input.matchAll(actual)){matches.push("At "+x.index+": "+JSON.stringify(x[0]));if(matches.length===100)break;}self.postMessage({text:matches.length+" matches (up to 100):\\n"+matches.join("\\n")});}catch(err){self.postMessage({error:err.message});}}';
+ const source=URL.createObjectURL(new Blob([code],{type:"text/javascript"}));
+ const thread=new Worker(source);
+ try{return await new Promise((resolve,reject)=>{
+  const timer=setTimeout(()=>{thread.terminate();reject(Error("Regex took too long. Try a simpler pattern."));},900);
+  thread.onmessage=event=>{clearTimeout(timer);event.data.error?reject(Error(event.data.error)):resolve({text:event.data.text});};
+  thread.onerror=()=>{clearTimeout(timer);reject(Error("Regex worker failed."));};
+  thread.postMessage({input:String(input).slice(0,20000),pattern:String(fields.pattern||"").slice(0,200),flags:String(fields.flags||"g")});
+ });}
+ finally{thread.terminate();URL.revokeObjectURL(source);}
+}
+
 async function runTool(form,event){
  event.preventDefault();
  const op=form.dataset.op,mode=form.dataset.mode;const fields=formValues(form),input=form.querySelector("[data-input]")?.value||"";
@@ -34,13 +48,14 @@ async function runTool(form,event){
  try{
   let output;
   if(fileFormats.has(mode)||op==="file-hash"||["qr","wifi-qr","qr-read"].includes(op))output=await processFile({op,mode,slug:op},files,fields,input);
-  else output=await runPure(op,input,fields);
+  else output=op==="regex"?await safeRegex(input,fields):await runPure(op,input,fields);
   if(output.blob){resultText(output,"File ready: "+output.name+".\nProcessed locally in "+((performance.now()-start)/1000).toFixed(2)+" seconds.",output.name);}
   else resultText(output,output.text,output.filename||output.name);
  }catch(err){fail(smartError(err));}
  finally{button.disabled=false;button.textContent=original;}
 }
 const form=by("[data-tv-tool]");if(form)form.addEventListener("submit",ev=>runTool(form,ev));
+const asof=by('input[data-field="asof"][type="date"]');if(asof){const today=new Date();asof.value=new Date(today.getTime()-today.getTimezoneOffset()*60000).toISOString().slice(0,10);}
 const fileInput=by("[data-files]");
 if(fileInput)fileInput.addEventListener("change",()=>{
  const node=by("[data-selected]");if(node)node.textContent=[...fileInput.files].map(x=>x.name+" ("+(x.size/1024/1024).toFixed(2)+" MB)").join(" · ")||"No files selected";

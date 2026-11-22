@@ -75,7 +75,7 @@ const getPages=(input,total)=>{
 const takePdf=async f=>{const lib=await pdfLib();return lib.PDFDocument.load(await verifyPdf(f));};
 const readPdf=async f=>{const js=await pdfJs();const bytes=await verifyPdf(f);return js.getDocument({data:bytes}).promise;};
 async function extractText(f){
- const pdf=await readPdf(f);try{const chunks=[];for(let i=1;i<=pdf.numPages;i++){const page=await pdf.getPage(i),content=await page.getTextContent();chunks.push(content.items.map(x=>x.str).join(" "));}return chunks.join("\n\n");}finally{await pdf.destroy();}
+ const pdf=await readPdf(f);try{if(pdf.numPages>300)throw Error("PDF text extraction supports at most 300 pages.");const chunks=[];for(let i=1;i<=pdf.numPages;i++){const page=await pdf.getPage(i),content=await page.getTextContent();chunks.push(content.items.map(x=>x.str).join(" "));}return chunks.join("\n\n");}finally{await pdf.destroy();}
 }
 async function makeTextPdf(content){
  const {PDFDocument,StandardFonts,rgb}=await pdfLib();const pdf=await PDFDocument.create(),font=await pdf.embedFont(StandardFonts.Helvetica);
@@ -95,6 +95,9 @@ const fileImage=async(file,format="image/png",options={})=>{
  try{
  const width=Math.max(1,Math.min(8000,Math.round(+options.width||img.naturalWidth))),height=Math.max(1,Math.min(8000,Math.round(+options.height||img.naturalHeight)));
  if(width*height>55e6)throw Error("Result image is too large.");
+ if(options.width!=null&&(!Number.isFinite(Number(options.width))||Number(options.width)<=0||Number(options.width)>8000))throw Error("Width must be from 1 to 8000 pixels.");
+ if(options.height!=null&&(!Number.isFinite(Number(options.height))||Number(options.height)<=0||Number(options.height)>8000))throw Error("Height must be from 1 to 8000 pixels.");
+ if(options.crop){const [x,y,cw,ch]=options.crop;if(x+cw>img.naturalWidth||y+ch>img.naturalHeight)throw Error("Crop must fit inside original picture.");}
  const rotate=Number(options.rotate||0),turn=rotate===90||rotate===270;
  const canvas=document.createElement("canvas");canvas.width=turn?height:width;canvas.height=turn?width:height;
  const ctx=canvas.getContext("2d");if(!ctx)throw Error("Canvas unavailable.");
@@ -104,7 +107,7 @@ const fileImage=async(file,format="image/png",options={})=>{
  if(options.crop){
   const [x,y,cw,ch]=options.crop;ctx.drawImage(img,x,y,cw,ch,-width/2,-height/2,width,height);
  }else ctx.drawImage(img,-width/2,-height/2,width,height);
- const data=await canvasBlob(canvas,format,Number(options.quality??.86));return data;
+ const data=await canvasBlob(canvas,format,Number(options.quality??.86));if(data.type!==format)throw Error("Browser cannot encode requested image format.");return data;
  }finally{URL.revokeObjectURL(img.src);}
 };
 async function photoToPdf(files){
@@ -128,6 +131,7 @@ export async function processFile(tool,files,fields={},text=""){
    const file=firstFile(list);if(op==="extract-text")return textResult(await extractText(file),"extracted.txt");
    if(op==="extract-docx"){const body=await extractText(file);if(!body.trim())throw Error("No searchable text found. Scanned PDFs require OCR.");return wordResult(body);}
    const pdf=await readPdf(file);try{
+    if(pdf.numPages>300)throw Error("This browser processes PDFs with up to 300 pages.");
     if(op==="metadata"){const d=await pdf.getMetadata().catch(()=>({info:{}}));return textResult(JSON.stringify({pages:pdf.numPages,metadata:d.info||{}},null,2));}
     const pages=getPages(fields.pages||"all",pdf.numPages);if(pages.length>20)throw Error("Limit rendering to 20 pages at a time.");
     const entries=[],isJpg=op==="render-jpg";
@@ -190,7 +194,7 @@ export async function processFile(tool,files,fields={},text=""){
   const ctx=new (window.AudioContext||window.webkitAudioContext)();
   try{const decoded=await ctx.decodeAudioData(await f.arrayBuffer());let start=0,end=decoded.length;
    if(op==="audio-trim"){start=Math.round(Number(fields.start||0)*decoded.sampleRate);end=Math.round(Number(fields.end||decoded.duration)*decoded.sampleRate);if(start<0||end<=start||end>decoded.length)throw Error("Invalid trim range.");}
-   const channels=Math.min(2,decoded.numberOfChannels),len=end-start,bytes=new ArrayBuffer(44+len*channels*2),dv=new DataView(bytes);
+   const channels=Math.min(2,decoded.numberOfChannels),len=end-start;if(len*channels*2>160*1024*1024)throw Error("Audio output exceeds 160 MB. Trim a shorter section.");const bytes=new ArrayBuffer(44+len*channels*2),dv=new DataView(bytes);
    const write=(pos,s)=>{for(let i=0;i<s.length;i++)dv.setUint8(pos+i,s.charCodeAt(i));};
    write(0,"RIFF");dv.setUint32(4,36+len*channels*2,true);write(8,"WAVE");write(12,"fmt ");dv.setUint32(16,16,true);dv.setUint16(20,1,true);dv.setUint16(22,channels,true);dv.setUint32(24,decoded.sampleRate,true);dv.setUint32(28,decoded.sampleRate*channels*2,true);dv.setUint16(32,channels*2,true);dv.setUint16(34,16,true);write(36,"data");dv.setUint32(40,len*channels*2,true);
    const arrays=Array.from({length:channels},(_,i)=>decoded.getChannelData(i));let p=44;for(let i=start;i<end;i++)for(const arr of arrays){const sample=Math.max(-1,Math.min(1,arr[i]));dv.setInt16(p,sample<0?sample*32768:sample*32767,true);p+=2;}
