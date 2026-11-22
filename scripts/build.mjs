@@ -173,17 +173,30 @@ for(const id of targets){
   const rendered = renderCoinMetriq(config,topics,groups,getBase(config));
   for(const [relative,html] of Object.entries(rendered)) write(out,relative,html);
  }
+ let tvRoutes=[];
+ if(id==="techorvia") {
+  const {renderTechOrvia}=await import("../sites/techorvia/render.mjs");
+  const news=JSON.parse(fs.readFileSync(path.join(SITES,id,"news.json"),"utf8"));
+  const rendered=renderTechOrvia(config,getBase(config),news.items);
+  for(const [relative,html] of Object.entries(rendered.files))write(out,relative,html);
+  tvRoutes=rendered.routes;
+ }
  fs.mkdirSync(path.join(out,"assets"),{recursive:true});
  for (const filename of ["style.css","experience.css","calculator.js"])fs.copyFileSync(path.join(ROOT,"packages/site-core",filename),path.join(out,"assets",filename));
  write(out,"assets/favicon.svg",favicon(config));
+ if(id==="techorvia") {
+  for(const [from,to] of [["site.css","tv.css"],["app.mjs","tv-app.mjs"],["core.mjs","tv-core.mjs"],["files.mjs","tv-files.mjs"]])
+   fs.copyFileSync(path.join(SITES,id,from),path.join(out,"assets",to));
+ }
  if(id==="coinmetriq") {
   fs.copyFileSync(path.join(SITES,id,"site.css"),path.join(out,"assets","cm.css"));
   fs.copyFileSync(path.join(SITES,id,"site.js"),path.join(out,"assets","cm.js"));
  }
  const urls=["/","/topics/","/tools/"+config.tool.slug+"/","/about/","/privacy/"];
+ if(id==="techorvia")for(const route of tvRoutes)if(!urls.includes(route))urls.push(route);
  for(const t of topics)if(t.editorialReviewed===true&&Array.isArray(t.sources)&&t.sources.length)urls.push(linkTopic(t));
  write(out,"sitemap.xml",'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+urls.map(route=>'<url><loc>'+getBase(config)+route+'</loc></url>').join("")+'</urlset>');
  write(out,"robots.txt","User-agent: *\nAllow: /\nSitemap: "+getBase(config)+"/sitemap.xml\n");
  write(out,"_headers","/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  X-Frame-Options: DENY\n  Permissions-Policy: camera=(), microphone=(), geolocation=()\n");
- console.log("Built "+config.name+": 30 guide pages, topic directory, calculator, brand homepage, about/privacy/404.");
+ console.log("Built "+config.name+": "+topics.length+" topic guides"+(id==="techorvia"?" and "+tvRoutes.length+" tool/site routes":"")+".");
 }

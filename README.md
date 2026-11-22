@@ -58,3 +58,11 @@ Country shortlists guide future verified localization; country-only doorway page
 Site pages have canonical URLs, WebSite and breadcrumb structured data, unique headings, OG metadata, sitemaps and robots.txt.
 An individual topic page is indexable ONLY when it explicitly has editorialReviewed=true and a non-empty sources array in its topics.json record. Publish substantial useful material and verified sources before enabling that flag.
 Ads and analytics require accurate privacy disclosures and legally appropriate visitor consent controls before enabling tracking.
+
+## TechOrvia independently built utility platform
+
+TechOrvia uses its own `sites/techorvia/` renderer, CSS, browser processing code and extensible catalog. It does not share the marketing layout of other sites. Tool entries in `catalog.mjs` automatically produce `/tools/<slug>/` pages and `/categories/<slug>/` directory pages; no arbitrary category or tool count limit exists.
+
+Files remain client-side. PDF, OCR, DOCX and QR tools require pinned third-party browser libraries downloaded on demand; cloud or network restrictions can block those libraries. `PDF to Word` / `Word to PDF` are explicitly text-only conversions, not full fidelity document layout conversion. News metadata only (headlines/date/source link) is updated from trusted official RSS sources three times daily using GitHub Actions. No copyrighted full news text or speculative AI generated coverage.
+
+Run `npm run check` to validate all sites and TechOrvia tools. GitHub CI deployment will verify static routes. The website does not claim that third-party CDN/browser functionality is exhaustively browser-tested or that unsupported AI models/remote scanners exist.

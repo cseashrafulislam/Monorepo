@@ -17,8 +17,8 @@ test("Ten distinct brands with expandable topic catalogs",()=>{
   assert.equal(config.id,id);
   assert.ok(!Object.prototype.hasOwnProperty.call(config,"categories"),id+": redundant categories data");
   assert.ok(topics.length>=1,id);
-  assert.equal(new Set(topics.map(t=>t.name)).size,30,id);
-  assert.equal(new Set(topics.map(t=>slug(t.name))).size,30,id);
+  assert.equal(new Set(topics.map(t=>t.name)).size,topics.length,id);
+  assert.equal(new Set(topics.map(t=>slug(t.name))).size,topics.length,id);
   assert.ok(new Set(topics.map(t=>t.group)).size>=1,id);
   for(const topic of topics) {
    assert.ok(topic.overview.length>35,id+" "+topic.name);
@@ -42,7 +42,8 @@ test("Static build: all topic routes, unique designs, SEO & site isolation",()=>
   const index=fs.readFileSync(path.join(base,"topics","index.html"),"utf8");
   const sitemap=fs.readFileSync(path.join(base,"sitemap.xml"),"utf8");
   assert.match(home,new RegExp('data-design="'+config.design.design+'"'),id);
-  assert.ok(home.includes(config.design.heroTitle),id+" distinct hero");
+  if(id!=="techorvia")assert.ok(home.includes(config.design.heroTitle),id+" distinct hero");
+  else assert.ok(home.includes("Free tools."),"TechOrvia independent tool-first homepage");
   assert.ok(home.includes('<link rel="canonical"'),id+" canonical");
   assert.ok(home.includes('og:title'),id+" open graph");
   assert.ok(index.includes(String(topics.length)),id+" topic count");
