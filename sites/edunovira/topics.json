@@ -1,0 +1,182 @@
+[
+  {
+    "name": "School Learning",
+    "overview": "Explore curriculum planning and age-appropriate study strategies.",
+    "practice": "Follow official local syllabuses for examination scope.",
+    "group": "Learning Foundations"
+  },
+  {
+    "name": "Mathematics",
+    "overview": "Review equations, arithmetic and quantitative reasoning.",
+    "practice": "Check solution steps and units instead of memorizing answers.",
+    "group": "Learning Foundations"
+  },
+  {
+    "name": "Science Learning",
+    "overview": "Explore practical concepts from biology, chemistry and physics.",
+    "practice": "Separate demonstrations from controlled experiments.",
+    "group": "Learning Foundations"
+  },
+  {
+    "name": "English Learning",
+    "overview": "Build vocabulary, reading and communication routines.",
+    "practice": "Practice comprehension rather than isolated word lists.",
+    "group": "Learning Foundations"
+  },
+  {
+    "name": "Coding Fundamentals",
+    "overview": "Understand variables, conditions, functions and debugging.",
+    "practice": "Learn by testing small programs with clear expected outputs.",
+    "group": "Learning Foundations"
+  },
+  {
+    "name": "Digital Literacy",
+    "overview": "Develop reliable search, privacy and productivity skills.",
+    "practice": "Verify sources before sharing online information.",
+    "group": "Learning Foundations"
+  },
+  {
+    "name": "GPA Calculator",
+    "overview": "Calculate credit-weighted grade points on a stated scale.",
+    "practice": "Confirm school conversion rules and whether retakes count.",
+    "group": "Academic Success"
+  },
+  {
+    "name": "CGPA Planning",
+    "overview": "Understand cumulative performance across semesters.",
+    "practice": "Check credit weighting and institutional rounding rules.",
+    "group": "Academic Success"
+  },
+  {
+    "name": "Exam Preparation",
+    "overview": "Plan revision schedules, question practice and retrieval.",
+    "practice": "Use official exam format and time constraints.",
+    "group": "Academic Success"
+  },
+  {
+    "name": "Study Planner",
+    "overview": "Balance subjects, deadlines and recovery time.",
+    "practice": "Prioritize weak areas based on performance evidence.",
+    "group": "Academic Success"
+  },
+  {
+    "name": "Academic Writing",
+    "overview": "Understand citation, structure and revision.",
+    "practice": "Attribute sources and avoid plagiarism.",
+    "group": "Academic Success"
+  },
+  {
+    "name": "Research Skills",
+    "overview": "Learn search strategy, evidence assessment and referencing.",
+    "practice": "Separate peer-reviewed research from marketing claims.",
+    "group": "Academic Success"
+  },
+  {
+    "name": "Scholarships",
+    "overview": "Explore eligibility, documents and funding terms.",
+    "practice": "Verify deadlines and official awarding institutions.",
+    "group": "Study Abroad & Credentials"
+  },
+  {
+    "name": "Study Abroad",
+    "overview": "Understand course choice, admission and funding processes.",
+    "practice": "Check visa requirements with destination authorities.",
+    "group": "Study Abroad & Credentials"
+  },
+  {
+    "name": "Universities & Courses",
+    "overview": "Compare programs, accreditation and total cost.",
+    "practice": "Confirm recognition and outcomes rather than rankings alone.",
+    "group": "Study Abroad & Credentials"
+  },
+  {
+    "name": "Online Courses",
+    "overview": "Explore self-paced learning and assessment formats.",
+    "practice": "Check instructor credentials and certification terms.",
+    "group": "Study Abroad & Credentials"
+  },
+  {
+    "name": "Professional Certifications",
+    "overview": "Plan certification tracks and exam readiness.",
+    "practice": "Verify vendor versions and renewal requirements.",
+    "group": "Study Abroad & Credentials"
+  },
+  {
+    "name": "Language Tests",
+    "overview": "Understand test formats, scoring and preparation methods.",
+    "practice": "Use official practice materials for current specifications.",
+    "group": "Study Abroad & Credentials"
+  },
+  {
+    "name": "Government Jobs",
+    "overview": "Explore recruitment processes and eligibility screening.",
+    "practice": "Rely on official notices for deadlines and fees.",
+    "group": "Jobs & Careers"
+  },
+  {
+    "name": "Private Sector Careers",
+    "overview": "Learn roles, core competencies and hiring processes.",
+    "practice": "Compare job descriptions against demonstrable skills.",
+    "group": "Jobs & Careers"
+  },
+  {
+    "name": "Remote Work",
+    "overview": "Understand distributed-team expectations and job verification.",
+    "practice": "Watch for advance-fee recruitment scams.",
+    "group": "Jobs & Careers"
+  },
+  {
+    "name": "Freelancing",
+    "overview": "Explore service packaging, client communication and contracts.",
+    "practice": "Track time, fees and payment risk.",
+    "group": "Jobs & Careers"
+  },
+  {
+    "name": "Internships",
+    "overview": "Plan experience building and application preparation.",
+    "practice": "Check supervision, compensation and learning objectives.",
+    "group": "Jobs & Careers"
+  },
+  {
+    "name": "Career Change",
+    "overview": "Map transferable skills and realistic training paths.",
+    "practice": "Validate hiring demand with recent job postings.",
+    "group": "Jobs & Careers"
+  },
+  {
+    "name": "Job Market Skills",
+    "overview": "Understand technical and human skill combinations.",
+    "practice": "Review role-level requirements rather than generic trends.",
+    "group": "Career Tools & Skills"
+  },
+  {
+    "name": "CV Builder Guide",
+    "overview": "Organize achievements, experience and relevant keywords.",
+    "practice": "Use truthful, measurable accomplishments and accessible formatting.",
+    "group": "Career Tools & Skills"
+  },
+  {
+    "name": "Interview Preparation",
+    "overview": "Practice technical examples and behavioral responses.",
+    "practice": "Prepare evidence for claims and questions for the employer.",
+    "group": "Career Tools & Skills"
+  },
+  {
+    "name": "Portfolio Projects",
+    "overview": "Showcase work samples with scope and outcomes.",
+    "practice": "Include tests, documentation and a clear contribution statement.",
+    "group": "Career Tools & Skills"
+  },
+  {
+    "name": "Skill Assessment",
+    "overview": "Assess strengths and development priorities.",
+    "practice": "Use representative tasks instead of arbitrary scores.",
+    "group": "Career Tools & Skills"
+  },
+  {
+    "name": "Career Learning Roadmap",
+    "overview": "Build staged learning goals and milestone checks.",
+    "practice": "Revisit the plan as experience and market demand change.",
+    "group": "Career Tools & Skills"
+  }
+]

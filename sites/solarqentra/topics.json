@@ -1,0 +1,182 @@
+[
+  {
+    "name": "Solar Panel Sizing",
+    "overview": "Estimate the system capacity required for daily energy use.",
+    "practice": "Model local sun hours, system losses and roof constraints.",
+    "group": "Solar Planning"
+  },
+  {
+    "name": "Solar Production Calculator",
+    "overview": "Translate installed kilowatts into estimated daily kilowatt-hours.",
+    "practice": "Use site-specific irradiance and conservative performance assumptions.",
+    "group": "Solar Planning"
+  },
+  {
+    "name": "Solar Installation Planning",
+    "overview": "Understand roof layout, orientation, shade and structural checks.",
+    "practice": "Require professional design review before installation.",
+    "group": "Solar Planning"
+  },
+  {
+    "name": "Solar Return on Investment",
+    "overview": "Calculate payback using upfront cost and estimated energy value.",
+    "practice": "Include tariffs, maintenance, incentives and degradation.",
+    "group": "Solar Planning"
+  },
+  {
+    "name": "Solar Inverter Sizing",
+    "overview": "Compare inverter capacity, surge limits and system topology.",
+    "practice": "Verify voltage compatibility and manufacturer specifications.",
+    "group": "Solar Planning"
+  },
+  {
+    "name": "Solar Panel Comparison",
+    "overview": "Compare panel rated wattage, dimensions, warranties and degradation.",
+    "practice": "Use standardized test conditions to compare efficiency claims.",
+    "group": "Solar Planning"
+  },
+  {
+    "name": "Residential Electricity Bills",
+    "overview": "Understand energy-unit charges, demand costs and fixed fees.",
+    "practice": "Use an actual local bill instead of assuming a universal tariff.",
+    "group": "Electricity & Backup"
+  },
+  {
+    "name": "Electricity Tariffs",
+    "overview": "Learn how utility pricing tiers and time-of-use rates work.",
+    "practice": "Check official effective dates and service territory.",
+    "group": "Electricity & Backup"
+  },
+  {
+    "name": "Appliance Energy Costs",
+    "overview": "Calculate electricity use from wattage and operating hours.",
+    "practice": "Consider duty cycles for devices that do not run continuously.",
+    "group": "Electricity & Backup"
+  },
+  {
+    "name": "Energy Saving Planner",
+    "overview": "Identify high-use loads and prioritize efficiency measures.",
+    "practice": "Compare avoided kilowatt-hours against replacement costs.",
+    "group": "Electricity & Backup"
+  },
+  {
+    "name": "Battery Backup Calculator",
+    "overview": "Estimate usable capacity for an outage duration.",
+    "practice": "Account for depth of discharge, inverter loss and surge loads.",
+    "group": "Electricity & Backup"
+  },
+  {
+    "name": "Lithium vs Lead-acid",
+    "overview": "Understand battery chemistry trade-offs and cycle life.",
+    "practice": "Compare usable energy and safe installation requirements.",
+    "group": "Electricity & Backup"
+  },
+  {
+    "name": "UPS Runtime",
+    "overview": "Estimate backup duration at specified load and efficiency.",
+    "practice": "Confirm rated capacity and battery condition.",
+    "group": "EV & Transport"
+  },
+  {
+    "name": "Generator Sizing",
+    "overview": "Evaluate continuous watts and short-duration starting power.",
+    "practice": "Observe exhaust ventilation and electrical safety rules.",
+    "group": "EV & Transport"
+  },
+  {
+    "name": "Commercial Energy Audit",
+    "overview": "Organize demand profiles, equipment loads and peak usage.",
+    "practice": "Base savings estimates on measured energy consumption.",
+    "group": "EV & Transport"
+  },
+  {
+    "name": "EV Charging Cost",
+    "overview": "Calculate cost from kilowatt-hours, charging efficiency and tariff.",
+    "practice": "Separate home, workplace and public charger pricing.",
+    "group": "EV & Transport"
+  },
+  {
+    "name": "EV Range Estimator",
+    "overview": "Estimate driving distance from usable battery and consumption.",
+    "practice": "Adjust for temperature, speed, terrain and accessory loads.",
+    "group": "EV & Transport"
+  },
+  {
+    "name": "EV Battery Health",
+    "overview": "Understand capacity retention, cycle aging and thermal effects.",
+    "practice": "Use vehicle telemetry rather than visual guesswork.",
+    "group": "EV & Transport"
+  },
+  {
+    "name": "EV vs Petrol Costs",
+    "overview": "Compare energy and fuel spending per distance traveled.",
+    "practice": "Include maintenance, taxes and depreciation separately.",
+    "group": "Equipment & Ownership"
+  },
+  {
+    "name": "Home Charger Installation",
+    "overview": "Review circuit capacity, charger ratings and safety.",
+    "practice": "Follow local electrical code and licensed installer requirements.",
+    "group": "Equipment & Ownership"
+  },
+  {
+    "name": "Public Charging Networks",
+    "overview": "Compare connector standards, charger power and access.",
+    "practice": "Check real availability through provider data where supported.",
+    "group": "Equipment & Ownership"
+  },
+  {
+    "name": "E-bike Range",
+    "overview": "Estimate bicycle battery range under different loads.",
+    "practice": "Consider rider assistance, wind, hills and riding style.",
+    "group": "Equipment & Ownership"
+  },
+  {
+    "name": "Vehicle Fuel Cost",
+    "overview": "Calculate journey fuel cost from distance and consumption.",
+    "practice": "Use actual pump prices and consistent units.",
+    "group": "Equipment & Ownership"
+  },
+  {
+    "name": "Car Ownership Cost",
+    "overview": "Organize purchase, insurance, financing and maintenance costs.",
+    "practice": "Compare annualized expenses, not purchase price alone.",
+    "group": "Equipment & Ownership"
+  },
+  {
+    "name": "Vehicle Maintenance",
+    "overview": "Track service intervals, consumables and inspection priorities.",
+    "practice": "Refer to your vehicle manufacturer's schedule.",
+    "group": "Market & Efficiency"
+  },
+  {
+    "name": "Home Power Load",
+    "overview": "Add appliance loads for inverter and circuit planning.",
+    "practice": "Allow headroom and account for startup surge.",
+    "group": "Market & Efficiency"
+  },
+  {
+    "name": "Wind & Hybrid Energy",
+    "overview": "Explore combining wind, solar and battery systems.",
+    "practice": "Compare seasonal output profiles before designing hybrid capacity.",
+    "group": "Market & Efficiency"
+  },
+  {
+    "name": "Energy Storage Economics",
+    "overview": "Analyze battery replacement and daily cycling economics.",
+    "practice": "Include round-trip losses, warranty cycles and tariff structure.",
+    "group": "Market & Efficiency"
+  },
+  {
+    "name": "Grid & Net Metering",
+    "overview": "Understand grid export rules and settlement arrangements.",
+    "practice": "Confirm current eligibility with the local utility.",
+    "group": "Market & Efficiency"
+  },
+  {
+    "name": "Clean Energy Trends",
+    "overview": "Follow renewable technology economics and public data.",
+    "practice": "Date-source all cost and deployment figures.",
+    "group": "Market & Efficiency"
+  }
+]

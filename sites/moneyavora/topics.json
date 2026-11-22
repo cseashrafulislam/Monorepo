@@ -1,0 +1,182 @@
+[
+  {
+    "name": "Loan EMI Calculator",
+    "overview": "Understand amortizing loan payments and total interest.",
+    "practice": "Compare the same principal across rate and term assumptions.",
+    "group": "Personal Finance"
+  },
+  {
+    "name": "Savings Planner",
+    "overview": "Estimate saving goals using regular deposits and time horizons.",
+    "practice": "Account for inflation and changes in interest rates.",
+    "group": "Personal Finance"
+  },
+  {
+    "name": "Fixed Deposits",
+    "overview": "Explore maturity value and compounding conventions.",
+    "practice": "Verify institution terms, renewal and tax treatment.",
+    "group": "Personal Finance"
+  },
+  {
+    "name": "Banking Fees",
+    "overview": "Understand transaction, maintenance and transfer charges.",
+    "practice": "Compare effective cost for your actual usage pattern.",
+    "group": "Personal Finance"
+  },
+  {
+    "name": "Credit Card Interest",
+    "overview": "Review interest periods, minimum payments and fee structures.",
+    "practice": "Use the card agreement rather than a generic APR estimate.",
+    "group": "Personal Finance"
+  },
+  {
+    "name": "Personal Budget",
+    "overview": "Plan income allocation among essentials, goals and buffers.",
+    "practice": "Track planned versus actual spending with consistent categories.",
+    "group": "Personal Finance"
+  },
+  {
+    "name": "Stock Market Basics",
+    "overview": "Understand equities, trading venues and market mechanics.",
+    "practice": "Avoid treating price changes as guaranteed future returns.",
+    "group": "Investing & Markets"
+  },
+  {
+    "name": "Portfolio Diversification",
+    "overview": "Explore correlation, concentration and rebalancing principles.",
+    "practice": "Compare risk and time horizon across asset classes.",
+    "group": "Investing & Markets"
+  },
+  {
+    "name": "Forex & Currency",
+    "overview": "Read exchange rates, spreads and settlement conventions.",
+    "practice": "Distinguish mid-market reference rates from executed rates.",
+    "group": "Investing & Markets"
+  },
+  {
+    "name": "Gold & Silver",
+    "overview": "Compare metal pricing, purity and retail premiums.",
+    "practice": "Include taxes, storage and bid-ask spread in comparisons.",
+    "group": "Investing & Markets"
+  },
+  {
+    "name": "Inflation Calculator",
+    "overview": "Understand purchasing power across periods.",
+    "practice": "Use a named national index and baseline for comparisons.",
+    "group": "Investing & Markets"
+  },
+  {
+    "name": "Insurance Planning",
+    "overview": "Compare coverage limits, exclusions and deductible trade-offs.",
+    "practice": "Read official policy conditions before making decisions.",
+    "group": "Investing & Markets"
+  },
+  {
+    "name": "Business Break-even",
+    "overview": "Calculate fixed-cost recovery from contribution margin.",
+    "practice": "Validate selling price, variable expense and sales mix.",
+    "group": "Business Calculators"
+  },
+  {
+    "name": "Profit Margin",
+    "overview": "Distinguish markup, gross margin and net margin.",
+    "practice": "Avoid mixing gross sales with tax-inclusive receipts.",
+    "group": "Business Calculators"
+  },
+  {
+    "name": "Cash Flow Forecasting",
+    "overview": "Plan cash inflows and outflows by timing.",
+    "practice": "Consider receivable collection delays and working capital needs.",
+    "group": "Business Calculators"
+  },
+  {
+    "name": "Invoice & Tax Concepts",
+    "overview": "Understand line totals, adjustments and invoice documentation.",
+    "practice": "Check jurisdiction-specific invoice and tax obligations.",
+    "group": "Business Calculators"
+  },
+  {
+    "name": "Salary & Payroll",
+    "overview": "Explore net-versus-gross pay and payroll deductions.",
+    "practice": "Use current local rules for withholding and statutory benefits.",
+    "group": "Business Calculators"
+  },
+  {
+    "name": "Small Business KPIs",
+    "overview": "Understand revenue growth, customer economics and cash conversion.",
+    "practice": "Compare metrics using consistent date and accounting definitions.",
+    "group": "Business Calculators"
+  },
+  {
+    "name": "Import Cost",
+    "overview": "Model product cost, transport, duties and clearance.",
+    "practice": "Confirm HS classification and destination-country tax rates.",
+    "group": "Import & Export"
+  },
+  {
+    "name": "Export Pricing",
+    "overview": "Estimate export profitability across currencies and shipping terms.",
+    "practice": "Clarify responsibility under the relevant Incoterm.",
+    "group": "Import & Export"
+  },
+  {
+    "name": "Freight Cost",
+    "overview": "Understand freight quotes, surcharges and service levels.",
+    "practice": "Check fuel, terminal and documentation fees.",
+    "group": "Import & Export"
+  },
+  {
+    "name": "Container Capacity",
+    "overview": "Estimate cubic-meter capacity and chargeable volume.",
+    "practice": "Allow space for packaging and loading restrictions.",
+    "group": "Import & Export"
+  },
+  {
+    "name": "HS Codes",
+    "overview": "Understand product classification and tariff nomenclature.",
+    "practice": "Seek a binding ruling when customs classification is uncertain.",
+    "group": "Import & Export"
+  },
+  {
+    "name": "Customs Duties",
+    "overview": "Review ad valorem rates, exemptions and calculation bases.",
+    "practice": "Use the latest official customs tariff.",
+    "group": "Import & Export"
+  },
+  {
+    "name": "International Shipping",
+    "overview": "Compare ocean, air and road shipping considerations.",
+    "practice": "Match speed, insurance and risk to cargo needs.",
+    "group": "Economic Intelligence"
+  },
+  {
+    "name": "Trade Documents",
+    "overview": "Understand invoices, packing lists and shipment paperwork.",
+    "practice": "Confirm country, product and carrier requirements.",
+    "group": "Economic Intelligence"
+  },
+  {
+    "name": "Global GDP",
+    "overview": "Interpret gross domestic product and growth data.",
+    "practice": "Differentiate nominal from inflation-adjusted figures.",
+    "group": "Economic Intelligence"
+  },
+  {
+    "name": "Interest Rates",
+    "overview": "Understand central-bank policy rates and lending benchmarks.",
+    "practice": "Look at the rate effective date and market transmission lag.",
+    "group": "Economic Intelligence"
+  },
+  {
+    "name": "Economic Indicators",
+    "overview": "Explore unemployment, inflation, trade and growth measures.",
+    "practice": "Check definitions and seasonality before comparing countries.",
+    "group": "Economic Intelligence"
+  },
+  {
+    "name": "Business News",
+    "overview": "Track verifiable policy, market and company announcements.",
+    "practice": "Prefer official filings and date-stamped reputable reporting.",
+    "group": "Economic Intelligence"
+  }
+]

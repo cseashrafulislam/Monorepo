@@ -1,0 +1,182 @@
+[
+  {
+    "name": "Bitcoin Price",
+    "overview": "Learn how spot prices, order-book liquidity and exchange volume differ.",
+    "practice": "Compare quoting currencies and timestamps before treating a price as a benchmark.",
+    "group": "Markets & Prices"
+  },
+  {
+    "name": "Ethereum Markets",
+    "overview": "Follow ETH pricing, network demand and market-structure indicators.",
+    "practice": "Separate asset price from transaction cost and ecosystem adoption.",
+    "group": "Markets & Prices"
+  },
+  {
+    "name": "Altcoin Research",
+    "overview": "Compare token purposes, circulating supply, liquidity and concentration.",
+    "practice": "Check issuance and unlock schedules before comparing market caps.",
+    "group": "Markets & Prices"
+  },
+  {
+    "name": "Stablecoins",
+    "overview": "Understand reserves, redemption mechanisms and de-pegging scenarios.",
+    "practice": "Look for published reserve attestations and issuer redemption policies.",
+    "group": "Markets & Prices"
+  },
+  {
+    "name": "Market Heatmaps",
+    "overview": "Interpret relative price changes across coins and sectors.",
+    "practice": "Check whether a heatmap is weighted by market cap or simple percentages.",
+    "group": "Markets & Prices"
+  },
+  {
+    "name": "Crypto Market Capitalization",
+    "overview": "Understand price-times-supply valuation and its limitations.",
+    "practice": "Use circulating supply rather than maximum supply for spot market-cap estimates.",
+    "group": "Markets & Prices"
+  },
+  {
+    "name": "Tokenomics",
+    "overview": "Investigate supply design, emission rates, vesting and governance.",
+    "practice": "Separate circulating, total and maximum supply and inspect token unlocks.",
+    "group": "Tokens & Networks"
+  },
+  {
+    "name": "Gas Fees",
+    "overview": "Explain blockchain transaction fees and factors affecting cost.",
+    "practice": "Compare network, operation complexity and current fee conditions.",
+    "group": "Tokens & Networks"
+  },
+  {
+    "name": "Layer 2 Networks",
+    "overview": "Explore scaling networks, bridging assumptions and transaction finality.",
+    "practice": "Check canonical bridge security, withdrawal delays and chain identity.",
+    "group": "Tokens & Networks"
+  },
+  {
+    "name": "Blockchain Explorers",
+    "overview": "Read transaction hashes, block confirmations and contract activity.",
+    "practice": "Verify contract addresses against primary project documentation.",
+    "group": "Tokens & Networks"
+  },
+  {
+    "name": "Mining Economics",
+    "overview": "Understand hash rate, electricity, equipment and reward variability.",
+    "practice": "Model energy costs and mining difficulty before estimating profitability.",
+    "group": "Tokens & Networks"
+  },
+  {
+    "name": "Staking Basics",
+    "overview": "Review validation rewards, lockups, penalties and custody choices.",
+    "practice": "Distinguish advertised annualized yields from realized net rewards.",
+    "group": "Tokens & Networks"
+  },
+  {
+    "name": "Decentralized Finance",
+    "overview": "Learn lending, swaps, collateral and smart-contract exposure.",
+    "practice": "Inspect contract audits, liquidity depth and liquidation mechanics.",
+    "group": "Participation & DeFi"
+  },
+  {
+    "name": "Liquidity Pools",
+    "overview": "Understand swap fees, impermanent loss and pool concentration.",
+    "practice": "Consider pool composition and volatility when comparing quoted yields.",
+    "group": "Participation & DeFi"
+  },
+  {
+    "name": "Wallet Management",
+    "overview": "Understand self-custody, seed phrases, signing and recovery.",
+    "practice": "Never enter secret recovery phrases into a website or a public tool.",
+    "group": "Participation & DeFi"
+  },
+  {
+    "name": "Hardware Wallets",
+    "overview": "Compare offline key storage, signing workflows and device recovery.",
+    "practice": "Verify authenticity, firmware provenance and backup procedures.",
+    "group": "Participation & DeFi"
+  },
+  {
+    "name": "Phishing & Scam Signals",
+    "overview": "Recognize fake airdrops, approval scams and impersonation tactics.",
+    "practice": "Check domains and token approvals before connecting a wallet.",
+    "group": "Participation & DeFi"
+  },
+  {
+    "name": "Smart Contract Risk",
+    "overview": "Explore contract privileges, upgradeability and exploit patterns.",
+    "practice": "Assess admin-key permissions, audits and known incidents.",
+    "group": "Participation & DeFi"
+  },
+  {
+    "name": "Crypto Regulations",
+    "overview": "Track differing jurisdictional approaches to digital assets.",
+    "practice": "Read effective legal text and verify country-specific restrictions.",
+    "group": "Risk & Security"
+  },
+  {
+    "name": "Crypto Tax Concepts",
+    "overview": "Understand disposal, cost basis and recordkeeping principles.",
+    "practice": "Consult current local tax guidance rather than applying another country's rules.",
+    "group": "Risk & Security"
+  },
+  {
+    "name": "Portfolio Allocation",
+    "overview": "Compare exposure, concentration and rebalancing methods.",
+    "practice": "Calculate position sizes using consistent valuation dates and currencies.",
+    "group": "Risk & Security"
+  },
+  {
+    "name": "Profit & Loss Calculator",
+    "overview": "Estimate gains after fees for trades and transfers.",
+    "practice": "Include entry fees, exit fees and currency conversion in net returns.",
+    "group": "Risk & Security"
+  },
+  {
+    "name": "Volatility Analytics",
+    "overview": "Understand historical price variation and downside risk.",
+    "practice": "Use comparable time windows and avoid interpreting volatility as certainty.",
+    "group": "Risk & Security"
+  },
+  {
+    "name": "Market Sentiment",
+    "overview": "Explore sentiment indicators and their construction.",
+    "practice": "Check methodology and lag before relating sentiment to price movement.",
+    "group": "Risk & Security"
+  },
+  {
+    "name": "On-chain Activity",
+    "overview": "Interpret transaction counts, active addresses and value transfer.",
+    "practice": "Account for batching, bots and cross-chain activity in metrics.",
+    "group": "Research & Utilities"
+  },
+  {
+    "name": "Exchange Comparison",
+    "overview": "Compare execution fees, withdrawal rules and custody models.",
+    "practice": "Check local access, withdrawal limits and current terms.",
+    "group": "Research & Utilities"
+  },
+  {
+    "name": "Cross-chain Bridges",
+    "overview": "Understand wrapped assets and interoperability risk.",
+    "practice": "Review issuer model, lock-and-mint mechanisms and bridge incidents.",
+    "group": "Research & Utilities"
+  },
+  {
+    "name": "Bitcoin Halving",
+    "overview": "Understand issuance changes and the block-reward schedule.",
+    "practice": "Distinguish protocol events from speculative future price effects.",
+    "group": "Research & Utilities"
+  },
+  {
+    "name": "Crypto Glossary",
+    "overview": "Decode commonly used blockchain and trading terminology.",
+    "practice": "Use precise definitions for supply, finality, liquidity and custody.",
+    "group": "Research & Utilities"
+  },
+  {
+    "name": "Crypto News & Research",
+    "overview": "Read evidence-backed protocol and market developments.",
+    "practice": "Prefer primary announcements and date-stamped source links.",
+    "group": "Research & Utilities"
+  }
+]

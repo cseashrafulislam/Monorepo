@@ -1,0 +1,182 @@
+[
+  {
+    "name": "Travel Destinations",
+    "overview": "Compare destinations by season, interests and access.",
+    "practice": "Check official travel advisories before booking.",
+    "group": "Travel Planning"
+  },
+  {
+    "name": "Travel Budget",
+    "overview": "Plan transport, nights, meals and contingency spending.",
+    "practice": "Keep prices in one currency and include conversion fees.",
+    "group": "Travel Planning"
+  },
+  {
+    "name": "Visa Information",
+    "overview": "Understand common visa categories and application requirements.",
+    "practice": "Use embassy or immigration authority information only.",
+    "group": "Travel Planning"
+  },
+  {
+    "name": "Flights & Airports",
+    "overview": "Learn fare classes, baggage rules and transit planning.",
+    "practice": "Check ticket restrictions and passport validity.",
+    "group": "Travel Planning"
+  },
+  {
+    "name": "Hotels & Stays",
+    "overview": "Compare accommodation types, location and total fees.",
+    "practice": "Review cancellation terms and property policies.",
+    "group": "Travel Planning"
+  },
+  {
+    "name": "Local Transport",
+    "overview": "Explore public transit, taxis and travel logistics.",
+    "practice": "Verify regional ticket rules and service hours.",
+    "group": "Travel Planning"
+  },
+  {
+    "name": "Travel Insurance",
+    "overview": "Understand coverage, exclusions and claims conditions.",
+    "practice": "Review pre-existing condition exclusions and policy wording.",
+    "group": "Moving & Living"
+  },
+  {
+    "name": "Travel Packing",
+    "overview": "Organize essentials based on climate and activities.",
+    "practice": "Check airline restrictions for batteries and liquids.",
+    "group": "Moving & Living"
+  },
+  {
+    "name": "Country Guides",
+    "overview": "Learn practical orientation for selected destinations.",
+    "practice": "Verify current entry, safety and transport conditions.",
+    "group": "Moving & Living"
+  },
+  {
+    "name": "Trip Itinerary",
+    "overview": "Plan realistic daily pacing and transfer buffers.",
+    "practice": "Avoid over-scheduling and consider accessibility.",
+    "group": "Moving & Living"
+  },
+  {
+    "name": "Cost of Living",
+    "overview": "Compare recurring housing, food and mobility expenses.",
+    "practice": "Use dated, location-specific information.",
+    "group": "Moving & Living"
+  },
+  {
+    "name": "Moving Abroad",
+    "overview": "Understand housing, documentation and settling-in steps.",
+    "practice": "Check local residence requirements and tax implications.",
+    "group": "Moving & Living"
+  },
+  {
+    "name": "Real Estate Basics",
+    "overview": "Learn property types, titles and purchase processes.",
+    "practice": "Use local professional advice for title verification.",
+    "group": "Property & Construction"
+  },
+  {
+    "name": "Rent vs Buy",
+    "overview": "Compare cash flow, equity buildup and flexibility.",
+    "practice": "Include maintenance, transaction fees and opportunity cost.",
+    "group": "Property & Construction"
+  },
+  {
+    "name": "Mortgage Planning",
+    "overview": "Understand down payments, terms and monthly obligations.",
+    "practice": "Compare APR, fees and fixed-versus-variable terms.",
+    "group": "Property & Construction"
+  },
+  {
+    "name": "Construction Cost",
+    "overview": "Build estimates from materials, labor and quantities.",
+    "practice": "Include waste, contingencies and permit costs.",
+    "group": "Property & Construction"
+  },
+  {
+    "name": "Building Materials",
+    "overview": "Compare specification, durability and cost trade-offs.",
+    "practice": "Follow local structural and fire safety requirements.",
+    "group": "Property & Construction"
+  },
+  {
+    "name": "Home Renovation",
+    "overview": "Plan scope, budget and contractor sequencing.",
+    "practice": "Document changes and inspect critical work.",
+    "group": "Property & Construction"
+  },
+  {
+    "name": "Interior Design",
+    "overview": "Explore spatial layouts, lighting and material palettes.",
+    "practice": "Measure spaces accurately before buying furnishings.",
+    "group": "Home & Everyday Life"
+  },
+  {
+    "name": "Space Planning",
+    "overview": "Understand circulation, storage and functional zones.",
+    "practice": "Account for accessibility and electrical clearances.",
+    "group": "Home & Everyday Life"
+  },
+  {
+    "name": "Home Utilities",
+    "overview": "Review household electricity, water and connectivity costs.",
+    "practice": "Compare local tariffs and usage patterns.",
+    "group": "Home & Everyday Life"
+  },
+  {
+    "name": "Home Maintenance",
+    "overview": "Plan periodic inspections and repair budgets.",
+    "practice": "Address hazards promptly with qualified services.",
+    "group": "Home & Everyday Life"
+  },
+  {
+    "name": "Kitchen & Appliances",
+    "overview": "Compare appliance sizing, energy use and durability.",
+    "practice": "Check safety certifications and available support.",
+    "group": "Home & Everyday Life"
+  },
+  {
+    "name": "Food & Restaurants",
+    "overview": "Explore cuisine, food safety and dining budgets.",
+    "practice": "Verify current opening hours and dietary information.",
+    "group": "Home & Everyday Life"
+  },
+  {
+    "name": "Everyday Calculators",
+    "overview": "Use small arithmetic tools for home and travel decisions.",
+    "practice": "Check units before applying results to purchases.",
+    "group": "Pets & Shopping"
+  },
+  {
+    "name": "Pet Care Basics",
+    "overview": "Understand routine pet housing, enrichment and feeding.",
+    "practice": "Follow qualified veterinary guidance for medical needs.",
+    "group": "Pets & Shopping"
+  },
+  {
+    "name": "Dog Care",
+    "overview": "Explore exercise, behavior and everyday care considerations.",
+    "practice": "Choose age-appropriate routines with professional input.",
+    "group": "Pets & Shopping"
+  },
+  {
+    "name": "Cat Care",
+    "overview": "Understand litter, play, enrichment and common care needs.",
+    "practice": "Avoid unverified medical treatment claims.",
+    "group": "Pets & Shopping"
+  },
+  {
+    "name": "Pet Budget",
+    "overview": "Plan food, supplies, insurance and veterinary contingencies.",
+    "practice": "Use realistic local prices rather than generic averages.",
+    "group": "Pets & Shopping"
+  },
+  {
+    "name": "Consumer Buying Guides",
+    "overview": "Learn comparison criteria across everyday products.",
+    "practice": "Separate independent evaluation from sponsored placements.",
+    "group": "Pets & Shopping"
+  }
+]

@@ -1,0 +1,182 @@
+[
+  {
+    "name": "Global Weather",
+    "overview": "Understand temperature, rainfall and wind observations worldwide.",
+    "practice": "Compare forecast issue times, units and station coverage.",
+    "group": "Weather & Hazards"
+  },
+  {
+    "name": "Flood Risk",
+    "overview": "Learn how rainfall, terrain and rivers combine in flood exposure.",
+    "practice": "Distinguish hazard maps from real-time, official emergency warnings.",
+    "group": "Weather & Hazards"
+  },
+  {
+    "name": "Cyclones & Storms",
+    "overview": "Understand storm tracks, intensity and forecast uncertainty.",
+    "practice": "Always defer to national meteorological agencies for safety alerts.",
+    "group": "Weather & Hazards"
+  },
+  {
+    "name": "Earthquake Monitoring",
+    "overview": "Read magnitude, depth and location in event catalogs.",
+    "practice": "Do not infer imminent earthquakes from historical event patterns.",
+    "group": "Weather & Hazards"
+  },
+  {
+    "name": "Wildfire Monitoring",
+    "overview": "Explore hotspots, burn scars and satellite detection limits.",
+    "practice": "Check acquisition times and possible false positives.",
+    "group": "Weather & Hazards"
+  },
+  {
+    "name": "Heatwaves",
+    "overview": "Understand extreme heat indices and public-health impacts.",
+    "practice": "Compare local heat alerts with official thresholds and guidance.",
+    "group": "Weather & Hazards"
+  },
+  {
+    "name": "Satellite Imagery",
+    "overview": "Explore image resolution, revisit cycles and cloud coverage.",
+    "practice": "Check sensor specifications and licensing before using imagery.",
+    "group": "Land & Satellite"
+  },
+  {
+    "name": "Land-cover Change",
+    "overview": "Understand classification of vegetation, built-up land and water.",
+    "practice": "Compare harmonized seasons and classification methods.",
+    "group": "Land & Satellite"
+  },
+  {
+    "name": "River Erosion",
+    "overview": "Learn how channel migration affects land and settlements.",
+    "practice": "Compare imagery across years using consistent georeferencing.",
+    "group": "Land & Satellite"
+  },
+  {
+    "name": "Urban Expansion",
+    "overview": "Analyze changes in built-up footprints over time.",
+    "practice": "Distinguish construction growth from changes in sensor resolution.",
+    "group": "Land & Satellite"
+  },
+  {
+    "name": "Forest Monitoring",
+    "overview": "Track canopy change, fragmentation and disturbance.",
+    "practice": "Check whether data represent tree cover or legally defined forest.",
+    "group": "Land & Satellite"
+  },
+  {
+    "name": "Crop Vegetation Indices",
+    "overview": "Understand NDVI and related remote-sensing signals.",
+    "practice": "Account for cloud cover, soil background and growth stage.",
+    "group": "Land & Satellite"
+  },
+  {
+    "name": "Agricultural Drought",
+    "overview": "Examine rainfall deficit, soil moisture and vegetation stress.",
+    "practice": "Avoid inferring crop losses from a single indicator.",
+    "group": "Water & Air"
+  },
+  {
+    "name": "Soil Moisture",
+    "overview": "Understand surface moisture measurements from satellites.",
+    "practice": "Review depth, resolution and validation against field conditions.",
+    "group": "Water & Air"
+  },
+  {
+    "name": "Ground Motion",
+    "overview": "Learn about satellite radar deformation measurements.",
+    "practice": "Interpret millimeter-scale trends with uncertainty and local context.",
+    "group": "Water & Air"
+  },
+  {
+    "name": "Water Quality",
+    "overview": "Compare parameters such as turbidity, salinity and pH.",
+    "practice": "Remember remote estimates are not drinking-water safety certification.",
+    "group": "Water & Air"
+  },
+  {
+    "name": "Groundwater Trends",
+    "overview": "Understand aquifers, extraction and monitoring wells.",
+    "practice": "Distinguish measured groundwater levels from modeled estimates.",
+    "group": "Water & Air"
+  },
+  {
+    "name": "Rainwater Harvesting",
+    "overview": "Estimate roof catchment potential using rainfall and area.",
+    "practice": "Include loss factors and appropriate local tank sizing.",
+    "group": "Water & Air"
+  },
+  {
+    "name": "Ocean Conditions",
+    "overview": "Explore sea-surface temperature, waves and marine weather.",
+    "practice": "Read coastal advisories from responsible official agencies.",
+    "group": "Climate & Ecology"
+  },
+  {
+    "name": "Sea-level Change",
+    "overview": "Understand long-term sea-level trends and coastal exposure.",
+    "practice": "Distinguish global mean trends from local relative sea level.",
+    "group": "Climate & Ecology"
+  },
+  {
+    "name": "Air Quality",
+    "overview": "Learn AQI components, PM2.5 and monitoring limitations.",
+    "practice": "Check pollutant basis and aggregation method across countries.",
+    "group": "Climate & Ecology"
+  },
+  {
+    "name": "Climate Indicators",
+    "overview": "Explore long-term temperature and precipitation anomalies.",
+    "practice": "Use a stated baseline period to compare anomalies.",
+    "group": "Climate & Ecology"
+  },
+  {
+    "name": "Carbon Emissions",
+    "overview": "Understand sector-level inventories and accounting scopes.",
+    "practice": "Check territorial versus consumption-based accounting.",
+    "group": "Climate & Ecology"
+  },
+  {
+    "name": "Biodiversity Maps",
+    "overview": "Review habitat distributions and species observations.",
+    "practice": "Distinguish observational gaps from actual species absence.",
+    "group": "Climate & Ecology"
+  },
+  {
+    "name": "Protected Areas",
+    "overview": "Explore conservation designations and management context.",
+    "practice": "Check dates and legal definitions in authoritative datasets.",
+    "group": "Space & Research"
+  },
+  {
+    "name": "Space Weather",
+    "overview": "Learn solar storms, geomagnetic activity and potential impacts.",
+    "practice": "Consult operational warning centers for current conditions.",
+    "group": "Space & Research"
+  },
+  {
+    "name": "Satellite Tracking",
+    "overview": "Understand orbits, passes and time-dependent tracking.",
+    "practice": "Check latest orbital elements and expected tracking errors.",
+    "group": "Space & Research"
+  },
+  {
+    "name": "Astronomy Events",
+    "overview": "Plan observations of meteor showers and planetary alignments.",
+    "practice": "Consider time zones, moonlight and local horizon visibility.",
+    "group": "Space & Research"
+  },
+  {
+    "name": "Environmental Data Sources",
+    "overview": "Compare public Earth observation and climate repositories.",
+    "practice": "Record product versions, resolution, citation and update times.",
+    "group": "Space & Research"
+  },
+  {
+    "name": "Disaster Preparedness",
+    "overview": "Review household-level readiness for local hazards.",
+    "practice": "Follow official instructions rather than a generic website during emergencies.",
+    "group": "Space & Research"
+  }
+]

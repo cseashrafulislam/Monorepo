@@ -1,0 +1,182 @@
+[
+  {
+    "name": "World Headlines",
+    "overview": "Understand major international developments in their timeline.",
+    "practice": "Compare reporting dates and locate primary statements.",
+    "group": "Global Affairs"
+  },
+  {
+    "name": "United States News",
+    "overview": "Follow verified public affairs and policy reporting.",
+    "practice": "Distinguish national rules from state-level differences.",
+    "group": "Global Affairs"
+  },
+  {
+    "name": "Europe & EU",
+    "overview": "Explore European institutions, policy and regional events.",
+    "practice": "Check whether a rule applies EU-wide or nationally.",
+    "group": "Global Affairs"
+  },
+  {
+    "name": "Asia Pacific",
+    "overview": "Read regional trade, society and diplomatic developments.",
+    "practice": "Compare local sources across multiple countries.",
+    "group": "Global Affairs"
+  },
+  {
+    "name": "Middle East",
+    "overview": "Understand regional developments with geographical context.",
+    "practice": "Separate verified statements from unconfirmed claims.",
+    "group": "Global Affairs"
+  },
+  {
+    "name": "Africa & Emerging Regions",
+    "overview": "Explore public affairs, economies and cross-border events.",
+    "practice": "Use original statistical releases where available.",
+    "group": "Global Affairs"
+  },
+  {
+    "name": "Global Politics",
+    "overview": "Understand institutions, parties and policy processes neutrally.",
+    "practice": "Distinguish factual officeholders from opinion and forecasts.",
+    "group": "Government & Society"
+  },
+  {
+    "name": "Elections & Voting",
+    "overview": "Learn election systems and public result reporting.",
+    "practice": "Rely on official electoral authorities for voter procedures.",
+    "group": "Government & Society"
+  },
+  {
+    "name": "Government & Policy",
+    "overview": "Track public policy announcements and implementation.",
+    "practice": "Check enacted rules rather than only proposals.",
+    "group": "Government & Society"
+  },
+  {
+    "name": "International Law",
+    "overview": "Understand treaties, courts and legal jurisdiction.",
+    "practice": "Seek qualified legal sources for country-specific decisions.",
+    "group": "Government & Society"
+  },
+  {
+    "name": "Human Rights",
+    "overview": "Explore treaty frameworks and published monitoring methods.",
+    "practice": "Review definitions, evidence quality and source dates.",
+    "group": "Government & Society"
+  },
+  {
+    "name": "Global Diplomacy",
+    "overview": "Understand bilateral agreements and multilateral forums.",
+    "practice": "Distinguish signed agreements from negotiation statements.",
+    "group": "Government & Society"
+  },
+  {
+    "name": "Country Profiles",
+    "overview": "Compare national institutions and basic public indicators.",
+    "practice": "Preserve data years to avoid misleading comparisons.",
+    "group": "World Data"
+  },
+  {
+    "name": "Population Statistics",
+    "overview": "Understand census counts, estimates and projections.",
+    "practice": "Compare definitions and measurement years.",
+    "group": "World Data"
+  },
+  {
+    "name": "Economic Rankings",
+    "overview": "Review GDP, growth and other published country metrics.",
+    "practice": "Note PPP versus nominal rankings and missing countries.",
+    "group": "World Data"
+  },
+  {
+    "name": "World Maps & Geography",
+    "overview": "Explore borders, distances and regional geography.",
+    "practice": "Consult authoritative map sources for disputed boundaries.",
+    "group": "World Data"
+  },
+  {
+    "name": "Cricket",
+    "overview": "Understand formats, fixtures and score terminology.",
+    "practice": "Use official schedules for match times and results.",
+    "group": "World Data"
+  },
+  {
+    "name": "Football",
+    "overview": "Follow leagues, tournaments and team information.",
+    "practice": "Check competition rules and season-specific standings.",
+    "group": "World Data"
+  },
+  {
+    "name": "Basketball",
+    "overview": "Explore league formats, player statistics and schedules.",
+    "practice": "Distinguish per-game from aggregate statistics.",
+    "group": "Sports"
+  },
+  {
+    "name": "Tennis",
+    "overview": "Understand ranking systems, surfaces and tournament draws.",
+    "practice": "Check live match data against official organizers.",
+    "group": "Sports"
+  },
+  {
+    "name": "Motorsport",
+    "overview": "Explore race formats, qualifying and engineering terms.",
+    "practice": "Check governing-body calendars and safety updates.",
+    "group": "Sports"
+  },
+  {
+    "name": "Olympics & Athletics",
+    "overview": "Understand event formats and qualification structures.",
+    "practice": "Distinguish historical records from current rankings.",
+    "group": "Sports"
+  },
+  {
+    "name": "Movies & TV",
+    "overview": "Explore releases, reviews and distribution regions.",
+    "practice": "Verify release dates against distributors and markets.",
+    "group": "Sports"
+  },
+  {
+    "name": "Music & Culture",
+    "overview": "Review genre histories, releases and cultural contexts.",
+    "practice": "Respect copyright and verify artist credits.",
+    "group": "Sports"
+  },
+  {
+    "name": "Gaming & Esports",
+    "overview": "Learn competitive formats, release updates and major events.",
+    "practice": "Distinguish official patch notes from rumors.",
+    "group": "Culture & Events"
+  },
+  {
+    "name": "Books & Arts",
+    "overview": "Explore literary releases, creators and exhibitions.",
+    "practice": "Credit sources and preserve publication dates.",
+    "group": "Culture & Events"
+  },
+  {
+    "name": "Global Events",
+    "overview": "Plan around significant international events.",
+    "practice": "Use organizers' published schedules and time zones.",
+    "group": "Culture & Events"
+  },
+  {
+    "name": "Public Holidays",
+    "overview": "Understand differing national holiday observances.",
+    "practice": "Check regional applicability and government notices.",
+    "group": "Culture & Events"
+  },
+  {
+    "name": "Festivals & Traditions",
+    "overview": "Explore cultural observances and their local meanings.",
+    "practice": "Do not assume traditions are identical across communities.",
+    "group": "Culture & Events"
+  },
+  {
+    "name": "World Data Explorer",
+    "overview": "Learn how to compare public international datasets.",
+    "practice": "Document source, coverage, revision and unit differences.",
+    "group": "Culture & Events"
+  }
+]

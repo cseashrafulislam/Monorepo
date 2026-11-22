@@ -1,0 +1,182 @@
+[
+  {
+    "name": "Nutrition Basics",
+    "overview": "Understand nutrients, servings and balanced eating principles.",
+    "practice": "Consult official dietary recommendations appropriate to age.",
+    "group": "Nutrition & Physical Health"
+  },
+  {
+    "name": "Calories & Energy",
+    "overview": "Learn energy balance and how intake estimates work.",
+    "practice": "Remember labels and activity estimates have uncertainty.",
+    "group": "Nutrition & Physical Health"
+  },
+  {
+    "name": "BMI Calculator",
+    "overview": "Understand the body mass index screening formula.",
+    "practice": "Do not diagnose health conditions from BMI alone.",
+    "group": "Nutrition & Physical Health"
+  },
+  {
+    "name": "Protein Intake",
+    "overview": "Explore protein roles and intake considerations.",
+    "practice": "Recognize that medical conditions may change requirements.",
+    "group": "Nutrition & Physical Health"
+  },
+  {
+    "name": "Hydration",
+    "overview": "Understand fluid needs, activity and heat exposure.",
+    "practice": "Follow clinician advice where fluid intake is medically restricted.",
+    "group": "Nutrition & Physical Health"
+  },
+  {
+    "name": "Food Labels",
+    "overview": "Learn how to compare serving sizes and ingredient information.",
+    "practice": "Check added sugars, sodium and allergen disclosures.",
+    "group": "Nutrition & Physical Health"
+  },
+  {
+    "name": "Walking & Cardio",
+    "overview": "Understand aerobic activity intensity and progression.",
+    "practice": "Adjust activity gradually to individual ability.",
+    "group": "Movement & Fitness"
+  },
+  {
+    "name": "Strength Training",
+    "overview": "Learn resistance exercise patterns and recovery.",
+    "practice": "Use safe technique and appropriate progression.",
+    "group": "Movement & Fitness"
+  },
+  {
+    "name": "Flexibility & Mobility",
+    "overview": "Explore practical range-of-motion concepts.",
+    "practice": "Avoid forcing painful movement or unsupported claims.",
+    "group": "Movement & Fitness"
+  },
+  {
+    "name": "Fitness Metrics",
+    "overview": "Understand pace, heart rate and training load estimates.",
+    "practice": "Treat consumer wearables as estimates, not diagnosis.",
+    "group": "Movement & Fitness"
+  },
+  {
+    "name": "Weight Management",
+    "overview": "Explore sustainable habits and long-term progress metrics.",
+    "practice": "Avoid extreme weight-loss plans and medical claims.",
+    "group": "Movement & Fitness"
+  },
+  {
+    "name": "Workout Planning",
+    "overview": "Understand training frequency, rest and habit formation.",
+    "practice": "Match sessions to fitness level and health conditions.",
+    "group": "Movement & Fitness"
+  },
+  {
+    "name": "Sleep Basics",
+    "overview": "Learn sleep duration, routines and environmental factors.",
+    "practice": "Seek clinical support for persistent sleep problems.",
+    "group": "Mental Wellbeing"
+  },
+  {
+    "name": "Stress Management",
+    "overview": "Understand evidence-informed coping skills and planning.",
+    "practice": "Recognize when professional mental health support is needed.",
+    "group": "Mental Wellbeing"
+  },
+  {
+    "name": "Mindfulness",
+    "overview": "Explore attention exercises and realistic expectations.",
+    "practice": "Do not replace required treatment with wellness exercises.",
+    "group": "Mental Wellbeing"
+  },
+  {
+    "name": "Digital Wellbeing",
+    "overview": "Review screen habits, breaks and boundaries.",
+    "practice": "Measure sleep impact and daytime functioning.",
+    "group": "Mental Wellbeing"
+  },
+  {
+    "name": "Healthy Habits",
+    "overview": "Build repeatable routines around food, movement and rest.",
+    "practice": "Choose measurable, achievable habits over rapid promises.",
+    "group": "Mental Wellbeing"
+  },
+  {
+    "name": "Mental Health Literacy",
+    "overview": "Understand common terms and when to seek support.",
+    "practice": "Treat crisis situations as requiring immediate local help.",
+    "group": "Mental Wellbeing"
+  },
+  {
+    "name": "Women's Health",
+    "overview": "Explore preventive health information across life stages.",
+    "practice": "Check local screening recommendations with professionals.",
+    "group": "Life Stages"
+  },
+  {
+    "name": "Men's Health",
+    "overview": "Understand preventive checks and common wellbeing concerns.",
+    "practice": "Use clinician guidance for individual symptoms.",
+    "group": "Life Stages"
+  },
+  {
+    "name": "Children's Health",
+    "overview": "Review growth, activity and family health resources.",
+    "practice": "Use age-specific pediatric sources for guidance.",
+    "group": "Life Stages"
+  },
+  {
+    "name": "Senior Wellness",
+    "overview": "Explore mobility, nutrition and independence in later life.",
+    "practice": "Assess falls and medication concerns with professionals.",
+    "group": "Life Stages"
+  },
+  {
+    "name": "Accessibility",
+    "overview": "Understand inclusive design and common accommodation needs.",
+    "practice": "Prefer tested accessibility standards and user feedback.",
+    "group": "Life Stages"
+  },
+  {
+    "name": "Home Safety",
+    "overview": "Explore fall prevention, lighting and household hazards.",
+    "practice": "Adapt measures to local building conditions and mobility needs.",
+    "group": "Life Stages"
+  },
+  {
+    "name": "Caregiving Basics",
+    "overview": "Understand routine planning, support coordination and respite.",
+    "practice": "Do not use general checklists to replace clinical care plans.",
+    "group": "Public Health & Care"
+  },
+  {
+    "name": "Public Health",
+    "overview": "Learn population indicators and prevention programs.",
+    "practice": "Check data coverage and national reporting differences.",
+    "group": "Public Health & Care"
+  },
+  {
+    "name": "Preventive Screening",
+    "overview": "Understand screening goals, benefits and limitations.",
+    "practice": "Seek age-appropriate recommendations from health authorities.",
+    "group": "Public Health & Care"
+  },
+  {
+    "name": "Medical Research",
+    "overview": "Learn study designs, evidence quality and uncertainty.",
+    "practice": "Distinguish observational association from causal findings.",
+    "group": "Public Health & Care"
+  },
+  {
+    "name": "Health Technology",
+    "overview": "Explore telehealth, wearables and digital records.",
+    "practice": "Check privacy, device validation and regulatory status.",
+    "group": "Public Health & Care"
+  },
+  {
+    "name": "Wellness Recipes",
+    "overview": "Explore balanced meal planning and ingredient substitutions.",
+    "practice": "Adapt for allergies and individual medical requirements.",
+    "group": "Public Health & Care"
+  }
+]

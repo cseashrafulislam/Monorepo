@@ -1,0 +1,182 @@
+[
+  {
+    "name": "AI Model Comparison",
+    "overview": "Compare model capability, context limits and deployment options.",
+    "practice": "Evaluate with representative tasks rather than headline benchmarks.",
+    "group": "AI & Computation"
+  },
+  {
+    "name": "AI API Cost Calculator",
+    "overview": "Estimate input and output token charges using chosen rates.",
+    "practice": "Verify provider price tiers and caching assumptions.",
+    "group": "AI & Computation"
+  },
+  {
+    "name": "Prompt Engineering",
+    "overview": "Structure instructions, examples and output constraints for reliable responses.",
+    "practice": "Test prompts against edge cases and ambiguous inputs.",
+    "group": "AI & Computation"
+  },
+  {
+    "name": "AI Agents",
+    "overview": "Understand tool access, orchestration and operational boundaries.",
+    "practice": "Define permissions, validation and human approvals for actions.",
+    "group": "AI & Computation"
+  },
+  {
+    "name": "Local AI Hardware",
+    "overview": "Compare GPUs, VRAM, system memory and workload fit.",
+    "practice": "Confirm model quantization and power requirements.",
+    "group": "AI & Computation"
+  },
+  {
+    "name": "GPU Cloud Pricing",
+    "overview": "Evaluate rented accelerator cost versus usage intensity.",
+    "practice": "Include storage, data transfer and idle time.",
+    "group": "AI & Computation"
+  },
+  {
+    "name": "AI Safety & Privacy",
+    "overview": "Understand data handling, prompt injection and output risks.",
+    "practice": "Apply least privilege and never paste production secrets.",
+    "group": "Software & Developer Tools"
+  },
+  {
+    "name": "Open Source AI",
+    "overview": "Explore licensing, deployment trade-offs and model updates.",
+    "practice": "Check license terms before redistribution or commercial use.",
+    "group": "Software & Developer Tools"
+  },
+  {
+    "name": "Programming Tools",
+    "overview": "Explore editors, debuggers and workflows for maintainable code.",
+    "practice": "Choose tools based on stack compatibility and support.",
+    "group": "Software & Developer Tools"
+  },
+  {
+    "name": "API Testing",
+    "overview": "Plan request validation, authentication and error-case coverage.",
+    "practice": "Test retries, timeouts and malformed requests.",
+    "group": "Software & Developer Tools"
+  },
+  {
+    "name": "JSON Tools",
+    "overview": "Inspect, validate and format structured JSON data.",
+    "practice": "Avoid pasting credentials into third-party services.",
+    "group": "Software & Developer Tools"
+  },
+  {
+    "name": "Regex & Text Utilities",
+    "overview": "Understand reliable text matching and replacement.",
+    "practice": "Test Unicode and performance on large inputs.",
+    "group": "Software & Developer Tools"
+  },
+  {
+    "name": "PDF Utilities",
+    "overview": "Learn document merge, split, compression and metadata tasks.",
+    "practice": "Consider privacy before uploading confidential files.",
+    "group": "Security & Web"
+  },
+  {
+    "name": "Image Utilities",
+    "overview": "Plan image dimensions, compression and format conversion.",
+    "practice": "Retain originals and check transparency handling.",
+    "group": "Security & Web"
+  },
+  {
+    "name": "Domain & DNS",
+    "overview": "Understand record types, propagation and verification.",
+    "practice": "Validate authoritative records and SSL configuration.",
+    "group": "Security & Web"
+  },
+  {
+    "name": "Cloud Hosting",
+    "overview": "Compare static hosting, serverless functions and managed compute.",
+    "practice": "Estimate egress, build limits and operational needs.",
+    "group": "Security & Web"
+  },
+  {
+    "name": "Cybersecurity Basics",
+    "overview": "Learn defensive principles across endpoints, accounts and web apps.",
+    "practice": "Prioritize updates, MFA and backup recovery.",
+    "group": "Security & Web"
+  },
+  {
+    "name": "Password Security",
+    "overview": "Understand password managers, passkeys and authentication.",
+    "practice": "Never use actual passwords in online strength demos.",
+    "group": "Security & Web"
+  },
+  {
+    "name": "Privacy Protection",
+    "overview": "Review tracker blocking, consent and data minimization.",
+    "practice": "Separate legal requirements from optional privacy features.",
+    "group": "Creator Studio"
+  },
+  {
+    "name": "Website Performance",
+    "overview": "Measure web vital metrics and delivery bottlenecks.",
+    "practice": "Test real mobile connections and representative devices.",
+    "group": "Creator Studio"
+  },
+  {
+    "name": "YouTube SEO",
+    "overview": "Plan searchable titles, descriptions and video metadata.",
+    "practice": "Track retention and click-through rather than keyword counts alone.",
+    "group": "Creator Studio"
+  },
+  {
+    "name": "Video Creator Tools",
+    "overview": "Understand aspect ratios, cuts, captions and encoding.",
+    "practice": "Choose export settings according to the target platform.",
+    "group": "Creator Studio"
+  },
+  {
+    "name": "Thumbnail Planning",
+    "overview": "Learn composition, contrast and title-image alignment.",
+    "practice": "Run controlled creative tests instead of relying on guesses.",
+    "group": "Creator Studio"
+  },
+  {
+    "name": "Social Media Analytics",
+    "overview": "Interpret reach, engagement, conversion and audience metrics.",
+    "practice": "Compare consistent time periods and attribution assumptions.",
+    "group": "Creator Studio"
+  },
+  {
+    "name": "Content Calendar",
+    "overview": "Plan publishing across channels and campaign goals.",
+    "practice": "Balance production capacity with useful content demand.",
+    "group": "Robotics & Devices"
+  },
+  {
+    "name": "Robotics",
+    "overview": "Understand sensors, actuators, controllers and safety.",
+    "practice": "Compare tasks and environments before selecting hardware.",
+    "group": "Robotics & Devices"
+  },
+  {
+    "name": "Drones",
+    "overview": "Explore flight time, payload, use cases and legal restrictions.",
+    "practice": "Check airspace rules before flight.",
+    "group": "Robotics & Devices"
+  },
+  {
+    "name": "IoT & Microcontrollers",
+    "overview": "Understand connected sensors, firmware and device protocols.",
+    "practice": "Plan power, update security and network reliability.",
+    "group": "Robotics & Devices"
+  },
+  {
+    "name": "3D Printing",
+    "overview": "Compare materials, printer types and slicing settings.",
+    "practice": "Consider tolerances, ventilation and part strength.",
+    "group": "Robotics & Devices"
+  },
+  {
+    "name": "Technology News",
+    "overview": "Follow AI, semiconductor and software developments.",
+    "practice": "Read primary release notes and separate announcements from availability.",
+    "group": "Robotics & Devices"
+  }
+]

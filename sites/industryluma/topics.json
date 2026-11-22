@@ -1,0 +1,182 @@
+[
+  {
+    "name": "Factory OEE",
+    "overview": "Measure availability, performance and quality as a combined KPI.",
+    "practice": "Use consistent production-time definitions for each shift.",
+    "group": "Factory Operations"
+  },
+  {
+    "name": "Production Capacity",
+    "overview": "Estimate throughput from cycle time and available operating hours.",
+    "practice": "Allow for maintenance, changeovers and expected downtime.",
+    "group": "Factory Operations"
+  },
+  {
+    "name": "Manufacturing Cost",
+    "overview": "Separate direct material, labor and overhead components.",
+    "practice": "Compare cost per accepted unit rather than all units started.",
+    "group": "Factory Operations"
+  },
+  {
+    "name": "Downtime Tracking",
+    "overview": "Classify interruptions and their impact on output.",
+    "practice": "Record reason codes consistently for actionable trends.",
+    "group": "Factory Operations"
+  },
+  {
+    "name": "Production Scheduling",
+    "overview": "Plan sequencing, capacity and delivery commitments.",
+    "practice": "Account for bottlenecks, setups and work in progress.",
+    "group": "Factory Operations"
+  },
+  {
+    "name": "Labor Productivity",
+    "overview": "Compare output relative to paid production time.",
+    "practice": "Avoid optimizing speed while ignoring quality and safety.",
+    "group": "Factory Operations"
+  },
+  {
+    "name": "Quality Control",
+    "overview": "Understand inspection, process capability and defect classification.",
+    "practice": "Define measurable specifications before selecting tests.",
+    "group": "Quality & Safety"
+  },
+  {
+    "name": "Defect Rate",
+    "overview": "Calculate rejected units and first-pass yield.",
+    "practice": "Distinguish scrap, rework and accepted units.",
+    "group": "Quality & Safety"
+  },
+  {
+    "name": "Industrial Safety",
+    "overview": "Review hazard identification, training and prevention.",
+    "practice": "Follow applicable local occupational safety requirements.",
+    "group": "Quality & Safety"
+  },
+  {
+    "name": "Machine Maintenance",
+    "overview": "Plan preventive intervals and condition checks.",
+    "practice": "Use downtime history and manufacturer instructions.",
+    "group": "Quality & Safety"
+  },
+  {
+    "name": "ETP & Effluent",
+    "overview": "Understand wastewater flow, treatment stages and discharge parameters.",
+    "practice": "Check locally applicable permits and lab-based test methods.",
+    "group": "Quality & Safety"
+  },
+  {
+    "name": "Industrial Water Use",
+    "overview": "Measure water intensity and reuse opportunities.",
+    "practice": "Differentiate intake, recirculation and discharged quantities.",
+    "group": "Quality & Safety"
+  },
+  {
+    "name": "Packaging Cost",
+    "overview": "Estimate packaging material and process cost per shipment.",
+    "practice": "Include handling, wastage and transport impacts.",
+    "group": "Materials & Sustainability"
+  },
+  {
+    "name": "Plastic Recycling",
+    "overview": "Understand sorting, polymer grades and reprocessing steps.",
+    "practice": "Check contamination and material-traceability requirements.",
+    "group": "Materials & Sustainability"
+  },
+  {
+    "name": "Extended Producer Responsibility",
+    "overview": "Learn EPR roles, collection systems and compliance concepts.",
+    "practice": "Refer to jurisdiction-specific obligations and effective rules.",
+    "group": "Materials & Sustainability"
+  },
+  {
+    "name": "E-Waste Management",
+    "overview": "Review collection, dismantling and safe disposal approaches.",
+    "practice": "Use licensed handlers for hazardous components.",
+    "group": "Materials & Sustainability"
+  },
+  {
+    "name": "Scrap Materials",
+    "overview": "Understand material recovery factors and market quotations.",
+    "practice": "Check grade, purity, moisture and transport costs.",
+    "group": "Materials & Sustainability"
+  },
+  {
+    "name": "Carbon Footprint",
+    "overview": "Explore emissions accounting scopes and activity data.",
+    "practice": "Use transparent factors with source and year.",
+    "group": "Materials & Sustainability"
+  },
+  {
+    "name": "Farming Operations",
+    "overview": "Plan crop inputs, land use and seasonal tasks.",
+    "practice": "Track yield, weather and field conditions separately.",
+    "group": "Agriculture & Food"
+  },
+  {
+    "name": "Livestock Management",
+    "overview": "Understand feeding, breeding and herd productivity records.",
+    "practice": "Distinguish per-animal measures from farm totals.",
+    "group": "Agriculture & Food"
+  },
+  {
+    "name": "Fisheries & Aquaculture",
+    "overview": "Explore stocking density, feed conversion and water checks.",
+    "practice": "Monitor species-specific water and animal-health requirements.",
+    "group": "Agriculture & Food"
+  },
+  {
+    "name": "Crop Yield",
+    "overview": "Estimate harvest yield per area under stated assumptions.",
+    "practice": "Separate measured yield from modeled forecasts.",
+    "group": "Agriculture & Food"
+  },
+  {
+    "name": "Food Processing",
+    "overview": "Understand process flow, batch handling and hygiene controls.",
+    "practice": "Use hazard analysis appropriate to the product and market.",
+    "group": "Agriculture & Food"
+  },
+  {
+    "name": "Cold Chain",
+    "overview": "Plan temperature-sensitive storage and transport monitoring.",
+    "practice": "Record excursion durations and validated limits.",
+    "group": "Agriculture & Food"
+  },
+  {
+    "name": "Agricultural Equipment",
+    "overview": "Compare machinery capacity, maintenance and operator needs.",
+    "practice": "Evaluate total operating cost, not only purchase price.",
+    "group": "Automation & Analytics"
+  },
+  {
+    "name": "Factory Automation",
+    "overview": "Explore sensor-driven control, PLCs and production integration.",
+    "practice": "Prioritize safety interlocks and maintainable interfaces.",
+    "group": "Automation & Analytics"
+  },
+  {
+    "name": "Industrial Robotics",
+    "overview": "Review repeatability, payload and integration requirements.",
+    "practice": "Evaluate safeguarding and integration downtime.",
+    "group": "Automation & Analytics"
+  },
+  {
+    "name": "Factory Energy",
+    "overview": "Understand electricity use per output unit and peak demand.",
+    "practice": "Normalize comparisons for production mix and shifts.",
+    "group": "Automation & Analytics"
+  },
+  {
+    "name": "Supply Chain KPIs",
+    "overview": "Measure lead time, supplier reliability and inventory turns.",
+    "practice": "Keep receipt dates and performance definitions consistent.",
+    "group": "Automation & Analytics"
+  },
+  {
+    "name": "Industrial Data Analytics",
+    "overview": "Design useful dashboards with consistent plant metrics.",
+    "practice": "Validate source data and abnormal readings before decisions.",
+    "group": "Automation & Analytics"
+  }
+]

@@ -1,85 +1,180 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const sitesFolder = path.join(ROOT, "sites");
-const ids = fs.readdirSync(sitesFolder).filter(id => fs.existsSync(path.join(sitesFolder, id, "site.json"))).sort();
-const requested = process.argv.find(x => x.startsWith("--site="))?.slice(7);
-if (requested && !ids.includes(requested)) throw new Error("Unknown site: " + requested);
-const targets = requested ? [requested] : ids;
-const escapeHtml = value => String(value ?? "").replace(/[&<>"']/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[char]));
-const slug = s => String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
-function write(folder, file, content) {
-  const full = path.join(folder, file);
-  fs.mkdirSync(path.dirname(full), { recursive: true });
-  fs.writeFileSync(full, content, "utf8");
+const SITES = path.join(ROOT, "sites");
+const siteIds = fs.readdirSync(SITES).filter(id => fs.existsSync(path.join(SITES, id, "site.json"))).sort();
+const requested = process.argv.find(a => a.startsWith("--site="))?.slice(7);
+if (requested && !siteIds.includes(requested)) throw new Error("Unknown site " + requested);
+const targets = requested ? [requested] : siteIds;
+const escape = value => String(value ?? "").replace(/[&<>"']/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" })[c]);
+const slugify = value => String(value).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+const unique = items => new Set(items).size === items.length;
+const groupMeta = {
+  coinmetriq: { label:"Research desk", help:"Look for the originating chain or venue, sampling time and primary technical documentation. Price data must be time-stamped, and risk assumptions should be clear.", motto:"Methods before market narratives.", badge:"CRYPTO / RESEARCH" },
+  earthviora: { label:"Observation notes", help:"Check the geographic coverage, instrument resolution, observation date, model uncertainty and local authority guidance before using Earth data.", motto:"Place, time and uncertainty matter.", badge:"EARTH / ATLAS" },
+  solarqentra: { label:"Planning notes", help:"Check local tariffs, equipment specifications, performance losses, climate and applicable grid rules before turning estimates into purchasing decisions.", motto:"Every estimate begins with local inputs.", badge:"ENERGY / PLANNING" },
+  techorvia: { label:"Lab checklist", help:"Check software version, provider terms, data privacy, measurable performance and the tested environment before adopting a technology.", motto:"Test, measure, then ship.", badge:"TECH / WORKBENCH" },
+  moneyavora: { label:"Decision checklist", help:"Check units, date, compounding basis and jurisdiction. Financial, customs and tax rules need current official sources, not guesses.", motto:"Clear inputs make better comparisons.", badge:"FINANCE / METHODS" },
+  industryluma: { label:"Operations notes", help:"Confirm the underlying production records, measurement period, equipment specifications and local compliance obligations before using KPIs.", motto:"Measure the process, not just the output.", badge:"INDUSTRY / SYSTEMS" },
+  worldorixa: { label:"Editorial standards", help:"Distinguish the publication date from the event date; cross-check official primary material and separate verified facts from opinion.", motto:"Context precedes conclusions.", badge:"WORLD / CONTEXT" },
+  vitaloryx: { label:"Health literacy note", help:"General information is not individual diagnosis. Consider source quality, relevant age groups and recognized health-authority guidance.", motto:"Evidence, context and care.", badge:"WELLNESS / REFERENCE" },
+  edunovira: { label:"Study notes", help:"Check the institution's current curriculum, grading scale, eligibility rules and official deadlines before relying on study information.", motto:"Progress comes from clear practice.", badge:"LEARNING / PATHWAYS" },
+  lifealora: { label:"Real-world checks", help:"Verify local prices, provider terms, official entry requirements and safety rules, since practical details vary by place and date.", motto:"Plan for the life you actually live.", badge:"LIFE / GUIDES" }
+};
+function write(out, name, content) {
+ const p = path.join(out,name); fs.mkdirSync(path.dirname(p),{recursive:true}); fs.writeFileSync(p,content,"utf8");
 }
-function baseUrl(c) {
-  const v = process.env.PUBLIC_SITE_URL || "https://" + c.id + ".pages.dev";
-  if (!/^https:\/\/[a-z0-9.-]+(?::\d+)?(?:\/.*)?$/i.test(v)) throw new Error("PUBLIC_SITE_URL must be a valid https URL.");
-  return v.replace(/\/+$/, "");
+function getBase(config){
+ const url = (process.env.PUBLIC_SITE_URL || "https://" + config.id + ".pages.dev").replace(/\/+$/,"");
+ if(!/^https:\/\/[a-z\d.-]+(?::\d+)?$/i.test(url)) throw new Error("Invalid PUBLIC_SITE_URL for " + config.id);
+ return url;
 }
-function layout(c, page, body) {
-  const e = escapeHtml;
-  const currentUrl = baseUrl(c) + page.route;
-  const title = page.title === c.name ? c.name + " | " + c.sector : page.title + " | " + c.name;
-  const css = "#ffffff";
-  const header = '<header class="topbar"><div class="shell nav"><a class="brand" href="/"><span class="brand-mark" aria-hidden="true">◆</span>' + e(c.name) + '</a><nav class="navlinks" aria-label="Main navigation"><a href="/">Home</a><a href="/tools/' + e(c.tool.slug) + '/">Free Tool</a><a href="/#topics">Topics</a><a href="/about/">About</a></nav></div></header>';
-  const footer = '<footer class="footer"><div class="shell footer-grid"><span>© ' + new Date().getUTCFullYear() + ' ' + e(c.name) + ' · Independent information and utility website</span><nav aria-label="Footer navigation"><a href="/about/">About</a><a href="/privacy/">Privacy</a></nav></div></footer>';
-  const structured = { "@context": "https://schema.org", "@type": "WebSite", name: c.name, url: baseUrl(c) + "/", description: c.tagline, inLanguage: "en" };
-  const json = JSON.stringify(structured).replace(/</g, "\\u003c");
-  return '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="' + e(css) + '"><title>' + e(title) + '</title><meta name="description" content="' + e(page.description) + '"><link rel="canonical" href="' + e(currentUrl) + '"><meta property="og:type" content="website"><meta property="og:title" content="' + e(title) + '"><meta property="og:description" content="' + e(page.description) + '"><meta property="og:url" content="' + e(currentUrl) + '"><link rel="stylesheet" href="/assets/style.css"><script type="application/ld+json">' + json + '</script></head><body style="--accent:' + e(c.accent) + '"><a class="skip" href="#main" style="position:absolute;left:-9999px">Skip to content</a>' + header + '<main id="main">' + body + '</main>' + footer + '<script type="module" src="/assets/calculator.js"></script></body></html>';
+function groupBy(topics) {
+ const groups = [];
+ for (const t of topics) {
+   let g = groups.find(x=>x.name===t.group);
+   if (!g) {g={name:t.group,topics:[]};groups.push(g);}
+   g.topics.push(t);
+ }
+ return groups;
 }
-function homepage(c) {
-  const e = escapeHtml;
-  const topics = c.categories.map((x,i) => '<li><span class="num">' + String(i+1).padStart(2,"0") + '</span>' + e(x) + '</li>').join("");
-  const regions = c.countries.map(x => '<span class="chip">' + e(x) + '</span>').join("");
-  const body = '<section class="hero"><div class="shell"><div class="eyebrow">Free interactive tools · Global information</div><h1>' + e(c.tagline) + '</h1><p class="lead">' + e(c.sector) + '. Explore helpful calculations without signing up. All numbers are entered by you, not fabricated from live feeds.</p><div class="actions"><a class="btn" href="/tools/' + e(c.tool.slug) + '/">Use free calculator</a><a class="btn secondary" href="#topics">Explore topics</a></div></div></section>' +
-  '<section class="section"><div class="shell"><div class="section-heading"><div><div class="eyebrow">Available now</div><h2>Start with a practical tool</h2></div></div><div class="featured"><div class="feature-art"><small>' + e(c.sector) + '</small><strong>' + e(c.tool.title) + '</strong><p>' + e(c.tool.intro) + '</p></div><div class="card"><div class="eyebrow">Interactive calculator</div><h3>' + e(c.tool.title) + '</h3><p class="sub">' + e(c.tool.formula) + '</p><p><a class="btn" href="/tools/' + e(c.tool.slug) + '/">Open calculator</a></p><p class="note">Works entirely in your browser. No account required.</p></div></div></div></section>' +
-  '<section class="section" id="topics"><div class="shell"><div class="section-heading"><div><div class="eyebrow">Editorial roadmap</div><h2>Explore our areas of focus</h2></div><p class="sub">These are planned content areas, not claims of published articles. Additional tools and verified resources will be published progressively.</p></div><ol class="topic-grid">' + topics + '</ol></div></section>' +
-  '<section class="section"><div class="shell card"><h2>Country-focused coverage, where useful</h2><p class="sub">We prioritize meaningful regional data instead of publishing identical country pages. These markets guide future research, tools and verified content.</p><div class="chips" style="margin-top:16px">' + regions + '</div><p class="note">Country-specific tariffs, regulations and live feeds are not yet available in this starter release.</p></div></section>';
-  return layout(c,{ title:c.name,description:c.tagline,route:"/" },body);
+function linkTopic(t) {return "/topics/"+t.slug+"/";}
+function groupLinks(groups) {
+ return groups.map(g=>'<a href="/topics/#'+slugify(g.name)+'">'+escape(g.name)+'</a>').join("");
 }
-function toolPage(c) {
-  const e=escapeHtml, t=c.tool;
-  const inputs=t.inputs.map(f=>{const type=f.type==="date"?"date":"number";const props=type==="date"?"":' min="'+e(f.min)+'" max="'+e(f.max)+'" step="any"';return '<div class="field"><label for="' + e(f.key) + '">' + e(f.label) + '</label><input id="' + e(f.key) + '" name="' + e(f.key) + '" data-field="' + e(f.key) + '" type="' + type + '"' + props + ' value="' + e(f.default) + '" required></div>';}).join("");
-  const form = '<form class="card" data-calculator="' + e(t.kind) + '"><h2>Enter your values</h2><p class="sub">Change any field, then calculate. Input remains in your browser.</p><div class="form-grid">' + inputs + '</div><button class="btn" type="submit">Calculate</button><div class="result" aria-live="polite" aria-atomic="true" data-result><strong>Ready to calculate</strong><p>Enter the information above and choose Calculate.</p></div></form>';
-  const explanation = '<aside class="card"><div class="eyebrow">How it works</div><h3>Formula and assumptions</h3><p>' + e(t.formula) + '</p><h3>Important limitations</h3><p>' + e(t.caution) + '</p><p class="note">No live API pricing, market rate or country law is inferred by this tool.</p></aside>';
-  const body = '<section class="section"><div class="shell"><div class="breadcrumbs"><a href="/">Home</a> / Free Tool</div><div class="eyebrow">' + e(c.sector) + '</div><h1>' + e(t.title) + '</h1><p class="lead">' + e(t.intro) + '</p><div class="tool-wrap">' + form + explanation + '</div></div></section>';
-  return layout(c,{title:t.title,description:t.intro,route:"/tools/"+t.slug+"/"},body);
+function siteNav(c,groups) {
+ const menu = groups.slice(0,3).map(g=>'<a href="/topics/#'+slugify(g.name)+'">'+escape(g.name)+'</a>').join("");
+ return '<header class="topbar"><div class="shell nav"><a class="brand" href="/" aria-label="'+escape(c.name)+' homepage"><span class="brand-mark" aria-hidden="true">'+escape(c.design.marker)+'</span>'+escape(c.name)+'</a><nav class="navlinks" aria-label="Main navigation">'+menu+'<a href="/topics/">All 30 topics</a><a href="/tools/'+escape(c.tool.slug)+'/">Calculator</a></nav></div></header>';
 }
-function infoPage(c,kind) {
-  const e=escapeHtml;
-  const about=kind==="about";
-  const title=about?"About "+c.name:"Privacy Policy";
-  const body=about ?
-    '<h1>About ' + e(c.name) + '</h1><p>' + e(c.tagline) + '</p><p>This independent website is part of a planned network of ten utility and information sites. It currently offers a working interactive calculator and an editorial roadmap. Topic coverage will expand when useful original tools and verifiable data are available.</p><p>Calculator results are estimates using user inputs; they are not professional, regulatory or financial advice.</p>' :
-    '<h1>Privacy Policy</h1><p>This starter website does not require accounts and its calculator does not transmit entered values to our servers. Pages are delivered by the hosting provider, which may process technical request information for website delivery and security.</p><p>No analytics trackers, advertising scripts or cookies are intentionally included in this initial codebase. If advertising or analytics services are enabled later, this notice and any required visitor-consent mechanisms must be updated before deployment.</p><p>Calculator inputs stay in your browser. Do not submit sensitive personal information through any future public forms.</p>';
-  return layout(c,{title,description:(about?"Learn about ":"Privacy practices for ")+c.name+".",route:"/"+kind+"/"},'<section class="section"><div class="shell readable">'+body+'</div></section>');
+function structured(c,p,topics){
+ const root=getBase(c);
+ const objects=[{"@context":"https://schema.org","@type":"WebSite",name:c.name,url:root+"/",inLanguage:"en",description:c.tagline}];
+ if(p.breadcrumbs) objects.push({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":p.breadcrumbs.map((b,i)=>({"@type":"ListItem",position:i+1,name:b.name,item:root+b.path}))});
+ if(p.type==="collection") objects.push({"@context":"https://schema.org","@type":"CollectionPage",name:p.title,url:root+p.route,description:p.description,"mainEntity":{"@type":"ItemList",itemListElement:topics.map((t,i)=>({"@type":"ListItem",position:i+1,name:t.name,url:root+linkTopic(t)}))}});
+ return JSON.stringify(objects).replace(/</g,"\\u003c");
 }
-function notFound(c) {return layout(c,{title:"Page Not Found",description:"This page does not exist.",route:"/404.html"},'<section class="section"><div class="shell error-page"><div class="eyebrow">404</div><h1>Page not found</h1><p class="lead">The requested page is not available.</p><p><a class="btn" href="/">Return home</a></p></div></section>');}
-function validate(c, id) {
- if(c.id!==id || !/^[a-z0-9-]+$/.test(id))throw new Error("Site identity mismatch: "+id);
- if(!/^#[0-9a-f]{6}$/i.test(c.accent))throw new Error("Invalid accent "+id);
- if(!Array.isArray(c.categories)||c.categories.length<15||c.categories.length>20||new Set(c.categories).size!==c.categories.length)throw new Error("Categories invalid "+id);
- if(!c.tool||!c.tool.slug||!c.tool.inputs?.length)throw new Error("Tool invalid "+id);
+function layout(c,p,content,topics,groups){
+ const e=escape; const root=getBase(c); const canonical=root+p.route;
+ const pageTitle=p.title===c.name?c.name+" | "+c.sector:p.title+" | "+c.name;
+ const meta='<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="'+e(c.accent)+'"><title>'+e(pageTitle)+'</title><meta name="description" content="'+e(p.description)+'"><link rel="canonical" href="'+e(canonical)+'"><meta name="robots" content="'+(p.indexable===false?"noindex,follow":"index,follow")+'"><meta property="og:type" content="website"><meta property="og:site_name" content="'+e(c.name)+'"><meta property="og:title" content="'+e(pageTitle)+'"><meta property="og:description" content="'+e(p.description)+'"><meta property="og:url" content="'+e(canonical)+'"><meta name="twitter:card" content="summary"><link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"><link rel="stylesheet" href="/assets/style.css"><link rel="stylesheet" href="/assets/experience.css"><script type="application/ld+json">'+structured(c,p,topics)+'</script>';
+ const footer='<footer class="footer"><div class="shell footer-grid"><div><strong>'+e(c.name)+'</strong><div>'+e(c.design.short)+'</div><small>© '+new Date().getUTCFullYear()+' · Independent information and utility website</small></div><nav aria-label="Footer navigation"><a href="/topics/">Topics</a><a href="/about/">About</a><a href="/privacy/">Privacy</a></nav></div></footer>';
+ return '<!doctype html><html lang="en"><head>'+meta+'</head><body data-design="'+e(c.design.design)+'" data-site="'+e(c.id)+'" style="--accent:'+e(c.accent)+'"><a class="sr-only" href="#main">Skip to main content</a>'+siteNav(c,groups)+'<main id="main">'+content+'</main>'+footer+'<script type="module" src="/assets/calculator.js"></script></body></html>';
 }
-for (const id of targets) {
- const config=JSON.parse(fs.readFileSync(path.join(sitesFolder,id,"site.json"),"utf8"));
- validate(config,id);
+function heroStage(c,groups){
+ const e=escape;const key=c.id; const groupNames=groups.map(x=>x.name);
+ const rows=groupNames.slice(0,3).map((name,i)=>'<div class="stage-point"><span>0'+(i+1)+' / '+e(name)+'</span><span aria-hidden="true">↗</span></div>').join("");
+ const icon={coinmetriq:"◈",earthviora:"◎",solarqentra:"☀",techorvia:"{ }",moneyavora:"∑",industryluma:"▤",worldorixa:"✳",vitaloryx:"♡",edunovira:"✎",lifealora:"✺"}[key];
+ const heading={coinmetriq:"Markets are data, not promises.",earthviora:"Read the landscape.",solarqentra:"Power your next decision.",techorvia:"Ideas → tools → answers.",moneyavora:"Think in clear numbers.",industryluma:"Operational clarity.",worldorixa:"A broader perspective.",vitaloryx:"Care starts with understanding.",edunovira:"Make progress visible.",lifealora:"A guide for the journey."}[key];
+ const custom={
+  coinmetriq:'<div class="stage-kicker">RESEARCH TERMINAL · LEARNING MODE</div><div class="stage-graphic">▥</div>',
+  earthviora:'<div class="stage-kicker">GLOBAL OBSERVATION ATLAS</div><div class="stage-graphic">◉</div>',
+  solarqentra:'<div class="stage-kicker">SOLAR → STORAGE → HOME</div><div class="stage-graphic">☀</div>',
+  techorvia:'<div class="stage-kicker">TECH STACK / EXPLORE</div><div class="stage-graphic">&lt;/&gt;</div>',
+  moneyavora:'<div class="stage-kicker">THE PRACTICAL FINANCE DESK</div><div class="stage-graphic">▦</div>',
+  industryluma:'<div class="stage-kicker">OPERATIONS / BENCHMARKS</div><div class="stage-graphic">▥</div>',
+  worldorixa:'<div class="stage-kicker">INDEPENDENT TOPIC DIRECTORY</div><div class="stage-graphic">✳</div>',
+  vitaloryx:'<div class="stage-kicker">A MORE MINDFUL REFERENCE</div><div class="stage-graphic">♡</div>',
+  edunovira:'<div class="stage-kicker">LEARNING / LEVEL UP</div><div class="stage-graphic">✎</div>',
+  lifealora:'<div class="stage-kicker">YOUR PRACTICAL LIFE ATLAS</div><div class="stage-graphic">✈</div>'
+ };
+ return '<div class="hero-stage" aria-label="'+e(c.sector)+' illustration"><div class="stage-frame">'+custom[key]+'<div class="stage-title">'+e(heading)+'</div><div class="stage-points">'+rows+'</div></div></div>';
+}
+function topicCard(t,i){
+ return '<a class="topic-card" href="'+linkTopic(t)+'"><span class="meta">'+escape(t.group)+' · '+String(i+1).padStart(2,"0")+'</span><h3>'+escape(t.name)+'</h3><p>'+escape(t.overview)+'</p><span class="continue">Explore guide <span aria-hidden="true">↗</span></span></a>';
+}
+function crumbs(parts){
+ return '<nav class="breadcrumbs" aria-label="Breadcrumb">'+parts.map((p,i)=>(i?'<span aria-hidden="true"> / </span>':'')+(p.href?'<a href="'+p.href+'">'+escape(p.name)+'</a>':escape(p.name))).join("")+'</nav>';
+}
+function home(c,topics,groups){
+ const e=escape;const meta=groupMeta[c.id];
+ const pillars=groups.map((g,i)=>'<a class="pillar-card" href="/topics/#'+slugify(g.name)+'"><small>0'+(i+1)+' / 06 subjects</small><h3>'+e(g.name)+'</h3><p>'+e(g.topics[0].overview)+'</p><span class="arrow" aria-hidden="true">↗</span></a>').join("");
+ const feature=topics.filter((_,i)=>[0,6,12,18,24,29].includes(i)).map((t,i)=>topicCard(t,i)).join("");
+ const chips=c.countries.map(code=>'<span class="chip">'+e(code)+'</span>').join("");
+ const html='<section class="page-hero"><div class="shell hero-layout"><div><div class="eyebrow">'+e(c.design.heroEyebrow)+'</div><h1>'+e(c.design.heroTitle)+'</h1><p class="lead">'+e(c.design.heroNote)+'</p><div class="actions"><a class="btn" href="/tools/'+e(c.tool.slug)+'/">Try '+e(c.tool.title)+'</a><a class="btn secondary" href="/topics/">Explore 30 topics</a></div><p class="hero-caption">No account needed · Original topic guides · Transparent tool assumptions</p></div>'+heroStage(c,groups)+'</div></section>'+
+ '<section class="section"><div class="shell"><div class="section-heading"><div><div class="eyebrow">'+e(meta.badge)+'</div><h2>Five paths into '+e(c.sector)+'</h2></div><p class="section-lede">Thirty carefully organized subjects with concrete guidance, divided into five logical groups.</p></div><div class="pillar-grid">'+pillars+'</div></div></section>'+
+ '<section class="section"><div class="shell"><div class="tool-promo"><div><div class="eyebrow">WORKING CALCULATOR · FREE</div><h2>'+e(c.tool.title)+'</h2><p>'+e(c.tool.intro)+'</p><a class="btn" href="/tools/'+e(c.tool.slug)+'/">Open interactive tool</a><p class="note">Runs in your browser. Calculations use the numbers you enter; no fabricated live data.</p></div><div class="tool-equation"><small>Transparent method</small><strong>'+e(c.tool.formula)+'</strong></div></div></div></section>'+
+ '<section class="section"><div class="shell"><div class="section-heading"><div><div class="eyebrow">TOPIC EXPLORER</div><h2>Start with these guides</h2></div><a href="/topics/">Browse all 30 topics</a></div><div class="category-collection">'+feature+'</div></div></section>'+
+ '<section class="section"><div class="shell card"><h2>Regional coverage, with meaningful local context</h2><p class="section-lede">These are target research markets, not live national datasets. We only add country pages when verified local information genuinely differs.</p><div class="chips" style="margin-top:16px">'+chips+'</div><p class="note">'+e(meta.motto)+'</p></div></section>';
+ return layout(c,{title:c.name,description:c.design.heroNote,route:"/"},html,topics,groups);
+}
+function topicIndex(c,topics,groups){
+ const e=escape;
+ let content='<section class="content-hero"><div class="shell">'+crumbs([{name:"Home",href:"/"},{name:"Topics"}])+'<div class="eyebrow">'+e(c.design.heroEyebrow)+'</div><h1>Explore all 30 '+e(c.sector)+' topics</h1><p class="lead">Browse five curated groups of six specific topics. Each guide explains the subject, practical checks and how to evaluate information responsibly.</p><div class="group-links">'+groupLinks(groups)+'</div></div></section>';
+ content+='<section class="section"><div class="shell">';
+ let index=0;
+ for(const g of groups) {
+  content+='<section aria-labelledby="group-'+slugify(g.name)+'" id="'+slugify(g.name)+'"><div class="group-title"><h2 id="group-'+slugify(g.name)+'">'+e(g.name)+'</h2><span>06 subject guides</span></div><div class="category-collection">'+g.topics.map(t=>topicCard(t,index++)).join("")+'</div></section>';
+ }
+ content+='</div></section>';
+ return layout(c,{title:"All 30 Topics",description:"Thirty organized "+c.sector+" topic guides, methods and practical decision tips.",route:"/topics/",type:"collection",breadcrumbs:[{name:"Home",path:"/"},{name:"Topics",path:"/topics/"}]},content,topics,groups);
+}
+function topicPage(c,t,topics,groups){
+ const e=escape, guide=groupMeta[c.id];const same=topics.filter(x=>x.group===t.group&&x.name!==t.name).slice(0,4);
+ const route=linkTopic(t);const verified=Boolean(t.editorialReviewed && Array.isArray(t.sources) && t.sources.length);
+ const info='<section class="content-hero"><div class="shell">'+crumbs([{name:"Home",href:"/"},{name:"Topics",href:"/topics/"},{name:t.name}])+'<div class="eyebrow">'+e(t.group)+' · TOPIC GUIDE</div><h1>'+e(t.name)+'</h1><p class="lead">'+e(t.overview)+'</p><span class="notlive"><span class="dot"></span>Practical guide · Not a live data feed</span></div></section>';
+ const left='<article><section class="content-block"><h2>What '+e(t.name)+' helps you understand</h2><p>'+e(t.overview)+'</p><p>Part of <strong>'+e(t.group)+'</strong> on '+e(c.name)+', this guide focuses on how to evaluate the topic and use relevant information rather than making unsupported real-time claims.</p></section>'+
+ '<section class="content-block"><h2>Practical considerations</h2><blockquote class="guide">'+e(t.practice)+'</blockquote><p>Before taking action, define the purpose of your comparison, choose consistent measurements and check whether the information is applicable to your location and time period.</p></section>'+
+ '<section class="content-block"><h2>Suggested review process</h2><ol><li><strong>Scope:</strong> Define the question you need to answer about '+e(t.name)+', including units, geography and relevant dates.</li><li><strong>Evidence:</strong> Prefer primary materials, transparent methodologies and dated measurements; compare where sources disagree.</li><li><strong>Decision:</strong> Apply the result only within its stated limitations and document key assumptions.</li></ol></section>'+
+ '<section class="content-block"><h2>Information quality and limits</h2><p>'+e(guide.help)+'</p><p>Any future live dataset on this page will identify its provider and last update time. This initial overview does not claim real-time prices, alerts, legal rules or professional recommendations.</p></section></article>';
+ const right='<aside class="content-aside"><section class="content-block"><div class="eyebrow">'+e(guide.label)+'</div><h3>'+e(guide.motto)+'</h3><p>'+e(t.practice)+'</p><p><a href="/tools/'+e(c.tool.slug)+'/">Try '+e(c.tool.title)+' →</a></p></section><section class="content-block"><h3>Explore related topics</h3>'+same.map(x=>'<a class="topic-mini" href="'+linkTopic(x)+'">'+e(x.name)+' <span aria-hidden="true">↗</span></a>').join("")+'<p><a href="/topics/#'+slugify(t.group)+'">See all in '+e(t.group)+'</a></p></section></aside>';
+ const content=info+'<section class="section"><div class="shell content-layout">'+left+right+'</div></section>';
+ return layout(c,{title:t.name,description:t.overview+" "+t.practice,route,indexable:verified,breadcrumbs:[{name:"Home",path:"/"},{name:"Topics",path:"/topics/"},{name:t.name,path:route}]},content,topics,groups);
+}
+function toolPage(c,topics,groups){
+ const e=escape,t=c.tool;
+ const fields=t.inputs.map(f=>{const date=f.type==="date";return '<div class="field"><label for="'+e(f.key)+'">'+e(f.label)+'</label><input id="'+e(f.key)+'" name="'+e(f.key)+'" data-field="'+e(f.key)+'" type="'+(date?"date":"number")+'"'+(date?"":' min="'+e(f.min)+'" max="'+e(f.max)+'" step="any"')+' value="'+e(f.default)+'" required></div>';}).join("");
+ const form='<form class="card" data-calculator="'+e(t.kind)+'"><h2>Calculator inputs</h2><p>Enter your values and calculate. Nothing is submitted to a server.</p><div class="form-grid">'+fields+'</div><button class="btn" type="submit">Calculate result</button><div class="result" data-result aria-live="polite" aria-atomic="true"><strong>Ready</strong><p>Enter information above and select Calculate result.</p></div></form>';
+ const note='<aside class="content-aside"><div class="content-block"><div class="eyebrow">Calculation method</div><h3>Formula and assumptions</h3><p>'+e(t.formula)+'</p><h3>Limitations</h3><p>'+e(t.caution)+'</p><p class="disclaimer">A transparent estimate using visitor inputs—not a live quote, official advisory, or professional recommendation.</p></div><div class="content-block"><h3>Browse this knowledge area</h3><a href="/topics/">Explore 30 '+e(c.sector)+' topics →</a></div></aside>';
+ const content='<section class="content-hero"><div class="shell">'+crumbs([{name:"Home",href:"/"},{name:"Free Calculator"}])+'<div class="eyebrow">'+e(c.design.heroEyebrow)+'</div><h1>'+e(t.title)+'</h1><p class="lead">'+e(t.intro)+'</p></div></section><section class="section"><div class="shell content-layout">'+form+note+'</div></section>';
+ return layout(c,{title:t.title,description:t.intro,route:"/tools/"+t.slug+"/",breadcrumbs:[{name:"Home",path:"/"},{name:t.title,path:"/tools/"+t.slug+"/"}]},content,topics,groups);
+}
+function infoPage(c,kind,topics,groups){
+ const e=escape;const about=kind==="about";const title=about?"About "+c.name:"Privacy Policy";
+ const paragraphs=about?'<p>'+e(c.design.heroNote)+'</p><p>'+e(c.name)+' is a free public educational and utility website for '+e(c.design.audience)+' We organize 30 subjects into five discoverable topic groups, with practical overview guides and a working browser-only calculator.</p><p>Some topic guides are brief initial overviews and are intentionally not indexed in search until they contain sufficient original, reviewed material. We do not fabricate real-time prices, news, official regulations or alerts.</p><p>New calculators, verified local data and research may be added progressively; the existing site is freely accessible without login.</p>':'<p>This site does not require registration. Calculator input stays in your browser and is not sent to our servers by the provided calculator code.</p><p>Cloudflare hosts the pages and may process connection details such as IP addresses and request metadata to deliver and secure the service. Consult Cloudflare privacy documentation for its infrastructure practices.</p><p>This version does not include advertising tags, third-party analytics trackers or marketing cookies. If advertising, analytics or sponsorship tracking is added later, the policy will be updated and consent controls implemented where required before enabling those services.</p><p>No form on this initial site requests sensitive personal data. Treat our informational content as general guidance, not personalized legal, medical or financial advice.</p>';
+ const content='<section class="content-hero"><div class="shell">'+crumbs([{name:"Home",href:"/"},{name:title}])+'<h1>'+e(title)+'</h1></div></section><section class="section"><div class="shell readable card">'+paragraphs+'</div></section>';
+ return layout(c,{title,description:(about?"About ":"Privacy details for ")+c.name,route:"/"+kind+"/",breadcrumbs:[{name:"Home",path:"/"},{name:title,path:"/"+kind+"/"}]},content,topics,groups);
+}
+function page404(c,topics,groups){
+ return layout(c,{title:"Page not found",description:"The requested page could not be found.",route:"/404.html",indexable:false},'<section class="section"><div class="shell error-page"><div class="eyebrow">404 · Not found</div><h1>This page has moved or does not exist.</h1><p class="lead">Return to the homepage or browse the topic directory.</p><div class="actions"><a class="btn" href="/">Go home</a><a class="btn secondary" href="/topics/">Explore 30 topics</a></div></div></section>',topics,groups);
+}
+function favicon(c) {
+ const color=c.accent;const monogram=c.name.slice(0,1).toUpperCase();
+ return '<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="'+color+'"/><text x="32" y="44" font-family="Arial,sans-serif" font-size="39" font-weight="700" text-anchor="middle" fill="'+(["coinmetriq","techorvia","industryluma"].includes(c.id)?"#101e22":"#ffffff")+'">'+monogram+'</text></svg>';
+}
+function validate(c,topics){
+ if(c.id!==c.id.toLowerCase()||!siteIds.includes(c.id))throw new Error("Invalid id");
+ if(!c.design||!c.design.design||!c.design.marker)throw new Error("Missing brand identity: "+c.id);
+ if(!/^#[0-9a-f]{6}$/i.test(c.accent))throw new Error("Invalid accent: "+c.id);
+ if(!Array.isArray(topics)||topics.length!==30)throw new Error(c.id+": exactly 30 topics required");
+ if(!unique(topics.map(t=>t.name))||!unique(topics.map(t=>t.slug)))throw new Error("Duplicate topic: "+c.id);
+ const groups=groupBy(topics);
+ if(groups.length!==5||groups.some(g=>g.topics.length!==6))throw new Error("Five groups of six required: "+c.id);
+ for(const t of topics) if(t.overview.length<35||t.practice.length<35)throw new Error("Incomplete topic detail: "+c.id+" "+t.name);
+ if(!c.tool?.inputs?.length)throw new Error("Working calculator required: "+c.id);
+ return groups;
+}
+for(const id of targets){
+ const config=JSON.parse(fs.readFileSync(path.join(SITES,id,"site.json"),"utf8"));
+ const topics=JSON.parse(fs.readFileSync(path.join(SITES,id,"topics.json"),"utf8")).map(t=>({...t,slug:slugify(t.name)}));
+ const groups=validate(config,topics);
  const out=path.join(ROOT,"dist",id);
  fs.rmSync(out,{recursive:true,force:true});
- write(out,"index.html",homepage(config));
- write(out,"tools/"+config.tool.slug+"/index.html",toolPage(config));
- write(out,"about/index.html",infoPage(config,"about"));
- write(out,"privacy/index.html",infoPage(config,"privacy"));
- write(out,"404.html",notFound(config));
+ write(out,"index.html",home(config,topics,groups));
+ write(out,"topics/index.html",topicIndex(config,topics,groups));
+ for(const topic of topics)write(out,"topics/"+topic.slug+"/index.html",topicPage(config,topic,topics,groups));
+ write(out,"tools/"+config.tool.slug+"/index.html",toolPage(config,topics,groups));
+ write(out,"about/index.html",infoPage(config,"about",topics,groups));
+ write(out,"privacy/index.html",infoPage(config,"privacy",topics,groups));
+ write(out,"404.html",page404(config,topics,groups));
  fs.mkdirSync(path.join(out,"assets"),{recursive:true});
- for (const a of ["style.css","calculator.js"]) fs.copyFileSync(path.join(ROOT,"packages/site-core",a),path.join(out,"assets",a));
- const rootUrl=baseUrl(config);
- const paths=["/","/tools/"+config.tool.slug+"/","/about/","/privacy/"];
- write(out,"sitemap.xml",'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+paths.map(p=>"<url><loc>"+rootUrl+p+"</loc></url>").join("")+"</urlset>");
- write(out,"robots.txt","User-agent: *\nAllow: /\nSitemap: "+rootUrl+"/sitemap.xml\n");
+ for (const filename of ["style.css","experience.css","calculator.js"])fs.copyFileSync(path.join(ROOT,"packages/site-core",filename),path.join(out,"assets",filename));
+ write(out,"assets/favicon.svg",favicon(config));
+ const urls=["/","/topics/","/tools/"+config.tool.slug+"/","/about/","/privacy/"];
+ for(const t of topics)if(t.editorialReviewed===true&&Array.isArray(t.sources)&&t.sources.length)urls.push(linkTopic(t));
+ write(out,"sitemap.xml",'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+urls.map(route=>'<url><loc>'+getBase(config)+route+'</loc></url>').join("")+'</urlset>');
+ write(out,"robots.txt","User-agent: *\nAllow: /\nSitemap: "+getBase(config)+"/sitemap.xml\n");
  write(out,"_headers","/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  X-Frame-Options: DENY\n  Permissions-Policy: camera=(), microphone=(), geolocation=()\n");
- console.log("Built "+id+" → dist/"+id+" (5 HTML pages + SEO resources)");
+ console.log("Built "+config.name+": 30 guide pages, topic directory, calculator, brand homepage, about/privacy/404.");
 }

@@ -1,68 +1,60 @@
-# GlobalSites — 10 independent Cloudflare Pages sites
+# GlobalSites — Ten independent Cloudflare Pages brands
 
-Ten launchable, independently built static sites in **one GitHub repository**. TechDailyNews is deliberately **not** part of this repo and must not be modified.
+This single repository powers 10 independently deployed websites with 300 organized subcategories (30 per brand). TechDailyNews is deliberately NOT part of this project.
 
-## Projects
+## The brands and their unique presentation
 
-| Site | Folder | Main focus |
-| --- | --- | --- |
-| CoinMetriq | `sites/coinmetriq/` | Crypto & Blockchain |
-| EarthViora | `sites/earthviora/` | Earth, Climate & Space |
-| SolarQentra | `sites/solarqentra/` | Solar, Energy & EV |
-| TechOrvia | `sites/techorvia/` | AI, Technology & Digital Tools |
-| MoneyAvora | `sites/moneyavora/` | Finance, Business & Trade |
-| IndustryLuma | `sites/industryluma/` | Manufacturing, Agriculture & Recycling |
-| WorldOrixa | `sites/worldorixa/` | World News, Politics & Culture |
-| VitalOryx | `sites/vitaloryx/` | Health, Fitness & Wellness |
-| EduNovira | `sites/edunovira/` | Education, Careers & Skills |
-| LifeAlora | `sites/lifealora/` | Travel, Home & Lifestyle |
+| Brand | Site directory | Visual language | Main subject |
+| --- | --- | --- | --- |
+| CoinMetriq | sites/coinmetriq | Dark research terminal | Crypto and blockchain |
+| EarthViora | sites/earthviora | Green topographic atlas | Satellite, hazards, environment |
+| SolarQentra | sites/solarqentra | Warm solar-energy studio | Solar, power, batteries, EV |
+| TechOrvia | sites/techorvia | Code/developer laboratory | AI, security, software, creators |
+| MoneyAvora | sites/moneyavora | Professional finance editorial | Finance, banking, global trade |
+| IndustryLuma | sites/industryluma | Industrial operations console | Factory, agriculture, recycling |
+| WorldOrixa | sites/worldorixa | Newspaper-inspired editorial | World news, sports, public data |
+| VitalOryx | sites/vitaloryx | Calm wellness library | Health, exercise, care |
+| EduNovira | sites/edunovira | Student campus notebook | Education and career |
+| LifeAlora | sites/lifealora | Travel/lifestyle journal | Home, travel, property, pets |
 
-Each project contains its own `site.json`: branding, topics (planning taxonomy), target-country shortlist, and one live, accessible, browser-only calculator. Topic names are a **roadmap**, not 200 published thin/duplicate pages. The initial build creates a real home page, working tool, About, Privacy, 404, and SEO resources for each site.
+Each site has a distinctive responsive homepage, topic-specific navigation, a category directory with five logical groups of six, 30 individually written introductory topic guides, a functioning calculator, and About/Privacy/404 pages.
 
-## Build and test
+IMPORTANT CONTENT STATUS: The 300 subcategory URLs currently contain concise, individually written overviews and practical guidance, NOT fully researched long-form articles, live data, or a working calculator for each category. They are intentionally marked noindex,follow until actual original material, references and editorial review are added. The indexable topic directory and real calculator remain in the sitemap. Do not switch 300 brief pages to index indiscriminately.
 
-Requirements: Node.js 20+; no third-party npm dependencies.
+## Build and QA
 
-```bash
-npm run check
-npm run build -- --site=solarqentra
-npm run build:all
-```
+Requires Node.js 20 or above; no third-party runtime dependencies.
 
-Outputs: `dist/solarqentra/`, `dist/coinmetriq/`, etc. Each output is a self-contained static Cloudflare Pages deployment. The `dist` directory is generated and not committed.
+- Build all and run tests: npm run check
+- Build one site: npm run build -- --site=solarqentra
+- Build all: npm run build:all
 
-## Cloudflare Pages — one Git repository, ten independent projects
+Per-site output directory: dist/[site-id] (generated, gitignored).
+CI builds and tests all ten sites, validating 300 routes, designs, SEO and the ten calculators.
 
-Create ten **separate Cloudflare Pages Git-connected projects** using this same repository and branch `main`.
+## Cloudflare Pages deployment
 
-- **Root directory:** repository root (`/`, not the site folder)
-- **Build command:** `npm run build -- --site=solarqentra` (replace ID for each project)
-- **Build output directory:** `dist/solarqentra` (replace ID for each project)
-- **Node.js version:** 22
-- **Production branch:** `main`
-- **Environment:** optional `PUBLIC_SITE_URL=https://your-confirmed-domain.example` for correct canonical URLs and sitemap. Each Pages project configures its own value.
+All ten Pages projects use GitHub cseashrafulislam/Monorepo and branch main.
+For SolarQentra: root directory blank (repo root), build command npm run build -- --site=solarqentra, output directory dist/solarqentra, Node 22.
+Replace solarqentra in the build command and output path for other brands.
+Configure Build Watch Paths for the chosen sites/[site-id]/* plus shared packages/site-core/*, scripts/* and package.json.
+The default canonical uses https://[site-id].pages.dev ; when changing domain, configure PUBLIC_SITE_URL per Cloudflare project before making it canonical.
 
-Set **Build Watch Paths** per project: include its `sites/<id>/**` plus `packages/site-core/**`, `scripts/**`, `package.json`, `tests/**`. Configure paths in the Cloudflare dashboard; changes to shared files should rebuild all dependent sites.
+## Data architecture
 
-Names in `sites/` are provisional apart from SolarQentra selected by the owner; Cloudflare `*.pages.dev` availability is **not** established by this repository. Confirm the actual URL before connecting AdSense, indexing or configuring `PUBLIC_SITE_URL`.
+- sites/[site-id]/site.json: site identity, theme, target markets, one working tool.
+- sites/[site-id]/topics.json: one authoritative 30-category catalog, grouped 5 × 6.
+- scripts/build.mjs: SEO-aware static generator.
+- packages/site-core/style.css: shared functional layout/accessibility CSS.
+- packages/site-core/experience.css: ten materially different visual themes.
+- packages/site-core/calculator.js: browser-only calculator engine.
+- tests/site.test.mjs: regression checks.
+- .github/workflows/ci.yml: automatic build validation.
 
-## Development standards
+## Quality, SEO, countries and ads
 
-- No registration, APIs, invented live market/news data, fabricated local price lists, or unapproved ad scripts.
-- Current calculators use visitor-entered values. No entered value is sent to a server.
-- Country shortlists are editorial priorities, not published country-specific content. Add only verified, genuinely localized pages with sources and effective dates.
-- Ads: integrate approved networks and direct sponsorship later, with country consent and accurate Privacy disclosures before enabling tracking.
-- No automatic publishing of empty category pages. Extend each site's topics with actual original tools, evidence-backed content and real data licensing.
-- Keep canonical URLs and privacy pages correct before public launch.
-
-## Repository organization
-
-```text
-sites/<site-id>/site.json       # independent site configuration
-packages/site-core/           # shared design & client calculators
-scripts/build.mjs             # deterministic, one-site or all-site build
-tests/site.test.mjs           # validation & formula regression tests
-.github/workflows/ci.yml      # GitHub Actions tests/builds (not Cloudflare deployment)
-```
-
-**Deployment status:** GitHub commits and CI prepare the projects; Cloudflare Pages projects still must be created/connected in the Cloudflare account. GitHub Actions is validation-only.
+No login, fabricated live news/rates, tracking scripts or ads are included.
+Country shortlists guide future verified localization; country-only doorway pages are NOT generated.
+Site pages have canonical URLs, WebSite and breadcrumb structured data, unique headings, OG metadata, sitemaps and robots.txt.
+An individual topic page is indexable ONLY when it explicitly has editorialReviewed=true and a non-empty sources array in its topics.json record. Publish substantial useful material and verified sources before enabling that flag.
+Ads and analytics require accurate privacy disclosures and legally appropriate visitor consent controls before enabling tracking.
