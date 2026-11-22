@@ -46,7 +46,7 @@ function groupLinks(groups) {
 }
 function siteNav(c,groups) {
  const menu = groups.slice(0,3).map(g=>'<a href="/topics/#'+slugify(g.name)+'">'+escape(g.name)+'</a>').join("");
- return '<header class="topbar"><div class="shell nav"><a class="brand" href="/" aria-label="'+escape(c.name)+' homepage"><span class="brand-mark" aria-hidden="true">'+escape(c.design.marker)+'</span>'+escape(c.name)+'</a><nav class="navlinks" aria-label="Main navigation">'+menu+'<a href="/topics/">All '+groups.reduce((n,g)=>n+g.topics.length,0)+' topics</a><a href="/tools/'+escape(c.tool.slug)+'/">Calculator</a></nav></div></header>';
+ return '<header class="topbar"><div class="shell nav"><a class="brand" href="/" aria-label="'+escape(c.name)+' homepage"><span class="brand-mark" aria-hidden="true">'+escape(c.design.marker)+'</span>'+escape(c.name)+'</a><nav class="navlinks" aria-label="Main navigation">'+menu+'<a href="/topics/">All '+groups.reduce((n,g)=>n+g.topics.length,0)+' topics</a><a href="/news/">News</a><a href="/tools/'+escape(c.tool.slug)+'/">Calculator</a></nav></div></header>';
 }
 function structured(c,p,topics){
  const root=getBase(c);
@@ -155,6 +155,32 @@ function validate(c,topics){
  if(!c.tool?.inputs?.length)throw new Error("Working calculator required: "+c.id);
  return groups;
 }
+
+function newsPage(c,topics,groups,records=[]){
+ const valid=(Array.isArray(records)?records:[]).filter(x=>x&&/^https:\/\//.test(x.url)&&typeof x.title==="string"&&x.title.length>12).slice(0,100);
+ const cards=valid.map(x=>'<article class="topic-card" data-edition-story="'+escape((x.countries||[x.country||"WORLD"]).join(","))+'"><small class="meta">'+escape(x.source||"Publisher")+' · <time datetime="'+escape(x.date||"")+'">'+escape((x.date||"").slice(0,10))+'</time></small><h3><a href="'+escape(x.url)+'" target="_blank" rel="noopener noreferrer external">'+escape(x.title)+'</a></h3><p>'+escape(x.summary||"Read original publisher reporting for full context.")+'</p><a href="'+escape(x.url)+'" target="_blank" rel="noopener noreferrer external">Read at original source ↗</a></article>').join("");
+ const intro='<section class="content-hero"><div class="shell"><div class="eyebrow">'+escape(c.name)+' · VERIFIED SOURCE LINKS</div><h1>'+escape(c.sector)+' News</h1><p class="lead">Select a country at the top to see only reporting tagged to that country. Headline summaries link to original publishers; no full articles are copied.</p><a href="/topics/">Explore practical topic guides →</a></div></section>';
+ const body=intro+'<section class="section"><div class="shell"><h2>Recent source headlines <small>(<span data-edition-count>'+valid.length+'</span>)</small></h2><div class="category-collection" data-country-news>'+cards+'</div><p data-edition-empty '+(valid.length?"hidden":"")+' class="card">No recent verified headlines available. News appears after the scheduled feed update.</p></div></section>';
+ return layout(c,{title:"Latest News",description:"Verified latest "+c.sector+" news headlines with source attribution and country-specific filtering.",route:"/news/"},body,topics,groups);
+}
+function countryAssets(out){
+ const assets=path.join(ROOT,"packages","site-core");
+ for(const file of ["country.js","country.css"])fs.copyFileSync(path.join(assets,file),path.join(out,"assets",file));
+ const stack=[out];
+ while(stack.length){
+  const dir=stack.pop();
+  for(const entry of fs.readdirSync(dir,{withFileTypes:true})){
+   const file=path.join(dir,entry.name);
+   if(entry.isDirectory()){if(entry.name!=="assets")stack.push(file);continue;}
+   if(!entry.name.endsWith(".html"))continue;
+   let html=fs.readFileSync(file,"utf8");
+   if(!html.includes("</head>")||!html.includes("</body>"))continue;
+   html=html.replace("</head>",'<link rel="stylesheet" href="/assets/country.css"></head>')
+            .replace("</body>",'<script defer src="/assets/country.js"></script></body>');
+   fs.writeFileSync(file,html,"utf8");
+  }
+ }
+}
 for(const id of targets){
  const config=JSON.parse(fs.readFileSync(path.join(SITES,id,"site.json"),"utf8"));
  const topics=JSON.parse(fs.readFileSync(path.join(SITES,id,"topics.json"),"utf8")).map(t=>({...t,slug:slugify(t.name)}));
@@ -181,6 +207,10 @@ for(const id of targets){
   for(const [relative,html] of Object.entries(rendered.files))write(out,relative,html);
   tvRoutes=rendered.routes;
  }
+ if(id!=="techorvia") {
+  const newsData=JSON.parse(fs.readFileSync(path.join(SITES,id,"news.json"),"utf8"));
+  write(out,"news/index.html",newsPage(config,topics,groups,newsData.items));
+ }
  fs.mkdirSync(path.join(out,"assets"),{recursive:true});
  for (const filename of ["style.css","experience.css","calculator.js"])fs.copyFileSync(path.join(ROOT,"packages/site-core",filename),path.join(out,"assets",filename));
  write(out,"assets/favicon.svg",favicon(config));
@@ -192,7 +222,8 @@ for(const id of targets){
   fs.copyFileSync(path.join(SITES,id,"site.css"),path.join(out,"assets","cm.css"));
   fs.copyFileSync(path.join(SITES,id,"site.js"),path.join(out,"assets","cm.js"));
  }
- const urls=["/","/topics/","/tools/"+config.tool.slug+"/","/about/","/privacy/"];
+ countryAssets(out);
+ const urls=["/","/topics/","/tools/"+config.tool.slug+"/","/about/","/privacy/","/news/"];
  if(id==="techorvia")for(const route of tvRoutes)if(!urls.includes(route))urls.push(route);
  for(const t of topics)if(t.editorialReviewed===true&&Array.isArray(t.sources)&&t.sources.length)urls.push(linkTopic(t));
  write(out,"sitemap.xml",'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+urls.map(route=>'<url><loc>'+getBase(config)+route+'</loc></url>').join("")+'</urlset>');

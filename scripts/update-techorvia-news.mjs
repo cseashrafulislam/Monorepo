@@ -2,17 +2,20 @@ import fs from "node:fs";
 import path from "node:path";
 import {fileURLToPath} from "node:url";
 import {parseFeed,curateNews} from "./techorvia-news-core.mjs";
+import {tagCountries} from "./country-tags.mjs";
 const base=path.resolve(path.dirname(fileURLToPath(import.meta.url)),"..");
 const feeds=[
  {name:"Google AI Blog",url:"https://blog.google/technology/ai/rss/"},
  {name:"GitHub Blog",url:"https://github.blog/feed/"},
- {name:"Cloudflare Blog",url:"https://blog.cloudflare.com/rss/"}
+ {name:"Cloudflare Blog",url:"https://blog.cloudflare.com/rss/"},
+ {name:"Digi Bangla Local",url:"https://digibanglatech.news/rss/category/local-40",forceCountry:"BD"},
+ {name:"Digi Bangla English",url:"https://digibanglatech.news/rss/category/english",forceCountry:"BD"}
 ];
 const all=[];let good=0;
 for(const source of feeds){
  try{const response=await fetch(source.url,{signal:AbortSignal.timeout(12000),headers:{"User-Agent":"TechOrvia-HeadlineBot/1.0 (+https://techorvia.pages.dev/news/)","Accept":"application/rss+xml, application/atom+xml, text/xml"}});if(!response.ok)throw Error("HTTP "+response.status);
  const xml=await response.text();if(xml.length>2500000)throw Error("Feed too large.");
- const entries=parseFeed(xml,source);if(!entries.length)throw Error("No valid entries.");all.push(...entries);good++;
+ const entries=parseFeed(xml,source).map(item=>({...item,countries:tagCountries(item.title,source.forceCountry)}));if(!entries.length)throw Error("No valid entries.");all.push(...entries);good++;
  console.log(source.name+": "+entries.length+" metadata records");
  }catch(err){console.warn(source.name+" unavailable:",err.message);}
 }
