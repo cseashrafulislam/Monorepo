@@ -9,7 +9,7 @@ const root="dist/coinmetriq";
 const read=(route)=>fs.readFileSync(path.join(root,route,"index.html"),"utf8");
 
 test("CoinMetriq ten unique private research calculators",()=>{
- assert.equal(tools.length,10);
+ assert.equal(tools.length,15);
  assert.equal(new Set(tools.map(x=>x.slug)).size,10);
  assert.ok(tools.every(t=>t.title&&t.short&&t.formula));
 });
@@ -72,4 +72,19 @@ test("Original market-cap calculator and topic pages preserved",()=>{
  assert.ok(fs.existsSync(path.join(root,"tools","token-market-cap","index.html")));
  const sample=fs.readFileSync(path.join(root,"topics","crypto-glossary","index.html"),"utf8");
  assert.match(sample,/noindex,follow/);
+});
+
+test("Five additional CSV and scenario calculators",()=>{
+ const a=calculateStudio("portfolio-rebalancer",{allocation:"BTC,3200,50\nETH,3600,35\nSOL,2100,15"});
+ assert.match(a.headline,/8,900/);assert.equal(a.rows.length,3);
+ const d=calculateStudio("lump-sum-vs-dca",{prices:"100\n80\n120\n90",budget:400,finalPrice:110});
+ assert.ok(d.headline.includes("DCA minus lump sum"));
+ const vol=calculateStudio("daily-volatility",{series:"2026-11-01,100\n2026-11-02,105\n2026-11-03,98\n2026-11-04,102"});
+ assert.match(vol.headline,/annualized volatility/);
+ const slip=calculateStudio("slippage-fees",{price:100,qty:10,slippage:.5,fee:.1});
+ assert.match(slip.headline,/6.0050/);
+ const peg=calculateStudio("stablecoin-peg",{target:1,observations:"2026-11-01,1.001\n2026-11-02,0.992\n2026-11-03,1.003"});
+ assert.match(peg.headline,/0.8000%/);
+ assert.throws(()=>calculateStudio("portfolio-rebalancer",{allocation:"BTC,100,60\nETH,100,20"}),/Targets must total/);
+ assert.throws(()=>calculateStudio("daily-volatility",{series:"2026-11-01,100\n2026-11-03,105\n2026-11-04,98\n2026-11-05,102"}),/consecutive/);
 });
