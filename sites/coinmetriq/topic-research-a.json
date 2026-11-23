@@ -1,0 +1,182 @@
+[
+  {
+    "slug": "bitcoin-price",
+    "title": "Bitcoin price vs transaction value: a research method",
+    "question": "Why does a headline Bitcoin price fail to describe what a holder could actually receive when selling? A displayed last-traded price summarizes one observation on a specific venue. It is not a guaranteed offer for a different size, currency, network, location or moment.",
+    "method": "Record the exchange, quote currency, timestamp and instrument. A spot BTC/USD order, perpetual derivative and wrapped-token quote are distinct things. For a hypothetical market sale, compare executable bids and size-dependent slippage rather than multiplying a headline price by an entire holding without caveats. The arithmetic of fees belongs beside the observation.",
+    "example": "Suppose a screen displays USD 60,000 per BTC. A person hypothetically sells 0.10 BTC at an average executed price of USD 59,850 and pays USD 4 in fees. Gross proceeds are 0.10 × 59,850 = USD 5,985. Net proceeds are USD 5,981. Using the display would have implied USD 6,000 before costs, which overstates this simulated cash result by USD 19.",
+    "interpretation": "Keep execution, quote time and price source distinct. A difference between the displayed and executed price can arise from spreads, depth and trading costs, not necessarily a faulty calculator. The same method works with manually entered historical data and helps readers audit a trade without a live API.",
+    "limitations": "No current BTC price is served here. Prices, trading volume and liquidity change continuously; the numbers above are invented purely for math. Ownership of actual assets and exchange access introduce risks that a calculation does not capture.",
+    "sources": [
+      [
+        "SEC investor education on crypto assets",
+        "https://www.investor.gov/additional-resources/spotlight/crypto-assets"
+      ]
+    ],
+    "tool": "/studio/trade-profit/",
+    "status": "published",
+    "publishedAt": "2026-11-23"
+  },
+  {
+    "slug": "ethereum-markets",
+    "title": "Ethereum market prices, network fees and position costs",
+    "question": "What does it cost to acquire or transfer an amount of ETH, and why are those two operations not interchangeable? The traded ETH quote reflects the market instrument and venue, whereas Ethereum network gas measures the cost of performing an on-chain action.",
+    "method": "Start by identifying whether you are examining a centralized exchange trade, a decentralized on-chain swap, or a wallet transfer. Separately record the input currency, acquisition quantity, venue fee and any network gas paid in ETH. Network gas depends on the operation and fee mechanism, not simply on the amount of ETH transferred.",
+    "example": "Imagine a hypothetical buy of 0.4 ETH at USD 2,500 per ETH with a 0.3% exchange fee. Trade notional is USD 1,000 and purchase cost becomes USD 1,003. If a later unrelated transfer consumed 0.002 ETH in gas, that is a separate 0.002-ETH network expenditure, not another 0.3% trade fee. Whether and how fees form tax cost basis is jurisdiction-specific.",
+    "interpretation": "Quote dates, block/network identifiers and fee currency together. For research, it is useful to understand why two people can see similar quoted ETH prices but face different total transfer or trading costs. Compare like for like: spot purchase cost is not the same metric as on-chain settlement cost.",
+    "limitations": "No real-time ETH, gas estimates or exchange order-book data are fetched here. Ethereum protocol fees and individual broker fees may change; this example does not recommend any route or transaction.",
+    "sources": [
+      [
+        "Ethereum gas technical documentation",
+        "https://ethereum.org/developers/docs/gas/"
+      ]
+    ],
+    "tool": "/studio/trade-profit/",
+    "status": "published",
+    "publishedAt": "2026-11-23"
+  },
+  {
+    "slug": "altcoin-research",
+    "title": "An altcoin research checklist that separates a ticker from a project",
+    "question": "How can two assets with the same ticker represent very different token risks? A short symbol is not an identity certificate: separate chains can host unrelated contracts with identical names, and token listings may combine instrument types or wrapped versions.",
+    "method": "Begin with the specific network and authoritative contract address, then investigate documented supply rules, token permissions, concentration, custody assumptions and the purpose of the underlying network. Compare circulating units with total and maximum supply when defined. Independently read documentation and security information before studying possible market prices.",
+    "example": "Consider two fictional tokens called ALFA. Token A circulates 10 million units at a USD 2 user-entered price, implying USD 20 million headline capitalization. Token B circulates 100 million at the same price, implying USD 200 million. The shared ticker and price do not make their networks or supply structures equivalent. Neither capitalization establishes liquidation depth.",
+    "interpretation": "A structured research record should explicitly identify symbol, chain, contract, source date and reason for every claim. The market-cap calculator can compare a consistent price/supply pair, but the result must not be treated as a solvency assessment, business valuation or trading recommendation.",
+    "limitations": "Token symbols can be copied; websites can be impersonated; audits can be outdated. A numerical comparison cannot validate smart contracts, governance rights, holders or the legality of an offering.",
+    "sources": [
+      [
+        "SEC investor alert on crypto-asset risks",
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-alerts/crypto-asset-securities"
+      ]
+    ],
+    "tool": "/tools/token-market-cap/",
+    "status": "published",
+    "publishedAt": "2026-11-23"
+  },
+  {
+    "slug": "stablecoins",
+    "title": "Stablecoin peg deviation and reserves: distinct questions",
+    "question": "What does it mean when a token marketed as a stablecoin trades away from its intended reference value? A peg target is a design goal, not a certificate that every holder can redeem at that rate under all conditions.",
+    "method": "Define the intended reference asset and issuer or protocol mechanism first. For each dated observation compute (observed price ÷ target price − 1) × 100%. Treat this as a price deviation metric only. Separately study reserve disclosures, liabilities, actual redemption requirements, custody and banking or smart-contract exposures.",
+    "example": "If a hypothetical token aims for USD 1 and a user records a USD 0.992 price, the deviation is (0.992 ÷ 1 − 1) × 100 = −0.8%. If the next observation is USD 1.003, the deviation is +0.3%. The largest absolute deviation in those two observations is 0.8%. That number says nothing by itself about the issuer's actual reserve assets.",
+    "interpretation": "The browser peg calculator accepts historical prices entered by a reader. Compare equal timestamps and venues, label exchange spreads, and distinguish redemption terms from secondary-market trades. A small observed deviation cannot prove that the asset is safe or fully collateralized.",
+    "limitations": "Do not infer a stablecoin's reserve quality from a chart alone. Issuer attestations, redemptions, chain risks and applicable laws require current external review; this educational page supplies no live price feed.",
+    "sources": [
+      [
+        "SEC investor bulletin on crypto proof-of-reserves claims",
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investors"
+      ]
+    ],
+    "tool": "/studio/stablecoin-peg/",
+    "status": "published",
+    "publishedAt": "2026-11-23"
+  },
+  {
+    "slug": "market-heatmaps",
+    "title": "Reading a crypto market heatmap without mistaking size for safety",
+    "question": "Heatmaps compress a large number of observations into colored rectangles, but what do area and color actually mean? A chart may use current capitalization for area and past percentage change for color, or it may apply entirely different weightings. Two images that look similar can therefore encode different metrics.",
+    "method": "Before interpreting a colored cell, inspect the chart legend: time range, base currency, universe of assets, weighting, source timestamp and whether negative values use a distinct scale. Separate an asset's percentage move from its absolute dollar-value change; large percentage movement in a tiny asset is not automatically a large contribution to a market index.",
+    "example": "Imagine a fictional heatmap with one USD 100-million market-cap token gaining 10% and another USD 10-billion token gaining 1%. The first token's initial capitalization multiplied by the rate is USD 10 million; the second's is USD 100 million. Neither quantity is realized inflow, and capitalizations are not conserved cash balances.",
+    "interpretation": "A useful heatmap can reveal which components dominate the display, but it cannot by itself explain cause, executable depth or whether reported token supply is accurate. Use a table or chart with exact observations for any calculation that you intend to reproduce.",
+    "limitations": "This page intentionally shows no live heatmap or claims about current winners. Avoid ranking confidence from color saturation, especially when source coverage and stale quotes are unknown.",
+    "sources": [
+      [
+        "SEC crypto asset education",
+        "https://www.investor.gov/additional-resources/spotlight/crypto-assets"
+      ]
+    ],
+    "tool": "/studio/portfolio-allocation/",
+    "status": "published",
+    "publishedAt": "2026-11-23"
+  },
+  {
+    "slug": "crypto-market-capitalization",
+    "title": "Crypto market capitalization and fully diluted supply are not cash balances",
+    "question": "Why does multiplying a price by circulating token supply produce a large number that cannot be withdrawn as cash? Market capitalization is an accounting-like headline estimate, not the sum of executable orders and not the total amount investors deposited.",
+    "method": "The basic formula is token price × currently circulating units. A distinct fully diluted valuation often uses the same price multiplied by a larger future or maximum supply assumption. State which definition you are using and the time at which circulating supply was measured. Watch for tokens in locked contracts, team allocations and bridge wrappers.",
+    "example": "A hypothetical token costs USD 0.25 and has 10 million circulating units. Its indicative market cap is USD 2.5 million. If a separate maximum-supply assumption is 40 million units, the same hypothetical token price would imply USD 10 million on a fully diluted basis. Neither figure tells you how much a 500,000-token sale would receive.",
+    "interpretation": "The calculator provides transparent arithmetic on your own inputs. Pair the number with price-source dates, supply methodology and liquidity metrics if making a more serious assessment. Keep maximum and circulating supply apart even when marketing material uses them interchangeably.",
+    "limitations": "Supply feeds can be stale or wrong. This page does not independently certify reserves, token permissions, circulating balances, legal rights or a current market price.",
+    "sources": [
+      [
+        "SEC crypto asset risk overview",
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/crypto-asset-related-investments"
+      ]
+    ],
+    "tool": "/tools/token-market-cap/",
+    "status": "published",
+    "publishedAt": "2026-11-23"
+  },
+  {
+    "slug": "tokenomics",
+    "title": "Tokenomics: issuance, vesting, circulating supply and dilution",
+    "question": "How can token supply change even when one holder's balance never moves? Tokenomics describes design choices such as issuance schedules, burns, allocations, governance and transfer permissions. Circulating supply is a source-defined observation, not necessarily the same as total minted supply.",
+    "method": "Read token issuance or vesting documentation and identify whether an event increases liquid circulation, releases locked units, mints new units or merely transfers existing units. Record a dated supply series and compare adjacent observations. Changes in circulating supply can change a fixed holder's share even if neither the holder's units nor the network's utility has changed.",
+    "example": "Suppose 10 million fictional tokens are initially counted as circulating and 2.5 million more become circulating. A holding of 10,000 tokens falls from 0.1% of that supply to 0.08% if the holding stays constant: 10,000/10,000,000 versus 10,000/12,500,000. The relative share is 20% lower; a corresponding token-price decline is not implied.",
+    "interpretation": "Record whether an unlock number describes newly liquid supply or contract eligibility. The supply timeline tool explicitly labels figures as user-supplied and optionally records the reader's source URL. Distinguish a projected vesting schedule from a verified chain observation.",
+    "limitations": "Issuers can amend policies, buy back units or burn tokens; estimates can omit wrapped versions or treasury balances. The arithmetic describes ownership share, not future market value.",
+    "sources": [
+      [
+        "Bitcoin controlled issuance and block subsidies",
+        "https://developer.bitcoin.org/devguide/block_chain.html"
+      ]
+    ],
+    "tool": "/portfolio/token-emission/",
+    "status": "published",
+    "publishedAt": "2026-11-23"
+  },
+  {
+    "slug": "gas-fees",
+    "title": "Ethereum gas limit, gas used and unit price: fee arithmetic",
+    "question": "Gas is a unit measuring work involved in Ethereum execution; ether is the currency used to pay gas fees. Confusing gas used with price per gas unit or with the amount of ETH being transferred produces incorrect comparisons.",
+    "method": "For a transparent illustration multiply gas used by effective gas price to obtain a fee in gwei or ETH after consistent unit conversion. Ethereum uses a base fee and a priority-fee mechanism; an amount stated as a maximum fee is not necessarily what the transaction actually paid. Fee structures of other networks differ.",
+    "example": "Suppose a fictional transaction uses 21,000 gas and has a hypothetical effective price of 20 gwei per gas. The fee is 420,000 gwei, which equals 0.00042 ETH because 1 ETH equals 10^9 gwei. At an imaginary reference ETH price of USD 2,500, the illustrative converted fee is USD 1.05. That calculation does not forecast a next-block fee.",
+    "interpretation": "Compare completed transaction receipts and sources when assessing an actual operation. Network fees can be paid even if the intended application outcome fails. A centralized exchange withdrawal fee is a separate venue-specific charge and should not be assumed equal to on-chain gas.",
+    "limitations": "Current gas rates, mempool conditions and priority levels are not collected by this page. The related calculator focuses on a Bitcoin-like virtual-byte example; never apply the same sat/vbyte model to Ethereum gas.",
+    "sources": [
+      [
+        "Ethereum developer gas and fees reference",
+        "https://ethereum.org/developers/docs/gas/"
+      ]
+    ],
+    "tool": "/portfolio/network-fees/",
+    "status": "published",
+    "publishedAt": "2026-11-23"
+  },
+  {
+    "slug": "layer-2-networks",
+    "title": "Layer 2 networks: comparing execution, settlement and exit assumptions",
+    "question": "What does a Layer 2 network improve, and why is a low transaction fee alone an incomplete comparison? Many L2 designs process transactions away from an Ethereum base layer and use various mechanisms for data availability, state commitment and dispute or validity proofs.",
+    "method": "Start by classifying the network design rather than trusting a marketing label. Check where transaction data is available, how transaction batches settle, whether there is a centralized sequencer, what failure modes exist, and whether a transfer back to the base network involves delays or additional fees.",
+    "example": "Imagine transferring a fictional amount worth USD 100 from a base network onto an L2. A bridge may have a separate entry cost, the L2 transactions may incur their own fees, and a later withdrawal may involve a different finalization process. Adding only the tiny L2 fee and ignoring bridge or exit costs understates the full workflow expense.",
+    "interpretation": "Document each stage and keep network names visible in your wallet before signing. A network's throughput and nominal transaction fee do not themselves prove equivalent security guarantees, withdrawal rights or availability when a centralized component fails.",
+    "limitations": "This is architecture education, not a ranking of currently deployed L2 operators. Protocol designs and fee markets evolve; verify the latest primary documentation for the particular rollup and bridge.",
+    "sources": [
+      [
+        "Ethereum layer-2 architecture guide",
+        "https://ethereum.org/layer-2/learn/"
+      ]
+    ],
+    "tool": "/portfolio/network-fees/",
+    "status": "published",
+    "publishedAt": "2026-11-23"
+  },
+  {
+    "slug": "blockchain-explorers",
+    "title": "How to read a block explorer transaction without guessing",
+    "question": "A transaction hash identifies a submitted transaction on a particular chain, not an abstract universal payment receipt. Two chains can use similar address formats, and an explorer interface can show an attempted interaction even if the application call later reverts.",
+    "method": "Choose the correct chain and trusted explorer endpoint. Review the transaction status, from/to addresses, contract input, emitted logs, paid fee, block height and number of confirmations. Distinguish a token transfer event from a native-coin transfer and a contract approval from an actual token movement.",
+    "example": "In a hypothetical ERC-20 transfer, an explorer may show zero ETH transferred in the transaction's native-value field while decoded logs show 150 units of a token moved. That is not a contradiction: tokens are accounted for by contract state and events. Gas paid in ETH is an additional, separate quantity.",
+    "interpretation": "Research requires precise chain and token-contract identifiers, not a screenshot of a green check mark. Save the exact transaction hash and block height if independently documenting activity. If an interface claims a transfer occurred but no matching chain event exists, verify the claim rather than copying it.",
+    "limitations": "Public explorers can lag indexing, mislabel contracts or display spam transfers. A confirmation count indicates observations on a chain, not a guarantee against fraud, phishing or later reorganizations.",
+    "sources": [
+      [
+        "Ethereum developer documentation",
+        "https://ethereum.org/developers/docs/"
+      ]
+    ],
+    "tool": "/portfolio/safety/",
+    "status": "published",
+    "publishedAt": "2026-11-23"
+  }
+]
