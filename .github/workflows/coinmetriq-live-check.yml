@@ -30,6 +30,7 @@ jobs:
       - name: Verify Cloudflare Pages GitHub check against expected release commit
         run: node scripts/coinmetriq-verify-cloudflare-check.mjs
       - name: Check actual live pages, precise build SHA, canonical and sitemap
+        if: always()
         run: node scripts/coinmetriq-live-health.mjs
       - name: Preserve release and public delivery evidence
         if: always()
