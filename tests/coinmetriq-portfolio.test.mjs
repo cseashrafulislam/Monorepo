@@ -106,7 +106,7 @@ test("Eleven indexable working portfolio pages and original routes coexist",()=>
  assert.ok(home.includes('href="/portfolio/"'));
  const old=page("/tools/token-market-cap/");
  assert.ok(old.includes("Token market cap"));
- const topic=page("/topics/crypto-glossary/");
+ const topic=page("/topics/crypto-news-research/");
  assert.ok(topic.includes('content="noindex,follow"'));
 });
 
