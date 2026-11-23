@@ -1,0 +1,182 @@
+[
+  {
+    "slug": "portfolio-allocation",
+    "title": "Crypto portfolio allocation: why positions need common units",
+    "question": "An allocation percentage answers what fraction of a portfolio's chosen valuation each position represents. Merely counting tokens is meaningless across instruments with wildly different prices, denominations and underlying networks.",
+    "method": "Choose a consistent reference currency and observation time. For each asset multiply the held quantity by a manually entered corresponding price, then divide that estimated value by the portfolio's total estimated value. For a rebalance calculation choose desired weights that sum to 100% and compute target position values without asserting anything about future returns.",
+    "example": "Suppose a hypothetical portfolio contains asset A worth USD 3,000, asset B worth USD 5,000 and asset C worth USD 2,000. The total is USD 10,000 and the corresponding weights are 30%, 50% and 20%. A proposed target of 40%, 40% and 20% represents hypothetical changes of +USD 1,000, −USD 1,000 and USD 0. It is not an instruction to trade because execution costs, liquidity and taxes are not included.",
+    "interpretation": "Read the largest single-position weight as one measure of concentration rather than a complete risk score. Correlated positions may still rise and fall together, and stable-looking USD values can mask stale prices or bridge assets that are not independently redeemable.",
+    "limitations": "Holdings, prices and desired weights are entered by the reader. CoinMetriq does not identify the best allocation or suitable risk tolerance for an individual and does not connect to exchange accounts.",
+    "sources": [
+      [
+        "SEC crypto assets risk overview",
+        "https://www.investor.gov/introduction-investing/investing-basics/investment-products/crypto-asset-related-investments"
+      ]
+    ],
+    "tool": "/studio/portfolio-rebalancer/",
+    "status": "published",
+    "publishedAt": "2026-11-23"
+  },
+  {
+    "slug": "profit-loss-calculator",
+    "title": "Trade profit and loss: why two-sided fees affect break-even",
+    "question": "An increase in the displayed token price is not automatically a realized profit. Purchasing costs, exit fees and actual executed prices change the cash received, and the difference is particularly relevant for small price moves or repeated trades.",
+    "method": "Write down purchased quantity, executed buy price, executed sell price, buy-side fee and sell-side fee in consistent units. Total entry cost equals buy notional plus purchase fee. Net proceeds equal sell notional less selling fee. Break-even occurs when net exit proceeds equal all entry costs.",
+    "example": "A fictional trade buys five units at USD 100 each with a 0.5% buy fee and sells them at USD 101 each with a 0.5% sell fee. Entry costs are 500 × 1.005 = USD 502.50; exit proceeds are 505 × 0.995 = USD 502.475. The net result is a USD 0.025 loss before other expenses, even though the token's price increased by 1%. Rounding too early could hide that loss.",
+    "interpretation": "Use the fee calculator to preserve enough decimal precision to interpret small transactions. Separate realized net P&L from unrealized changes in a still-open holding, and keep withdrawal/network costs as distinct records if they apply.",
+    "limitations": "This example assumes one currency and percentage fees; actual exchanges may charge maker/taker tiers, flat costs, spreads, funding, taxes or slippage that alter the result.",
+    "sources": [
+      [
+        "US IRS general digital asset basis education (not tax advice)",
+        "https://www.irs.gov/filing/digital-assets"
+      ]
+    ],
+    "tool": "/studio/trade-profit/",
+    "status": "published",
+    "publishedAt": "2026-11-23"
+  },
+  {
+    "slug": "volatility-analytics",
+    "title": "Historical crypto volatility: measuring variation without forecasting direction",
+    "question": "Volatility describes how much a series of returns has varied in a particular recorded period. A high historical standard deviation does not tell you whether the next observed price will be higher or lower, and annualization does not convert historical observations into a guarantee.",
+    "method": "Choose a consistently spaced sequence of dated prices. Compute each simple return as new price divided by prior price minus one. Calculate their sample standard deviation using the mean of those returns and the n−1 denominator. For a cryptocurrency daily series, one illustrative annualization multiplies by the square root of 365; report the sampling convention.",
+    "example": "Consider four imaginary consecutive daily closing prices: USD 100, USD 105, USD 100 and USD 110. The simple daily returns are +5%, approximately −4.7619%, and +10%. Their average is about +3.4127%, but the observed spread around that average matters for volatility. The exact estimated standard deviation depends on using sample rather than population variance.",
+    "interpretation": "Use the OHLCV browser charts to inspect prices and rolling sample volatility side by side. A low-volatility period may simply precede an abrupt move; the metric neither assigns probabilities to crashes nor detects scams.",
+    "limitations": "Different sampling periods, nonconsecutive observations, price sources and market disruptions can make volatility comparisons misleading. The tool cannot infer future returns or suitability for an investor.",
+    "sources": [
+      [
+        "SEC ETP bulletin discussing crypto volatility risks",
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/ETPBulletinSeptember2024"
+      ]
+    ],
+    "tool": "/portfolio/market-data/",
+    "status": "published",
+    "publishedAt": "2026-11-23"
+  },
+  {
+    "slug": "market-sentiment",
+    "title": "Market sentiment indicators: separate opinions from measurable transactions",
+    "question": "Sentiment is an inference about how participants feel or behave. Social engagement, search interest, funding rates and derivatives positioning may be measured, but none alone is a verified statement about every market participant's beliefs.",
+    "method": "Before interpreting a sentiment score, document its source, sampling universe, time range, weighting and how bots or paid promotion are handled. Distinguish a price or volume observation from an opinion score and a marketing claim. Be skeptical of a gauge whose 0–100 scale is presented without a reproducible method.",
+    "example": "Imagine a fictional survey of 100 respondents where 60 choose optimistic, 20 neutral and 20 pessimistic. An optimistic share of 60% describes only that survey's responses under its specific selection process. It does not demonstrate that 60% of market capital or active addresses expect an increase, and it cannot be combined with an exchange-price change without an explicit model.",
+    "interpretation": "Pair sentiment research with factual price, volume and risk analysis but keep the data channels separate. The local volatility tool illustrates an actually measurable statistical property; it does not invent a live mood score or predict a market turn.",
+    "limitations": "This page deliberately offers no current Fear & Greed reading or scraping of social networks. Sentiment samples may be biased, manipulated or revised after publication.",
+    "sources": [
+      [
+        "SEC investor education on social and crypto fraud",
+        "https://www.investor.gov/additional-resources/spotlight/crypto-assets"
+      ]
+    ],
+    "tool": "/studio/historical-volatility/",
+    "status": "published",
+    "publishedAt": "2026-11-23"
+  },
+  {
+    "slug": "on-chain-activity",
+    "title": "On-chain activity: transactions, addresses and token events",
+    "question": "Public-chain activity can be inspected through blocks, transactions, account state and smart-contract events. A transaction count is not a user count, and transfers between addresses do not necessarily represent economic sales or unique human participants.",
+    "method": "Start by naming the exact chain and observation window. Distinguish native-coin transfers, internal contract execution, ERC-20-style transfer events, transaction fees and failed calls. Compare block numbers and receipt status before aggregating transactions. Report whether repeated automated activity or bridge movements have been excluded.",
+    "example": "Suppose a fictional service moves 100 tokens from one address to another, then immediately forwards them through two other addresses. Three events may appear in a raw transfer tally, but that sequence does not establish three independent buyers or USD 300 of net new capital. Economic interpretation requires entity, contract and flow context, which may not be knowable from addresses alone.",
+    "interpretation": "Present technical transaction facts and economic hypotheses separately. An on-chain explorer is a starting point for verification; a plain balance change or a surge in address creation does not itself certify new adoption or legal transaction purpose.",
+    "limitations": "CoinMetriq does not fetch chain-node data or claim attribution for individual wallets. Privacy, contract complexity, exchange batching and mixed asset bridges create analysis uncertainty.",
+    "sources": [
+      [
+        "Ethereum developer documentation on smart contracts and chain data",
+        "https://ethereum.org/developers/docs/"
+      ]
+    ],
+    "tool": "/portfolio/safety/",
+    "status": "published",
+    "publishedAt": "2026-11-23"
+  },
+  {
+    "slug": "exchange-comparison",
+    "title": "Comparing crypto exchanges: total trading cost, custody and withdrawal terms",
+    "question": "Two trading platforms can show the same asset price and very different transaction outcomes. Exchange comparison should distinguish spot and derivative instruments, supported withdrawal networks, custody model, execution depth, withdrawal rules and all relevant fees.",
+    "method": "Design a sample order with the same currency, size and time for both venues. Record realistic bid/ask quotes, maker/taker charges, percentage or flat withdrawal costs, supported asset/network identifiers and any constraints. Do not rank a platform exclusively by a promotional headline fee or app-store score.",
+    "example": "Imagine a fictional USD 1,000 spot purchase. Venue A charges a flat 0.1% fee and fills at the reference price, implying USD 1 of explicit trading fee. Venue B advertises zero fee but hypothetically fills 0.4% above the reference, implying about USD 4 of additional execution cost. This example demonstrates why a lower explicit fee is not necessarily a cheaper execution.",
+    "interpretation": "Market quality can change with order size, regional availability and volatility. Custody matters as well: using a platform to hold balances introduces legal, operational and counterparty exposure that cannot be eliminated by choosing a small trading fee.",
+    "limitations": "This is an analytical checklist, not a live league table of exchanges. CoinMetriq has no paid exchange partnership, account sign-in or custody audit, and does not claim any venue is legally available in your country.",
+    "sources": [
+      [
+        "SEC investor education on crypto custody risks",
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/crypto-asset-custody-basics-retail-investors-investor-bulletin-0"
+      ]
+    ],
+    "tool": "/studio/slippage-fees/",
+    "status": "published",
+    "publishedAt": "2026-11-23"
+  },
+  {
+    "slug": "cross-chain-bridges",
+    "title": "Cross-chain bridges: source assets, destination claims and exit risks",
+    "question": "A bridge can move or represent value between networks, but the mechanism may rely on locked assets, minted representations, validator signatures or liquidity pools. The word 'bridge' is not a universal guarantee that a destination token is directly redeemable for the original asset.",
+    "method": "Trace the full route: chain A, source token contract, bridge contract/service, required finality, relayers or validators, destination chain and output asset address. Then study withdrawal and recovery paths as carefully as the initial transfer. Assess smart-contract, operational, validator and liquidity dependencies independently.",
+    "example": "Suppose a fictional bridge receives 100 source-chain tokens and issues 100 wrapped destination tokens backed by a corresponding locked amount. The apparent 1:1 mapping can break in economic terms if the backing reserve is compromised or redemption halted. The transfer may also require separate gas payments on two networks, increasing its effective cost.",
+    "interpretation": "Check whether a displayed bridge quote includes destination gas, destination-token liquidity and minimum withdrawal limits. Use the wallet-safety checklist to track the permission being signed at each step; never send secret keys to a bridge support chat.",
+    "limitations": "Bridge design, proof systems, permissions and costs differ across networks and over time. CoinMetriq does not execute cross-chain transfers or independently prove the solvency of any bridge.",
+    "sources": [
+      [
+        "Ethereum bridge documentation",
+        "https://ethereum.org/developers/docs/bridges/"
+      ]
+    ],
+    "tool": "/portfolio/safety/",
+    "status": "published",
+    "publishedAt": "2026-11-23"
+  },
+  {
+    "slug": "bitcoin-halving",
+    "title": "Bitcoin halving history: block heights rather than guaranteed future dates",
+    "question": "Bitcoin's consensus schedule reduces the new block subsidy after defined block-height intervals. A halving event refers to the protocol subsidy, not a guarantee about miner profitability, transaction fees or exchange prices.",
+    "method": "Separate the subsidy schedule from miner total reward. Mining revenue may include transaction fees in addition to the new-coin subsidy. Historical block heights are deterministic references, while future calendar dates depend on the sequence of actual blocks produced and cannot be set exactly using a wall clock.",
+    "example": "Bitcoin block heights 210,000, 420,000, 630,000 and 840,000 mark the historical subsidy transitions to 25, 12.5, 6.25 and 3.125 BTC respectively. Each transition follows a reduction from the previous schedule's level. A simplified calculation taking 3.125 and dividing by two gives a subsequent scheduled subsidy of 1.5625 BTC per block, but not a guaranteed date or USD value.",
+    "interpretation": "The halving timeline intentionally shows past observed transitions and method notes rather than an investment countdown promising a price increase. For a technical check, inspect consensus documentation and independently verified block records.",
+    "limitations": "Block rewards may differ from the subsidy due to fees. Halving narratives about future prices depend on many independent market factors, so a supply schedule cannot predict an exchange price.",
+    "sources": [
+      [
+        "Bitcoin developer reference on block rewards",
+        "https://developer.bitcoin.org/devguide/block_chain.html"
+      ]
+    ],
+    "tool": "/portfolio/halving/",
+    "status": "published",
+    "publishedAt": "2026-11-23"
+  },
+  {
+    "slug": "crypto-glossary",
+    "title": "Crypto glossary: nine commonly confused technical terms",
+    "question": "Cryptocurrency articles often mix coin, token, wallet, block, transaction, gas, circulating supply, liquidity and private key as if they describe the same kind of object. They do not. A small vocabulary checklist prevents many calculation errors before a novice begins to interpret market data.",
+    "method": "Coin is generally used for a chain's native asset; a token can be represented by a contract. A wallet manages access and signing keys; it does not make a contract safe. A block groups transactions in a chain history. Gas measures execution work in Ethereum terminology, while a fee is the paid amount. Circulating supply is a source-defined count, whereas market liquidity concerns trading depth and available counterparties.",
+    "example": "Suppose a fictional token called TKN has 1 million circulating units and a displayed price of USD 2. Market cap arithmetic yields USD 2 million. This does not imply USD 2 million of liquidity, nor does holding TKN in a wallet require that the TKN contract itself controls the wallet's private key. Those are four different concepts: supply, price, liquidity and custody.",
+    "interpretation": "Use the market-cap calculator, fee workbook and wallet safety checklist to practice the distinctions. A term may have chain-specific meaning, so always record which protocol and reference source defines it.",
+    "limitations": "Glossary language changes across blockchain projects. This educational list is not comprehensive or a substitute for reading the primary protocol documentation before interacting with smart contracts.",
+    "sources": [
+      [
+        "Ethereum maintained glossary",
+        "https://ethereum.org/glossary/"
+      ]
+    ],
+    "tool": "/tools/token-market-cap/",
+    "status": "published",
+    "publishedAt": "2026-11-23"
+  },
+  {
+    "slug": "crypto-news-research",
+    "title": "Crypto news research: an evidence and correction workflow",
+    "question": "A headline about an exchange, token, protocol update or government action may mix an observed event with speculation about consequences. Reliable research starts by separating the earliest primary record from repeated commentary and undated social screenshots.",
+    "method": "Build an event timeline with the actual occurrence date, publication date, updated date, original public document or official transaction hash, and at least one independently corroborating source when a consequential claim warrants it. Quote narrowly and attribute claims instead of rewriting entire copyrighted news reports.",
+    "example": "Imagine a fictional post that says 'Token XYZ supply doubled today.' Before sharing, inspect the token contract and supply methodology: was it an actual new mint, a release of previously locked units, a change in reporting definitions or simply a rumor? A price move does not independently prove issuance. Use the user-supplied token schedule only after identifying real dated evidence.",
+    "interpretation": "Compare what is known, what is alleged and what remains unconfirmed. Avoid 'breaking' labels on evergreen educational pages. Corrections should explain what changed and retain material source and timestamp context; AI-generated summaries need the same scrutiny as human drafts.",
+    "limitations": "This is a methodology guide, not a current news feed. The website intentionally does not scrape copyrighted articles wholesale or auto-publish daily crypto headlines just to increase ad inventory.",
+    "sources": [
+      [
+        "SEC investor guidance on crypto misinformation and fraud risks",
+        "https://www.investor.gov/additional-resources/spotlight/crypto-assets"
+      ]
+    ],
+    "tool": "/portfolio/token-emission/",
+    "status": "review",
+    "publishedAt": "2026-11-23"
+  }
+]
