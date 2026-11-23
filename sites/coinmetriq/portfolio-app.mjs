@@ -3,6 +3,7 @@
  * No remote APIs, tracking or wallet access. Files stay on this device.
  */
 import {parseCsv,parseTradesCsv,normalizeTrades,calculateCostBasis,calculateTwr,calculateXirr,exportTradesCsv,toCsv,SAMPLE_TRADES_CSV,isoDay} from "./ledger-core.mjs";
+import {encryptJournal,decryptJournal} from "./backup-core.mjs";
 import {parseOhlcvCsv,summarizeOhlcv,backtestSma,parsePairsCsv,analyzeCorrelation,comparePortfolios,recoveryStats} from "./market-core.mjs";
 const storeKey="coinmetriq.journal.v1",sessionKey="coinmetriq.session.journal.v1";
 const fmt=(n,p=2)=>Number(n).toLocaleString("en-US",{minimumFractionDigits:p,maximumFractionDigits:p});
@@ -284,43 +285,13 @@ function setupFees(form,out){
   }catch(err){fail(out,err);}
  });
 }
-const toB64=bytes=>{
- let s="";for(let i=0;i<bytes.length;i+=8192)s+=String.fromCharCode(...bytes.slice(i,i+8192));
- return btoa(s);
-};
-const fromB64=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
-async function deriveKey(pass,salt){
- const material=await crypto.subtle.importKey("raw",new TextEncoder().encode(pass),"PBKDF2",false,["deriveKey"]);
- return crypto.subtle.deriveKey({name:"PBKDF2",salt,iterations:210000,hash:"SHA-256"},material,{name:"AES-GCM",length:256},false,["encrypt","decrypt"]);
-}
-async function encryptTrades(pass,trades){
- if(pass.length<12)throw Error("Passphrase must be at least 12 characters.");
- if(!crypto.subtle||!crypto.getRandomValues)throw Error("A secure HTTPS browser with Web Crypto is required.");
- const salt=crypto.getRandomValues(new Uint8Array(16)),iv=crypto.getRandomValues(new Uint8Array(12)),key=await deriveKey(pass,salt);
- const plaintext=new TextEncoder().encode(JSON.stringify({version:1,trades:normalizeTrades(trades)}));
- const ciphertext=new Uint8Array(await crypto.subtle.encrypt({name:"AES-GCM",iv},key,plaintext));
- return {format:"coinmetriq-encrypted-journal",version:1,kdf:"PBKDF2-SHA256",iterations:210000,cipher:"AES-256-GCM",salt:toB64(salt),iv:toB64(iv),payload:toB64(ciphertext)};
-}
-async function decryptTrades(pass,backup){
- if(pass.length<12)throw Error("Passphrase must be at least 12 characters.");
- if(backup?.format!=="coinmetriq-encrypted-journal"||backup?.version!==1||backup.kdf!=="PBKDF2-SHA256"||backup.cipher!=="AES-256-GCM"||backup.iterations!==210000)throw Error("Unsupported encrypted backup format.");
- const salt=fromB64(backup.salt),iv=fromB64(backup.iv),payload=fromB64(backup.payload);
- if(salt.length!==16||iv.length!==12||payload.length<17||payload.length>2000000)throw Error("Backup salt, nonce or data is invalid.");
- const key=await deriveKey(pass,salt);
- let plaintext;
- try{plaintext=await crypto.subtle.decrypt({name:"AES-GCM",iv},key,payload);}
- catch{throw Error("Incorrect passphrase or damaged backup; no data was changed.");}
- const data=JSON.parse(new TextDecoder("utf-8",{fatal:true}).decode(plaintext));
- if(data.version!==1||!Array.isArray(data.trades))throw Error("Decrypted backup format is invalid.");
- const rows=normalizeTrades(data.trades);calculateCostBasis(rows,"FIFO");return rows;
-}
 function setupBackups(){
  const field=tx("passphrase"),file=tx("backup-file"),out=tx("portfolio-output");
  tx("backup-create")?.addEventListener("click",async()=>{
   try{
    const rows=sessionTrades()??currentTrades;
    if(!rows?.length)throw Error("Import trades in the Journal before backing up.");
-   const encrypted=await encryptTrades(field.value,rows);
+   const encrypted=await encryptJournal(rows,field.value);
    download("coinmetriq-encrypted-journal.json",JSON.stringify(encrypted,null,2),"application/json;charset=utf-8");
    lead(out,"Encrypted backup downloaded","No passphrase or trade data was sent to a server. Keep both the file and passphrase securely.");
   }catch(err){fail(out,err);}
@@ -328,7 +299,7 @@ function setupBackups(){
  tx("backup-open")?.addEventListener("click",async()=>{
   try{
    const f=file.files?.[0];if(!f||f.size>2800000)throw Error("Choose an encrypted backup JSON smaller than 2.8 MB.");
-   const backup=JSON.parse(await f.text()),rows=await decryptTrades(field.value,backup);
+   const backup=JSON.parse(await f.text()),rows=await decryptJournal(backup,field.value);
    if(!window.confirm("Restore "+rows.length+" trades to this browser session? Current unsaved session journal will be replaced."))return;
    currentTrades=rows;saveSession(rows);
    lead(out,rows.length+" restored trades","Decryption authenticated. Only the current browser session was changed; previous optional localStorage was not overwritten. Open Trade Journal to inspect.");
