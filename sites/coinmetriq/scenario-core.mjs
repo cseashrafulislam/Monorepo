@@ -50,7 +50,7 @@ export function calculateScenario(slug,input){
     rows.push([asset.toUpperCase(),fmt(value)+" USD",fmt(shock)+"% / "+fmt(final)+" USD"]);
    }
    if(initial<=0||!Number.isFinite(after))throw Error("Portfolio total must be positive and finite.");
-   return result(fmt(after-initial)+" USD hypothetical portfolio change","Simultaneous scenario shocks only; no forecast or correlation model. Other costs and withdrawals are excluded.",rows,[["Starting portfolio",fmt(initial)+" USD"],["Hypothetical ending value",fmt(after)+" USD"],["Change percentage",fmt((after/initial-1)*100,2)+"%"]]);
+   return {...result(fmt(after-initial)+" USD hypothetical portfolio change","Simultaneous scenario shocks only; no forecast or correlation model. Other costs and withdrawals are excluded.",rows,[["Starting portfolio",fmt(initial)+" USD"],["Hypothetical ending value",fmt(after)+" USD"],["Change percentage",fmt((after/initial-1)*100,2)+"%"]]),columns:["Asset","Current value","Shock & new value"]};
   }
   default:throw Error("Unknown scenario.");
  }
