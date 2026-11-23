@@ -107,9 +107,9 @@ test("Scenario risk/reward, mining ROI, leverage and portfolio stress",()=>{
  assert.match(l.headline,/400.00 USD/);
  assert.match(l.detail,/liquidation/i);
  const m=calculateStudio("mining-roi",{hardware:2500,watts:1200,tariff:.12,revenue:12,other:1,days:365});
- assert.match(m.headline,/-\d/);
+ assert.match(m.headline,/253.56 USD/);
  const p=calculateStudio("portfolio-stress-test",{shocks:"BTC,3200,-30\nETH,3600,-45\nSOL,2100,20"});
- assert.match(p.headline,/-2,130.00 USD/);
+ assert.match(p.headline,/-2,160.00 USD/);
  assert.equal(p.rows.length,3);
  assert.throws(()=>calculateStudio("portfolio-stress-test",{shocks:"BTC,100,-101"}),/shock/i);
 });
