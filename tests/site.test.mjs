@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
 import { calculate } from "../packages/site-core/calculator.js";
+import {topicResearch} from "../sites/coinmetriq/topic-research.mjs";
 
 const ids=["coinmetriq","earthviora","solarqentra","techorvia","moneyavora","industryluma","worldorixa","vitaloryx","edunovira","lifealora"];
 const encodeHtml=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;");
@@ -48,7 +49,10 @@ test("Static build: all topic routes, unique designs, SEO & site isolation",()=>
   assert.ok(home.includes('og:title'),id+" open graph");
   assert.ok(index.includes(String(topics.length)),id+" topic count");
   assert.ok(sitemap.includes("https://"+id+".pages.dev/topics/"),id+" sitemap");
-  assert.ok(!sitemap.includes("/topics/"+slug(topics[0].name)+"/"),id+" noindex guide excluded from sitemap");
+  if(id==="coinmetriq"){
+   assert.ok(sitemap.includes("/topics/"+slug(topics[0].name)+"/"),"Source-backed CoinMetriq guide is in sitemap");
+   assert.ok(!sitemap.includes("/topics/crypto-regulations/"),"Legal review guide is not indexed");
+  } else assert.ok(!sitemap.includes("/topics/"+slug(topics[0].name)+"/"),id+" noindex guide excluded from sitemap");
   assert.ok(fs.existsSync(path.join(base,"assets","favicon.svg")));
   assert.ok(fs.existsSync(path.join(base,"assets","experience.css")));
   if(id==="coinmetriq") {
@@ -63,8 +67,17 @@ test("Static build: all topic routes, unique designs, SEO & site isolation",()=>
    assert.ok(fs.existsSync(topicFile),id+" "+topic.name);
    const doc=fs.readFileSync(topicFile,"utf8");
    assert.ok(doc.includes(encodeHtml(topic.overview)),id+" description");
-   assert.ok(doc.includes(encodeHtml(topic.practice)),id+" practical");
-   assert.ok(doc.includes('content="noindex,follow"'),id+" review required");
+   if(id==="coinmetriq"){
+    const researched=topicResearch.get(slug(topic.name));
+    assert.ok(researched,id+" research entry");
+    assert.ok(doc.includes("A clearly fictional worked example"),topic.name+" unique worked content");
+    assert.ok(doc.includes(researched.sources[0][1]),topic.name+" source reference");
+    if(researched.status==="published")assert.ok(doc.includes('content="index,follow"'),topic.name+" source-backed published guide");
+    else assert.ok(doc.includes('content="noindex,follow"'),topic.name+" pending editorial review");
+   }else{
+    assert.ok(doc.includes(encodeHtml(topic.practice)),id+" practical");
+    assert.ok(doc.includes('content="noindex,follow"'),id+" review required");
+   }
    assert.ok(doc.includes('BreadcrumbList'),id+" breadcrumb structured data");
   }
  }
