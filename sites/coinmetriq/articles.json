@@ -32,7 +32,18 @@
         ]
       ],
       "publishedAt": "2026-11-23",
-      "status": "published"
+      "status": "published",
+      "category": "Portfolio Methods",
+      "faq": [
+        [
+          "Does a weighted-average result automatically qualify for tax filing?",
+          "No. This worksheet compares arithmetic inventory methods; applicable tax-lot rules depend on the jurisdiction and specific asset records."
+        ],
+        [
+          "Can one sale have different realized profit under different cost conventions?",
+          "Yes. The same net sale proceeds can be matched to different purchase-cost allocations, changing the computed realized gain."
+        ]
+      ]
     },
     {
       "slug": "time-weighted-return-versus-xirr",
@@ -64,7 +75,18 @@
         ]
       ],
       "publishedAt": "2026-11-23",
-      "status": "published"
+      "status": "published",
+      "category": "Portfolio Methods",
+      "faq": [
+        [
+          "Does TWR subtract my contributions from growth?",
+          "It neutralizes outside money flows within the stated valuation-period timing assumption rather than treating deposits as investment profit."
+        ],
+        [
+          "Why is XIRR annualized?",
+          "It solves for a constant annualized discount rate that balances dated positive and negative cashflows; multiple roots can occur in nonstandard cases."
+        ]
+      ]
     },
     {
       "slug": "crypto-backtesting-without-look-ahead",
@@ -96,7 +118,18 @@
         ]
       ],
       "publishedAt": "2026-11-23",
-      "status": "published"
+      "status": "published",
+      "category": "Portfolio Methods",
+      "faq": [
+        [
+          "Why does the example strategy trade at the next open?",
+          "The strategy learns the completed moving averages only at the prior close, so using that day's earlier opening price would introduce future knowledge."
+        ],
+        [
+          "Do simulated transaction costs reflect live execution?",
+          "No. The model uses a manual percentage fee and excludes slippage, order-book depth, outages and latency."
+        ]
+      ]
     },
     {
       "slug": "crypto-wallet-phishing-and-token-approvals",
@@ -136,7 +169,18 @@
         ]
       ],
       "publishedAt": "2026-11-23",
-      "status": "published"
+      "status": "published",
+      "category": "Wallet Safety",
+      "faq": [
+        [
+          "Does a hardware wallet make every approval safe?",
+          "No. It can protect key material while still signing an unsafe permission that a user approves."
+        ],
+        [
+          "Should I ever paste my recovery phrase into a support website?",
+          "No. A third party requesting it is a severe warning sign; use the wallet vendor's independently verified guidance."
+        ]
+      ]
     },
     {
       "slug": "bitcoin-block-reward-versus-fees",
@@ -176,7 +220,18 @@
         ]
       ],
       "publishedAt": "2026-11-23",
-      "status": "published"
+      "status": "published",
+      "category": "Protocol & Network",
+      "faq": [
+        [
+          "Does a halving reduce transaction fees by half?",
+          "No. The scheduled halving changes the new-coin block subsidy; users' transaction fees vary separately."
+        ],
+        [
+          "Can CoinMetriq predict the next halving date or Bitcoin price?",
+          "No. Calendar timing depends on observed blocks and future price depends on independent market forces."
+        ]
+      ]
     },
     {
       "slug": "network-fee-rate-versus-transaction-size",
@@ -212,7 +267,18 @@
         ]
       ],
       "publishedAt": "2026-11-23",
-      "status": "published"
+      "status": "published",
+      "category": "Protocol & Network",
+      "faq": [
+        [
+          "What is one satoshi?",
+          "One satoshi is one hundred-millionth of a bitcoin; BTC amounts in this worksheet use that mathematical conversion."
+        ],
+        [
+          "Does a fee-rate estimate guarantee confirmation time?",
+          "No. Demand, network conditions, transaction structure and miner selection can change timing."
+        ]
+      ]
     },
     {
       "slug": "staking-apr-versus-apy-explained",
@@ -244,7 +310,18 @@
         ]
       ],
       "publishedAt": "2026-11-23",
-      "status": "published"
+      "status": "published",
+      "category": "Protocol & Network",
+      "faq": [
+        [
+          "What makes APY differ from APR?",
+          "The simplified APY example assumes rewards are added back to principal at a selected frequency; nominal APR does not itself describe such reinvestment."
+        ],
+        [
+          "Can token count rise while USD investment value falls?",
+          "Yes. A decline in the market price may outweigh a hypothetical increase in token quantity."
+        ]
+      ]
     },
     {
       "slug": "liquidity-pool-impermanent-loss-example",
@@ -276,7 +353,18 @@
         ]
       ],
       "publishedAt": "2026-11-23",
-      "status": "published"
+      "status": "published",
+      "category": "Protocol & Network",
+      "faq": [
+        [
+          "Is the quoted impermanent loss the total dollar loss?",
+          "No. It compares a modelled pool position with a hold-only benchmark; fees and price movements require additional accounting."
+        ],
+        [
+          "Does the 50/50 formula describe concentrated liquidity pools?",
+          "No. Concentrated liquidity, custom weights and other pool designs have different conditions and mathematics."
+        ]
+      ]
     }
   ]
 }
