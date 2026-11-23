@@ -18,6 +18,9 @@ const checks=[
  {route:"/portfolio/journal/",kind:"html",expect:"Trade Journal"},
  {route:"/portfolio/backups/",kind:"html",expect:"Encrypted Journal Backup"},
  {route:"/portfolio/token-emission/",kind:"html",expect:"Token Issuance"},
+ {route:"/portfolio/risk-lab/",kind:"html",expect:"Historical Risk & Scenario Lab"},
+ {route:"/portfolio/issuance-audit/",kind:"html",expect:"Bitcoin Consensus Issuance Audit"},
+ {route:"/portfolio/licensed-data/",kind:"html",expect:"Licensed Market Data Reference Desk"},
  {route:"/articles/",kind:"html",expect:"Crypto Research Articles"},
  {route:"/articles/fifo-versus-weighted-average-crypto-cost-basis/",kind:"html",expect:"FIFO vs"},
  {route:"/topics/bitcoin-price/",kind:"html",expect:"Bitcoin price"},
@@ -31,7 +34,12 @@ const checks=[
  {route:"/robots.txt",kind:"text",expect:"Sitemap:"},
  {route:"/sitemap.xml",kind:"xml",expect:host+"/topics/bitcoin-price/"},
  {route:"/assets/cm-portfolio.js",kind:"asset",expect:"setupJournal"},
- {route:"/assets/backup-core.mjs",kind:"asset",expect:"encryptJournal"}
+ {route:"/assets/backup-core.mjs",kind:"asset",expect:"encryptJournal"},
+ {route:"/assets/risk-core.mjs",kind:"asset",expect:"evaluateHistoricalRisk"},
+ {route:"/assets/issuance-core.mjs",kind:"asset",expect:"bitcoinSubsidySats"},
+ {route:"/assets/licensed-data-core.mjs",kind:"asset",expect:"validateLicensedCatalog"},
+ {route:"/assets/fun-math.mjs",kind:"asset",expect:"miningCostStory"},
+ {route:"/assets/cm-licensed-sources.json",kind:"asset",expect:'"sources": []'}
 ];
 const result={checkedAt:new Date().toISOString(),base:host,checks:[],status:"failed"};
 async function inspect(entry){
