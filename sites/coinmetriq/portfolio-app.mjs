@@ -183,6 +183,16 @@ function setupCostBasis(form,out){
    lead(out,fmt(x.realized,4)+" USD realized P&L",x.method+" · based on "+x.tradeCount+" historical trade rows. "+x.pricingNote);
    stats(out,[["Open cost basis",fmt(x.openCost)+" USD"],["Fees recorded",fmt(x.fees)+" USD"],["Open asset count",String(x.assetCount)]]);
    rowTable(out,["Asset","Remaining units","Cost basis USD","Average price USD","Last trade price (NOT live)"],x.positions.map(p=>[p.asset,fmt(p.qty,8),fmt(p.cost),fmt(p.avgCost,6),fmt(p.lastTradePrice,6)]),"Remaining inventory");
+   if(x.positions.length&&x.openCost>0){
+    const heat=make("section",undefined,"cm-portfolio-heatmap");
+    heat.append(make("h3","Cost-basis allocation, not live market value"));
+    for(const p of x.positions){
+      const percent=p.cost/x.openCost*100,bar=make("meter");bar.min=0;bar.max=100;bar.value=percent;
+      const row=make("div",undefined,"cm-portfolio-heat-row"),title=make("span",p.asset+" · "+fmt(percent,2)+"%");
+      row.append(title,bar);heat.append(row);
+    }
+    out.append(heat);
+   }
    rowTable(out,["Date","Asset","Type","Units","Proceeds USD","Cost basis USD","Realized P&L USD"],x.audit.map(a=>[a.date,a.asset,a.side,fmt(a.qty,8),fmt(a.proceeds),fmt(a.basis),fmt(a.realized,4)]),"Sale-by-sale audit (buys show zero proceeds)");
    const cols=["id","date","asset","side","qty","fee","proceeds","basis","realized","remainingQty"];
    setExport(form,x.audit,cols);setChartExport(form,null);
@@ -197,6 +207,7 @@ function setupPerformance(form,out){
    const x=calculateTwr(vals);
    lead(out,fmt(x.totalReturn*100,4)+"% time-weighted return",x.method);
    const statsRows=[["Max historical drawdown",fmt(x.maxDrawdown*100)+"%"],["Drawdown trough",x.drawdownTrough||"None"]];
+   const rec=recoveryStats(x.curve.map(v=>({date:v.date,value:v.equity})));statsRows.push(["Subsequent recovery",rec.recoveredDate||"Not recovered within observations"]);
    const flows=csvData(read(form,"cashflows"),["date","value"]);
    try{statsRows.unshift(["XIRR, annualized",fmt(calculateXirr(flows)*100,4)+"%"]);}
    catch(err){statsRows.unshift(["XIRR unavailable",errorText(err)]);}
@@ -260,6 +271,13 @@ function setupCompare(form,out){
    lead(out,roll.correlation===null?"Undefined return correlation":fmt(roll.correlation,4)+" return correlation","Pearson correlation across "+roll.pairs+" historical return pairs; not a prediction.");
    stats(out,[["Portfolio A ending index",fmt(comparison.portfolioA.at(-1).value)],["Portfolio B ending index",fmt(comparison.portfolioB.at(-1).value)],["Common valuation dates",String(comparison.dates.length)]]);
    const svg=chart(tx("portfolio-chart",form),[{label:"Portfolio A (index)",points:comparison.portfolioA},{label:"Portfolio B (index)",points:comparison.portfolioB}],{title:"Two portfolio values normalized to 100 at first common date"});setChartExport(form,svg);
+   const rolling=roll.rolling.filter(p=>Number.isFinite(p.value));
+   if(rolling.length>1){
+     const wrapper=make("section",undefined,"cm-portfolio-rolling"),heading=make("h3","Rolling correlation of your example asset returns");
+     const holder=make("div");
+     wrapper.append(heading,holder);tx("portfolio-chart",form).append(wrapper);
+     chart(holder,[{label:"Rolling correlation",points:rolling}],{title:"Rolling correlation of aligned historical simple returns"});
+   }
    setExport(form,comparison.dates.map((date,i)=>({date,portfolioA:fmt(comparison.portfolioA[i].value,6),portfolioB:fmt(comparison.portfolioB[i].value,6)})),["date","portfolioA","portfolioB"]);
   }catch(err){fail(out,err);}
  });
