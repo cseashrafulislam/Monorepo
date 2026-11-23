@@ -18,6 +18,8 @@ const meta={};
 const guides=[
  {
  slug:"trading-fees-and-real-profit",
+ category:"Trading Mathematics",
+ faq:[["Does a higher selling price guarantee profit?","No. Fees on both sides and actual executed proceeds may offset a small quoted gain."],["Does this model include spreads and taxes?","No. It uses exactly the manual fees and prices supplied to the calculator."]],
  title:"Why a price gain is not always a trading profit",
  excerpt:"A reproducible example of buy fees, sell fees and net trading results.",
  paragraphs:[
@@ -29,6 +31,8 @@ const guides=[
  },
  {
  slug:"weighted-average-crypto-entry",
+ category:"Portfolio Methods",
+ faq:[["Why not average the purchase prices directly?","A fill buying more units contributes more to total invested cost than a very small fill."],["Is average entry the same as a legal tax lot basis?","No. The simplified arithmetic example does not decide a jurisdiction-specific tax convention."]],
  title:"Weighted average entry price across multiple fills",
  excerpt:"Calculate the average cost of a holding without averaging prices incorrectly.",
  paragraphs:[
@@ -40,6 +44,8 @@ const guides=[
  },
  {
  slug:"drawdown-and-recovery-math",
+ category:"Portfolio Methods",
+ faq:[["Why does a 30 percent fall require a larger percentage recovery?","The recovery is measured from the smaller post-loss base: 300 divided by 700 is about 42.86 percent."],["Does historical maximum drawdown predict the next crash?","No. It summarizes the worst decline observed in the chosen historical observations."]],
  title:"Why a 30% drawdown needs more than a 30% recovery",
  excerpt:"Understand portfolio peak-to-trough loss mathematically with a worked scenario.",
  paragraphs:[
@@ -95,11 +101,15 @@ export function renderExtraPages(c,groups,base,page){
  }
  const funHtml=heading("CRYPTO / FREE INTERACTIVE","Crypto Chaos Lab","Ten playful, fictional crypto education challenges. Learn the arithmetic, save a result card and share only if you want to.")+'<section class="cm-section"><div class="cm-container"><div class="cm-extra-grid cm-extra-game-grid">'+funItems.map(gameCard).join("")+'</div><p class="cm-tiny">Entertainment and education only. Not investment advice, market signals, a psychological score, or a security guarantee.</p><a class="cm-textlink" href="/studio/">Go to the serious research calculators ↗</a></div></section>';
  files["fun/index.html"]=page(c,base,{title:"Crypto Chaos Lab",description:"Play ten original educational crypto challenges; original free browser mini games and shareable result cards.",route:"/fun/",crumbs:[["Home","/"],["Crypto Chaos Lab","/fun/"]]},funHtml,groups);
- const guideIndex=heading("CRYPTO / ORIGINAL METHODS","Crypto Research Articles","Original worked arithmetic and method explainers that help you evaluate real calculations rather than follow market hype.")+'<section class="cm-section"><div class="cm-container"><div class="cm-extra-grid">'+guides.map(g=>link("/articles/"+g.slug+"/",g.title,g.excerpt,"ORIGINAL EDUCATIONAL ARTICLE")).join("")+'</div><p>Research guides here are independent educational explanations. The 30 short library topic overviews remain noindex until separately verified and expanded.</p></div></section>';
+ const articleCategories=["Trading Mathematics","Portfolio Methods","Protocol & Network","Wallet Safety"];
+ const articleGroups=articleCategories.map(name=>({name,slug:name.toLowerCase().replace(/[^a-z0-9]+/g,"-"),items:guides.filter(g=>g.category===name)})).filter(x=>x.items.length);
+ const jumpLinks=articleGroups.map(g=>'<a href="#'+g.slug+'">'+esc(g.name)+' ('+g.items.length+')</a>').join("");
+ const articleSections=articleGroups.map(g=>'<section id="'+g.slug+'" class="cm-guide-category"><div class="cm-section-head"><h2>'+esc(g.name)+'</h2><span>'+g.items.length+' independently useful guides</span></div><div class="cm-extra-grid">'+g.items.map(a=>link("/articles/"+a.slug+"/",a.title,a.excerpt,"ORIGINAL EDUCATIONAL ARTICLE")).join("")+'</div></section>').join("");
+ const guideIndex=heading("CRYPTO / ORIGINAL METHODS","Crypto Research Articles","Original worked arithmetic, source-backed methods and practical risk explainers organized by research question, not mass-published keyword variations.")+'<section class="cm-section"><div class="cm-container"><nav class="cm-guide-jumps" aria-label="Article categories">'+jumpLinks+'</nav>'+articleSections+'<p>Related <a href="/topics/">research topics</a> include original worked methods. Legal, tax and time-sensitive crypto news notes remain noindex until further qualified editorial review.</p></div></section>';
  files["articles/index.html"]=page(c,base,{title:"Crypto Research Articles",description:"Original sourced crypto research guides covering trading fees, portfolio math, security, block rewards and practical risks.",route:"/articles/",crumbs:[["Home","/"],["Articles","/articles/"]]},guideIndex,groups);
  for(const g of guides){
   const route="/articles/"+g.slug+"/";
-  const article=heading("CRYPTO / METHOD EXPLAINED",g.title,g.excerpt)+'<section class="cm-section"><div class="cm-container cm-article-grid"><article class="cm-paper"><div class="cm-reading-meta">ORIGINAL MATHEMATICAL EXAMPLE · EDUCATIONAL · NOT A LIVE MARKET QUOTE</div>'+g.paragraphs.map(([title,text])=>'<h2>'+esc(title)+'</h2><p>'+esc(text)+'</p>').join("")+'<h2>Try the exact calculation</h2><p><a href="'+esc(g.href||"/studio/"+g.tool+"/")+'">Open the corresponding free browser tool</a>, enter the numbers from this explanation and verify the output. The example is fictional and has no predictive meaning.</p>'+(g.sources?.length?'<h2>Primary and original reference sources</h2><ul>'+g.sources.map(([name,url])=>'<li><a href="'+esc(url)+'" rel="noopener noreferrer">'+esc(name)+'</a></li>').join("")+'</ul>':"")+'<p>Published: '+esc(g.publishedAt||'2026-11-23')+' · General education; the scenarios described are not investment or tax advice. Verify changing technical and legal claims against the current primary sources.</p></article><aside class="cm-read-aside"><div class="cm-aside-card"><h3>Research, not signals</h3><p>No live exchange prices, wallet data or personalized trading guidance are used.</p><a href="/studio/">Research Studio ↗</a></div><div class="cm-aside-card"><h3>Other explainers</h3>'+guides.filter(z=>z.slug!==g.slug).map(z=>'<a class="cm-aside-link" href="/articles/'+esc(z.slug)+'/">'+esc(z.title)+'</a>').join("")+'</div></aside></div></section>';
+  const article=heading("CRYPTO / METHOD EXPLAINED",g.title,g.excerpt)+'<section class="cm-section"><div class="cm-container cm-article-grid"><article class="cm-paper"><div class="cm-reading-meta">ORIGINAL MATHEMATICAL EXAMPLE · EDUCATIONAL · NOT A LIVE MARKET QUOTE</div>'+g.paragraphs.map(([title,text])=>'<h2>'+esc(title)+'</h2><p>'+esc(text)+'</p>').join("")+'<h2>Quick questions</h2>'+(g.faq?.length?g.faq.map(([q,a])=>'<details class="cm-guide-faq"><summary>'+esc(q)+'</summary><p>'+esc(a)+'</p></details>').join(""):'<p>Read the methodology and limits above before applying this scenario.</p>')+'<h2>Try the exact calculation</h2><p><a href="'+esc(g.href||"/studio/"+g.tool+"/")+'">Open the corresponding free browser tool</a>, enter the numbers from this explanation and verify the output. The example is fictional and has no predictive meaning.</p>'+(g.sources?.length?'<h2>Primary and original reference sources</h2><ul>'+g.sources.map(([name,url])=>'<li><a href="'+esc(url)+'" rel="noopener noreferrer">'+esc(name)+'</a></li>').join("")+'</ul>':"")+'<p>Published: '+esc(g.publishedAt||'2026-11-23')+' · General education; the scenarios described are not investment or tax advice. Verify changing technical and legal claims against the current primary sources.</p></article><aside class="cm-read-aside"><div class="cm-aside-card"><h3>Research, not signals</h3><p>No live exchange prices, wallet data or personalized trading guidance are used.</p><a href="/studio/">Research Studio ↗</a></div><div class="cm-aside-card"><h3>Other explainers</h3>'+guides.filter(z=>z.slug!==g.slug).map(z=>'<a class="cm-aside-link" href="/articles/'+esc(z.slug)+'/">'+esc(z.title)+'</a>').join("")+'</div></aside></div></section>';
   files["articles/"+g.slug+"/index.html"]=page(c,base,{title:g.title,description:g.excerpt,route,type:"article",datePublished:g.publishedAt||"2026-11-23",crumbs:[["Home","/"],["Articles","/articles/"],[g.title,route]]},article,groups);
  }
  Object.assign(files,renderPortfolioPages(c,groups,base,page));

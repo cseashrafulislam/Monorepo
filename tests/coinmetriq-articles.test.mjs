@@ -14,6 +14,9 @@ test("CoinMetriq has eight distinct longer source-backed original research guide
   assert.ok(g.paragraphs.length>=4);
   assert.ok(g.paragraphs.every(([h,t])=>h.length>5&&t.length>100));
   assert.equal(g.status,"published");
+  assert.ok(["Portfolio Methods","Trading Mathematics","Protocol & Network","Wallet Safety"].includes(g.category));
+  assert.equal(g.faq?.length,2);
+  assert.ok(g.faq.every(([q,a])=>q.length>12&&a.length>40));
   assert.ok(g.href.startsWith("/"));
   assert.match(g.publishedAt,/^\d{4}-\d{2}-\d{2}$/);
   assert.ok(g.sources?.length>0);
@@ -33,6 +36,7 @@ test("Published guide routes have HTML, real links and Article schema",()=>{
   assert.ok(html.includes('"datePublished":"'+g.publishedAt+'"'));
   assert.match(html,/content="index,follow"/);
   assert.ok(html.includes('href="'+g.href+'"'),g.href);
+  assert.ok(html.includes('class="cm-guide-faq"'),g.slug+" FAQ rendered");
   for(const [label,url] of g.sources){assert.ok(html.includes(url),url);}
   assert.ok(html.includes(site.name));
  }
@@ -41,4 +45,14 @@ test("Jurisdiction-sensitive tax topic remains noindex and original tool remains
  const sample=fs.readFileSync(path.join(root,"topics","crypto-tax-concepts","index.html"),"utf8");
  assert.ok(sample.includes('content="noindex,follow"'));
  assert.ok(fs.existsSync(path.join(root,"tools","token-market-cap","index.html")));
+});
+
+test("CoinMetriq article index has four original research categories",()=>{
+ const html=fs.readFileSync(path.join(root,"articles","index.html"),"utf8");
+ for(const id of ["trading-mathematics","portfolio-methods","protocol-network","wallet-safety"]){
+  assert.ok(html.includes('href="#'+id+'"'),id+" category navigation");
+  assert.ok(html.includes('id="'+id+'"'),id+" category section");
+ }
+ const first=fs.readFileSync(path.join(root,"articles","trading-fees-and-real-profit","index.html"),"utf8");
+ assert.ok(first.includes('class="cm-guide-faq"'));
 });

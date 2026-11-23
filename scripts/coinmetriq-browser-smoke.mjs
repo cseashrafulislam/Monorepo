@@ -94,9 +94,14 @@ try{
  const cryptoResult=await evaluate('(async()=>{const m=await import("/assets/backup-core.mjs");const rows=[{id:"Q1",date:"2026-01-01",asset:"BTC",side:"BUY",qty:.1,price:1000,fee:1,tag:"demo"}];const b=await m.encryptJournal(rows,"long test password 123");const restored=await m.decryptJournal(b,"long test password 123");let failed=false;try{await m.decryptJournal(b,"another long password 123")}catch{failed=true}return {rows:restored.length,wrongPasswordRejected:failed,cipher:b.cipher}})()');
  if(cryptoResult.rows!==1||!cryptoResult.wrongPasswordRejected||cryptoResult.cipher!=="AES-256-GCM")throw Error("Browser AES-GCM roundtrip invalid "+JSON.stringify(cryptoResult));
  console.log("PASS browser /portfolio/backups/ encrypted backup and rejection");
+ await open("/articles/");
+ const cats=await evaluate('document.querySelectorAll(".cm-guide-category").length');
+ if(cats!==4)throw Error("Expected 4 article categories, got "+cats);
  await open("/articles/fifo-versus-weighted-average-crypto-cost-basis/");
  const article=await evaluate('document.querySelectorAll("script[type=\\"application/ld+json\\"]").length');
  if(!article)throw Error("Article schema missing");
+ const faq=await evaluate('document.querySelectorAll("details.cm-guide-faq").length');
+ if(faq<2)throw Error("Article FAQ accordion missing.");
  if(browserErrors.length)throw Error("Browser runtime exceptions: "+JSON.stringify(browserErrors.slice(0,6)));
  console.log("CoinMetriq browser smoke PASS — interactive calculator, 10 games, ledger, analytics, encryption, SEO");
 }catch(error){failed=error;console.error("CoinMetriq browser QA FAILED:",error?.message);}
