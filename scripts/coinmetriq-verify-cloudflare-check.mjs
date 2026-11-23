@@ -12,7 +12,7 @@ if(!/^[0-9a-f]{40}$/.test(commit)||!/^[-\w.]+\/[-\w.]+$/.test(repo)||!token)thro
 const url="https://api.github.com/repos/"+repo+"/commits/"+commit+"/check-runs?per_page=100";
 const record={verifiedAt:new Date().toISOString(),commit,repository:repo,checkName:"Cloudflare Pages: coinmetriq",result:"unverified"};
 let terminalError=null;
-for(let attempt=1;attempt<=30;attempt++){
+for(let attempt=1;attempt<=78;attempt++){
  let data;
  try{
   const r=await fetch(url,{headers:{Accept:"application/vnd.github+json",Authorization:"Bearer "+token,"X-GitHub-Api-Version":"2022-11-28","User-Agent":"CoinMetriq-Release-Verification/1.0"},signal:AbortSignal.timeout(12000)});
@@ -39,9 +39,9 @@ for(let attempt=1;attempt<=30;attempt++){
    }
   }
  }
- if(attempt<30)await sleep(5000);
+ if(attempt<78)await sleep(5000);
 }
-if(record.result!=="verified")record.error=terminalError||"No successful Cloudflare Pages GitHub App check appeared for expected commit in 150 seconds.";
+if(record.result!=="verified")record.error=terminalError||"No successful Cloudflare Pages GitHub App check appeared for expected commit in 390 seconds.";
 fs.mkdirSync("dist",{recursive:true});
 fs.writeFileSync("dist/coinmetriq-deployment-check.json",JSON.stringify(record,null,2)+"\n");
 console.log("Cloudflare GitHub App deployment verification:",JSON.stringify({commit,verified:record.result==="verified",check:record.checkRunUrl||null,reason:record.error||null}));

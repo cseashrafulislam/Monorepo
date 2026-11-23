@@ -17,7 +17,7 @@ jobs:
   verify-public-host:
     if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 12
     env:
       COINMETRIQ_LIVE_BASE: ${{ vars.COINMETRIQ_LIVE_BASE || 'https://coinmetriq.pages.dev' }}
       COINMETRIQ_EXPECTED_SHA: ${{ github.event.workflow_run.head_sha || github.sha }}
@@ -27,10 +27,16 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - name: Verify Cloudflare Pages GitHub check against expected release commit
+      - name: Determine whether this commit requires a new CoinMetriq deployment
+        id: scope
+        run: node scripts/coinmetriq-release-scope.mjs
+      - name: Confirm exact Cloudflare Pages GitHub deployment check
+        if: steps.scope.outputs.check_release == 'true'
         run: node scripts/coinmetriq-verify-cloudflare-check.mjs
-      - name: Check actual live pages, precise build SHA, canonical and sitemap
-        if: always()
+      - name: Check actual live public pages and exact release SHA
+        if: always() && steps.scope.outputs.run_live == 'true'
+        env:
+          COINMETRIQ_EXPECTED_SHA: ${{ steps.scope.outputs.check_release == 'true' && (github.event.workflow_run.head_sha || github.sha) || '' }}
         run: node scripts/coinmetriq-live-health.mjs
       - name: Preserve release and public delivery evidence
         if: always()
