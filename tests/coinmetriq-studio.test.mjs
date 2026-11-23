@@ -8,9 +8,9 @@ import {calculate} from "../packages/site-core/calculator.js";
 const root="dist/coinmetriq";
 const read=(route)=>fs.readFileSync(path.join(root,route,"index.html"),"utf8");
 
-test("CoinMetriq nineteen unique private research calculators",()=>{
- assert.equal(tools.length,19);
- assert.equal(new Set(tools.map(x=>x.slug)).size,19);
+test("CoinMetriq twenty unique private research calculators",()=>{
+ assert.equal(tools.length,20);
+ assert.equal(new Set(tools.map(x=>x.slug)).size,20);
  assert.ok(tools.every(t=>t.title&&t.short&&t.formula));
 });
 test("Crypto fees include both sides and handle small losing trades",()=>{
@@ -112,4 +112,19 @@ test("Scenario risk/reward, mining ROI, leverage and portfolio stress",()=>{
  assert.match(p.headline,/-2,160.00 USD/);
  assert.equal(p.rows.length,3);
  assert.throws(()=>calculateStudio("portfolio-stress-test",{shocks:"BTC,100,-101"}),/shock/i);
+});
+
+test("Recurring DCA compounding schedule is fair and leverage threshold remains illustrative",()=>{
+ const d=calculateStudio("dca-compounding-plan",{contribution:100,months:12,nominal:12});
+ assert.equal(d.rows.length,12);assert.equal(d.columns.length,3);
+ assert.match(d.headline,/USD hypothetical staged ending value/);
+ assert.match(d.summary.find(x=>x[0]==="Total planned contributions")[1],/1,200.00 USD/);
+ assert.throws(()=>calculateStudio("dca-compounding-plan",{contribution:100,months:121,nominal:8}),/1–120/);
+ const long=calculateStudio("leverage-shock",{margin:1000,leverage:3,entryPrice:100,move:-20,direction:1,maintenance:0.5,feeReserve:5});
+ assert.match(long.headline,/400.00 USD/);
+ assert.match(long.summary.find(x=>x[0]==="Approx maintenance threshold")[1],/67.169/);
+ assert.match(long.detail,/NOT any exchange liquidation price/);
+ const short=calculateStudio("leverage-shock",{margin:1000,leverage:3,entryPrice:100,move:20,direction:-1,maintenance:0.5,feeReserve:5});
+ assert.match(short.summary.find(x=>x[0]==="Approx maintenance threshold")[1],/132.5/);
+ assert.throws(()=>calculateStudio("leverage-shock",{margin:1000,leverage:3,entryPrice:100,move:5,direction:1,maintenance:110,feeReserve:5}),/maintenance/);
 });

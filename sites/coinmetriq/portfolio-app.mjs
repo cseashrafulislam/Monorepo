@@ -215,6 +215,13 @@ function setupPerformance(form,out){
    const chartRoot=tx("portfolio-chart",form);
    const svg=chart(chartRoot,[{label:"Cumulative TWR indexed to 100",points:x.curve.map(z=>({date:z.date,value:z.equity*100}))}],{title:"Cumulative time-weighted return from locally entered values"});
    setChartExport(form,svg);
+   const riskSection=make("section",undefined,"cm-portfolio-rolling");
+   const riskTitle=make("h3","Drawdown and recovery relative to each running peak");
+   const riskInfo=make("p","100 means the portfolio has recovered to its highest observed cumulative TWR; a lower value shows the percentage of that peak remaining. A new high is again 100.");
+   const riskHolder=make("div");
+   riskSection.append(riskTitle,riskInfo,riskHolder);chartRoot.append(riskSection);
+   const riskSvg=chart(riskHolder,[{label:"Percent of prior running peak",points:x.curve.map(v=>({date:v.date,value:(1-v.drawdown)*100}))}],{title:"Historical peak-relative drawdown and recovery from user-entered valuations",unit:"%"});
+   if(!riskSvg)riskSection.remove();
    const records=x.curve.map(v=>({date:v.date,equityIndex:fmt(v.equity*100,6),drawdownPct:fmt(v.drawdown*100,4)}));
    setExport(form,records,["date","equityIndex","drawdownPct"]);
   }catch(err){fail(out,err);}
