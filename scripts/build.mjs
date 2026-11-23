@@ -242,10 +242,16 @@ for(const id of targets){
  if(id==="worldorixa")urls.push("/news/");
  if(id==="techorvia")for(const route of tvRoutes)if(!urls.includes(route))urls.push(route);
   if(id==="coinmetriq"){const {extraRoutes}=await import("../sites/coinmetriq/extra.mjs");for(const route of extraRoutes())if(!urls.includes(route))urls.push(route);}
+  if(id==="coinmetriq"){const {supportRoutes}=await import("../sites/coinmetriq/site-support.mjs");for(const route of supportRoutes())if(!urls.includes(route))urls.push(route);}
  for(const t of topics)if(t.editorialReviewed===true&&Array.isArray(t.sources)&&t.sources.length)urls.push(linkTopic(t));
  write(out,"sitemap.xml",'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+urls.map(route=>'<url><loc>'+getBase(config)+route+'</loc></url>').join("")+'</urlset>');
  if(id!=="worldorixa")write(out,"_redirects","/news/ /tools/"+config.tool.slug+"/ 301\n/news/* /tools/"+config.tool.slug+"/ 301\n");
  write(out,"robots.txt","User-agent: *\nAllow: /\nSitemap: "+getBase(config)+"/sitemap.xml\n");
  write(out,"_headers","/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  X-Frame-Options: DENY\n  Permissions-Policy: camera=(), microphone=(), geolocation=()\n");
+ if(id==="coinmetriq"){
+  const {applyAdSenseVerification}=await import("../sites/coinmetriq/ads-verification.mjs");
+  const verification=applyAdSenseVerification(out);
+  console.log("CoinMetriq AdSense ownership preparation:",verification.configured?"Publisher ID supplied; ads.txt/meta present, ad serving disabled":"No publisher ID; no ads.txt or ad script");
+ }
  console.log("Built "+config.name+": "+topics.length+" topic guides"+(id==="techorvia"?" and "+tvRoutes.length+" tool/site routes":"")+".");
 }
