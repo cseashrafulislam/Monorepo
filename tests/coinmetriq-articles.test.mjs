@@ -5,8 +5,8 @@ import path from "node:path";
 const moreGuides=JSON.parse(fs.readFileSync("sites/coinmetriq/articles.json","utf8")).articles;
 import {extraRoutes} from "../sites/coinmetriq/extra.mjs";
 const root="dist/coinmetriq";
-test("CoinMetriq has eight distinct longer source-backed original research guides",()=>{
- assert.equal(moreGuides.length,8);
+test("CoinMetriq has ten distinct longer source-backed original research guides",()=>{
+ assert.equal(moreGuides.length,10);
  assert.equal(new Set(moreGuides.map(g=>g.slug)).size,8);
  for(const g of moreGuides){
   assert.ok(g.title.length>20);
