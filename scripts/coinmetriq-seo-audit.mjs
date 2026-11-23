@@ -81,7 +81,7 @@ for(const route of topics){
 }
 if(publishedTopics!==27||reviewOnlyTopics!==3)bad.push("Research editorial breakdown should be 27 indexed + 3 noindex, observed "+publishedTopics+" + "+reviewOnlyTopics+".");
 if(!contentFiles.has("/portfolio/backups/")||!contentFiles.has("/fun/")||!contentFiles.has("/studio/")||!contentFiles.has("/articles/"))bad.push("Missing CoinMetriq key route");
-for(const asset of ["cm-studio.js","cm-portfolio.js","cm-studio.css","cm-portfolio.css","ledger-core.mjs","market-core.mjs","risk-core.mjs","issuance-core.mjs","backup-core.mjs","fun-math.mjs","scenario-core.mjs"]){
+for(const asset of ["cm-studio.js","cm-portfolio.js","cm-studio.css","cm-portfolio.css","ledger-core.mjs","market-core.mjs","risk-core.mjs","issuance-core.mjs","licensed-data-core.mjs","cm-licensed-sources.json","backup-core.mjs","fun-math.mjs","scenario-core.mjs"]){
  if(!fs.existsSync(path.join(root,"assets",asset)))bad.push("Missing linked client asset "+asset);
 }
 console.log(JSON.stringify({site,pages:paths.length,indexableSitemapUrls:urls.length,publishedOriginalTopicGuides:publishedTopics,unindexedSensitiveTopicGuides:reviewOnlyTopics,errors:bad.length,warnings:warn.length,examples:warn.slice(0,3)},null,2));
