@@ -50,7 +50,8 @@ export function validateIssuerProvenance({issuer,sourceTitle,sourceUrl,sourceDat
  let url;
  try{url=new URL(sourceUrl);}catch{throw Error("Enter a direct HTTPS official source URL.");}
  assert(url.protocol==="https:"&&!url.username&&!url.password&&url.hostname.includes(".")&&url.href.length<=600,"Source must be an HTTPS document URL without credentials.");
- assert(/^\d{4}-\d{2}-\d{2}$/.test(date)&&new Date(date+"T00:00:00Z").toISOString().slice(0,10)===date,"Use a valid YYYY-MM-DD source document date.");
+ const t=Date.parse(date+"T00:00:00Z");
+ assert(/^\d{4}-\d{2}-\d{2}$/.test(date)&&Number.isFinite(t)&&new Date(t).toISOString().slice(0,10)===date,"Use a valid YYYY-MM-DD source document date.");
  assert(note.length>=16&&note.length<=250,"Describe this source's actual public method and rights status (16–250 characters).");
  return {issuer:label,sourceTitle:title,sourceUrl:url.href,sourceDate:date,licenseNote:note,
   verification:"Source cited by user; publisher and issuance values are NOT independently authenticated by CoinMetriq."};
