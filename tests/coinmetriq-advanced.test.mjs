@@ -80,7 +80,7 @@ test("User issuer citations are checked but never falsely labeled independently 
 test("Advanced risk and protocol issuance pages are functional, indexable and bundled",()=>{
  const root="dist/coinmetriq",map=fs.readFileSync(path.join(root,"sitemap.xml"),"utf8");
  const routes=portfolioRoutes();
- assert.equal(routes.length,14);
+ assert.equal(routes.length,15);
  for(const route of ["/portfolio/risk-lab/","/portfolio/issuance-audit/"]){
   assert.ok(routes.includes(route),route);
   assert.ok(map.includes("https://coinmetriq.pages.dev"+route),route);
