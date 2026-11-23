@@ -1,0 +1,31 @@
+name: CoinMetriq public production health
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "19 5 * * 1,4"
+permissions:
+  contents: read
+concurrency:
+  group: coinmetriq-public-health
+  cancel-in-progress: true
+jobs:
+  verify-public-host:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      COINMETRIQ_LIVE_BASE: ${{ vars.COINMETRIQ_LIVE_BASE || 'https://coinmetriq.pages.dev' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Check real live public pages, assets, canonical and sitemap
+        run: node scripts/coinmetriq-live-health.mjs
+      - name: Save public production verification evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coinmetriq-public-health
+          path: dist/coinmetriq-production-check.json
+          if-no-files-found: warn
+          retention-days: 14
