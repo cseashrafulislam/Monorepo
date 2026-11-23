@@ -1,0 +1,56 @@
+/* CoinMetriq portfolio desk: private local research UI, no external fonts or assets. */
+.cm-portfolio-form{min-width:0}
+.cm-portfolio-form .cm-portfolio-textarea{grid-column:1/-1}
+.cm-portfolio-form textarea{width:100%;max-width:100%;min-height:130px;resize:vertical;white-space:pre;overflow:auto;tab-size:2}
+.cm-portfolio-form .cm-extra-fields{grid-template-columns:repeat(2,minmax(0,1fr))}
+.cm-portfolio-form .cm-extra-fields>.cm-portfolio-textarea{grid-column:1/-1}
+.cm-portfolio-form select,.cm-journal-editor select,.cm-extra-form select{width:100%;border:1px solid #5b8082;background:#0a2331;color:#e9faf0;padding:13px;border-radius:7px;font-size:1rem}
+.cm-portfolio-form input[type=file],.cm-extra-form input[type=file]{width:100%;font-size:.9rem;border:1px dashed #55766f;color:#e3efe7;padding:13px;border-radius:8px;background:#0a202d}
+.cm-portfolio-form input[type=file]::file-selector-button,.cm-extra-form input[type=file]::file-selector-button{background:#345b51;border:1px solid #6c9e8b;border-radius:6px;color:#fff;padding:7px 10px;cursor:pointer;margin-right:11px}
+.cm-portfolio-form .cm-extra-field:has(textarea){grid-column:1/-1}
+.cm-portfolio-form .cm-extra-field:has(input[type=file]){grid-column:1/-1}
+.cm-portfolio-form>p{line-height:1.65}
+.cm-portfolio-output{padding:24px 2px 10px;min-height:70px;overflow-wrap:anywhere}
+.cm-portfolio-output p{line-height:1.6;margin:10px 0}
+.cm-portfolio-output>.cm-portfolio-lead{font:800 clamp(1.25rem,2vw,1.75rem)/1.35 ui-monospace,monospace;color:#b7f571;display:block}
+.cm-portfolio-output[data-state=error]{padding:17px;border:1px solid #c68578;border-radius:8px;color:#ffd6c5;background:#392421}
+.cm-portfolio-output[data-state=error] p{color:#ffd6c5}
+.cm-portfolio-output dl{margin:19px 0}
+.cm-portfolio-output .cm-table-scroll{border:1px solid #36575d;border-radius:8px;background:#0a202d;max-height:420px;overflow:auto}
+.cm-portfolio-output table{width:100%;border-collapse:collapse;min-width:550px}
+.cm-portfolio-output caption{padding:13px 11px;text-align:left;color:#b6dbca;font-weight:750}
+.cm-portfolio-output th{position:sticky;top:0;background:#163440;color:#c8fdaf;z-index:1}
+.cm-portfolio-output th,.cm-portfolio-output td{padding:10px 13px;text-align:left;border-bottom:1px solid #345057;font-size:.85rem;font-variant-numeric:tabular-nums}
+.cm-portfolio-output .cm-extra-actions{margin-top:17px}
+.cm-portfolio-downloads{display:flex;gap:13px;flex-wrap:wrap;margin-top:14px}
+.cm-portfolio-downloads>button,.cm-portfolio-form button[data-cm-backtest-sample],.cm-extra-form button[data-cm-backup-create],.cm-extra-form button[data-cm-backup-open]{border:1px solid #668981;background:#173940;color:#e4fbef;border-radius:8px;padding:12px 15px;cursor:pointer;font:750 .85rem/1.2 inherit}
+.cm-portfolio-downloads>button[disabled]{opacity:.45;cursor:not-allowed}
+.cm-portfolio-downloads>button:focus-visible,.cm-portfolio-form button:focus-visible,.cm-extra-form button:focus-visible{outline:3px solid var(--cm-lime);outline-offset:2px}
+.cm-portfolio-chart{width:100%;margin:19px 0 2px}
+.cm-local-chart{display:block;width:100%;height:auto;border:1px solid #35585e;border-radius:10px;background:#0b2430}
+.cm-journal-editor{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:15px;padding:20px;border:1px solid #608974;border-radius:10px;background:#0c2b30}
+.cm-journal-editor label{display:grid;gap:8px;font-size:.85rem;font-weight:640;color:#d0e6db}
+.cm-journal-editor label:first-child{grid-column:1/-1}
+.cm-journal-editor input{width:100%;min-width:0;border:1px solid #567775;border-radius:7px;padding:9px;background:#0d2730;color:#f7fff9}
+.cm-journal-editor button,.cm-extra-actions .cm-inline-edit-button{border-radius:7px;border:1px solid #668980;padding:10px 12px;cursor:pointer;color:#f4fff7;background:#244b4d;font-weight:720}
+.cm-portfolio-details{border:1px solid #426561;border-radius:8px;padding:14px 17px;margin:16px 0}
+.cm-portfolio-details summary{cursor:pointer;color:#d6efcf;font-weight:750}
+.cm-portfolio-details .cm-extra-fields{margin-top:19px}
+.cm-checklist{display:grid;gap:17px;border:1px solid #56766d;padding:22px;border-radius:10px;margin-bottom:18px}
+.cm-checklist legend{color:#bff581;font-weight:780;padding:0 8px}
+.cm-checklist label{display:flex;gap:12px;align-items:flex-start;color:#dfefeb;line-height:1.55}
+.cm-checklist input{width:20px;height:20px;accent-color:#b6f27b;flex:0 0 20px}
+.cm-extra-note h2{margin-bottom:14px}
+.cm-extra-note p{color:#d4eee5}
+.cm-extra-note a{color:var(--cm-lime);text-decoration:underline}
+.cm-portfolio-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:17px}
+.cm-portfolio-list a{display:inline-block;border:1px solid #55756a;border-radius:7px;padding:8px 10px;text-decoration:none;font-size:.84rem;color:#ddfbdb}
+.cm-portfolio-list a:hover{border-color:var(--cm-lime)}
+.cm-extra-form button:not(.cm-button):hover:not(:disabled){background:#2e6156}
+.cm-extra-form button[data-cm-backup-create],.cm-extra-form button[data-cm-backup-open]{margin-top:8px}
+.cm-extra-form input[type=password]{width:100%;background:#0b2832;border:1px solid #6a8b82;color:#fff;padding:14px;border-radius:9px}
+@media(min-width:1101px){.cm-desktop-nav{gap:clamp(10px,1.5vw,22px)}.cm-desktop-nav a{font-size:.82rem}}
+@media(max-width:1100px){.cm-desktop-nav{display:none}.cm-mobile-nav{display:block}}
+@media(max-width:850px){.cm-portfolio-form .cm-extra-fields{grid-template-columns:1fr}}
+@media(max-width:600px){.cm-portfolio-output{padding-top:15px}.cm-journal-editor{grid-template-columns:repeat(2,minmax(0,1fr));padding:14px}.cm-portfolio-downloads{display:grid}.cm-portfolio-downloads button{width:100%}.cm-checklist{padding:16px}}
+@media(max-width:390px){.cm-journal-editor{grid-template-columns:1fr}}
