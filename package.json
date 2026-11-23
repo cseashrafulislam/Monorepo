@@ -12,6 +12,7 @@
     "check": "npm run build:all && npm run test",
     "audit:coinmetriq": "node scripts/coinmetriq-seo-audit.mjs",
     "smoke:coinmetriq": "node scripts/coinmetriq-browser-smoke.mjs",
-    "audit:content:coinmetriq": "node scripts/coinmetriq-content-audit.mjs"
+    "audit:content:coinmetriq": "node scripts/coinmetriq-content-audit.mjs",
+    "audit:license:coinmetriq": "node scripts/coinmetriq-license-audit.mjs"
   }
 }
