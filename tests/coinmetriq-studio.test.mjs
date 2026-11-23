@@ -94,6 +94,10 @@ test("CoinMetriq Fun Lab contains ten distinct working-client mini game forms",(
  const names=[...html.matchAll(/data-cm-fun="([^"]+)"/g)].map(x=>x[1]);
  assert.equal(names.length,10);
  assert.equal(new Set(names).size,10);
+ assert.match(html,/data-cm-fun-csv/);
+ assert.match(html,/class="cm-game-emblem"/);
+ assert.match(html,/name="liquidity"/);
+ assert.match(html,/name="wallet"/);
  for(const id of ["fee-goblin","dca-time-machine","hodl-rollercoaster","moon-math","portfolio-personality","coin-split","mining-monster","unlock-surprise","scam-bingo","emoji-decoder"])assert.ok(names.includes(id),id);
  assert.match(html,/data-cm-share/);
  assert.match(html,/data-cm-download/);

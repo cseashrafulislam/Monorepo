@@ -75,6 +75,10 @@ try{
  await evaluate('for(const f of document.querySelectorAll("form[data-cm-fun]"))f.requestSubmit()');
  const gameOk=await until(()=>evaluate('[...document.querySelectorAll("form[data-cm-fun]")].every(f=>f.querySelector(".cm-extra-result")?.dataset.state==="success")'));
  if(!gameOk)throw Error("At least one original mini game failed.");
+ const funVisuals=await evaluate('document.querySelectorAll("form[data-cm-fun] svg.cm-fun-svg").length');
+ const splitBar=await evaluate('!!document.querySelector("form[data-cm-fun=coin-split] .cm-fun-split")');
+ const vocabulary=await evaluate('document.querySelector("form[data-cm-fun=emoji-decoder] .cm-extra-result strong")?.textContent');
+ if(funVisuals<4||!splitBar||!vocabulary?.includes("3 / 3"))throw Error("Fun visual or three-term quiz missing.");
  console.log("PASS browser /fun/ 10/10 games");
  await action("/portfolio/journal/","document.querySelector('[data-cm-portfolio=journal]').requestSubmit()","[data-cm-portfolio-output]","3 validated trades");
  await action("/portfolio/cost-basis/","document.querySelector('[data-cm-portfolio=costbasis]').requestSubmit()","[data-cm-portfolio-output]","realized P&L");

@@ -67,3 +67,21 @@
 .cm-guide-faq summary:focus-visible{outline:3px solid var(--cm-lime);outline-offset:2px}
 .cm-guide-faq p{padding:0 18px 15px;margin:0;line-height:1.6}
 @media(max-width:620px){.cm-guide-category .cm-section-head{display:block}.cm-guide-category .cm-section-head>span{display:block;margin-top:9px}.cm-guide-jumps a{width:100%}}
+
+/* Shareable educational crypto fun mini-visuals */
+.cm-game-banner{position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:7px 0 9px;border-bottom:1px solid #2d5555}
+.cm-game-banner .cm-kicker{font-size:.68rem}
+.cm-game-emblem{height:55px;width:120px;max-width:45%;flex-shrink:0}
+.cm-fun-visual{padding:16px 10px 6px;border-top:1px solid #4a6966;margin-top:16px}
+.cm-fun-visual p{color:#dfefdf;font-size:.78rem;margin:0 0 9px}
+.cm-fun-svg{display:block;width:100%;height:auto;border-radius:9px;background:#0c2530;overflow:visible}
+.cm-fun-trail{stroke-dasharray:100;stroke-dashoffset:100;animation:cm-reveal-curve 1.2s ease-out forwards}
+@keyframes cm-reveal-curve{from{stroke-dashoffset:100}to{stroke-dashoffset:0}}
+.cm-fun-split{display:flex;overflow:hidden;width:100%;height:30px;border:2px solid #6e9590;border-radius:9px;background:#0d2431}
+.cm-fun-part-a{display:block;min-width:0;background:#a8ef6f;transition:width .45s ease}
+.cm-fun-part-b{display:block;min-width:0;background:#4fcbba;transition:width .45s ease}
+.cm-fun-game .cm-extra-fields label:has(input[type=file]){grid-column:1/-1}
+.cm-fun-game .cm-extra-fields textarea{min-height:100px}
+.cm-fun-game select{background:#081e2a;color:#efffe9;border:1px solid #648481;padding:12px;border-radius:7px;width:100%;font-size:1rem}
+.cm-fun-game select:focus-visible{outline:3px solid var(--cm-lime);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){.cm-fun-trail{animation:none;stroke-dashoffset:0}.cm-fun-part-a,.cm-fun-part-b{transition:none}}

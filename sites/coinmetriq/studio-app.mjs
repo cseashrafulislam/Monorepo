@@ -88,13 +88,82 @@ for(const form of document.querySelectorAll("form[data-cm-tool]")){
   catch(error){renderError(box,error);}
  });
 }
+
+function parseFunDatedSeries(source,{label="value",max=50}={}){
+ const raw=String(source||"").trim();
+ if(!raw)throw Error("Enter a price/value sequence.");
+ let rows=[];
+ if(!raw.includes("\n")&&!/^\d{4}-\d{2}-\d{2},/.test(raw)){
+  const numbers=raw.split(",").map(x=>x.trim());
+  if(numbers.some(x=>x===""))throw Error("Empty values are not supported.");
+  rows=numbers.map((v,i)=>({date:"Period "+(i+1),value:Number(v)}));
+ }else{
+  const lines=raw.split(/\r?\n/).map(x=>x.trim()).filter(Boolean);
+  if(lines[0]&&/^(date,price|date,value)$/i.test(lines[0]))lines.shift();
+  let prev="";
+  rows=lines.map((line,i)=>{
+   const pair=line.split(",").map(x=>x.trim());
+   if(pair.length!==2)throw Error("Line "+(i+1)+" must have YYYY-MM-DD,"+label+".");
+   const date=pair[0],time=Date.parse(date+"T00:00:00Z");
+   if(!/^\d{4}-\d{2}-\d{2}$/.test(date)||!Number.isFinite(time)||new Date(time).toISOString().slice(0,10)!==date||prev&&date<=prev)throw Error("Series dates must be valid YYYY-MM-DD and increasing.");
+   prev=date;
+   return {date,value:Number(pair[1])};
+  });
+ }
+ if(rows.length<2||rows.length>max||rows.some(x=>!Number.isFinite(x.value)||x.value<=0||x.value>1e15))throw Error("Enter 2–"+max+" positive values with consistent dates.");
+ return rows;
+}
+function createFunSvg(box,points,title){
+ if(points.length<2)return;
+ const svg=document.createElementNS("http://www.w3.org/2000/svg","svg");svg.setAttribute("viewBox","0 0 560 210");svg.setAttribute("role","img");svg.setAttribute("class","cm-fun-svg");svg.setAttribute("aria-label",title);
+ const vals=points.map(p=>p.value),min=Math.min(...vals),max=Math.max(...vals),spread=Math.max(max-min,Math.abs(max)*.06,1e-9);
+ const scaleY=value=>160-(value-(min-spread*.16))/(spread*1.32)*120;
+ const positions=points.map((p,i)=>[28+i*504/(points.length-1),scaleY(p.value)]);
+ const create=(tag,attrs,text)=>{
+  const el=document.createElementNS(svg.namespaceURI,tag);
+  for(const [k,v] of Object.entries(attrs||{}))el.setAttribute(k,String(v));
+  if(text)el.textContent=text;svg.append(el);return el;
+ };
+ create("title",{},title);
+ create("path",{d:"M 25 180 L 535 180",stroke:"#527273","stroke-width":1});
+ const d=positions.map(([x,y],i)=>(i?"L ":"M ")+x.toFixed(2)+" "+y.toFixed(2)).join(" ");
+ create("path",{d,fill:"none",stroke:"#b1f475","stroke-width":4,"stroke-linejoin":"round","stroke-linecap":"round",class:"cm-fun-trail","pathLength":100});
+ for(const [i,[x,y]] of positions.entries())if(i===0||i===positions.length-1||i%Math.max(1,Math.floor(positions.length/9))===0){
+  create("circle",{cx:x,cy:y,r:4.5,fill:"#69d7c4"});
+ }
+ create("text",{x:28,y:196,fill:"#adcbc7","font-size":12},points[0].date);
+ create("text",{x:535,y:196,"text-anchor":"end",fill:"#adcbc7","font-size":12},points.at(-1).date);
+ const wrapper=document.createElement("div");wrapper.className="cm-fun-visual";wrapper.append(svg);box.append(wrapper);
+}
+function createFunSplit(box,share){
+ const container=document.createElement("div");container.className="cm-fun-visual";
+ const title=document.createElement("p");title.textContent="Fictional allocation: Coin A "+fmt(share,1)+"%, Coin B "+fmt(100-share,1)+"%";container.append(title);
+ const bar=document.createElement("div");bar.className="cm-fun-split";bar.setAttribute("role","img");bar.setAttribute("aria-label",title.textContent);
+ const a=document.createElement("span"),b=document.createElement("span");
+ a.style.width=share+"%";b.style.width=(100-share)+"%";a.className="cm-fun-part-a";b.className="cm-fun-part-b";bar.append(a,b);container.append(bar);box.append(container);
+}
+
+for(const input of document.querySelectorAll("input[data-cm-fun-csv]")){
+ input.addEventListener("change",async()=>{
+  const file=input.files?.[0];
+  if(!file)return;
+  const form=input.closest("form"),textarea=form?.querySelector('textarea[name="prices"]');
+  if(!textarea)return;
+  try{
+   if(file.size>150000)throw Error("Choose a CSV smaller than 150 KB for a fun challenge.");
+   const raw=await file.text();
+   parseFunDatedSeries(raw,{label:"price"});
+   textarea.value=raw;textarea.focus();
+  }catch(err){const box=form.querySelector(".cm-extra-result");renderError(box,err);}
+ });
+}
 for(const form of document.querySelectorAll("form[data-cm-fun]")){
  const box=form.querySelector(".cm-extra-result");const setResult=connectActions(form,box);
  form.addEventListener("submit",event=>{
   event.preventDefault();setResult(null);
   const v=Object.fromEntries(new FormData(form).entries());
   try{
-   let out;
+   let out,visual=null;
    switch(form.dataset.cmFun){
     case "fee-goblin":{
      const amount=Number(v.amount),count=Number(v.count),fee=Number(v.fee);
@@ -108,18 +177,28 @@ for(const form of document.querySelectorAll("form[data-cm-fun]")){
      out={headline:fmt((k-1)*100,1)+"% return needed for "+fmt(k,1)+"×",detail:"That is "+fmt(Math.log2(k),2)+" successive doublings. Pure percentage arithmetic, not a forecast or endorsement of a target."};break;
     }
     case "dca-time-machine":{
-     const values=String(v.prices||"").split(",").map(x=>Number(x.trim()));
+     const prices=parseFunDatedSeries(v.prices,{label:"price"});
      const amount=Number(v.amount);
-     if(values.length<2||values.length>50||values.some(x=>!Number.isFinite(x)||x<=0||x>1e12)||!(amount>0&&amount<=1e12))throw Error("Use 2–50 positive sample prices and a positive contribution.");
-     const units=values.reduce((sum,p)=>sum+amount/p,0),spent=values.length*amount;
-     out={headline:"Time Machine average: $"+fmt(spent/units,4),detail:"You contributed $"+fmt(spent)+" over "+values.length+" fictional purchases and collected "+fmt(units,6)+" units. Not a historical performance claim."};break;
+     if(!(amount>0&&amount<=1e12&&Number.isFinite(amount)))throw Error("Enter a positive USD contribution.");
+     let units=0;
+     const progression=prices.map((point,i)=>{units+=amount/point.value;return {date:point.date,value:units};});
+     const spent=prices.length*amount;
+     out={headline:"Time Machine average: $"+fmt(spent/units,4),detail:"You contributed $"+fmt(spent)+" over "+prices.length+" user-supplied hypothetical purchases and acquired "+fmt(units,6)+" units. Your sample price schedule is not market evidence."};
+     visual=box=>createFunSvg(box,progression,"Accumulated hypothetical token units across the entered dated purchase schedule");
+     break;
     }
     case "hodl-rollercoaster":{
-     const values=String(v.values||"").split(",").map(x=>Number(x.trim()));
-     if(values.length<2||values.length>50||values.some(x=>!Number.isFinite(x)||x<=0||x>1e15))throw Error("Use 2–50 positive hypothetical portfolio values.");
-     let peak=values[0],maximum=0;
-     for(const x of values){peak=Math.max(peak,x);maximum=Math.max(maximum,(peak-x)/peak);}
-     out={headline:"Your fictional rollercoaster dropped "+fmt(maximum*100,2)+"% from a peak",detail:"That is the worst peak-to-trough drop across your "+values.length+" example values. Historical-style math, not a forecast."};break;
+     const observations=parseFunDatedSeries(v.values,{label:"portfolio value"});
+     let peak=0,maximum=0,recovery=false,peakDate="";
+     for(const point of observations){
+      if(point.value>=peak){peak=point.value;peakDate=point.date;}
+      const decline=(peak-point.value)/peak;
+      maximum=Math.max(maximum,decline);
+     }
+     recovery=observations.at(-1).value>=Math.max(...observations.slice(0,-1).map(x=>x.value));
+     out={headline:"Your imaginary rollercoaster dropped "+fmt(maximum*100,2)+"% from a peak",detail:"The line follows "+observations.length+" dated fictional portfolio values. Final value "+(recovery?"reached a new observed high.":"did not regain the earlier observed high.")+" Past patterns cannot predict future returns."};
+     visual=box=>createFunSvg(box,observations,"Dated fictional portfolio drawdown, rebound and recovery scenario");
+     break;
     }
     case "portfolio-personality":{
      const names={math:["Spreadsheet Owl","You enjoy checking the numbers in a fictional research adventure."],maps:["Curious Chart Fox","You enjoy reading patterns on sample charts and asking new questions."],notes:["Patient Research Turtle","You enjoy writing things down before exploring more options."]};
@@ -131,23 +210,30 @@ for(const form of document.querySelectorAll("form[data-cm-fun]")){
      const share=Number(v.share);
      if(!Number.isFinite(share)||share<0||share>100)throw Error("Coin share must be between 0% and 100%.");
      const other=100-share,hhi=(share/100)**2+(other/100)**2;
-     out={headline:fmt(share,1)+"% Coin A / "+fmt(other,1)+"% Coin B",detail:"Example concentration score (sum of squared shares) is "+fmt(hhi,3)+". Equal halves have score 0.500; all in one has 1.000. No actual assets or advice."};break;
+     out={headline:fmt(share,1)+"% Coin A / "+fmt(other,1)+"% Coin B",detail:"Example concentration score is "+fmt(hhi,3)+". Equal halves score 0.500; all in one has 1.000. Your result is for a fictional two-asset mix and not portfolio advice."};
+     visual=box=>createFunSplit(box,share);break;
     }
     case "mining-monster":{
-     const watts=Number(v.watts),hours=Number(v.hours),tariff=Number(v.tariff);
-     if(!(watts>0&&watts<=1e7&&hours>0&&hours<=87600&&tariff>=0&&tariff<=1e5&&Number.isFinite(tariff)))throw Error("Enter realistic positive watts/hours and a nonnegative tariff.");
-     const energy=watts*hours/1000;
-     out={headline:"The power monster munched "+fmt(energy,2)+" kWh",detail:"The illustrative electricity bill would be $"+fmt(energy*tariff)+". Mining profitability requires additional user data; no live rewards are assumed."};break;
+     const watts=Number(v.watts),hours=Number(v.hours),tariff=Number(v.tariff),gross=Number(v.revenue);
+     if(!(watts>0&&watts<=1e7&&hours>0&&hours<=87600&&tariff>=0&&tariff<=1e5&&Number.isFinite(tariff)&&gross>=0&&Number.isFinite(gross)&&gross<=1e12))throw Error("Enter positive watts/hours, nonnegative tariff and hypothetical revenue.");
+     const energy=watts*hours/1000,expense=energy*tariff,net=gross-expense;
+     out={headline:"Power Goblin ate "+fmt(energy,2)+" kWh!",detail:"Fictional electricity expense $"+fmt(expense)+" versus hypothetical revenue $"+fmt(gross)+", leaving $"+fmt(net)+" before hardware, repairs, network reward changes and taxes."};
+     visual=box=>createFunSvg(box,[{date:"Gross USD",value:Math.max(gross,0.01)},{date:"Electricity USD",value:Math.max(expense,0.01)}],"Fictional mining revenue and energy expense comparison (not time series)");
+     break;
     }
     case "unlock-surprise":{
      const supply=Number(v.supply),unlock=Number(v.unlock);
      if(!(supply>0&&supply<=1e24&&unlock>=0&&unlock<=1e24&&Number.isFinite(unlock)))throw Error("Enter positive initial supply and a nonnegative unlock quantity.");
      const dilution=unlock/(supply+unlock)*100;
-     out={headline:fmt(dilution,2)+"% illustrative share dilution",detail:"Keeping a fixed quantity while total hypothetical supply expands changes its relative share. This game cannot predict token price."};break;
+     out={headline:fmt(dilution,2)+"% illustrative share dilution",detail:"A fixed holding becomes a smaller share after the fictional unlock. The chart shows only a two-state supply comparison, not dated market observations or a token price forecast."};
+     visual=box=>createFunSvg(box,[{date:"Before",value:supply},{date:"After",value:supply+unlock}],"Fictional circulating supply before and after one illustrative token unlock");
+     break;
     }
     case "emoji-decoder":{
-     if(!["gas","mining","wallet"].includes(v.term))throw Error("Choose an option.");
-     out={headline:v.term==="gas"?"Correct! ⛽ represents network gas/transaction fees":"Good try — ⛽ is used here for network transaction fees",detail:"In many blockchain conversations, gas refers to a network execution/transaction fee. The exact definition and fee mechanism differ by chain."};break;
+     if(!["fee","wallet","token"].includes(v.gas)||!["depth","supply","stake"].includes(v.liquidity)||!["keys","price","bank"].includes(v.wallet))throw Error("Choose vocabulary answers in all three prompts.");
+     const correct=(v.gas==="fee"?1:0)+(v.liquidity==="depth"?1:0)+(v.wallet==="keys"?1:0);
+     out={headline:correct+" / 3 Crypto Terms Emoji Challenge",detail:"⛽ Gas: network execution/transaction fees (chain rules differ). 💧 Liquidity: availability and depth of actual trading. 🔑 Wallet: management of signing keys and chain interactions, not an asset-price guarantee."};
+     break;
     }
     case "scam-bingo":{
      const marked=form.querySelectorAll('input[name="warning"]:checked').length;
@@ -155,7 +241,7 @@ for(const form of document.querySelectorAll("form[data-cm-fun]")){
     }
     default:throw Error("Unknown game.");
    }
-   renderResult(box,out);setResult(out);
+   renderResult(box,out);if(visual)visual(box);setResult(out);
   }catch(error){renderError(box,error);}
  });
 }
