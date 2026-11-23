@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
-import {moreGuides} from "../sites/coinmetriq/guides-expanded.mjs";
+const moreGuides=JSON.parse(fs.readFileSync("sites/coinmetriq/articles.json","utf8")).articles;
 import {extraRoutes} from "../sites/coinmetriq/extra.mjs";
 const root="dist/coinmetriq";
 test("CoinMetriq has eight distinct longer source-backed original research guides",()=>{
@@ -14,6 +14,7 @@ test("CoinMetriq has eight distinct longer source-backed original research guide
   assert.ok(g.paragraphs.length>=4);
   assert.ok(g.paragraphs.every(([h,t])=>h.length>5&&t.length>100));
   assert.ok(g.href.startsWith("/"));
+  assert.match(g.publishedAt,/^\d{4}-\d{2}-\d{2}$/);
   assert.ok(g.sources?.length>0);
   assert.ok(g.sources.every(([name,url])=>name.length>5&&url.startsWith("https://")));
  }
@@ -28,7 +29,7 @@ test("Published guide routes have HTML, real links and Article schema",()=>{
   assert.ok(html.includes('rel="canonical" href="https://coinmetriq.pages.dev'+route+'"'));
   assert.ok(sitemap.includes("https://coinmetriq.pages.dev"+route));
   assert.match(html,/"@type":"Article"/);
-  assert.match(html,/"datePublished":"2026-11-23"/);
+  assert.ok(html.includes('"datePublished":"'+g.publishedAt+'"'));
   assert.match(html,/content="index,follow"/);
   assert.ok(html.includes('href="'+g.href+'"'),g.href);
   for(const [label,url] of g.sources){assert.ok(html.includes(url),url);}
