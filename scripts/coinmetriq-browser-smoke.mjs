@@ -85,6 +85,8 @@ try{
  if(!chart)throw Error("Historical chart absent.");
  await action("/portfolio/backtest/","document.querySelector('[data-cm-backtest-sample]').click();document.querySelector('[data-cm-portfolio=backtest]').requestSubmit()","[data-cm-portfolio-output]","backtest return");
  await action("/portfolio/performance/","document.querySelector('[data-cm-portfolio=performance]').requestSubmit()","[data-cm-portfolio-output]","time-weighted return");
+ const recovery=await evaluate('document.querySelectorAll(".cm-portfolio-rolling svg").length');
+ if(recovery<1)throw Error("Performance drawdown and recovery chart was not generated.");
  await action("/portfolio/compare/","document.querySelector('[data-cm-portfolio=compare]').requestSubmit()","[data-cm-portfolio-output]","return correlation");
  const rolling=await evaluate('!!document.querySelector(".cm-portfolio-rolling svg")');
  if(!rolling)throw Error("Rolling correlation chart missing.");
