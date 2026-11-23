@@ -1,0 +1,182 @@
+[
+  {
+    "slug": "mining-economics",
+    "title": "Bitcoin mining economics: electricity, hardware and reward uncertainty",
+    "question": "Mining is an operational activity with equipment, electricity costs, downtime and uncertain revenues. A cryptocurrency's headline price alone cannot reveal whether a mining installation is profitable. Separate protocol subsidy from transaction fees and distinguish a miner's gross revenue estimate from the cash paid to run the equipment.",
+    "method": "Create a period budget using measured watts, hours, electricity tariff, assumed gross mining revenue, other operating costs and the hardware purchase price. Power in kilowatts is watts divided by 1,000. Electricity in kWh is kilowatts multiplied by hours. Multiply kWh by tariff to estimate the electric bill; subtract it and other costs from assumed revenue.",
+    "example": "A hypothetical 1,200-watt machine operating 24 hours a day consumes 28.8 kWh per day. At USD 0.12 per kWh its electricity costs USD 3.456 daily. If its fictional revenue were USD 12 and other operating expenses USD 1, its daily operating margin would be USD 7.544. Recovering USD 2,500 of equipment cost at that unchanging margin would require about 331.4 days, before tax and downtime.",
+    "interpretation": "Because network difficulty, equipment efficiency and rewards move, a fixed daily revenue assumption is highly fragile. Use the hardware break-even calculator to evaluate multiple assumptions and preserve the distinction between capital expenditure, operating margin and accounting depreciation.",
+    "limitations": "The model does not forecast block rewards, hashrate or mining difficulty. Neither mining operations nor electric installation compliance is verified by the calculator, and actual profitability may be much lower.",
+    "sources": [
+      [
+        "Bitcoin developer mining guide",
+        "https://developer.bitcoin.org/devguide/mining.html"
+      ]
+    ],
+    "tool": "/studio/mining-roi/",
+    "status": "published",
+    "publishedAt": "2026-11-23"
+  },
+  {
+    "slug": "staking-basics",
+    "title": "Staking basics: rewards, slashing and compound growth",
+    "question": "Staking connects network validation and economic incentives to an asset position. An advertised staking APR may describe a variable reward opportunity, not a guaranteed bank deposit. The ways a user participates—self-operated validator, delegated service, liquid staking product or custodial provider—have different custody, technical and protocol risks.",
+    "method": "Read the actual chain's validator requirements, rewards and penalty rules. Record whether the rate is nominal APR or effective APY, whether rewards can be reinvested and whether a service charges fees. A mathematical compounded token count is only a projection under constant assumptions. Market-price risk remains independent from the number of tokens earned.",
+    "example": "With 100 fictional tokens, a nominal annual rate of 8% and monthly compounding, one-year token count under the simple formula is 100 × (1+0.08/12)^12, or approximately 108.3 tokens. That illustration assumes every monthly reward is available to reinvest, with no lockup, slashing, provider fee or variation in yield. It says nothing about future token price.",
+    "interpretation": "Compare actual protocol documentation with custody and withdrawal terms before treating any percentage as a practical investment outcome. Use the Staking APR/APY tool to change compounding frequency and see why a stated nominal rate is not the same as final take-home value.",
+    "limitations": "CoinMetriq does not operate a validator, receive deposits, validate yields or connect to staking accounts. Unexpected penalties, contract risk and changing rules are not covered by basic compounding arithmetic.",
+    "sources": [
+      [
+        "Ethereum staking education and risks",
+        "https://ethereum.org/en/staking/"
+      ]
+    ],
+    "tool": "/studio/staking-apy/",
+    "status": "published",
+    "publishedAt": "2026-11-23"
+  },
+  {
+    "slug": "decentralized-finance",
+    "title": "Decentralized finance: distinguishing a smart contract from a financial guarantee",
+    "question": "Decentralized finance can describe exchanges, lending, collateral, derivatives and pooled liquidity implemented through smart contracts. The fact that a transaction executes on a blockchain does not guarantee that the associated business rules, oracle inputs, security assumptions or outcomes are safe.",
+    "method": "Begin with a concrete action. Identify the exact contract address and network, ownership or upgrade controls, required token approvals, collateral thresholds, oracle dependencies and withdrawal conditions. Separate protocol operation from third-party frontends. A return advertised for a pool may mix trading fees, token incentives and speculative changes in token value.",
+    "example": "Imagine depositing USD 1,000 equivalent of hypothetical collateral into a lending protocol. If the fictional collateral ratio requires USD 150 in collateral per USD 100 borrowed, then USD 1,000 theoretically supports no more than USD 666.67 of borrowing under that basic division. But liquidations may occur before a neat threshold under price changes, accrued interest or contract-specific rules; no actual protocol terms were used here.",
+    "interpretation": "Make a dependency map instead of simply ranking yields: chain, asset, smart contract, oracle, governance, wallet signature and exit route. The wallet-safety workbook helps document what has and has not been independently checked before an experimental transaction.",
+    "limitations": "DeFi assets and smart contracts can lose value, malfunction or be exploited. This page offers no contract audit, custody guarantee, personal lending recommendation or current interest-rate feed.",
+    "sources": [
+      [
+        "Ethereum decentralized finance overview",
+        "https://ethereum.org/defi/"
+      ]
+    ],
+    "tool": "/portfolio/safety/",
+    "status": "published",
+    "publishedAt": "2026-11-23"
+  },
+  {
+    "slug": "liquidity-pools",
+    "title": "Liquidity pools: reserves, constant-product math and impermanent loss",
+    "question": "Many automated market makers let traders exchange tokens against pooled reserves rather than directly matching orders. The simple constant-product model multiplies two reserve quantities and attempts to maintain their product, subject to the implementation's fee and rounding rules.",
+    "method": "Distinguish token reserve quantities from their USD valuation, the quoted marginal exchange rate from price impact on a larger trade, and liquidity-provider performance from simply holding the original tokens. A 50/50 pool's classical impermanent-loss approximation is specific to that model. Concentrated liquidity or weighted pools require different analysis.",
+    "example": "Suppose a fictional constant-product pool begins with 10 token A and 1,000 token B, so x × y = 10,000. Ignoring fees, removing one unit of A from the reserves requires the B reserve to increase to 10,000/9, about 1,111.11 B. The change in B is about 111.11 units. That 111.11 is not the same as the initial infinitesimal quoted marginal rate, and real contracts charge fees.",
+    "interpretation": "Use the impermanent-loss calculator with a user-selected relative price ratio to isolate one narrow mathematical effect. Then note that earned fees, protocol changes, withdrawal timing and token-price movement may reverse the total economic outcome. Document both assets and the pool version.",
+    "limitations": "This page does not show live pool reserves or provider returns. Smart-contract exploits, transaction ordering, slippage and token depegs remain outside the simple model.",
+    "sources": [
+      [
+        "Uniswap v2 protocol pool concepts",
+        "https://docs.uniswap.org/contracts/v2/concepts/protocol-overview/pools"
+      ]
+    ],
+    "tool": "/studio/impermanent-loss/",
+    "status": "published",
+    "publishedAt": "2026-11-23"
+  },
+  {
+    "slug": "wallet-management",
+    "title": "Wallet management: keys, networks and permission boundaries",
+    "question": "A crypto wallet is a tool for managing keys and interacting with networks, not a container holding the underlying blockchain tokens as local files. Distinguish the device's signing capability from the balance that independent network nodes record.",
+    "method": "For every wallet action, identify the chain, account/address, asset contract and exact request to sign. Receiving a token, approving a contract to spend tokens, and transferring a token are different operations. Keep a secure recovery procedure, understand provider custody and store backups independently of browser research tools.",
+    "example": "Suppose a fictional wallet shows 100 units of a token and a decentralized app asks permission to spend 1,000 units. A token allowance may authorize later transfers without a new ordinary transfer signature, even though the visible balance is only 100 now. The allowance is a permission ceiling, not proof that 1,000 tokens were actually moved.",
+    "interpretation": "Review granted permissions and revoke unused allowances through appropriate trusted wallet/network tools. CoinMetriq never needs a wallet connection for a fee or portfolio calculation. You should not paste private keys or recovery words into research calculators or unknown online support forms.",
+    "limitations": "Wallet interfaces and smart contracts can be impersonated, and revocation tools may also present unsafe transaction prompts. No educational checklist can guarantee wallet security.",
+    "sources": [
+      [
+        "Ethereum wallet fundamentals",
+        "https://ethereum.org/wallets/"
+      ]
+    ],
+    "tool": "/portfolio/safety/",
+    "status": "published",
+    "publishedAt": "2026-11-23"
+  },
+  {
+    "slug": "hardware-wallets",
+    "title": "Hardware wallets: offline key storage does not remove signature risk",
+    "question": "Hardware wallets aim to keep private keys isolated from ordinary computing environments while still allowing the device to approve transactions. That separation can reduce exposure to some software compromise, but it does not turn every displayed transaction into an authorized, low-risk outcome.",
+    "method": "Study the device's supported networks, update policy, recovery process, backup security and how its screen describes transaction details. A malicious web page may request a contract approval even when a signing key remains securely inside hardware. The critical question is whether the user understands the amount, target contract, chain and permission being approved.",
+    "example": "Imagine a fictional purchase where a device displays a request to approve unlimited spending of token A by contract X. The device may keep the private key secret and still correctly sign that dangerous approval if the user confirms it. Key isolation is not the same as contract safety or intent verification.",
+    "interpretation": "Keep recovery material offline and independent of the computer used for trading. Use the wallet checklist to rehearse confirmations and permission checks before performing any real transfer. Obtain updates from official vendor channels and compare the device display with the action you intended.",
+    "limitations": "CoinMetriq does not recommend a specific manufacturer or provide firmware verification, wallet recovery or a security guarantee. Physical theft, malware, social engineering and custody decisions remain external.",
+    "sources": [
+      [
+        "Ethereum hardware-wallet reference",
+        "https://ethereum.org/wallets/find-wallet/personas/hardware/"
+      ]
+    ],
+    "tool": "/portfolio/safety/",
+    "status": "published",
+    "publishedAt": "2026-11-23"
+  },
+  {
+    "slug": "phishing-scam-signals",
+    "title": "Crypto phishing warning signs: recognizing the structure of a scam",
+    "question": "Impersonated support agents, fake airdrop pages, guaranteed high-return promotions and recovery-phrase requests can use different words but share an underlying pattern: asking a person to bypass normal checks or sign an unrelated permission under time pressure.",
+    "method": "Verify sender identity via a bookmarked official site instead of trusting a link included in an unsolicited message. Inspect URL spelling, domain ownership claims, chain/network details and the exact wallet signature request. Treat recovery phrases, private keys and two-factor recovery codes as secrets; a portfolio calculation never needs them.",
+    "example": "A fictional message reads: 'You won 5 ETH. To unlock it, type your twelve recovery words and pay a USD 40 network verification fee within ten minutes.' The time pressure, secret-phrase request and upfront unlock payment are multiple independent warning signs. A genuine on-chain transfer can be inspected without surrendering wallet recovery credentials to a random site.",
+    "interpretation": "Practice with Scam Signal Bingo and the wallet-safety workbook, but remember that an educational quiz covers only some red flags. If a suspicious permission was already signed, consult the official wallet/provider security documentation from a known-safe route.",
+    "limitations": "Some phishing sites closely resemble legitimate interfaces. A correct quiz score is not a certification that an address, token, wallet, transaction or third-party service is safe.",
+    "sources": [
+      [
+        "Ethereum security and scam prevention",
+        "https://ethereum.org/security/"
+      ]
+    ],
+    "tool": "/portfolio/safety/",
+    "status": "published",
+    "publishedAt": "2026-11-23"
+  },
+  {
+    "slug": "smart-contract-risk",
+    "title": "Smart-contract risk: separate code behavior, privilege and dependencies",
+    "question": "A verified contract source code page is one ingredient in an assessment, not a complete security certificate. A deployed contract may have privileged owners, upgradeable proxies, external oracles, third-party bridges and economic incentives that create additional failure paths.",
+    "method": "Document who can change parameters or upgrade an implementation, which tokens can be transferred, where prices come from and how emergency controls operate. Review third-party audit scope and date, then compare it with the deployed bytecode and network. A contract audit may identify some vulnerabilities without eliminating all future security risk.",
+    "example": "Suppose a fictional lending protocol uses an external price oracle to decide when collateral is liquidated. Even if the borrowing arithmetic is correct, an oracle returning an incorrect price can trigger unintended liquidations or bad debts. Separately, a privileged admin could change a collateral factor if governance allows it. Neither problem appears in a simple APR calculator.",
+    "interpretation": "Maintain a threat checklist of privileged functions, dependencies and known incident response processes rather than assuming a brand logo or an 'audited' badge supplies guarantees. CoinMetriq's tools do not inspect or certify deployed contract code.",
+    "limitations": "Security properties change with upgrades, chain reorganizations, oracle disruptions and governance decisions. A static guide cannot replace a current expert contract review or legal analysis.",
+    "sources": [
+      [
+        "Ethereum smart-contract documentation",
+        "https://ethereum.org/developers/docs/smart-contracts/"
+      ]
+    ],
+    "tool": "/portfolio/safety/",
+    "status": "published",
+    "publishedAt": "2026-11-23"
+  },
+  {
+    "slug": "crypto-regulations",
+    "title": "Crypto regulation research: jurisdiction, product type and date",
+    "question": "Which rule applies to a token purchase, exchange product, custody service or marketing statement? There is no single universal legal answer. Legal treatment depends on location, activity, asset characteristics, parties involved and the precise date of the transaction or offer.",
+    "method": "Start with a jurisdiction and a defined action, not a generic 'crypto is legal' headline. Check the primary regulator's current rule or official notice, the relevant definition of the asset and whether exceptions, transitional periods or licensing conditions apply. Keep tax and securities rules distinct and avoid assuming investor-protection requirements are identical across services.",
+    "example": "Consider two fictional users: one reads a warning about crypto-asset security offerings in a US regulator bulletin; another is considering a different activity outside the United States. Applying the US bulletin as automatically controlling law for the second user is unjustified. Similarly, a rule about a regulated fund is not automatically a rule about self-custodied spot tokens.",
+    "interpretation": "Use dated primary sources and, when necessary, professional advice qualified for the actual jurisdiction. CoinMetriq's educational calculators are not custody, trading, token issuance or legal-compliance services. The research method emphasizes questions to verify rather than broad claims about current legality.",
+    "limitations": "This page intentionally refrains from declaring any jurisdiction's current crypto products legal or illegal. Rules and enforcement can change and official determinations may depend on individualized facts.",
+    "sources": [
+      [
+        "US SEC investor education, as an example of jurisdiction-specific guidance",
+        "https://www.investor.gov/additional-resources/spotlight/crypto-assets"
+      ]
+    ],
+    "tool": "/portfolio/safety/",
+    "status": "review",
+    "publishedAt": "2026-11-23"
+  },
+  {
+    "slug": "crypto-tax-concepts",
+    "title": "Digital-asset taxes: cost basis is a method, not a completed tax return",
+    "question": "Taxable events, reporting forms, allowable methods and asset classification depend on a person's jurisdiction and circumstances. A fee-inclusive cost-basis arithmetic estimate does not settle which treatment a regulator requires for a particular transfer, mining reward, fork or disposal.",
+    "method": "Build an auditable list of dated acquisitions and disposals with quantities, quote-currency values, fees and consistent transaction identifiers. Then compare mathematical FIFO or weighted-average allocation for educational purposes. Before using any result for tax reporting, check current official rules on permitted lot-identification methods, cost adjustments, reporting thresholds and treatment of transfers or staking.",
+    "example": "A purely hypothetical ledger buys two tokens at USD 100 with USD 2 of fees, then three tokens at USD 120 with USD 3 fees. Total basis is USD 565 for five units. If one token is sold for USD 150 less a USD 1 sale fee, net proceeds are USD 149. FIFO assigns USD 101 of basis and USD 48 profit; weighted-average arithmetic assigns USD 113 and USD 36. Which method may be used for a real return is an independent legal question.",
+    "interpretation": "The local CSV workbench can preserve trade IDs and calculate both methods, but it assumes USD, long-only transactions, no off-exchange transfers and no jurisdictional elections. Reconcile it with actual exchange documentation and professional records before considering tax submissions.",
+    "limitations": "The cited US IRS guidance is specifically about US federal tax concepts and cannot determine rules elsewhere. This page deliberately stays out of search indexing pending qualified jurisdiction-specific editorial review.",
+    "sources": [
+      [
+        "US IRS digital asset transactions guidance",
+        "https://www.irs.gov/filing/digital-assets"
+      ]
+    ],
+    "tool": "/portfolio/cost-basis/",
+    "status": "review",
+    "publishedAt": "2026-11-23"
+  }
+]
