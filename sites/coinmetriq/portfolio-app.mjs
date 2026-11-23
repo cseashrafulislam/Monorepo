@@ -4,6 +4,8 @@
  */
 import {parseCsv,parseTradesCsv,normalizeTrades,calculateCostBasis,calculateTwr,calculateXirr,exportTradesCsv,toCsv,SAMPLE_TRADES_CSV,isoDay} from "./ledger-core.mjs";
 import {encryptJournal,decryptJournal} from "./backup-core.mjs";
+import {riskFromOhlcvCsv,bootstrapRiskScenarios,SAMPLE_RISK_CSV} from "./risk-core.mjs";
+import {bitcoinSubsidyAtHeight,bitcoinEraTable,totalTheoreticalScheduledBtc,validateIssuerProvenance,BITCOIN_REFERENCE} from "./issuance-core.mjs";
 import {parseOhlcvCsv,summarizeOhlcv,backtestSma,parsePairsCsv,analyzeCorrelation,comparePortfolios,recoveryStats,rollingVolatility,parseSupplySchedule,summarizeSupplySchedule} from "./market-core.mjs";
 const storeKey="coinmetriq.journal.v1",sessionKey="coinmetriq.session.journal.v1";
 const fmt=(n,p=2)=>Number(n).toLocaleString("en-US",{minimumFractionDigits:p,maximumFractionDigits:p});
@@ -295,6 +297,59 @@ function setupCompare(form,out){
   }catch(err){fail(out,err);}
  });
 }
+function setupRisk(form,out){
+ const field=tx("risk-ohlcv",form);
+ readFile(tx("risk-file",form),field);
+ tx("risk-example",form)?.addEventListener("click",()=>{field.value=SAMPLE_RISK_CSV;field.focus();});
+ form.addEventListener("submit",ev=>{
+  ev.preventDefault();
+  try{
+   const source=field.value;
+   const confidence=Number(val(form,"confidence")),riskFreeAnnual=Number(val(form,"riskFree"));
+   const days=Number(val(form,"days")),seed=Number(val(form,"seed"));
+   const risk=riskFromOhlcvCsv(source,{confidence,riskFreeAnnual});
+   const bootstrap=bootstrapRiskScenarios(parseOhlcvCsv(source),{days,seed,paths:250});
+   lead(out,fmt(risk.historicalVarPct,4)+"% historical one-day "+risk.confidence+"% VaR","Empirical lower-tail loss estimate from "+risk.count+" observed returns. It is not an upper bound on loss, a future forecast or a trading recommendation.");
+   stats(out,[
+    ["Historical tail average loss",fmt(risk.historicalExpectedShortfallPct,4)+"%"],
+    ["Historical annualized volatility",fmt(risk.annualizedVolatilityPct,4)+"%"],
+    ["Sample peak-to-trough drawdown",fmt(risk.maxDrawdownPct,4)+"%"],
+    ["Sharpe illustration",risk.sharpe===null?"Undefined":fmt(risk.sharpe,4)],
+    ["Sortino illustration",risk.sortino===null?"Undefined":fmt(risk.sortino,4)],
+    ["Bootstrap paths / horizon",bootstrap.paths+" / "+bootstrap.days+" days"],
+    ["Hypothetical 5th–95th percentile ending index",fmt(bootstrap.p05)+" – "+fmt(bootstrap.p95)],
+    ["Fraction of resampled down paths (not a probability)",fmt(bootstrap.negativePercent,2)+"%"]
+   ]);
+   const note=make("p",risk.method+" "+bootstrap.method);out.append(note);
+   rowTable(out,["Observation date","Close-to-close return (%)"],risk.returns.map(p=>[p.date,fmt(p.returnPct,4)]),"Historical risk input audit");
+   const plot=tx("portfolio-chart",form);
+   const indexed=risk.curve.map(p=>({date:p.date,value:p.close/risk.curve[0].close*100}));
+   const svg=chart(plot,[{label:"Actual user-entered close (index 100)",points:indexed}],{title:"Indexed historical OHLCV price observations"});
+   const scenarioSection=make("section",undefined,"cm-portfolio-rolling"),caption=make("h3","Three illustrative resampled bootstrap paths"),slot=make("div");
+   scenarioSection.append(caption,slot);plot.append(scenarioSection);
+   chart(slot,bootstrap.samplePaths.map(p=>({label:"Bootstrap path "+p.sample,points:p.points.map(q=>({date:"Day "+q.step,value:q.index}))})),{title:"Deterministically resampled hypothetical paths, not predicted prices"});
+   setChartExport(form,svg);
+   setExport(form,risk.returns,["date","returnPct"]);
+  }catch(err){fail(out,err);}
+ });
+}
+function setupIssuance(form,out){
+ form.addEventListener("submit",ev=>{
+  ev.preventDefault();
+  try{
+   const height=Number(val(form,"height")),eras=Number(val(form,"eras"));
+   const current=bitcoinSubsidyAtHeight(height),schedule=bitcoinEraTable({eras}),supply=totalTheoreticalScheduledBtc();
+   lead(out,fmt(current.subsidyBtc,8)+" BTC maximum block subsidy","Consensus-derived at block "+height+", era "+current.era+". Fees are separate and actual coinbase claims can be smaller. No live blockchain height was fetched.");
+   stats(out,[["Subsidy, satoshis",current.subsidySats],["Next scheduled threshold",fmt(current.nextHalvingHeight,0)+" blocks"],["Approximate all-era scheduled maximum",fmt(supply,8)+" BTC"],["Consensus source",BITCOIN_REFERENCE.name]]);
+   rowTable(out,["Halving era","First block height","Last block height","BTC subsidy / block","Maximum newly subsidized BTC in era","Maximum cumulative subsidy BTC"],schedule.map(q=>[String(q.era),fmt(q.startHeight,0),fmt(q.lastHeight,0),fmt(q.subsidyBtc,8),fmt(q.maxNewBtc,8),fmt(q.maxCumulativeBtc,8)]),"Bitcoin Core-style subsidy schedule (not observed chain issuance)");
+   const p=make("p","Technical source: ");
+   const a=make("a","Bitcoin Core source (MIT)");a.href=BITCOIN_REFERENCE.url;a.target="_blank";a.rel="noopener noreferrer";p.append(a);out.append(p);
+   const svg=chart(tx("portfolio-chart",form),[{label:"Theoretical accumulated BTC (maximum)",points:schedule.map(x=>({date:"Era "+x.era,value:x.maxCumulativeBtc}))}],{title:"Scheduled upper bound of cumulative Bitcoin block subsidy by 210,000-block era"});
+   setChartExport(form,svg);
+   setExport(form,schedule,["era","startHeight","lastHeight","subsidyBtc","maxNewBtc","maxCumulativeBtc"]);
+  }catch(error){fail(out,error);}
+ });
+}
 function setupEmission(form,out){
  form.addEventListener("submit",ev=>{
   ev.preventDefault();
@@ -303,11 +358,18 @@ function setupEmission(form,out){
    lead(out,fmt(x.changePct,4)+"% manually entered supply change",x.note);
    stats(out,[["First circulating supply",fmt(x.start,0)],["Last circulating supply",fmt(x.end,0)],["Sum of stated unlock amounts",fmt(x.recordedUnlocks,0)]]);
    const rawUrl=val(form,"sourceUrl").trim();
-   if(rawUrl){
-    let url;try{url=new URL(rawUrl);}catch{throw Error("Use a valid HTTPS source reference.");}
-    if(url.protocol!=="https:"||url.username||url.password||rawUrl.length>500)throw Error("Source must be a public HTTPS URL without credentials.");
-    const p=make("p","User-provided source (not independently verified): ");
-    const anchor=make("a",url.hostname);anchor.href=url.href;anchor.rel="noopener noreferrer";anchor.target="_blank";p.append(anchor);out.append(p);
+   const fields=["sourceUrl","issuer","sourceTitle","sourceDate","licenseNote"];
+   const provided=fields.some(name=>val(form,name).trim());
+   if(provided){
+    const metadata=validateIssuerProvenance(Object.fromEntries(fields.map(name=>[name,val(form,name)])));
+    const source=make("section",undefined,"cm-provenance");
+    source.append(make("h3",metadata.issuer+" · user-cited primary document"));
+    source.append(make("p",metadata.sourceTitle+" · dated "+metadata.sourceDate));
+    source.append(make("p",metadata.licenseNote));
+    source.append(make("p",metadata.verification));
+    const a=make("a","Open cited source document");a.href=metadata.sourceUrl;a.rel="noopener noreferrer";a.target="_blank";source.append(a);out.append(source);
+   }else{
+    out.append(make("p","Fictional or unattributed example: source URL, issuer, publication date and rights note were not supplied. Do not present these rows as independently sourced issuance data."));
    }
    rowTable(out,["Date","Circulating","Stated unlock","Net circulating change %"],rows.map(r=>[r.date,fmt(r.circulating,0),fmt(r.unlock,0),fmt(r.changePct,4)+"%"]),"User-entered supply observations");
    const svg=chart(tx("portfolio-chart",form),[{label:"Circulating units (manual)",points:x.points}],{title:"Token circulating supply from user-entered fictional or sourced data"});setChartExport(form,svg);
@@ -360,7 +422,7 @@ function setupBackups(){
 for(const form of document.querySelectorAll("form[data-cm-portfolio]")){
  const out=tx("portfolio-output",form);
  const job=form.dataset.cmPortfolio;
- const handlers={journal:setupJournal,costbasis:setupCostBasis,performance:setupPerformance,market:setupMarket,backtest:setupBacktest,compare:setupCompare,safety:setupSafety,fees:setupFees,emission:setupEmission};
+ const handlers={journal:setupJournal,costbasis:setupCostBasis,performance:setupPerformance,market:setupMarket,backtest:setupBacktest,compare:setupCompare,safety:setupSafety,fees:setupFees,emission:setupEmission,risk:setupRisk,issuance:setupIssuance};
  if(handlers[job])handlers[job](form,out);
  tx("download-csv",form)?.addEventListener("click",()=>{
   if(!form._export?.rows?.length)return;
