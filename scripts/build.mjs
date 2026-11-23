@@ -228,7 +228,7 @@ for(const id of targets){
  if(id==="coinmetriq") {
   fs.copyFileSync(path.join(SITES,id,"site.css"),path.join(out,"assets","cm.css"));
   fs.copyFileSync(path.join(SITES,id,"site.js"),path.join(out,"assets","cm.js"));
-   for(const [from,to] of [["studio-core.mjs","studio-core.mjs"],["advanced-core.mjs","advanced-core.mjs"],["studio-app.mjs","cm-studio.js"],["studio.css","cm-studio.css"]]) fs.copyFileSync(path.join(SITES,id,from),path.join(out,"assets",to));
+   for(const [from,to] of [["studio-core.mjs","studio-core.mjs"],["advanced-core.mjs","advanced-core.mjs"],["studio-app.mjs","cm-studio.js"],["studio.css","cm-studio.css"],["ledger-core.mjs","ledger-core.mjs"],["market-core.mjs","market-core.mjs"],["portfolio-app.mjs","cm-portfolio.js"],["portfolio.css","cm-portfolio.css"]]) fs.copyFileSync(path.join(SITES,id,from),path.join(out,"assets",to));
  }
  if(id==="worldorixa") {
   const homepage=path.join(out,"index.html");
