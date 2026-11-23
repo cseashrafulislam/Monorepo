@@ -116,8 +116,8 @@ export function toCsv(rows,columns){
  if(!Array.isArray(rows)||!Array.isArray(columns)||!columns.length)fail("Invalid export.");
  return columns.map(csvSafe).join(",")+"\r\n"+rows.map(row=>columns.map(k=>csvSafe(row[k])).join(",")).join("\r\n")+"\r\n";
 }
-export const tradeColumns=["date","asset","side","qty","price","fee","tag","id","note"];
-export const exportTradesCsv=trades=>toCsv(normalizeTrades(trades),tradeColumns);
+export const tradeColumns=["date","asset","side","quantity","price","fee","tag","trade_id","note"];
+export const exportTradesCsv=trades=>toCsv(normalizeTrades(trades).map(t=>({...t,quantity:t.qty,trade_id:t.id})),tradeColumns);
 export function calculateXirr(flows){
  if(!Array.isArray(flows)||flows.length<2||flows.length>2000)fail("Enter 2–2,000 dated flows.");
  const data=flows.map(x=>({date:isoDay(x.date),value:number(x.value,"cash flow")})).sort((a,b)=>a.date.localeCompare(b.date));
