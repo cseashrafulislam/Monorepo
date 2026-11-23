@@ -193,6 +193,7 @@ for(const id of targets){
  const config=JSON.parse(fs.readFileSync(path.join(SITES,id,"site.json"),"utf8"));
  const topics=JSON.parse(fs.readFileSync(path.join(SITES,id,"topics.json"),"utf8")).map(t=>({...t,slug:slugify(t.name)}));
  const groups=validate(config,topics);
+ if(id==="coinmetriq"){const {applyCoinMetriqResearchStatus}=await import("../sites/coinmetriq/topic-research.mjs");applyCoinMetriqResearchStatus(topics);}
  const out=path.join(ROOT,"dist",id);
  fs.rmSync(out,{recursive:true,force:true});
  write(out,"index.html",home(config,topics,groups));
