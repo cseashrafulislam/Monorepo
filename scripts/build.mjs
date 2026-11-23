@@ -229,7 +229,8 @@ for(const id of targets){
  if(id==="coinmetriq") {
   fs.copyFileSync(path.join(SITES,id,"site.css"),path.join(out,"assets","cm.css"));
   fs.copyFileSync(path.join(SITES,id,"site.js"),path.join(out,"assets","cm.js"));
-   for(const [from,to] of [["studio-core.mjs","studio-core.mjs"],["fun-math.mjs","fun-math.mjs"],["advanced-core.mjs","advanced-core.mjs"],["scenario-core.mjs","scenario-core.mjs"],["studio-app.mjs","cm-studio.js"],["studio.css","cm-studio.css"],["ledger-core.mjs","ledger-core.mjs"],["market-core.mjs","market-core.mjs"],["risk-core.mjs","risk-core.mjs"],["issuance-core.mjs","issuance-core.mjs"],["backup-core.mjs","backup-core.mjs"],["portfolio-app.mjs","cm-portfolio.js"],["portfolio.css","cm-portfolio.css"]]) fs.copyFileSync(path.join(SITES,id,from),path.join(out,"assets",to));
+  fs.copyFileSync(path.join(SITES,id,"licensed-sources.json"),path.join(out,"assets","cm-licensed-sources.json"));
+   for(const [from,to] of [["studio-core.mjs","studio-core.mjs"],["fun-math.mjs","fun-math.mjs"],["advanced-core.mjs","advanced-core.mjs"],["scenario-core.mjs","scenario-core.mjs"],["studio-app.mjs","cm-studio.js"],["studio.css","cm-studio.css"],["ledger-core.mjs","ledger-core.mjs"],["market-core.mjs","market-core.mjs"],["risk-core.mjs","risk-core.mjs"],["issuance-core.mjs","issuance-core.mjs"],["licensed-data-core.mjs","licensed-data-core.mjs"],["backup-core.mjs","backup-core.mjs"],["portfolio-app.mjs","cm-portfolio.js"],["portfolio.css","cm-portfolio.css"]]) fs.copyFileSync(path.join(SITES,id,from),path.join(out,"assets",to));
  }
  if(id==="worldorixa") {
   const homepage=path.join(out,"index.html");
