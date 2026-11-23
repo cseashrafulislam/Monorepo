@@ -6,21 +6,40 @@
 
 ## LIVE IMPLEMENTATION EVIDENCE — SEQUENTIAL PRODUCT RULE
 
-**Active product: CoinMetriq only.** Owner instruction: complete and independently verify the active site before starting implementation work on the next product. This status records work already committed; it does **not** certify CoinMetriq as complete or authorize marking all checklist boxes checked.
+**Active product: CoinMetriq (Site 1 of 14).** Work remains strictly one-site-at-a-time. These entries record *verifiable code-level implementation*, not fabricated production site approval or site-wide completion.
 
-**Source evidence (2026-11-23):**
-- [CoinMetriq Research Studio PR #1](https://github.com/cseashrafulislam/Monorepo/pull/1) — merged, 10 deterministic local calculators, Crypto Chaos Lab, 3 original worked articles, private result cards, assets, SEO routes, sitemap and regression tests.
-- [Advanced Analytics PR #2](https://github.com/cseashrafulislam/Monorepo/pull/2) — merged, 5 additional CSV/manual-input rebalancing, lump sum/DCA, volatility, slippage and peg deviation tools.
-- [Crypto Chaos Lab PR #3](https://github.com/cseashrafulislam/Monorepo/pull/3) — merged, 10 distinct interactive fun mini-tools with user-initiated share/copy/PNG.
-- [Latest successful GitHub Actions full build/test](https://github.com/cseashrafulislam/Monorepo/actions/runs/45065429899) — verifies static build for all 10 Monorepo sites, regression calculators, site paths, TechOrvia browser smoke and country browser smoke. A previous analytics test expectation failed and was corrected; latest run passed.
-- The existing 30 CoinMetriq topic overview URLs, their `noindex` status and the original token market cap calculator were preserved.
-- Current confirmed SOURCE scope: **15 new crypto calculators, 10 fun games, 3 original educational article pages**. The brand's original token-market-cap calculator remains separate.
-- Only source build/tests are verified. Actual Cloudflare live deployment, search indexing, AdSense eligibility/revenue and full mobile user interaction are **not independently verified**.
-- Existing other 13 products' source code was not changed by these new CoinMetriq feature PRs. Shared Monorepo build script was only extended for CoinMetriq-specific static asset/routes generation.
+### Implemented source code, merged into main (verified 2026-11-23)
 
-**Unfinished on CoinMetriq:** full portfolio transaction import and FIFO/weighted tax lot ledger, TWR/XIRR, OHLCV CSV charts, strategy backtest, trade journal, correlation, historical reports, complete original topic editorial reviews, ongoing article publishing system, verified commercial data licensing or user-CSV-only fallback, WCAG/low-end mobile QA, real Cloudflare deploy check, Search Console/GEO/Ads authorization, actual compliant ad inventory and remaining CM/ART/FUN/SEO/GLOBAL checks. Keep all not-evidenced tasks unchecked.
+- **19 new standalone on-device CoinMetriq research calculators** (in addition to the prior token-market-cap calculator): trade profit/fees, weighted average entry, manual DCA simulator, portfolio allocations, drawdown, position sizing, staking compound scenarios, mining electricity, AMM impermanent loss, token unlock dilution, portfolio target rebalancing, lump-sum/DCA comparison, realized daily volatility, slippage/fees, manual stablecoin peg deviation, trade expectancy, leverage shock, mining hardware ROI, simultaneous portfolio stress test. No exchange execution or live rates represented.
+- **12 portfolio routes, centered at \`/portfolio/\`**: browser-only CSV Trade Journal with field-mapping, optional local session and unencrypted opt-in localStorage, edit/delete and safe CSV export, long-only FIFO and weighted-average fee-inclusive realized cost basis, asset allocation bars, XIRR and flow-adjusted TWR equity charts, OHLCV CSV browser charts and rolling volatility, no-look-ahead next-open SMA historical backtest, normalized portfolio comparisons, rolling Pearson correlation, wallet safety/phishing educational checklist, past Bitcoin halving subsidy timeline, offline network-fee/confirmation illustration, browser-side PBKDF2 AES-GCM encrypted backup/restore, and manual sourced token supply/unlock timeline. Some features share routes; the main landing page counts as one route.
+- **10 original interactive crypto fun games** in \`/fun/\`, including fee and DCA arithmetic, HODL drawdown game, mathematical multiplier, portfolio concentration, mining power, token unlock, scam-warning, emoji vocabulary and playful preferences. Share/copy/save PNG is user-triggered; no wallet/API/login/forced ads.
+- **11 original mathematical/educational articles** in \`/articles/\`: original examples, sources, transparent caveats, semantic Article JSON-LD, relevant existing working tool links. Eight live-draft-gated source-backed articles are maintained in \`sites/coinmetriq/articles.json\`; the original three arithmetic explainers remain in the original source renderer. Drafts cannot be published by simply appending a catalog entry.
+- **Preserved** original \`/tools/token-market-cap/\`, home navigation, all 30 original CoinMetriq short topic URLs and their \`noindex,follow\` protections; no claimed live price feed and no new required visitor account.
+- **Production-oriented QA in CI:** static build for all ten Monorepo sites, Node golden/calculation/security tests, editorial source quality, sitemap/robots/canonical/duplicate-title/structured-data/internal-link audit, actual headless Chrome CoinMetriq browser smoke, and existing TechOrvia/country browser smoke.
 
-**Sequential gate:** Do not mark CoinMetriq fully complete or switch implementation to EarthViora until every relevant CoinMetriq master checklist item has actual code, fixtures, verified live URL, rights checks and required external-owner authorization; note any capability legitimately blocked by a free-only or third-party limitation. No artificial phases, staged plans or invented completion percentages.
+### GitHub evidence
+
+- [PR #1 — initial 10 calculators, original articles and Fun Lab](https://github.com/cseashrafulislam/Monorepo/pull/1)
+- [PR #2 — 5 additional source-free crypto analytics tools](https://github.com/cseashrafulislam/Monorepo/pull/2)
+- [PR #3 — all 10 shareable fun games](https://github.com/cseashrafulislam/Monorepo/pull/3)
+- [PR #4 — private portfolio desk, CSV ledger, FIFO/WAC, TWR/XIRR, OHLCV, backtest and encrypted backup](https://github.com/cseashrafulislam/Monorepo/pull/4)
+- [PR #5 — eight original long-format source-backed educational articles](https://github.com/cseashrafulislam/Monorepo/pull/5)
+- [PR #6 — additional scenario analysis, heatmap, rolling correlation and real browser/technical SEO QA](https://github.com/cseashrafulislam/Monorepo/pull/6)
+- [PR #7 — independently publish-gated \`articles.json\` plus automated editorial validation](https://github.com/cseashrafulislam/Monorepo/pull/7)
+- [PR #8 — dated supply/unlock and historical rolling volatility chart](https://github.com/cseashrafulislam/Monorepo/pull/8)
+- [Last confirmed successful CI: main SHA \`47c8ab74034aed4aa2e27b153d4300260d4cd4a7\`](https://github.com/cseashrafulislam/Monorepo/actions/runs/45117836219). **33 Node tests passed, 0 failures; 0 technical SEO audit errors; content audit passed; Chromium browser smoke passed for the calculators, all 10 fun games, journal, cost basis, OHLCV, SMA backtest, returns, comparison, network fee, token emissions and AES-GCM backup; all other Monorepo browser smoke jobs passed**.
+
+### Production gate — still UNVERIFIED, not "fully done"
+
+- **Cloudflare Pages live deployment:** actual project build, public reachability, custom production hostname, SSR/cache state and live routes are unverified. The public web checker returned an access error for \`coinmetriq.pages.dev\`; this does *not* prove downtime. CI success proves generated site/build/browser tests, not Cloudflare production delivery.
+- **Google Search Console & Bing Webmaster ownership:** the user's authorized property verification, sitemap submission, indexing/search queries, and AI-search citation measurement have not been confirmed.
+- **AdSense/monetization:** publisher approval, exact eligible hostname (including \`pages.dev\` eligibility), required ad account IDs, ads.txt/consent and any actual revenue/RPM have not been confirmed. No fabricated ads, publisher IDs or claims of earnings.
+- **Editorial:** the 30 short topic intro pages are still noindex pending substantive source-backed original editorial expansion. The added 11 articles are not a claim that all crypto topics or user instructions have been independently fact-checked by a human expert.
+- **Quality boundaries:** live mobile/network performance, accessibility audit on actual low-end devices, actual commercial licensing of potential live price/API sources, historical legal/tax country rules, and account-gated analytics/ads checks remain distinct external verification items. Wallet safety checklists and cost basis calculations are educational and not personal security certifications or tax filings.
+- **Remaining requested stretch scope:** fully editable arbitrary portfolio histories beyond supported long-only USD trades; generalized multiperiod cost basis/FX and off-exchange transfers; independent broad market data feeds with confirmed commercial-use licenses; automatic scheduled SitePilot content generation/publication; independent source review for all 30 legacy topics, and continuous real-visitor growth tracking. No invented completeness score.
+
+**Source delivery is substantial and tested, but user-requested 100% production completeness is not demonstrated. Do not check every CM / ART / FUN / SEO / OPS task as complete solely because source code or build passes. Preserve the one-site gate and keep other 13 products unchanged until Site 1 is truly closed.**
+
 
 ## OPERATING RULE: PAGE SEO SHIPS WITH THE PAGE; REMAINING SITE WORK IS SEPARATE
 
