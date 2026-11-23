@@ -21,7 +21,7 @@ test("Mining animated expense/revenue story is exact, monotone and describes the
  assert.equal(result.points[0].cost,0);
  assert.ok(Math.abs(result.points.at(-1).cost-103.68)<1e-8);
  assert.equal(result.points.at(-1).hours,720);
- assert.match(result.note,/not predicted/);
+ assert.match(result.note,/no mining earnings are predicted/);
  assert.throws(()=>miningCostStory({watts:0,hours:720,tariff:.12,revenue:140}),/watts/);
  assert.throws(()=>miningCostStory({watts:1200,hours:0,tariff:.12,revenue:140}),/hours/);
 });
