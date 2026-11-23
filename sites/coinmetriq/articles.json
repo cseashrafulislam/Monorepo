@@ -30,7 +30,8 @@
           "Bitcoin developer transaction structure",
           "https://developer.bitcoin.org/devguide/transactions.html"
         ]
-      ]
+      ],
+      "publishedAt": "2026-11-23"
     },
     {
       "slug": "time-weighted-return-versus-xirr",
@@ -60,7 +61,8 @@
           "CFA Institute: Global Investment Performance Standards overview",
           "https://www.gipsstandards.org/"
         ]
-      ]
+      ],
+      "publishedAt": "2026-11-23"
     },
     {
       "slug": "crypto-backtesting-without-look-ahead",
@@ -90,7 +92,8 @@
           "Bitcoin historical market data is not embedded; use your own lawfully obtained CSV",
           "https://developer.bitcoin.org/"
         ]
-      ]
+      ],
+      "publishedAt": "2026-11-23"
     },
     {
       "slug": "crypto-wallet-phishing-and-token-approvals",
@@ -128,7 +131,8 @@
           "MetaMask token approval and signature phishing",
           "https://support.metamask.io/privacy-and-security/staying-safe-in-web3/signature-phishing/"
         ]
-      ]
+      ],
+      "publishedAt": "2026-11-23"
     },
     {
       "slug": "bitcoin-block-reward-versus-fees",
@@ -166,7 +170,8 @@
           "Bitcoin Core source",
           "https://github.com/bitcoin/bitcoin"
         ]
-      ]
+      ],
+      "publishedAt": "2026-11-23"
     },
     {
       "slug": "network-fee-rate-versus-transaction-size",
@@ -200,7 +205,8 @@
           "Bitcoin blockchain reference",
           "https://developer.bitcoin.org/reference/block_chain.html"
         ]
-      ]
+      ],
+      "publishedAt": "2026-11-23"
     },
     {
       "slug": "staking-apr-versus-apy-explained",
@@ -230,7 +236,8 @@
           "Ethereum staking risks and rewards",
           "https://ethereum.org/en/staking/"
         ]
-      ]
+      ],
+      "publishedAt": "2026-11-23"
     },
     {
       "slug": "liquidity-pool-impermanent-loss-example",
@@ -260,7 +267,8 @@
           "Uniswap v2 core concepts",
           "https://docs.uniswap.org/contracts/v2/concepts/protocol-overview/how-uniswap-works"
         ]
-      ]
+      ],
+      "publishedAt": "2026-11-23"
     }
   ]
 }
