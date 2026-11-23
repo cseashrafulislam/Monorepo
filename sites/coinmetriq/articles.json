@@ -365,6 +365,92 @@
           "No. Concentrated liquidity, custom weights and other pool designs have different conditions and mathematics."
         ]
       ]
+    },
+    {
+      "slug": "dollar-cost-averaging-versus-lump-sum-crypto",
+      "title": "Dollar-cost averaging vs lump sum in crypto: same budget, different timing",
+      "excerpt": "A reproducible four-period comparison shows why DCA can win or lose depending on price path, without promising future performance.",
+      "status": "published",
+      "publishedAt": "2026-11-23",
+      "category": "Portfolio Methods",
+      "href": "/studio/lump-sum-vs-dca/",
+      "paragraphs": [
+        [
+          "First establish an equal budget",
+          "Lump-sum buying and dollar-cost averaging (DCA) are different cash-deployment schedules. A fair mathematical comparison uses the same total starting budget and the same eventual valuation date, otherwise a return difference may reflect different invested amounts rather than timing. DCA buys a fixed cash amount across periods; it usually acquires more token units when the token price is lower and fewer when it is higher."
+        ],
+        [
+          "Exact four-period example",
+          "Assume four fictional observed prices of USD 100, USD 80, USD 120 and USD 90, a total budget of USD 400, and a later illustrative final reference price of USD 110. Investing all USD 400 at the first price buys 4 units, worth USD 440 at the example final price. Splitting the budget into four equal USD 100 purchases acquires 1 + 1.25 + 0.833333 + 1.111111 = approximately 4.194444 units. At USD 110, their modeled value is approximately USD 461.39, or USD 21.39 higher than the lump-sum value."
+        ],
+        [
+          "Why the answer can reverse",
+          "DCA is not universally better. If a token rose in a steady sequence after the first date, the first-price lump sum could obtain more units than the later purchases. Conversely, an early price drop can benefit staged buying. The comparison tool uses only your supplied sequence and provides the unit and value difference; it does not estimate the probability of future price directions, appropriate investment timing or personal risk tolerance."
+        ],
+        [
+          "Fees, interest and honest assumptions",
+          "This simplified example leaves out exchange spreads, percentage and flat trading fees, bank transfer costs, idle cash interest, custody risk and investment taxes. If the same total budget is deployed on different dates, the cash left uninvested during the DCA period should also be documented in a fuller total-return calculation. Use sample CSV or manually entered price observations; CoinMetriq never fetches a live price or recommends a trading schedule."
+        ]
+      ],
+      "faq": [
+        [
+          "Does a lower average price always make DCA the winner?",
+          "No. The end value depends on total token units, identical total funding, price path and transaction costs."
+        ],
+        [
+          "Is this an automatic investment plan?",
+          "No. It is a browser-only educational comparison using manually entered hypothetical prices."
+        ]
+      ],
+      "sources": [
+        [
+          "Investor.gov: Dollar Cost Averaging",
+          "https://www.investor.gov/introduction-investing/investing-basics/glossary/dollar-cost-averaging"
+        ]
+      ]
+    },
+    {
+      "slug": "crypto-price-impact-slippage-exchange-fees",
+      "title": "Crypto price impact, slippage and exchange fees: three separate costs",
+      "excerpt": "Learn how a small quoted price impact and percentage exchange fee produce an exact hypothetical fill cost on a USD 1,000 purchase.",
+      "status": "published",
+      "publishedAt": "2026-11-23",
+      "category": "Trading Mathematics",
+      "href": "/studio/slippage-fees/",
+      "paragraphs": [
+        [
+          "Distinguish the terms before adding percentages",
+          "Quoted mid-price, order execution price, price impact and transaction fees answer different questions. A trade can change the marginal price available from a liquidity pool because of its size, while slippage can reflect a difference between expected and realized execution. A swap interface may also present a separate explicit platform or pool fee. Double-counting an interface's quoted impact and its realized execution difference would make a cost estimate unreliable."
+        ],
+        [
+          "A fully labeled numerical example",
+          "Suppose a fictional quoted unit price is USD 100 and a purchaser wants ten units. The reference notional is USD 1,000. Model a 0.5% unfavorable execution slippage for a purchase, then a separate 0.1% exchange fee applied to the executed notional. The execution notional is USD 1,005 and the explicit fee is USD 1.005. The all-in modeled cost is USD 1,006.005, which is USD 6.005 above the starting quote. The effective cost per unit is USD 100.6005."
+        ],
+        [
+          "Price impact and slippage are not interchangeable",
+          "In a constant-product automated market maker, a sufficiently large trade moves along the pool's pricing curve. Slippage instead compares an expected output or rate with what the trade finally executes at. The two may interact, and a user-interface's minimum output tolerance is not a fixed fee. Actual fills can be rejected, partially filled or worse than a displayed quote within platform rules; a calculator cannot certify live execution."
+        ],
+        [
+          "What this browser worksheet leaves out",
+          "The scenario intentionally uses a manual unfavorable slippage rate and an explicit percentage fee, compounded on the execution notional. It does not fetch order books, reserves, chain gas, oracle prices, local taxes or the exact settlement price for a particular exchange. Compare input timestamps and currencies before using the result for research. This is not a swap interface or trading recommendation."
+        ]
+      ],
+      "faq": [
+        [
+          "Is the displayed price impact itself a fee?",
+          "No. Price impact describes how trade size changes the available rate; explicit network and exchange charges must be considered separately."
+        ],
+        [
+          "Can I treat this as a live Uniswap quote?",
+          "No. The worksheet has no network connection and accepts fictional or user-entered price, slippage and fee inputs."
+        ]
+      ],
+      "sources": [
+        [
+          "Uniswap Labs: Price Impact vs Price Slippage",
+          "https://support.uniswap.org/hc/en-us/articles/8643794102669-Price-Impact-vs-Price-Slippage"
+        ]
+      ]
     }
   ]
 }
