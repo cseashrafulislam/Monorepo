@@ -92,6 +92,10 @@ try{
  const splitBar=await evaluate('!!document.querySelector("form[data-cm-fun=coin-split] .cm-fun-split")');
  const vocabulary=await evaluate('document.querySelector("form[data-cm-fun=emoji-decoder] .cm-extra-result strong")?.textContent');
  if(funVisuals<4||!splitBar||!vocabulary?.includes("3 / 3"))throw Error("Fun visual or three-term quiz missing.");
+ const stagedUnlock=await evaluate('document.querySelectorAll("form[data-cm-fun=unlock-surprise] .cm-fun-timeline span").length');
+ const miningCurves=await evaluate('document.querySelectorAll("form[data-cm-fun=mining-monster] svg .cm-fun-trail").length');
+ if(stagedUnlock!==7||miningCurves!==2)throw Error("Advanced multi-round unlock and dual mining animation were not generated.");
+
  console.log("PASS browser /fun/ 10/10 games");
  await action("/portfolio/journal/","document.querySelector('[data-cm-portfolio=journal]').requestSubmit()","[data-cm-portfolio-output]","3 validated trades");
  await action("/portfolio/cost-basis/","document.querySelector('[data-cm-portfolio=costbasis]').requestSubmit()","[data-cm-portfolio-output]","realized P&L");
