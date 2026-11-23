@@ -248,5 +248,10 @@ for(const id of targets){
  if(id!=="worldorixa")write(out,"_redirects","/news/ /tools/"+config.tool.slug+"/ 301\n/news/* /tools/"+config.tool.slug+"/ 301\n");
  write(out,"robots.txt","User-agent: *\nAllow: /\nSitemap: "+getBase(config)+"/sitemap.xml\n");
  write(out,"_headers","/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  X-Frame-Options: DENY\n  Permissions-Policy: camera=(), microphone=(), geolocation=()\n");
+ if(id==="coinmetriq"){
+  const {applyAdSenseVerification}=await import("../sites/coinmetriq/ads-verification.mjs");
+  const verification=applyAdSenseVerification(out);
+  console.log("CoinMetriq AdSense ownership preparation:",verification.configured?"Publisher ID supplied; ads.txt/meta present, ad serving disabled":"No publisher ID; no ads.txt or ad script");
+ }
  console.log("Built "+config.name+": "+topics.length+" topic guides"+(id==="techorvia"?" and "+tvRoutes.length+" tool/site routes":"")+".");
 }
