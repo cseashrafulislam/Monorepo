@@ -8,6 +8,8 @@ let base;
 try{base=new URL(raw);}catch{throw Error("COINMETRIQ_LIVE_BASE must be a valid absolute HTTPS origin.");}
 if(base.protocol!=="https:"||base.username||base.password||base.pathname!=="/"||base.search||base.hash)throw Error("Production URL must be a plain HTTPS origin without credentials.");
 const host=base.origin;
+const expectedSha=String(process.env.COINMETRIQ_EXPECTED_SHA||"").trim().toLowerCase();
+if(expectedSha&&!/^[0-9a-f]{40}$/.test(expectedSha))throw Error("Expected SHA must be a full 40-digit Git commit SHA.");
 const checks=[
  {route:"/",kind:"html",expect:"data-site=\"coinmetriq\""},
  {route:"/studio/",kind:"html",expect:"Crypto Research Studio"},
@@ -25,6 +27,7 @@ const checks=[
  {route:"/editorial/",kind:"html",expect:"Editorial Standards"},
  {route:"/disclaimer/",kind:"html",expect:"Financial"},
  {route:"/help/",kind:"html",expect:"Tool User Guide"},
+ {route:"/build-info.json",kind:"json",expect:'"site": "coinmetriq"'},
  {route:"/robots.txt",kind:"text",expect:"Sitemap:"},
  {route:"/sitemap.xml",kind:"xml",expect:host+"/topics/bitcoin-price/"},
  {route:"/assets/cm-portfolio.js",kind:"asset",expect:"setupJournal"},
@@ -47,8 +50,18 @@ async function inspect(entry){
   const content=await response.text();
   if(content.length>3_000_000)throw Error("Response HTML unexpectedly large.");
   if(!content.includes(entry.expect))throw Error("Expected content missing.");
+  if(entry.kind==="json"){
+   let release;
+   try{release=JSON.parse(content);}catch{throw Error("Invalid public build provenance JSON.");}
+   if(release.site!=="coinmetriq"||!/^[a-f0-9]{40}$/.test(release.commit)||release.platform!=="Cloudflare Pages")throw Error("Public site did not expose genuine Cloudflare production build metadata.");
+   row.buildCommit=release.commit;
+   if(expectedSha&&release.commit!==expectedSha)throw Error("Public production commit "+release.commit+" differs from successfully deployed Cloudflare check "+expectedSha+".");
+  }
   if(entry.kind==="html"||entry.kind==="noindex"){
    if(!content.includes('href="'+host+entry.route+'"'))throw Error("Live canonical does not match the public host.");
+   const tag=content.match(/<meta name="coinmetriq-build-commit" content="([a-f0-9]{40})">/);
+   if(!tag)throw Error("No actual provider build commit published in page head.");
+   if(expectedSha&&tag[1]!==expectedSha)throw Error("This HTML is not the checked release: "+tag[1]+".");
    if(entry.kind==="noindex"&&!content.includes('content="noindex,follow"'))throw Error("Unreviewed legal/tax page must stay noindex.");
    if(entry.kind==="html"&&!content.includes('content="index,follow"'))throw Error("Core public page is unexpectedly noindex.");
   }
@@ -67,6 +80,8 @@ for(let i=0;i<checks.length;i+=3){
 result.status=result.checks.every(x=>x.ok)?"passed":"failed";
 result.passed=result.checks.filter(x=>x.ok).length;
 result.failed=result.checks.length-result.passed;
+result.expectedSha=expectedSha||null;
+result.liveBuildSha=result.checks.find(r=>r.route==="/build-info.json")?.buildCommit||null;
 const dir="dist";fs.mkdirSync(dir,{recursive:true});
 fs.writeFileSync(dir+"/coinmetriq-production-check.json",JSON.stringify(result,null,2)+"\n");
 console.log("CoinMetriq live production verification:",JSON.stringify({base:host,total:result.checks.length,passed:result.passed,failed:result.failed,report:"dist/coinmetriq-production-check.json"},null,2));
