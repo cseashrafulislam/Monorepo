@@ -8,9 +8,9 @@ import {calculate} from "../packages/site-core/calculator.js";
 const root="dist/coinmetriq";
 const read=(route)=>fs.readFileSync(path.join(root,route,"index.html"),"utf8");
 
-test("CoinMetriq fifteen unique private research calculators",()=>{
- assert.equal(tools.length,15);
- assert.equal(new Set(tools.map(x=>x.slug)).size,15);
+test("CoinMetriq nineteen unique private research calculators",()=>{
+ assert.equal(tools.length,19);
+ assert.equal(new Set(tools.map(x=>x.slug)).size,19);
  assert.ok(tools.every(t=>t.title&&t.short&&t.formula));
 });
 test("Crypto fees include both sides and handle small losing trades",()=>{
@@ -98,4 +98,18 @@ test("CoinMetriq Fun Lab contains ten distinct working-client mini game forms",(
  assert.match(html,/data-cm-share/);
  assert.match(html,/data-cm-download/);
  assert.match(html,/No personal accounts, wallet connection or live prices/);
+});
+
+test("Scenario risk/reward, mining ROI, leverage and portfolio stress",()=>{
+ const e=calculateStudio("trade-expectancy",{win:45,gain:150,loss:100,count:50});
+ assert.match(e.headline,/12.5000 USD/);
+ const l=calculateStudio("leverage-shock",{margin:1000,leverage:3,move:-20,direction:1});
+ assert.match(l.headline,/400.00 USD/);
+ assert.match(l.detail,/liquidation/i);
+ const m=calculateStudio("mining-roi",{hardware:2500,watts:1200,tariff:.12,revenue:12,other:1,days:365});
+ assert.match(m.headline,/-\d/);
+ const p=calculateStudio("portfolio-stress-test",{shocks:"BTC,3200,-30\nETH,3600,-45\nSOL,2100,20"});
+ assert.match(p.headline,/-2,130.00 USD/);
+ assert.equal(p.rows.length,3);
+ assert.throws(()=>calculateStudio("portfolio-stress-test",{shocks:"BTC,100,-101"}),/shock/i);
 });
