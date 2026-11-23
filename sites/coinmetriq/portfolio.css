@@ -66,3 +66,12 @@
 .cm-portfolio-rolling{padding-top:18px;border-top:1px solid #42615e}
 .cm-portfolio-rolling h3{margin:12px 0 14px;font-size:1.1rem}
 @media(max-width:550px){.cm-portfolio-heat-row{grid-template-columns:1fr;gap:5px}}
+
+/* Research provenance: source is explicitly user-cited, not independently certified. */
+.cm-provenance{border:1px solid #64887a;border-radius:11px;padding:18px;margin:22px 0;background:#0c2e32}
+.cm-provenance h3{font-size:1rem;line-height:1.45;color:#c2f18c;margin:0 0 8px}
+.cm-provenance p{margin:7px 0;font-size:.9rem}
+.cm-provenance p:last-of-type{color:#f4deae}
+.cm-provenance a{display:inline-block;margin-top:7px;color:#cbf899;text-decoration:underline;word-break:break-word}
+.cm-portfolio-form [data-cm-risk-example]{border:1px solid #698b81;background:#22483f;color:#f2fce9;border-radius:7px;padding:10px 14px;font-weight:700;cursor:pointer}
+.cm-portfolio-form [data-cm-risk-example]:focus-visible{outline:3px solid #d2f58f;outline-offset:3px}
