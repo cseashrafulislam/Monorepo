@@ -5,6 +5,7 @@
 import {parseCsv,parseTradesCsv,normalizeTrades,calculateCostBasis,calculateTwr,calculateXirr,exportTradesCsv,toCsv,SAMPLE_TRADES_CSV,isoDay} from "./ledger-core.mjs";
 import {encryptJournal,decryptJournal} from "./backup-core.mjs";
 import {riskFromOhlcvCsv,bootstrapRiskScenarios,SAMPLE_RISK_CSV} from "./risk-core.mjs";
+import {bitcoinSubsidyAtHeight,bitcoinEraTable,totalTheoreticalScheduledBtc,validateIssuerProvenance,BITCOIN_REFERENCE} from "./issuance-core.mjs";
 import {parseOhlcvCsv,summarizeOhlcv,backtestSma,parsePairsCsv,analyzeCorrelation,comparePortfolios,recoveryStats,rollingVolatility,parseSupplySchedule,summarizeSupplySchedule} from "./market-core.mjs";
 const storeKey="coinmetriq.journal.v1",sessionKey="coinmetriq.session.journal.v1";
 const fmt=(n,p=2)=>Number(n).toLocaleString("en-US",{minimumFractionDigits:p,maximumFractionDigits:p});
@@ -332,6 +333,23 @@ function setupRisk(form,out){
   }catch(err){fail(out,err);}
  });
 }
+function setupIssuance(form,out){
+ form.addEventListener("submit",ev=>{
+  ev.preventDefault();
+  try{
+   const height=Number(val(form,"height")),eras=Number(val(form,"eras"));
+   const current=bitcoinSubsidyAtHeight(height),schedule=bitcoinEraTable({eras}),supply=totalTheoreticalScheduledBtc();
+   lead(out,fmt(current.subsidyBtc,8)+" BTC maximum block subsidy","Consensus-derived at block "+height+", era "+current.era+". Fees are separate and actual coinbase claims can be smaller. No live blockchain height was fetched.");
+   stats(out,[["Subsidy, satoshis",current.subsidySats],["Next scheduled threshold",fmt(current.nextHalvingHeight,0)+" blocks"],["Approximate all-era scheduled maximum",fmt(supply,8)+" BTC"],["Consensus source",BITCOIN_REFERENCE.name]]);
+   rowTable(out,["Halving era","First block height","Last block height","BTC subsidy / block","Maximum newly subsidized BTC in era","Maximum cumulative subsidy BTC"],schedule.map(q=>[String(q.era),fmt(q.startHeight,0),fmt(q.lastHeight,0),fmt(q.subsidyBtc,8),fmt(q.maxNewBtc,8),fmt(q.maxCumulativeBtc,8)]),"Bitcoin Core-style subsidy schedule (not observed chain issuance)");
+   const p=make("p","Technical source: ");
+   const a=make("a","Bitcoin Core source (MIT)");a.href=BITCOIN_REFERENCE.url;a.target="_blank";a.rel="noopener noreferrer";p.append(a);out.append(p);
+   const svg=chart(tx("portfolio-chart",form),[{label:"Theoretical accumulated BTC (maximum)",points:schedule.map(x=>({date:"Era "+x.era,value:x.maxCumulativeBtc}))}],{title:"Scheduled upper bound of cumulative Bitcoin block subsidy by 210,000-block era"});
+   setChartExport(form,svg);
+   setExport(form,schedule,["era","startHeight","lastHeight","subsidyBtc","maxNewBtc","maxCumulativeBtc"]);
+  }catch(error){fail(out,error);}
+ });
+}
 function setupEmission(form,out){
  form.addEventListener("submit",ev=>{
   ev.preventDefault();
@@ -340,11 +358,18 @@ function setupEmission(form,out){
    lead(out,fmt(x.changePct,4)+"% manually entered supply change",x.note);
    stats(out,[["First circulating supply",fmt(x.start,0)],["Last circulating supply",fmt(x.end,0)],["Sum of stated unlock amounts",fmt(x.recordedUnlocks,0)]]);
    const rawUrl=val(form,"sourceUrl").trim();
-   if(rawUrl){
-    let url;try{url=new URL(rawUrl);}catch{throw Error("Use a valid HTTPS source reference.");}
-    if(url.protocol!=="https:"||url.username||url.password||rawUrl.length>500)throw Error("Source must be a public HTTPS URL without credentials.");
-    const p=make("p","User-provided source (not independently verified): ");
-    const anchor=make("a",url.hostname);anchor.href=url.href;anchor.rel="noopener noreferrer";anchor.target="_blank";p.append(anchor);out.append(p);
+   const fields=["sourceUrl","issuer","sourceTitle","sourceDate","licenseNote"];
+   const provided=fields.some(name=>val(form,name).trim());
+   if(provided){
+    const metadata=validateIssuerProvenance(Object.fromEntries(fields.map(name=>[name,val(form,name)])));
+    const source=make("section",undefined,"cm-provenance");
+    source.append(make("h3",metadata.issuer+" · user-cited primary document"));
+    source.append(make("p",metadata.sourceTitle+" · dated "+metadata.sourceDate));
+    source.append(make("p",metadata.licenseNote));
+    source.append(make("p",metadata.verification));
+    const a=make("a","Open cited source document");a.href=metadata.sourceUrl;a.rel="noopener noreferrer";a.target="_blank";source.append(a);out.append(source);
+   }else{
+    out.append(make("p","Fictional or unattributed example: source URL, issuer, publication date and rights note were not supplied. Do not present these rows as independently sourced issuance data."));
    }
    rowTable(out,["Date","Circulating","Stated unlock","Net circulating change %"],rows.map(r=>[r.date,fmt(r.circulating,0),fmt(r.unlock,0),fmt(r.changePct,4)+"%"]),"User-entered supply observations");
    const svg=chart(tx("portfolio-chart",form),[{label:"Circulating units (manual)",points:x.points}],{title:"Token circulating supply from user-entered fictional or sourced data"});setChartExport(form,svg);
@@ -397,7 +422,7 @@ function setupBackups(){
 for(const form of document.querySelectorAll("form[data-cm-portfolio]")){
  const out=tx("portfolio-output",form);
  const job=form.dataset.cmPortfolio;
- const handlers={journal:setupJournal,costbasis:setupCostBasis,performance:setupPerformance,market:setupMarket,backtest:setupBacktest,compare:setupCompare,safety:setupSafety,fees:setupFees,emission:setupEmission,risk:setupRisk};
+ const handlers={journal:setupJournal,costbasis:setupCostBasis,performance:setupPerformance,market:setupMarket,backtest:setupBacktest,compare:setupCompare,safety:setupSafety,fees:setupFees,emission:setupEmission,risk:setupRisk,issuance:setupIssuance};
  if(handlers[job])handlers[job](form,out);
  tx("download-csv",form)?.addEventListener("click",()=>{
   if(!form._export?.rows?.length)return;
