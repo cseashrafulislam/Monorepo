@@ -126,3 +126,36 @@ export function comparePortfolios(left,right){
  const a0=common[0].value,b0=map.get(common[0].date);
  return {dates:common.map(x=>x.date),portfolioA:common.map(x=>({date:x.date,value:x.value/a0*100})),portfolioB:common.map(x=>({date:x.date,value:map.get(x.date)/b0*100})),note:"Indexed comparison from the same initial observation, ignoring external deposits/withdrawals."};
 }
+
+/* Annualized rolling realized volatility from local daily OHLCV close prices. */
+export function rollingVolatility(bars,{window=3}={}){
+ if(!Array.isArray(bars)||bars.length<window+1)throw Error("Need more daily close observations than the rolling window.");
+ if(!Number.isInteger(window)||window<3||window>500)throw Error("Rolling volatility window must be 3–500.");
+ const returns=bars.slice(1).map((x,i)=>({date:x.date,value:x.close/bars[i].close-1}));
+ const points=returns.slice(window-1).map((_,i)=>{
+  const slice=returns.slice(i,i+window),mean=slice.reduce((s,x)=>s+x.value,0)/window;
+  const sd=Math.sqrt(slice.reduce((s,x)=>s+(x.value-mean)**2,0)/(window-1));
+  return {date:slice.at(-1).date,value:sd*Math.sqrt(365)*100};
+ });
+ return {window,points,method:"Sample daily close-to-close simple returns, annualized with sqrt(365); volatility is retrospective and does not predict prices."};
+}
+/* User supplied token issuance figures; always label third-party sources as unverified until reviewed. */
+export function parseSupplySchedule(text){
+ const raw=fromCsv(text,["date","circulating","unlock"]);if(raw.length<2||raw.length>2000)throw Error("Enter 2–2,000 dated supply rows.");
+ let last="",previous=0;
+ return raw.map((r,i)=>{
+  const date=isoDay(r.date);
+  if(last&&date<=last)throw Error("Supply dates must be strictly increasing.");last=date;
+  const supply=num(r.circulating,"circulating supply",{positive:true}),unlock=num(r.unlock,"new unlock tokens",{nonnegative:true});
+  const percentage=i?((supply/previous)-1)*100:0;
+  if(!Number.isFinite(percentage))throw Error("Supply change too large.");
+  previous=supply;
+  return {date,circulating:supply,unlock,changePct:percentage};
+ });
+}
+export function summarizeSupplySchedule(rows){
+ if(!Array.isArray(rows)||rows.length<2)throw Error("At least two supplies required.");
+ const first=rows[0].circulating,last=rows.at(-1).circulating;
+ const changes=rows.reduce((sum,x)=>sum+x.unlock,0);
+ return {start:first,end:last,changePct:(last/first-1)*100,recordedUnlocks:changes,points:rows.map(r=>({date:r.date,value:r.circulating})),note:"Circulating supply and unlock amounts were manually entered. Additional minting, burns and vesting rules are not independently verified and token price cannot be inferred."};
+}

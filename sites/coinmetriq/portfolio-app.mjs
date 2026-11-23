@@ -4,7 +4,7 @@
  */
 import {parseCsv,parseTradesCsv,normalizeTrades,calculateCostBasis,calculateTwr,calculateXirr,exportTradesCsv,toCsv,SAMPLE_TRADES_CSV,isoDay} from "./ledger-core.mjs";
 import {encryptJournal,decryptJournal} from "./backup-core.mjs";
-import {parseOhlcvCsv,summarizeOhlcv,backtestSma,parsePairsCsv,analyzeCorrelation,comparePortfolios,recoveryStats} from "./market-core.mjs";
+import {parseOhlcvCsv,summarizeOhlcv,backtestSma,parsePairsCsv,analyzeCorrelation,comparePortfolios,recoveryStats,rollingVolatility,parseSupplySchedule,summarizeSupplySchedule} from "./market-core.mjs";
 const storeKey="coinmetriq.journal.v1",sessionKey="coinmetriq.session.journal.v1";
 const fmt=(n,p=2)=>Number(n).toLocaleString("en-US",{minimumFractionDigits:p,maximumFractionDigits:p});
 const errorText=e=>e instanceof Error?e.message:"Unable to complete this operation.";
@@ -229,6 +229,12 @@ function setupMarket(form,out){
    lead(out,fmt(x.returnPercent,4)+"% price change","From the FIRST bar open to the LAST bar close, based only on entered historical data.");
    stats(out,[["Bars",String(x.bars)],["Range high",fmt(x.high,6)],["Range low",fmt(x.low,6)],["Total recorded volume",fmt(x.volume,2)]]);
    const svg=chart(tx("portfolio-chart",form),[{label:"User-supplied close",points:x.closeSeries}],{title:"Close prices from entered OHLCV CSV"});setChartExport(form,svg);
+   if(bars.length>=4){
+    const rolling=rollingVolatility(bars,{window:3}),wrapper=make("section",undefined,"cm-portfolio-rolling");
+    const headline=make("h3","Three-period rolling annualized close-return volatility");
+    const slot=make("div");wrapper.append(headline,slot);tx("portfolio-chart",form).append(wrapper);
+    if(rolling.points.length>=2)chart(slot,[{label:"Rolling sample volatility (%)",points:rolling.points}],{title:"Historical rolling volatility from user-provided daily closes"});
+   }
    setExport(form,bars,["date","open","high","low","close","volume"]);
   }catch(err){fail(out,err);}
  });
@@ -282,6 +288,26 @@ function setupCompare(form,out){
   }catch(err){fail(out,err);}
  });
 }
+function setupEmission(form,out){
+ form.addEventListener("submit",ev=>{
+  ev.preventDefault();
+  try{
+   const rows=parseSupplySchedule(read(form,"emission")),x=summarizeSupplySchedule(rows);
+   lead(out,fmt(x.changePct,4)+"% manually entered supply change",x.note);
+   stats(out,[["First circulating supply",fmt(x.start,0)],["Last circulating supply",fmt(x.end,0)],["Sum of stated unlock amounts",fmt(x.recordedUnlocks,0)]]);
+   const rawUrl=val(form,"sourceUrl").trim();
+   if(rawUrl){
+    let url;try{url=new URL(rawUrl);}catch{throw Error("Use a valid HTTPS source reference.");}
+    if(url.protocol!=="https:"||url.username||url.password||rawUrl.length>500)throw Error("Source must be a public HTTPS URL without credentials.");
+    const p=make("p","User-provided source (not independently verified): ");
+    const anchor=make("a",url.hostname);anchor.href=url.href;anchor.rel="noopener noreferrer";anchor.target="_blank";p.append(anchor);out.append(p);
+   }
+   rowTable(out,["Date","Circulating","Stated unlock","Net circulating change %"],rows.map(r=>[r.date,fmt(r.circulating,0),fmt(r.unlock,0),fmt(r.changePct,4)+"%"]),"User-entered supply observations");
+   const svg=chart(tx("portfolio-chart",form),[{label:"Circulating units (manual)",points:x.points}],{title:"Token circulating supply from user-entered fictional or sourced data"});setChartExport(form,svg);
+   setExport(form,rows,["date","circulating","unlock","changePct"]);
+  }catch(err){fail(out,err);}
+ });
+}
 function setupSafety(form,out){
  form.addEventListener("submit",ev=>{
   ev.preventDefault();const checks=form.querySelectorAll('.cm-checklist input[type="checkbox"]');
@@ -327,7 +353,7 @@ function setupBackups(){
 for(const form of document.querySelectorAll("form[data-cm-portfolio]")){
  const out=tx("portfolio-output",form);
  const job=form.dataset.cmPortfolio;
- const handlers={journal:setupJournal,costbasis:setupCostBasis,performance:setupPerformance,market:setupMarket,backtest:setupBacktest,compare:setupCompare,safety:setupSafety,fees:setupFees};
+ const handlers={journal:setupJournal,costbasis:setupCostBasis,performance:setupPerformance,market:setupMarket,backtest:setupBacktest,compare:setupCompare,safety:setupSafety,fees:setupFees,emission:setupEmission};
  if(handlers[job])handlers[job](form,out);
  tx("download-csv",form)?.addEventListener("click",()=>{
   if(!form._export?.rows?.length)return;
