@@ -2,6 +2,7 @@
  * No paid scanner, live API, or claim of Search Console indexing. */
 import fs from "node:fs";
 import path from "node:path";
+import {topicResearch} from "../sites/coinmetriq/topic-research.mjs";
 const root=path.resolve("dist/coinmetriq"),site="coinmetriq";
 const bad=[],warn=[];
 if(!fs.existsSync(root))throw Error("Run npm run build:all before SEO audit.");
@@ -35,7 +36,7 @@ for(const file of paths){
  }
  if(canonical!==base+route)bad.push(route+" canonical mismatch (check PUBLIC_SITE_URL)");
  if((html.match(/<h1(?:\s|>)/g)||[]).length!==1&&route!=="/404.html")bad.push(route+" should have exactly one H1");
- if(route.startsWith("/topics/")&&route!=="/topics/"&&robots.includes("index,follow")&&!robots.includes("noindex"))warn.push(route+" topic indexable only if independently reviewed");
+
  if(!robots.includes("noindex")&&route!=="/404.html"&&!urls.includes(base+route))bad.push(route+" indexable but omitted from sitemap");
  if(robots.includes("noindex")&&urls.includes(base+route))bad.push(route+" noindex URL appears in sitemap");
  for(const hit of html.matchAll(/href="(\/[^"]*)"/g)){
@@ -59,13 +60,29 @@ for(const loc of urls){
 }
 const topics=[...contentFiles.keys()].filter(x=>x.startsWith("/topics/")&&x!=="/topics/");
 if(topics.length!==30)bad.push("Expected to preserve 30 independent topic pages, found "+topics.length);
+let publishedTopics=0,reviewOnlyTopics=0;
 for(const route of topics){
- const html=contentFiles.get(route);
- if(!html?.includes('content="noindex,follow"'))warn.push("Original topic editorial review required before indexing: "+route);
+ const slug=route.split("/")[2],research=topicResearch.get(slug),html=contentFiles.get(route);
+ if(!research){bad.push("Unknown research content for "+route);continue;}
+ if(!html?.includes(research.title))bad.push(route+" is missing original researched heading.");
+ if(!html?.includes("A clearly fictional worked example"))bad.push(route+" has no worked example.");
+ if(!html?.includes('href="'+research.tool+'"'))bad.push(route+" missing related working tool link.");
+ for(const [label,url] of research.sources)if(!html.includes(url))bad.push(route+" missing original source "+url);
+ if(research.status==="published"){
+  publishedTopics++;
+  if(!html.includes('content="index,follow"'))bad.push(route+" published guide must be indexable.");
+  if(!urls.includes(base+route))bad.push(route+" published guide omitted from sitemap.");
+  if(!html.includes('"@type":"Article"'))bad.push(route+" requires Article JSON-LD.");
+ }else{
+  reviewOnlyTopics++;
+  if(!html.includes('content="noindex,follow"'))bad.push(route+" source-sensitive guide must stay noindex.");
+  if(urls.includes(base+route))bad.push(route+" review-only guide appears in sitemap.");
+ }
 }
+if(publishedTopics!==27||reviewOnlyTopics!==3)bad.push("Research editorial breakdown should be 27 indexed + 3 noindex, observed "+publishedTopics+" + "+reviewOnlyTopics+".");
 if(!contentFiles.has("/portfolio/backups/")||!contentFiles.has("/fun/")||!contentFiles.has("/studio/")||!contentFiles.has("/articles/"))bad.push("Missing CoinMetriq key route");
 for(const asset of ["cm-studio.js","cm-portfolio.js","cm-studio.css","cm-portfolio.css","ledger-core.mjs","market-core.mjs","backup-core.mjs","scenario-core.mjs"]){
  if(!fs.existsSync(path.join(root,"assets",asset)))bad.push("Missing linked client asset "+asset);
 }
-console.log(JSON.stringify({site,pages:paths.length,indexableSitemapUrls:urls.length,shortNoindexTopicUrls:topics.length,errors:bad.length,warnings:warn.length,examples:warn.slice(0,3)},null,2));
+console.log(JSON.stringify({site,pages:paths.length,indexableSitemapUrls:urls.length,publishedOriginalTopicGuides:publishedTopics,unindexedSensitiveTopicGuides:reviewOnlyTopics,errors:bad.length,warnings:warn.length,examples:warn.slice(0,3)},null,2));
 if(bad.length){console.error(bad.slice(0,35).join("\n"));process.exitCode=1;}

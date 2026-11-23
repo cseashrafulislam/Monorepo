@@ -70,7 +70,7 @@ test("No live API, no account gate and all CoinMetriq pages indexed deliberately
 test("Original market-cap calculator and topic pages preserved",()=>{
  assert.match(calculate("marketcap",{price:.25,supply:10000000}).headline,/2,500,000/);
  assert.ok(fs.existsSync(path.join(root,"tools","token-market-cap","index.html")));
- const sample=fs.readFileSync(path.join(root,"topics","crypto-glossary","index.html"),"utf8");
+ const sample=fs.readFileSync(path.join(root,"topics","crypto-regulations","index.html"),"utf8");
  assert.match(sample,/noindex,follow/);
 });
 
