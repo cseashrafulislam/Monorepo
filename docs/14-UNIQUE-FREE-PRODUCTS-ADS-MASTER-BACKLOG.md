@@ -6,40 +6,35 @@
 
 ## LIVE IMPLEMENTATION EVIDENCE — SEQUENTIAL PRODUCT RULE
 
-**Active product: CoinMetriq (Site 1 of 14).** Work remains strictly one-site-at-a-time. These entries record *verifiable code-level implementation*, not fabricated production site approval or site-wide completion.
+**Active product: CoinMetriq (Site 1 of 14).** Implemented source features are checked in their corresponding task IDs below, but the site is **NOT certified as fully production-operational**. All work remains one-site-at-a-time; no other sites have been newly developed by these CoinMetriq PRs.
 
-### Implemented source code, merged into main (verified 2026-11-23)
+### Verified CoinMetriq source delivery (23 November 2026)
 
-- **19 new standalone on-device CoinMetriq research calculators** (in addition to the prior token-market-cap calculator): trade profit/fees, weighted average entry, manual DCA simulator, portfolio allocations, drawdown, position sizing, staking compound scenarios, mining electricity, AMM impermanent loss, token unlock dilution, portfolio target rebalancing, lump-sum/DCA comparison, realized daily volatility, slippage/fees, manual stablecoin peg deviation, trade expectancy, leverage shock, mining hardware ROI, simultaneous portfolio stress test. No exchange execution or live rates represented.
-- **12 portfolio routes, centered at \`/portfolio/\`**: browser-only CSV Trade Journal with field-mapping, optional local session and unencrypted opt-in localStorage, edit/delete and safe CSV export, long-only FIFO and weighted-average fee-inclusive realized cost basis, asset allocation bars, XIRR and flow-adjusted TWR equity charts, OHLCV CSV browser charts and rolling volatility, no-look-ahead next-open SMA historical backtest, normalized portfolio comparisons, rolling Pearson correlation, wallet safety/phishing educational checklist, past Bitcoin halving subsidy timeline, offline network-fee/confirmation illustration, browser-side PBKDF2 AES-GCM encrypted backup/restore, and manual sourced token supply/unlock timeline. Some features share routes; the main landing page counts as one route.
-- **10 original interactive crypto fun games** in \`/fun/\`, including fee and DCA arithmetic, HODL drawdown game, mathematical multiplier, portfolio concentration, mining power, token unlock, scam-warning, emoji vocabulary and playful preferences. Share/copy/save PNG is user-triggered; no wallet/API/login/forced ads.
-- **11 original mathematical/educational articles** in \`/articles/\`: original examples, sources, transparent caveats, semantic Article JSON-LD, relevant existing working tool links. Eight live-draft-gated source-backed articles are maintained in \`sites/coinmetriq/articles.json\`; the original three arithmetic explainers remain in the original source renderer. Drafts cannot be published by simply appending a catalog entry.
-- **Preserved** original \`/tools/token-market-cap/\`, home navigation, all 30 original CoinMetriq short topic URLs and their \`noindex,follow\` protections; no claimed live price feed and no new required visitor account.
-- **Production-oriented QA in CI:** static build for all ten Monorepo sites, Node golden/calculation/security tests, editorial source quality, sitemap/robots/canonical/duplicate-title/structured-data/internal-link audit, actual headless Chrome CoinMetriq browser smoke, and existing TechOrvia/country browser smoke.
+- **20 new dedicated browser-only research calculators plus the preserved original Token Market Cap calculator (21 total).** Includes trade fees, weighted average entry, DCA and recurring compound schedules, comparison of staged versus lump-sum investment, risk, hypothetical maintenance-margin level, spot-price slippage, mining, staking, AMM, token unlocking, allocation, volatility, peg observations and scenario stress. No live exchange data or financial recommendation.
+- **12 portfolio workspace routes:** chronological CSV trade import with header mapping and journal CRUD; FIFO and weighted-average cost basis, allocation heatmap, dated TWR/XIRR and independent drawdown/recovery visuals, historical OHLCV and rolling volatility, no-look-ahead next-opening-price SMA backtest, normalized comparisons and rolling Pearson correlation, wallet safety, block-halving and network-fee education, documented manual token-supply chart and PBKDF2/AES-GCM local encrypted backup and restore.
+- **10 functioning on-brand Fun & Share games:** dated local DCA CSV, animated fictional HODL graph, original SVG artwork, proportional allocation bars, mining cost versus hypothetical revenue, supply-change visual, scam-warning bingo and three-question crypto vocabulary. User-initiated Web Share, Copy Result and result PNG; reduced-motion and accessibility support.
+- **13 original educational research articles** (10 reviewed-format entries in sites/coinmetriq/articles.json and three original worked arithmetic articles) across four indexed category sections with human-readable FAQs, truthful sources and relevant working tools. JSON drafts are not indexed or emitted; independent editorial approval remains distinct from syntactic QA.
+- **All original 30 topic URLs preserved and rewritten into original worked source-referenced research notes:** 27 evergreen technical/educational research guides are indexable with Article markup; crypto-regulations, crypto-tax-concepts and crypto-news-research remain noindex pending enhanced human/current-source review. None represents a live crypto price or legal determination.
+- **Four trust pages** now published in source: Contact/Corrections, Editorial Standards, Financial/Technical Disclaimer and Help, with real GitHub issues channel and accurate privacy limits. No fake email/author/certification.
+- **Free-first production aids:** 20-route real-host HTTPS health checker, twice-weekly/manual GitHub Actions workflow, editorial/SEO audit, mobile responsive CSS, clientside local files and optional encrypted backups, real-ID-only AdSense ownership meta and ads.txt generation (ad serving stays disabled pending legitimate approval and consent).
 
-### GitHub evidence
+### Verified GitHub evidence
 
-- [PR #1 — initial 10 calculators, original articles and Fun Lab](https://github.com/cseashrafulislam/Monorepo/pull/1)
-- [PR #2 — 5 additional source-free crypto analytics tools](https://github.com/cseashrafulislam/Monorepo/pull/2)
-- [PR #3 — all 10 shareable fun games](https://github.com/cseashrafulislam/Monorepo/pull/3)
-- [PR #4 — private portfolio desk, CSV ledger, FIFO/WAC, TWR/XIRR, OHLCV, backtest and encrypted backup](https://github.com/cseashrafulislam/Monorepo/pull/4)
-- [PR #5 — eight original long-format source-backed educational articles](https://github.com/cseashrafulislam/Monorepo/pull/5)
-- [PR #6 — additional scenario analysis, heatmap, rolling correlation and real browser/technical SEO QA](https://github.com/cseashrafulislam/Monorepo/pull/6)
-- [PR #7 — independently publish-gated \`articles.json\` plus automated editorial validation](https://github.com/cseashrafulislam/Monorepo/pull/7)
-- [PR #8 — dated supply/unlock and historical rolling volatility chart](https://github.com/cseashrafulislam/Monorepo/pull/8)
-- [Last confirmed successful CI: main SHA \`47c8ab74034aed4aa2e27b153d4300260d4cd4a7\`](https://github.com/cseashrafulislam/Monorepo/actions/runs/45117836219). **33 Node tests passed, 0 failures; 0 technical SEO audit errors; content audit passed; Chromium browser smoke passed for the calculators, all 10 fun games, journal, cost basis, OHLCV, SMA backtest, returns, comparison, network fee, token emissions and AES-GCM backup; all other Monorepo browser smoke jobs passed**.
+- PRs [#9 — 30 researched topics](https://github.com/cseashrafulislam/Monorepo/pull/9), [#10 — trust/AdSense/real-host monitor](https://github.com/cseashrafulislam/Monorepo/pull/10), [#11 — article categories/FAQ](https://github.com/cseashrafulislam/Monorepo/pull/11), [#12 — DCA and slippage articles](https://github.com/cseashrafulislam/Monorepo/pull/12), [#13 — recurring DCA, modeled liquidation threshold and recovery chart](https://github.com/cseashrafulislam/Monorepo/pull/13), [#14 — visual fun lab/CSV games](https://github.com/cseashrafulislam/Monorepo/pull/14) were merged to main. Earlier PRs #1–#8 also remain merged.
+- [Latest successful CI — main SHA dfe65ec03d4a12d44725703f65d9fd9c06b1dabd](https://github.com/cseashrafulislam/Monorepo/actions/runs/45121383055): **44 Node tests pass, 0 failures; 88 generated CoinMetriq HTML pages, 84 indexable sitemap URLs, 27 original indexed research topics, 3 review-only noindex topics, 0 technical SEO audit errors; original content audit and real headless Chrome browser smoke pass (including 10 fun games, visual quizzes, CSV ledger, charts, backtest and AES-GCM backup).** Existing TechOrvia and country browser smoke pass.
+- **Completion flags below mean tested source code or generated static HTML only.** They do not mean domain ownership verified, successful public Cloudflare release, search engine inclusion, editorial legal sign-off, AdSense approval or revenue.
 
-### Production gate — still UNVERIFIED, not "fully done"
+### Actual remaining production gates — deliberately unchecked
 
-- **Cloudflare Pages live deployment:** actual project build, public reachability, custom production hostname, SSR/cache state and live routes are unverified. The public web checker returned an access error for \`coinmetriq.pages.dev\`; this does *not* prove downtime. CI success proves generated site/build/browser tests, not Cloudflare production delivery.
-- **Google Search Console & Bing Webmaster ownership:** the user's authorized property verification, sitemap submission, indexing/search queries, and AI-search citation measurement have not been confirmed.
-- **AdSense/monetization:** publisher approval, exact eligible hostname (including \`pages.dev\` eligibility), required ad account IDs, ads.txt/consent and any actual revenue/RPM have not been confirmed. No fabricated ads, publisher IDs or claims of earnings.
-- **Editorial:** the 30 short topic intro pages are still noindex pending substantive source-backed original editorial expansion. The added 11 articles are not a claim that all crypto topics or user instructions have been independently fact-checked by a human expert.
-- **Quality boundaries:** live mobile/network performance, accessibility audit on actual low-end devices, actual commercial licensing of potential live price/API sources, historical legal/tax country rules, and account-gated analytics/ads checks remain distinct external verification items. Wallet safety checklists and cost basis calculations are educational and not personal security certifications or tax filings.
-- **Remaining requested stretch scope:** fully editable arbitrary portfolio histories beyond supported long-only USD trades; generalized multiperiod cost basis/FX and off-exchange transfers; independent broad market data feeds with confirmed commercial-use licenses; automatic scheduled SitePilot content generation/publication; independent source review for all 30 legacy topics, and continuous real-visitor growth tracking. No invented completeness score.
+- **Cloudflare:** actual production deployment for coinmetriq.pages.dev or owned canonical domain has not been independently confirmed. Public web fetch failed in this session (a checker access error is NOT proof of downtime). Run the actual-host GitHub workflow and inspect Cloudflare project build routes and canonical host. Source build success is not deployment evidence.
+- **Google/Bing:** account ownership verification, official Search Console/Bing property setup, sitemap acceptance, real indexation, SEO queries, AI citations and live referral data are unverified and require legitimate account permission.
+- **AdSense:** an authentic publisher ID, approval/Ready status, valid hostname/domain, live ads.txt verification, applicable certified CMP, compliant placements and actual revenue are unverified. No ad scripts are enabled or fabricated. The builder supports genuine ID ownership verification only when configured.
+- **Source editorial:** all legal/tax/current-news guides remain noindex. External references may change; financial/legal/security claims need actual current expert/official-source checks, and optional live datasets require verified ad-funded commercial-use licensing. Current implementation intentionally works entirely with user-entered sample/CSV data.
+- **Strict product constraints:** no registration or payment, 14 distinct standalone brands and no unsafe market prediction. Future optional real data must not use a commercially restricted free feed.
+- **Remaining exact CoinMetriq feature backlog:** CM-023 requires independently verified issuer source documentation beyond optional manually supplied attribution; CM-033 requires a genuinely licensed live data provider before enabling any optional feed. Extra premium-like app behavior is not required. FUN-CM-007 and FUN-CM-008 remain open for richer per-game animated revenue/issuance sequences (the current simpler visual and math games work).
+- **Operational verification:** real mobile/low-memory human accessibility inspection, live Cloudflare error/performance assessment, original-source editorial review, Google/Bing/AdSense authorized account results and ongoing growth analytics are not covered by static CI.
 
-**Source delivery is substantial and tested, but user-requested 100% production completeness is not demonstrated. Do not check every CM / ART / FUN / SEO / OPS task as complete solely because source code or build passes. Preserve the one-site gate and keep other 13 products unchanged until Site 1 is truly closed.**
-
+**Sequential gate:** CoinMetriq source implementation has advanced substantially and passed GitHub tests, but do not mark overall Site 1 fully done or switch to Site 2 (EarthViora) until the actual production/external verification gate is closed or the user explicitly accepts the remaining owner-only dependencies.
 
 ## OPERATING RULE: PAGE SEO SHIPS WITH THE PAGE; REMAINING SITE WORK IS SEPARATE
 
@@ -175,41 +170,41 @@ Sections indicate distinct product ownership, not versions, phases or chronology
 
 **User:** Portfolio researchers and crypto risk analysts. **Interface:** Research terminal, local portfolio table and historical risk chart. **Scope:** Crypto portfolios, on-chain concepts and strategy analysis only.
 
-- [ ] **CM-001** Trade P&L including all transaction fees
-- [ ] **CM-002** Average buy price and break-even sale
-- [ ] **CM-003** DCA schedule and compounded scenario comparison
-- [ ] **CM-004** Lump sum versus DCA
-- [ ] **CM-005** Local transaction CSV import and field mapping
-- [ ] **CM-006** FIFO and weighted-average cost-basis ledger
-- [ ] **CM-007** Portfolio allocation and rebalance planner
-- [ ] **CM-008** Portfolio historical equity curve
-- [ ] **CM-009** Time-weighted return and XIRR
-- [ ] **CM-010** Risk concentration heatmap
-- [ ] **CM-011** Rolling volatility and correlation
-- [ ] **CM-012** Drawdown and recovery chart
-- [ ] **CM-013** Historical OHLCV CSV upload and charts
-- [ ] **CM-014** Backtesting on user-supplied price CSV
-- [ ] **CM-015** Trade journal and strategy tags
-- [ ] **CM-016** Position size and stop loss risk budget
-- [ ] **CM-017** Risk/reward and expectancy estimator
-- [ ] **CM-018** Trading slippage and execution-cost model
-- [ ] **CM-019** Hypothetical leverage liquidation scenario with warning
-- [ ] **CM-020** Mining electricity/capex/ROI calculation
-- [ ] **CM-021** Staking APR/APY and token reward projection
-- [ ] **CM-022** Liquidity pool impermanent loss
+- [x] **CM-001** Trade P&L including all transaction fees
+- [x] **CM-002** Average buy price and break-even sale
+- [x] **CM-003** DCA schedule and compounded scenario comparison
+- [x] **CM-004** Lump sum versus DCA
+- [x] **CM-005** Local transaction CSV import and field mapping
+- [x] **CM-006** FIFO and weighted-average cost-basis ledger
+- [x] **CM-007** Portfolio allocation and rebalance planner
+- [x] **CM-008** Portfolio historical equity curve
+- [x] **CM-009** Time-weighted return and XIRR
+- [x] **CM-010** Risk concentration heatmap
+- [x] **CM-011** Rolling volatility and correlation
+- [x] **CM-012** Drawdown and recovery chart
+- [x] **CM-013** Historical OHLCV CSV upload and charts
+- [x] **CM-014** Backtesting on user-supplied price CSV
+- [x] **CM-015** Trade journal and strategy tags
+- [x] **CM-016** Position size and stop loss risk budget
+- [x] **CM-017** Risk/reward and expectancy estimator
+- [x] **CM-018** Trading slippage and execution-cost model
+- [x] **CM-019** Hypothetical leverage liquidation scenario with warning
+- [x] **CM-020** Mining electricity/capex/ROI calculation
+- [x] **CM-021** Staking APR/APY and token reward projection
+- [x] **CM-022** Liquidity pool impermanent loss
 - [ ] **CM-023** Token emission/unlock dilution visualizer from cited documents
-- [ ] **CM-024** Stablecoin peg deviation from licensed data or CSV
-- [ ] **CM-025** On-chain network fee and confirmation concept tool
-- [ ] **CM-026** Wallet safety/approval risk educational checklist
-- [ ] **CM-027** Phishing signal interactive checklist
-- [ ] **CM-028** Bitcoin halving/supply verified timeline
-- [ ] **CM-029** Portfolio price-shock stress test
-- [ ] **CM-030** Multiple portfolio side-by-side comparison
-- [ ] **CM-031** Local encrypted export and device backup
-- [ ] **CM-032** Accurate delayed/stale data source labels
+- [x] **CM-024** Stablecoin peg deviation from licensed data or CSV
+- [x] **CM-025** On-chain network fee and confirmation concept tool
+- [x] **CM-026** Wallet safety/approval risk educational checklist
+- [x] **CM-027** Phishing signal interactive checklist
+- [x] **CM-028** Bitcoin halving/supply verified timeline
+- [x] **CM-029** Portfolio price-shock stress test
+- [x] **CM-030** Multiple portfolio side-by-side comparison
+- [x] **CM-031** Local encrypted export and device backup
+- [x] **CM-032** Accurate delayed/stale data source labels
 - [ ] **CM-033** Optional live data ONLY when commercial reuse is licensed
-- [ ] **CM-034** CSV-only fallback fully usable without API
-- [ ] **CM-035** Unique method guides for fees, risk, drawdown and tax-lot caveats
+- [x] **CM-034** CSV-only fallback fully usable without API
+- [x] **CM-035** Unique method guides for fees, risk, drawdown and tax-lot caveats
 
 ### EarthViora — one unique product checklist
 
@@ -1387,11 +1382,11 @@ When continuing the work, read this exact Markdown file first. Identify unchecke
 #### CoinMetriq
 
 - [ ] **SEO-CM-001** Validate candidate query-intent clusters using real search data, no invented keyword volumes: crypto average buy price; DCA investment; crypto trading fees; drawdown simulator
-- [ ] **SEO-CM-002** Ensure only one canonical functional landing page per distinct tool or data task; protect previous working URLs
-- [ ] **SEO-CM-003** Create original useful job-to-be-done tutorial: Original CSV portfolio and fee risk walkthrough
-- [ ] **SEO-CM-004** Expose accurate method, real output, input units, evidence/last-checked date and limitations in crawlable HTML
-- [ ] **SEO-CM-005** Build genuinely relevant in-product internal links without copying other brands' guides
-- [ ] **SEO-CM-006** Verify this product boundary: No MoneyAvora credit loans or generic news
+- [x] **SEO-CM-002** Ensure only one canonical functional landing page per distinct tool or data task; protect previous working URLs
+- [x] **SEO-CM-003** Create original useful job-to-be-done tutorial: Original CSV portfolio and fee risk walkthrough
+- [x] **SEO-CM-004** Expose accurate method, real output, input units, evidence/last-checked date and limitations in crawlable HTML
+- [x] **SEO-CM-005** Build genuinely relevant in-product internal links without copying other brands' guides
+- [x] **SEO-CM-006** Verify this product boundary: No MoneyAvora credit loans or generic news
 - [ ] **SEO-CM-007** Test metadata, indexability, crawl and mobile behavior on public canonical URL
 - [ ] **SEO-CM-008** Measure search query clicks and real tool completion, plus actual ad account metrics separately
 
@@ -1623,10 +1618,10 @@ When continuing the work, read this exact Markdown file first. Identify unchecke
 
 #### CoinMetriq
 
-- [ ] **ART-CM-001** Create site-specific original article listing and category navigation with different layout/voice for Crypto explainers and portfolio research.
-- [ ] **ART-CM-002** Offer relevant original and researched content about: DCA vs lump sum; transaction fees; slippage; average entry; risk metrics.
-- [ ] **ART-CM-003** Link each applicable article to the actual working Local portfolio/DCA/fees tools; preserve existing tool canonical/URL.
-- [ ] **ART-CM-004** Make category/source/FAQ/example/schema and SEO/GEO suitability part of publication, not retrofitted later.
+- [x] **ART-CM-001** Create site-specific original article listing and category navigation with different layout/voice for Crypto explainers and portfolio research.
+- [x] **ART-CM-002** Offer relevant original and researched content about: DCA vs lump sum; transaction fees; slippage; average entry; risk metrics.
+- [x] **ART-CM-003** Link each applicable article to the actual working Local portfolio/DCA/fees tools; preserve existing tool canonical/URL.
+- [x] **ART-CM-004** Make category/source/FAQ/example/schema and SEO/GEO suitability part of publication, not retrofitted later.
 - [ ] **ART-CM-005** Apply domain-specific source rights, examples, accuracy and review requirements before article is indexable.
 - [ ] **ART-CM-006** Track original article organic search performance and task completions separately from tool landing pages.
 
@@ -1819,19 +1814,19 @@ When continuing the work, read this exact Markdown file first. Identify unchecke
 
 **Purpose:** Playful crypto-risk literacy based on transparent math and hypothetical/sample data, not real investment predictions.
 
-- [ ] **FUN-CM-001** Fee Goblin: see tiny transaction fees eat hypothetical profits across trading frequency
-- [ ] **FUN-CM-002** DCA Time Machine: compare fictional buy schedules using user-imported price CSV
-- [ ] **FUN-CM-003** HODL Rollercoaster: animated drawdown and recovery ride from dated user-entered values
-- [ ] **FUN-CM-004** Moon Math vs Reality: humorous unrealistic return target deconstruction with calculator
-- [ ] **FUN-CM-005** Portfolio Personality Card: fun risk-habit quiz explicitly not psychometric/investment advice
-- [ ] **FUN-CM-006** What-if Coin Split: allocation bar game and concentration explanations
+- [x] **FUN-CM-001** Fee Goblin: see tiny transaction fees eat hypothetical profits across trading frequency
+- [x] **FUN-CM-002** DCA Time Machine: compare fictional buy schedules using user-imported price CSV
+- [x] **FUN-CM-003** HODL Rollercoaster: animated drawdown and recovery ride from dated user-entered values
+- [x] **FUN-CM-004** Moon Math vs Reality: humorous unrealistic return target deconstruction with calculator
+- [x] **FUN-CM-005** Portfolio Personality Card: fun risk-habit quiz explicitly not psychometric/investment advice
+- [x] **FUN-CM-006** What-if Coin Split: allocation bar game and concentration explanations
 - [ ] **FUN-CM-007** Mining Electric Bill Monster: animated energy expense versus hypothetical revenue
 - [ ] **FUN-CM-008** Token Unlock Surprise: visually demonstrate dilution from a fictional token schedule
-- [ ] **FUN-CM-009** Scam Red Flag Bingo: identify common bogus promises and wallet security cues
-- [ ] **FUN-CM-010** Crypto Terms Emoji Decoder: learn network, gas and liquidity vocabulary through playful quizzes
-- [ ] **FUN-CM-011** Implement one brand-specific /fun/ home with accurate preview, relevant links and original artwork, accessible on mobile.
-- [ ] **FUN-CM-012** Generate user-triggered safe share card + copy link/download alternative; link meaningful next product utility without forcing a share.
-- [ ] **FUN-CM-013** Regression-test sample inputs, joke/trivia accuracy, privacy controls, unique SEO intent and nonintrusive ad placement.
+- [x] **FUN-CM-009** Scam Red Flag Bingo: identify common bogus promises and wallet security cues
+- [x] **FUN-CM-010** Crypto Terms Emoji Decoder: learn network, gas and liquidity vocabulary through playful quizzes
+- [x] **FUN-CM-011** Implement one brand-specific /fun/ home with accurate preview, relevant links and original artwork, accessible on mobile.
+- [x] **FUN-CM-012** Generate user-triggered safe share card + copy link/download alternative; link meaningful next product utility without forcing a share.
+- [x] **FUN-CM-013** Regression-test sample inputs, joke/trivia accuracy, privacy controls, unique SEO intent and nonintrusive ad placement.
 
 #### EarthViora — Planet Playground
 
