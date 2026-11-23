@@ -1,0 +1,266 @@
+{
+  "schemaVersion": 1,
+  "editorialPolicy": "Only publish original reviewed educational work with genuine sources, working same-brand links, and correct rights. Do not mass-publish low-value AI drafts.",
+  "articles": [
+    {
+      "slug": "fifo-versus-weighted-average-crypto-cost-basis",
+      "title": "FIFO vs weighted-average crypto cost basis: a worked ledger",
+      "excerpt": "Calculate proceeds, fees, realized profit and the remaining inventory without confusing a trading estimate with a tax return.",
+      "href": "/portfolio/cost-basis/",
+      "paragraphs": [
+        [
+          "Why trade-level cost matters",
+          "A total portfolio gain does not tell you the cost of a specific disposal. Each purchase adds a quantity of tokens and a fee-inclusive purchase cost. Each sale produces net proceeds after its selling fee. Realized P&L compares net proceeds with the part of historical purchase cost allocated to the quantity sold. This arithmetic is consistent even when price quotes fluctuate."
+        ],
+        [
+          "FIFO example",
+          "Imagine buying 2 tokens at USD 100 each with a USD 2 fee, then 3 tokens at USD 120 each with a USD 3 fee. The first lot has a total cost of USD 202, or USD 101 per token. If you later sell one token for USD 150 and pay USD 1 selling fee, FIFO gives USD 149 net proceeds, USD 101 cost basis, and USD 48 realized profit. The remaining four tokens retain their own underlying purchase costs."
+        ],
+        [
+          "Weighted-average example",
+          "With the same five tokens purchased for a total of USD 565, the weighted-average cost is USD 113 per token. The same one-token sale at net proceeds of USD 149 produces USD 36 realized profit under this arithmetic method. The cash proceeds did not change; the allocated basis did. For this illustration, FIFO and weighted-average results differ by USD 12 because of their different cost allocation conventions."
+        ],
+        [
+          "Data workflow and limits",
+          "Import rows in chronological order, with distinct transaction IDs, asset ticker, BUY/SELL, quantity, USD price and USD fee. Reject a sale larger than the recorded holdings rather than silently allowing a short sale. This calculator assumes one USD quote currency, long-only positions, no coin transfers, no fork/airdrop adjustments and no tax-lot elections. Which method is legally appropriate depends on jurisdiction and records, so the figures are not a filing recommendation."
+        ]
+      ],
+      "sources": [
+        [
+          "Bitcoin developer transaction structure",
+          "https://developer.bitcoin.org/devguide/transactions.html"
+        ]
+      ]
+    },
+    {
+      "slug": "time-weighted-return-versus-xirr",
+      "title": "Time-weighted return vs XIRR: which performance number is different?",
+      "excerpt": "A reproducible example separates investment growth from cash deposits and explains two commonly confused performance measures.",
+      "href": "/portfolio/performance/",
+      "paragraphs": [
+        [
+          "The difference in purpose",
+          "Time-weighted return (TWR) aims to measure changes in portfolio value independently from the size and timing of outside cash deposits. XIRR is a money-weighted annualized rate that depends on the dated amounts of contributions and withdrawals. They often disagree for perfectly legitimate reasons. A single headline return does not reveal whether it includes new investor capital."
+        ],
+        [
+          "One worked TWR interval",
+          "Assume a portfolio opens at USD 1,000. After performance, but immediately before a USD 100 end-of-period deposit, its value is USD 1,050. At the period end, the recorded account value becomes USD 1,150. With the deposit treated as occurring at the end, the period return equals (1,150 − 100) / 1,000 − 1 = 5%, not 15%. Chain subsequent period factors to estimate total TWR."
+        ],
+        [
+          "One worked XIRR interval",
+          "An investment of USD 1,000 on January 1, 2026 and a withdrawal of USD 1,100 on January 1, 2027 have a 10% annualized XIRR under a 365-day year for this simple two-flow case. A midyear contribution alters the money-weighted result even when the asset price path is unchanged. The numerical root solves the sum of dated cash flows discounted by (1 + r) raised to the elapsed-year fractions."
+        ],
+        [
+          "Read the assumptions before trusting the result",
+          "The browser TWR worksheet assumes external contributions and withdrawals happen at the end of each valuation interval. Provide a valuation on each material cashflow day to limit distortion. The XIRR solver rejects cashflows with multiple sign changes, because such cases may have multiple mathematically valid roots. Neither number includes unrecorded market prices, custody losses or future investment performance."
+        ]
+      ],
+      "sources": [
+        [
+          "CFA Institute: Global Investment Performance Standards overview",
+          "https://www.gipsstandards.org/"
+        ]
+      ]
+    },
+    {
+      "slug": "crypto-backtesting-without-look-ahead",
+      "title": "Why a moving-average backtest must not trade on tomorrow's information",
+      "excerpt": "Work through previous-close trading signals, next-open simulated fills and costs with a transparent historical data example.",
+      "href": "/portfolio/backtest/",
+      "paragraphs": [
+        [
+          "What look-ahead bias means",
+          "A historical strategy can appear impressive when a simulator accidentally lets it trade at a price that was not known until later. For example, computing a moving-average crossover from a day's closing price and then pretending the trade occurred at the beginning of that same day uses future information. The apparent success cannot be reproduced in real time using that rule."
+        ],
+        [
+          "One reproducible signal",
+          "Consider a simple moving average (SMA) over two recent closes and another over three recent closes. At the end of day 3, the observed closes are 10, 11 and 12 USD. The fast average is (11 + 12) / 2 = 11.5; the slow average is (10 + 11 + 12) / 3 = 11. If a strategy first permits purchases when the fast average exceeds the slow one, the earliest hypothetical execution based on those observations is day 4's opening price, not day 3's opening price."
+        ],
+        [
+          "What the scenario engine models",
+          "The CoinMetriq SMA teaching tool holds either cash or a long position. It uses prior-close data to decide each next-open buy or sale, applies the stated percentage fee to each simulated transaction, and revalues the position at that day's closing price. A companion buy-and-hold comparison uses the same initial cash and a simplified fee-inclusive entry. Both are hypothetical, deterministic and fully based on your imported historical OHLCV rows."
+        ],
+        [
+          "What it cannot infer",
+          "The tool does not simulate spread, live order-book liquidity, market impact, funding, tax, chain latency or exchange downtime. Selecting SMA lengths after seeing the historical results can itself overfit the sample. A larger or more sophisticated backtest is not proof that the strategy will work in unseen market conditions, and none of the results are a trade recommendation."
+        ]
+      ],
+      "sources": [
+        [
+          "Bitcoin historical market data is not embedded; use your own lawfully obtained CSV",
+          "https://developer.bitcoin.org/"
+        ]
+      ]
+    },
+    {
+      "slug": "crypto-wallet-phishing-and-token-approvals",
+      "title": "Crypto wallet permissions: spotting approval and recovery-phrase scams",
+      "excerpt": "Recognize suspicious token approval requests and recovery-phrase demands without ever connecting a wallet to this website.",
+      "href": "/portfolio/safety/",
+      "paragraphs": [
+        [
+          "Why a wallet connection is not a trust certificate",
+          "A wallet can display an account address or a pending signature request without proving that the requesting website is trustworthy. A familiar logo, a screenshot of a celebrity, or a supposed moderator's private message is not independent verification. Check the real project domain through an independently sourced channel rather than clicking links offered inside a surprise message."
+        ],
+        [
+          "Private keys and recovery phrases",
+          "A recovery phrase can grant access to wallet funds. A legitimate troubleshooting website does not need to receive your phrase to calculate a portfolio fee or explain blockchain concepts. CoinMetriq has no wallet connector and deliberately provides no field for secret phrases. Do not paste wallet keys, recovery phrases, exchange login credentials or personally sensitive records into any public research form."
+        ],
+        [
+          "Allowance and permit risk",
+          "On some token networks, a dapp may ask for permission to spend a token up to an allowance. The authorization can persist beyond the first transaction. A signature may authorize a later action even if the immediate page looks harmless. Before approving, inspect the target contract/network, the requested permission, the amount and the wallet's available transaction details. If unsure, stop."
+        ],
+        [
+          "Fictional warning-sign checklist",
+          "A marketing page guarantees extraordinary returns with zero risk, then asks for your recovery phrase to release an airdrop or demands an unusual unlock fee before a withdrawal. These are warning signs, not proof of any particular exchange's behavior. Use a securely bookmarked official source or trusted independent provider documentation to check claims. An educational checklist cannot certify a wallet or smart contract as safe."
+        ]
+      ],
+      "sources": [
+        [
+          "MetaMask safety guidance",
+          "https://support.metamask.io/stay-safe/safety-in-web3/"
+        ],
+        [
+          "MetaMask recovery phrase security",
+          "https://support.metamask.io/hc/en-us/articles/4404722782107"
+        ],
+        [
+          "MetaMask token approval and signature phishing",
+          "https://support.metamask.io/privacy-and-security/staying-safe-in-web3/signature-phishing/"
+        ]
+      ]
+    },
+    {
+      "slug": "bitcoin-block-reward-versus-fees",
+      "title": "Bitcoin halving, block subsidy and transaction fees are three different concepts",
+      "excerpt": "A historical block-height timeline distinguishes new coin issuance, total miner reward and network transaction fees.",
+      "href": "/portfolio/halving/",
+      "paragraphs": [
+        [
+          "Block reward is made from two parts",
+          "A Bitcoin miner who successfully constructs a valid block may claim a block subsidy and the transaction fees associated with eligible included transactions. The block subsidy is newly issued bitcoin, while transaction fees are value transferred from users according to their transactions. Calling the entire miner reward newly minted bitcoin is therefore incorrect."
+        ],
+        [
+          "The four past subsidy changes",
+          "At block heights 210,000, 420,000, 630,000 and 840,000 the subsidy decreased from 50 to 25, 12.5, 6.25 and 3.125 BTC per block, respectively. These historical transitions occurred in 2012, 2016, 2020 and 2024. The 210,000-block schedule is defined by consensus rules, not by a promise that a new block must appear every ten minutes precisely."
+        ],
+        [
+          "Future dates and market prices",
+          "The next scheduled block-height threshold is a protocol calculation, not a fixed calendar date. Actual dates depend on the observed rate at which blocks are found and on network conditions. Bitcoin's supply rule is not a pricing model; historical halvings do not demonstrate that the USD price must rise by a specified multiplier on a future date."
+        ],
+        [
+          "How to use the timeline safely",
+          "The historical timeline labels a past subsidy transition and points readers to Bitcoin technical references. For any financial research based on a specific block event, independently verify chain history, UTC timestamps and current consensus implementation. Transaction fees and the full miner reward must be considered separately from the subsidy count."
+        ]
+      ],
+      "sources": [
+        [
+          "Bitcoin Developer Guide: block chain",
+          "https://developer.bitcoin.org/devguide/block_chain.html"
+        ],
+        [
+          "Bitcoin Developer Reference: block chain",
+          "https://developer.bitcoin.org/reference/block_chain.html"
+        ],
+        [
+          "Bitcoin Core source",
+          "https://github.com/bitcoin/bitcoin"
+        ]
+      ]
+    },
+    {
+      "slug": "network-fee-rate-versus-transaction-size",
+      "title": "Why a network fee rate and a transaction fee are not the same number",
+      "excerpt": "Convert virtual bytes and a user-entered fee rate to satoshis, BTC and a hypothetical USD equivalent.",
+      "href": "/portfolio/network-fees/",
+      "paragraphs": [
+        [
+          "A calculation with labeled units",
+          "For a Bitcoin-like transaction, suppose a raw or virtual size estimate is 140 vbytes and the chosen hypothetical rate is 5 satoshis per vbyte. Multiplication produces 700 satoshis. Since one BTC has 100 million satoshis, this is 0.000007 BTC. If a manual BTC/USD reference were 80,000, the illustrative fiat equivalent would be USD 0.56. None of these example inputs is a recommended live rate."
+        ],
+        [
+          "A rate does not guarantee confirmation time",
+          "A fee rate expresses a bid for the scarce space in a block. The result depends on transaction structure and network policy, other users' demand and miner selection. A well-labeled fee estimator needs to distinguish vbytes from raw bytes and avoid treating its output as a guarantee of immediate inclusion."
+        ],
+        [
+          "What confirmations indicate",
+          "After a transaction enters a chain block, each subsequent block built on that block adds another confirmation according to common counting conventions. Confirmation count can be evidence of additional accumulated work, but it is not an absolute guarantee that the chain cannot reorganize. Different blockchains have different finality and fee models."
+        ],
+        [
+          "When your inputs are stale",
+          "CoinMetriq deliberately avoids a live mempool connection. If you enter a hypothetical rate from an old article, the arithmetic remains correct while the practical payment outcome may differ completely. For current fees, use reliable wallet/provider tooling and independently verify that you are transacting on the intended chain."
+        ]
+      ],
+      "sources": [
+        [
+          "Bitcoin developer transaction fee guide",
+          "https://developer.bitcoin.org/devguide/transactions.html"
+        ],
+        [
+          "Bitcoin blockchain reference",
+          "https://developer.bitcoin.org/reference/block_chain.html"
+        ]
+      ]
+    },
+    {
+      "slug": "staking-apr-versus-apy-explained",
+      "title": "Staking APR vs APY: what a compounding example actually shows",
+      "excerpt": "Turn a nominal staking rate into a mathematical compounding scenario without inventing yield or market guarantees.",
+      "href": "/studio/staking-apy/",
+      "paragraphs": [
+        [
+          "APR and effective APY differ",
+          "A nominal annual percentage rate describes an annual rate without necessarily accounting for reinvestment frequency. An effective compounded annual percentage yield (APY), in a simplified deterministic scenario, equals (1 + APR / periods)^periods − 1, with APR expressed as a fraction. If rewards are not actually reinvested, this textbook formula is not the realized return."
+        ],
+        [
+          "A clear scenario with numbers",
+          "Assume 100 example tokens, a stated nominal 12% APR, and monthly compounding over one year. The final quantity is 100 × (1 + 0.12/12)^12, approximately 112.6825 tokens. The extra 12.6825 tokens exceed a simple noncompounded 12-token result because the model reinvests each monthly reward. The formula is an assumption, not a current provider quotation."
+        ],
+        [
+          "What real staking may introduce",
+          "Network validation can include variable rewards, slashing, penalties, lockups, custody risk and the difference between liquid receipt tokens and underlying token holdings. Market price may decline even while the token count rises. Taxes and fees may further reduce realizable returns. Carefully inspect the rules of the actual chain and chosen custodian."
+        ],
+        [
+          "Using the calculator",
+          "Enter starting token quantity, a hypothetical nominal APR, periods of compounding per year and duration in years. The browser returns the modeled token increase and effective annual rate. Treat every input as a scenario until validated against current provider terms, since the tool intentionally fetches no live APY feed."
+        ]
+      ],
+      "sources": [
+        [
+          "Ethereum staking risks and rewards",
+          "https://ethereum.org/en/staking/"
+        ]
+      ]
+    },
+    {
+      "slug": "liquidity-pool-impermanent-loss-example",
+      "title": "Constant-product AMM impermanent loss: an example without hype",
+      "excerpt": "Calculate a theoretical 50/50 pool's relative outcome versus holding the tokens, excluding fees and platform risks.",
+      "href": "/studio/impermanent-loss/",
+      "paragraphs": [
+        [
+          "What is being compared?",
+          "For a simplified 50/50 constant-product liquidity pool, the classical impermanent-loss expression compares the pool position value to holding the same starting tokens outside the pool after a relative price change. The expression is 2 × square-root(price ratio) / (1 + price ratio) − 1. It does not include fee income, incentive rewards or changes in protocol operation."
+        ],
+        [
+          "A two-to-one price example",
+          "If the price ratio rises from 1 to 2, the expression becomes 2 × √2 / 3 − 1, approximately −5.7191%. This negative percentage represents the theoretical shortfall relative to simply holding the original tokens. It does not state that the pool position's value fell by 5.7191% in dollar terms. Pool returns can still be positive or negative against different benchmarks."
+        ],
+        [
+          "The simplifying conditions",
+          "This equation is specific to the simple constant-product, 50/50 pool setup. Concentrated liquidity, unequal asset weights, changes in peg behavior, accrued trading fees, incentive distributions and protocol exploits alter the result. Readers should not apply the shortcut indiscriminately to every token pool."
+        ],
+        [
+          "Test with your own assumptions",
+          "Our calculator accepts only a positive new-to-old price ratio and shows the mathematical relative effect. To compare a real liquidity provider position, you would also need position boundaries, fees, token reserves, rewards and protocol-specific conditions. No historical price series or live pool state is fetched."
+        ]
+      ],
+      "sources": [
+        [
+          "Uniswap v2 core concepts",
+          "https://docs.uniswap.org/contracts/v2/concepts/protocol-overview/how-uniswap-works"
+        ]
+      ]
+    }
+  ]
+}
