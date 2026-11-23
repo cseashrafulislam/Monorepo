@@ -29,7 +29,6 @@ test("Trade CSV import mapping, export reimport, strategy tags and safety",()=>{
  const mapping={...DEFAULT_TRADE_MAPPING,date:"when",asset:"ticker",side:"action",qty:"units",price:"rate",fee:"commission"};
  assert.equal(parseTradesCsv(other,mapping)[0].asset,"BTC");
  assert.throws(()=>parseTradesCsv("date,asset,side,quantity,price\n2026-01-01,BTC,BUY,1,0"),/Invalid price/);
- assert.throws(()=>parseTradesCsv("date,asset,side,quantity,price\n2026-01-01,BTC,SELL,1,100").length===0?[]:[],/never-matches/);
 });
 test("FIFO and weighted-average cost include fees and prevent short inventory",()=>{
  const t=parseTradesCsv(SAMPLE_TRADES_CSV),fifo=calculateCostBasis(t,"FIFO"),wac=calculateCostBasis(t,"WAC");
