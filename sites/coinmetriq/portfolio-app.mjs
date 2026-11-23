@@ -4,6 +4,7 @@
  */
 import {parseCsv,parseTradesCsv,normalizeTrades,calculateCostBasis,calculateTwr,calculateXirr,exportTradesCsv,toCsv,SAMPLE_TRADES_CSV,isoDay} from "./ledger-core.mjs";
 import {encryptJournal,decryptJournal} from "./backup-core.mjs";
+import {riskFromOhlcvCsv,bootstrapRiskScenarios,SAMPLE_RISK_CSV} from "./risk-core.mjs";
 import {parseOhlcvCsv,summarizeOhlcv,backtestSma,parsePairsCsv,analyzeCorrelation,comparePortfolios,recoveryStats,rollingVolatility,parseSupplySchedule,summarizeSupplySchedule} from "./market-core.mjs";
 const storeKey="coinmetriq.journal.v1",sessionKey="coinmetriq.session.journal.v1";
 const fmt=(n,p=2)=>Number(n).toLocaleString("en-US",{minimumFractionDigits:p,maximumFractionDigits:p});
@@ -295,6 +296,42 @@ function setupCompare(form,out){
   }catch(err){fail(out,err);}
  });
 }
+function setupRisk(form,out){
+ const field=tx("risk-ohlcv",form);
+ readFile(tx("risk-file",form),field);
+ tx("risk-example",form)?.addEventListener("click",()=>{field.value=SAMPLE_RISK_CSV;field.focus();});
+ form.addEventListener("submit",ev=>{
+  ev.preventDefault();
+  try{
+   const source=field.value;
+   const confidence=Number(val(form,"confidence")),riskFreeAnnual=Number(val(form,"riskFree"));
+   const days=Number(val(form,"days")),seed=Number(val(form,"seed"));
+   const risk=riskFromOhlcvCsv(source,{confidence,riskFreeAnnual});
+   const bootstrap=bootstrapRiskScenarios(parseOhlcvCsv(source),{days,seed,paths:250});
+   lead(out,fmt(risk.historicalVarPct,4)+"% historical one-day "+risk.confidence+"% VaR","Empirical lower-tail loss estimate from "+risk.count+" observed returns. It is not an upper bound on loss, a future forecast or a trading recommendation.");
+   stats(out,[
+    ["Historical tail average loss",fmt(risk.historicalExpectedShortfallPct,4)+"%"],
+    ["Historical annualized volatility",fmt(risk.annualizedVolatilityPct,4)+"%"],
+    ["Sample peak-to-trough drawdown",fmt(risk.maxDrawdownPct,4)+"%"],
+    ["Sharpe illustration",risk.sharpe===null?"Undefined":fmt(risk.sharpe,4)],
+    ["Sortino illustration",risk.sortino===null?"Undefined":fmt(risk.sortino,4)],
+    ["Bootstrap paths / horizon",bootstrap.paths+" / "+bootstrap.days+" days"],
+    ["Hypothetical 5th–95th percentile ending index",fmt(bootstrap.p05)+" – "+fmt(bootstrap.p95)],
+    ["Fraction of resampled down paths (not a probability)",fmt(bootstrap.negativePercent,2)+"%"]
+   ]);
+   const note=make("p",risk.method+" "+bootstrap.method);out.append(note);
+   rowTable(out,["Observation date","Close-to-close return (%)"],risk.returns.map(p=>[p.date,fmt(p.returnPct,4)]),"Historical risk input audit");
+   const plot=tx("portfolio-chart",form);
+   const indexed=risk.curve.map(p=>({date:p.date,value:p.close/risk.curve[0].close*100}));
+   const svg=chart(plot,[{label:"Actual user-entered close (index 100)",points:indexed}],{title:"Indexed historical OHLCV price observations"});
+   const scenarioSection=make("section",undefined,"cm-portfolio-rolling"),caption=make("h3","Three illustrative resampled bootstrap paths"),slot=make("div");
+   scenarioSection.append(caption,slot);plot.append(scenarioSection);
+   chart(slot,bootstrap.samplePaths.map(p=>({label:"Bootstrap path "+p.sample,points:p.points.map(q=>({date:"Day "+q.step,value:q.index}))})),{title:"Deterministically resampled hypothetical paths, not predicted prices"});
+   setChartExport(form,svg);
+   setExport(form,risk.returns,["date","returnPct"]);
+  }catch(err){fail(out,err);}
+ });
+}
 function setupEmission(form,out){
  form.addEventListener("submit",ev=>{
   ev.preventDefault();
@@ -360,7 +397,7 @@ function setupBackups(){
 for(const form of document.querySelectorAll("form[data-cm-portfolio]")){
  const out=tx("portfolio-output",form);
  const job=form.dataset.cmPortfolio;
- const handlers={journal:setupJournal,costbasis:setupCostBasis,performance:setupPerformance,market:setupMarket,backtest:setupBacktest,compare:setupCompare,safety:setupSafety,fees:setupFees,emission:setupEmission};
+ const handlers={journal:setupJournal,costbasis:setupCostBasis,performance:setupPerformance,market:setupMarket,backtest:setupBacktest,compare:setupCompare,safety:setupSafety,fees:setupFees,emission:setupEmission,risk:setupRisk};
  if(handlers[job])handlers[job](form,out);
  tx("download-csv",form)?.addEventListener("click",()=>{
   if(!form._export?.rows?.length)return;
