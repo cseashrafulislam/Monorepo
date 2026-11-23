@@ -252,6 +252,12 @@ for(const id of targets){
   const {applyAdSenseVerification}=await import("../sites/coinmetriq/ads-verification.mjs");
   const verification=applyAdSenseVerification(out);
   console.log("CoinMetriq AdSense ownership preparation:",verification.configured?"Publisher ID supplied; ads.txt/meta present, ad serving disabled":"No publisher ID; no ads.txt or ad script");
+  const {applySearchVerification}=await import("../sites/coinmetriq/search-verification.mjs");
+  const searchOwners=applySearchVerification(out);
+  console.log("CoinMetriq Search Console/Bing tag setup:",searchOwners.google?"Google owner tag supplied":"Google owner tag unconfigured",searchOwners.bing?"Bing owner tag supplied":"Bing owner tag unconfigured");
+  const {stampCoinMetriqRelease}=await import("../sites/coinmetriq/release-provenance.mjs");
+  const release=stampCoinMetriqRelease(out);
+  console.log("CoinMetriq release metadata:",release.stamped?release.platform+" / "+release.sha:"local build without provider commit");
  }
  console.log("Built "+config.name+": "+topics.length+" topic guides"+(id==="techorvia"?" and "+tvRoutes.length+" tool/site routes":"")+".");
 }
