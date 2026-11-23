@@ -18,6 +18,8 @@ jobs:
         run: npm run check
       - name: CoinMetriq offline SEO, canonical and internal link audit
         run: npm run audit:coinmetriq
+      - name: Browser smoke-test CoinMetriq research and portfolio
+        run: npm run smoke:coinmetriq
       - name: Browser smoke-test TechOrvia tools
         run: node scripts/techorvia-browser-smoke.mjs
       - name: Browser smoke-test country editions
