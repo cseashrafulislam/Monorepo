@@ -1,0 +1,32 @@
+{
+  "slug": "replace-with-unique-task-intent",
+  "title": "Replace with an original useful research question and worked example",
+  "excerpt": "Explain the real user task and why this original guide adds value beyond an existing calculator.",
+  "status": "draft",
+  "publishedAt": null,
+  "href": "/portfolio/",
+  "paragraphs": [
+    [
+      "User problem",
+      "Write a genuinely specific, original practical explanation with actual reproducible data and scope."
+    ],
+    [
+      "Worked example",
+      "Show complete verified numeric input, method and result; avoid fabricated real-world market quotes."
+    ],
+    [
+      "When assumptions differ",
+      "Clarify fees, date, source licensing, exact calculation, risk and exceptions in this context."
+    ],
+    [
+      "What to do next",
+      "Link a functioning relevant CoinMetriq utility; explain what users should verify externally."
+    ]
+  ],
+  "sources": [
+    [
+      "Verified primary documentation",
+      "https://developer.bitcoin.org/"
+    ]
+  ]
+}
