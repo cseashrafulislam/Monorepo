@@ -87,8 +87,8 @@ test("AES-GCM encrypted backup restores, rejects tampering and wrong password",a
  const broken={...encoded,payload:encoded.payload.slice(0,-4)+"AAAA"};
  await assert.rejects(decryptJournal(broken,"a long test passphrase 123"),/corrupted|invalid/i);
 });
-test("Eleven indexable working portfolio pages and original routes coexist",()=>{
- const routes=portfolioRoutes();assert.equal(routes.length,12);
+test("Fourteen indexable working portfolio pages and original routes coexist",()=>{
+ const routes=portfolioRoutes();assert.equal(routes.length,14);
  const sitemap=fs.readFileSync(path.join(root,"sitemap.xml"),"utf8");
  for(const route of routes){
   const html=page(route);
