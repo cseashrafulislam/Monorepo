@@ -67,7 +67,7 @@
         "https://www.investor.gov/additional-resources/spotlight/crypto-assets"
       ]
     ],
-    "tool": "/studio/historical-volatility/",
+    "tool": "/studio/daily-volatility/",
     "status": "published",
     "publishedAt": "2026-11-23"
   },
