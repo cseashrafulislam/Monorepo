@@ -54,3 +54,15 @@
 @media(max-width:850px){.cm-portfolio-form .cm-extra-fields{grid-template-columns:1fr}}
 @media(max-width:600px){.cm-portfolio-output{padding-top:15px}.cm-journal-editor{grid-template-columns:repeat(2,minmax(0,1fr));padding:14px}.cm-portfolio-downloads{display:grid}.cm-portfolio-downloads button{width:100%}.cm-checklist{padding:16px}}
 @media(max-width:390px){.cm-journal-editor{grid-template-columns:1fr}}
+
+.cm-portfolio-heatmap{padding:20px 13px;margin:20px 0 25px;background:#102b35;border:1px solid #395e58;border-radius:11px}
+.cm-portfolio-heatmap h3{font-size:1rem;margin:0 0 14px}
+.cm-portfolio-heat-row{display:grid;grid-template-columns:minmax(0,170px) 1fr;gap:12px;margin:12px 0;align-items:center}
+.cm-portfolio-heat-row span{font-size:.87rem;color:#d7f7e4;font-weight:650}
+.cm-portfolio-heat-row meter{width:100%;height:24px}
+.cm-portfolio-heat-row meter::-webkit-meter-bar{background:#163b48;border:1px solid #3c655c;border-radius:9px}
+.cm-portfolio-heat-row meter::-webkit-meter-optimum-value{background:#a9eb70}
+.cm-portfolio-heat-row meter::-moz-meter-bar{background:#a9eb70}
+.cm-portfolio-rolling{padding-top:18px;border-top:1px solid #42615e}
+.cm-portfolio-rolling h3{margin:12px 0 14px;font-size:1.1rem}
+@media(max-width:550px){.cm-portfolio-heat-row{grid-template-columns:1fr;gap:5px}}
