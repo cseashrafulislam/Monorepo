@@ -11,6 +11,7 @@
     "test": "node --test tests/*.test.mjs",
     "check": "npm run build:all && npm run test",
     "audit:coinmetriq": "node scripts/coinmetriq-seo-audit.mjs",
-    "smoke:coinmetriq": "node scripts/coinmetriq-browser-smoke.mjs"
+    "smoke:coinmetriq": "node scripts/coinmetriq-browser-smoke.mjs",
+    "audit:content:coinmetriq": "node scripts/coinmetriq-content-audit.mjs"
   }
 }
