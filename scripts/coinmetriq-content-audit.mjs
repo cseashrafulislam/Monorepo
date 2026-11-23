@@ -17,6 +17,8 @@ for(const article of data.articles){
  if(!["draft","published"].includes(article.status))failures.push(article.slug+" must have draft/published status");
  if(article.status!=="published")continue;
  if(!validDate(article.publishedAt))failures.push(article.slug+" missing valid publishedAt");
+ if(!["Trading Mathematics","Portfolio Methods","Protocol & Network","Wallet Safety"].includes(article.category))failures.push(article.slug+" missing unique editorial category");
+ if(!Array.isArray(article.faq)||article.faq.length<2||article.faq.some(x=>!Array.isArray(x)||x.length!==2||x[0].length<12||x[1].length<40))failures.push(article.slug+" requires two substantive practical FAQs");
  if(String(article.title||"").length<35||String(article.excerpt||"").length<50)failures.push(article.slug+" needs descriptive unique title/excerpt");
  if(!Array.isArray(article.paragraphs)||article.paragraphs.length<4||article.paragraphs.some(p=>!Array.isArray(p)||p.length!==2||p[0].length<5||p[1].length<110))failures.push(article.slug+" requires four substantial original sections");
  if(!article.href?.startsWith("/")||article.href.includes("//")||article.href.includes(".."))failures.push(article.slug+" must link its own real tool");
