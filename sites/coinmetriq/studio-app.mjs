@@ -1,4 +1,5 @@
 import {calculateStudio} from "./studio-core.mjs";
+import {miningCostStory,tokenUnlockStory} from "./fun-math.mjs";
 /* Accessible client-only CoinMetriq calculators and mini games.
    Never stores or transmits user input. No remote API calls or auto sharing. */
 const escapeCsv=(s)=>String(s).replace(/[\r\n]/g," ");
@@ -135,6 +136,30 @@ function createFunSvg(box,points,title){
  create("text",{x:535,y:196,"text-anchor":"end",fill:"#adcbc7","font-size":12},points.at(-1).date);
  const wrapper=document.createElement("div");wrapper.className="cm-fun-visual";wrapper.append(svg);box.append(wrapper);
 }
+function createFunDualSvg(box,points,{title="Fictional cumulative expense and revenue"}={}){
+ if(points.length<2)return;
+ const ns="http://www.w3.org/2000/svg",svg=document.createElementNS(ns,"svg");
+ svg.setAttribute("viewBox","0 0 560 220");svg.setAttribute("role","img");
+ svg.setAttribute("class","cm-fun-svg");svg.setAttribute("aria-label",title);
+ const el=(tag,attr={},str)=>{
+  const n=document.createElementNS(ns,tag);
+  for(const [k,v] of Object.entries(attr))n.setAttribute(k,String(v));
+  if(str!==undefined)n.textContent=str;svg.append(n);return n;
+ };
+ el("title",{},title);
+ const ceiling=Math.max(0.01,...points.flatMap(p=>[p.cost,p.revenue]));
+ const toY=v=>169-v/ceiling*128;
+ el("path",{d:"M 30 169 L 533 169",stroke:"#577c78","stroke-width":1});
+ for(const [name,color] of [["cost","#f9bc79"],["revenue","#b4f578"]]){
+  const d=points.map((p,i)=>(i?" L ":"M ")+(30+i*503/(points.length-1)).toFixed(2)+" "+toY(p[name]).toFixed(2)).join("");
+  el("path",{d,fill:"none",stroke:color,"stroke-width":3.5,"stroke-linecap":"round","stroke-linejoin":"round",class:"cm-fun-trail","pathLength":"100"});
+ }
+ el("text",{x:30,y:196,fill:"#f9bc79","font-size":13},"Energy expense");
+ el("text",{x:300,y:196,fill:"#b4f578","font-size":13},"Fictional gross revenue");
+ const outer=document.createElement("div");outer.className="cm-fun-visual";outer.append(svg);
+ const caption=document.createElement("p");caption.textContent="Both curves share one USD axis from zero. Entered example totals are linearly allocated and not predicted actual mining receipts.";
+ outer.append(caption);box.append(outer);
+}
 function createFunSplit(box,share){
  const container=document.createElement("div");container.className="cm-fun-visual";
  const title=document.createElement("p");title.textContent="Fictional allocation: Coin A "+fmt(share,1)+"%, Coin B "+fmt(100-share,1)+"%";container.append(title);
@@ -214,19 +239,22 @@ for(const form of document.querySelectorAll("form[data-cm-fun]")){
      visual=box=>createFunSplit(box,share);break;
     }
     case "mining-monster":{
-     const watts=Number(v.watts),hours=Number(v.hours),tariff=Number(v.tariff),gross=Number(v.revenue);
-     if(!(watts>0&&watts<=1e7&&hours>0&&hours<=87600&&tariff>=0&&tariff<=1e5&&Number.isFinite(tariff)&&gross>=0&&Number.isFinite(gross)&&gross<=1e12))throw Error("Enter positive watts/hours, nonnegative tariff and hypothetical revenue.");
-     const energy=watts*hours/1000,expense=energy*tariff,net=gross-expense;
-     out={headline:"Power Goblin ate "+fmt(energy,2)+" kWh!",detail:"Fictional electricity expense $"+fmt(expense)+" versus hypothetical revenue $"+fmt(gross)+", leaving $"+fmt(net)+" before hardware, repairs, network reward changes and taxes."};
-     visual=box=>createFunSvg(box,[{date:"Gross USD",value:Math.max(gross,0.01)},{date:"Electricity USD",value:Math.max(expense,0.01)}],"Fictional mining revenue and energy expense comparison (not time series)");
+     const timeline=miningCostStory({watts:v.watts,hours:v.hours,tariff:v.tariff,revenue:v.revenue});
+     out={headline:"Power Goblin ate "+fmt(timeline.totalKwh,2)+" kWh!",detail:"For the entered operating hours, fictional electricity expense $"+fmt(timeline.expense)+" versus hypothetical gross mining revenue $"+fmt(timeline.gross)+", leaving $"+fmt(timeline.net)+" before hardware, repairs, changing block rewards and taxes. "+timeline.note};
+     visual=box=>createFunDualSvg(box,timeline.points,{title:"Animated cumulative mining electricity expense versus hypothetical revenue"});
      break;
     }
     case "unlock-surprise":{
-     const supply=Number(v.supply),unlock=Number(v.unlock);
-     if(!(supply>0&&supply<=1e24&&unlock>=0&&unlock<=1e24&&Number.isFinite(unlock)))throw Error("Enter positive initial supply and a nonnegative unlock quantity.");
-     const dilution=unlock/(supply+unlock)*100;
-     out={headline:fmt(dilution,2)+"% illustrative share dilution",detail:"A fixed holding becomes a smaller share after the fictional unlock. The chart shows only a two-state supply comparison, not dated market observations or a token price forecast."};
-     visual=box=>createFunSvg(box,[{date:"Before",value:supply},{date:"After",value:supply+unlock}],"Fictional circulating supply before and after one illustrative token unlock");
+     const story=tokenUnlockStory({initial:v.supply,unlockPerRound:v.unlock,rounds:v.rounds,holding:v.holding});
+     out={headline:fmt(story.relativeDilutionPct,2)+"% fictional holder share dilution",detail:"After "+story.rounds+" equal hypothetical unlock rounds, "+fmt(story.unlockTotal,0)+" additional units enter the supply: fixed holder share changes from "+fmt(story.startSharePct,5)+"% to "+fmt(story.endSharePct,5)+"%. "+story.note};
+     visual=box=>{
+      createFunSvg(box,story.points.map(p=>({date:"Round "+p.step,value:p.sharePct})),"Animated fictional ownership percentage as new supply unlocks across "+story.rounds+" rounds");
+      const div=document.createElement("div");div.className="cm-fun-timeline";
+      for(const p of story.points){
+       const item=document.createElement("span");item.textContent="Round "+p.step+" · "+fmt(p.sharePct,4)+"%";div.append(item);
+      }
+      box.append(div);
+     };
      break;
     }
     case "emoji-decoder":{
