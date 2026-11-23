@@ -121,3 +121,9 @@ test("Rolling realized volatility and user-dated token emission schedule",()=>{
  assert.ok(Math.abs(result.changePct-35)<1e-8);
  assert.throws(()=>parseSupplySchedule("date,circulating,unlock\n2026-01-01,100,0\n2026-01-01,120,20"),/increasing/);
 });
+
+test("Performance workspace exposes independently labeled drawdown and recovery chart",()=>{
+ const source=fs.readFileSync("sites/coinmetriq/portfolio-app.mjs","utf8");
+ assert.match(source,/Drawdown and recovery relative to each running peak/);
+ assert.match(source,/Percent of prior running peak/);
+});
