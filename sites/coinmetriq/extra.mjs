@@ -1,7 +1,7 @@
 import fs from "node:fs";
 const catalog=JSON.parse(fs.readFileSync(new URL("./articles.json",import.meta.url),"utf8"));
 if(catalog.schemaVersion!==1||!Array.isArray(catalog.articles))throw Error("Invalid CoinMetriq editorial catalog.");
-const moreGuides=catalog.articles;
+const moreGuides=catalog.articles.filter(a=>a.status==="published");
 import {portfolioRoutes,renderPortfolioPages} from "./portfolio-pages.mjs";
 import {tools} from "./studio-core.mjs";
 const esc=x=>String(x??"").replace(/[&<>"']/g,v=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[v]));
