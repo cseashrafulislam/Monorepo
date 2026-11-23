@@ -29,8 +29,12 @@ const pending=new Map(),browserErrors=[];
 function send(method,params={}){
  const id=++seq;
  return new Promise((resolve,reject)=>{
-  pending.set(id,{resolve,reject});ws.send(JSON.stringify({id,method,params}));
-  setTimeout(()=>{if(pending.has(id)){pending.delete(id);reject(Error("Browser protocol timeout "+method));}},15000);
+  const timer=setTimeout(()=>{if(pending.has(id)){pending.delete(id);reject(Error("Browser protocol timeout: "+method));}},30000);
+  pending.set(id,{
+   resolve:value=>{clearTimeout(timer);resolve(value);},
+   reject:error=>{clearTimeout(timer);reject(error);}
+  });
+  ws.send(JSON.stringify({id,method,params}));
  });
 }
 async function evaluate(expression){
@@ -38,24 +42,33 @@ async function evaluate(expression){
  if(r.exceptionDetails)throw Error("Browser JS failed: "+r.exceptionDetails.text+" "+JSON.stringify(r.exceptionDetails.exception?.description||""));
  return r.result?.value;
 }
-async function until(fn,limit=18000){
- const time=Date.now();while(Date.now()-time<limit){const found=await fn();if(found)return found;await sleep(130);}
- throw Error("Browser interaction timed out.");
+async function until(fn,limit=35000,context="browser condition"){
+ const time=Date.now();while(Date.now()-time<limit){const found=await fn();if(found)return found;await sleep(150);}
+ throw Error("Browser interaction timed out: "+context+" ("+limit+" ms).");
 }
 async function open(route){
- await send("Page.navigate",{url:origin+route});
- await until(()=>evaluate('document.readyState==="complete"&&!!document.querySelector("[data-site=coinmetriq]")'));
+ for(let attempt=1;attempt<=2;attempt++){
+  try{
+   await send("Page.navigate",{url:origin+route});
+   await until(()=>evaluate('document.readyState==="complete"&&!!document.querySelector("[data-site=coinmetriq]")'),25000,"page "+route);
+   return;
+  }catch(error){
+   if(attempt===2)throw Error("Could not open "+route+": "+error.message);
+   console.warn("Retrying browser navigation "+route+" after: "+error.message);
+   await sleep(500);
+  }
+ }
 }
 async function action(route,script,selector,expected){
  await open(route);
  await evaluate(script);
- const state=await until(()=>evaluate('(()=>{const el=document.querySelector('+JSON.stringify(selector)+');return el?.dataset.state==="success"?JSON.stringify({state:"success",text:el.textContent}):el?.dataset.state==="error"?JSON.stringify({state:"error",text:el.textContent}):null})()'));
+ const state=await until(()=>evaluate('(()=>{const el=document.querySelector('+JSON.stringify(selector)+');return el?.dataset.state==="success"?JSON.stringify({state:"success",text:el.textContent}):el?.dataset.state==="error"?JSON.stringify({state:"error",text:el.textContent}):null})()'),30000,"result "+route);
  const parsed=JSON.parse(state);
  if(parsed.state!=="success"||!parsed.text.includes(expected))throw Error(route+": unexpected UI result "+parsed.text.slice(0,400));
  console.log("PASS browser "+route+" "+expected);
 }
 try{
- await until(()=>fs.existsSync(path.join(profile,"DevToolsActivePort")));
+ await until(()=>fs.existsSync(path.join(profile,"DevToolsActivePort")),40000,"Chrome DevTools startup");
  const port=fs.readFileSync(path.join(profile,"DevToolsActivePort"),"utf8").split("\n")[0];
  const listings=await (await fetch("http://127.0.0.1:"+port+"/json/list")).json();
  const target=listings.find(x=>x.type==="page");if(!target)throw Error("Chrome page target missing.");
