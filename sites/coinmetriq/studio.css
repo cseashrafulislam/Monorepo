@@ -85,3 +85,7 @@
 .cm-fun-game select{background:#081e2a;color:#efffe9;border:1px solid #648481;padding:12px;border-radius:7px;width:100%;font-size:1rem}
 .cm-fun-game select:focus-visible{outline:3px solid var(--cm-lime);outline-offset:2px}
 @media(prefers-reduced-motion:reduce){.cm-fun-trail{animation:none;stroke-dashoffset:0}.cm-fun-part-a,.cm-fun-part-b{transition:none}}
+
+.cm-fun-timeline{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0 4px}
+.cm-fun-timeline span{padding:6px 9px;background:#12383a;border:1px solid #587c72;border-radius:7px;font-size:.75rem;color:#e2f3da;white-space:nowrap}
+@media(max-width:550px){.cm-fun-timeline span{font-size:.69rem;white-space:normal}}

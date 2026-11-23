@@ -18,6 +18,8 @@ jobs:
         run: npm run check
       - name: CoinMetriq article source and publishing audit
         run: npm run audit:content:coinmetriq
+      - name: CoinMetriq licensed commercial data provider guard
+        run: npm run audit:license:coinmetriq
       - name: CoinMetriq offline SEO, canonical and internal link audit
         run: npm run audit:coinmetriq
       - name: Browser smoke-test CoinMetriq research and portfolio

@@ -6,6 +6,7 @@ import {parseCsv,parseTradesCsv,normalizeTrades,calculateCostBasis,calculateTwr,
 import {encryptJournal,decryptJournal} from "./backup-core.mjs";
 import {riskFromOhlcvCsv,bootstrapRiskScenarios,SAMPLE_RISK_CSV} from "./risk-core.mjs";
 import {bitcoinSubsidyAtHeight,bitcoinEraTable,totalTheoreticalScheduledBtc,validateIssuerProvenance,BITCOIN_REFERENCE} from "./issuance-core.mjs";
+import {validateLicensedCatalog,fetchLicensedQuote,manualQuote} from "./licensed-data-core.mjs";
 import {parseOhlcvCsv,summarizeOhlcv,backtestSma,parsePairsCsv,analyzeCorrelation,comparePortfolios,recoveryStats,rollingVolatility,parseSupplySchedule,summarizeSupplySchedule} from "./market-core.mjs";
 const storeKey="coinmetriq.journal.v1",sessionKey="coinmetriq.session.journal.v1";
 const fmt=(n,p=2)=>Number(n).toLocaleString("en-US",{minimumFractionDigits:p,maximumFractionDigits:p});
@@ -333,6 +334,52 @@ function setupRisk(form,out){
   }catch(err){fail(out,err);}
  });
 }
+function setupLicensedData(form,out){
+ const providerStatus=tx("provider-status"),providerSelect=tx("provider-select"),providerBtn=tx("provider-fetch"),providerOut=tx("provider-output");
+ let providers=[];
+ async function loadCatalog(){
+  try{
+   const result=await fetch("/assets/cm-licensed-sources.json",{cache:"no-store",credentials:"omit"});
+   if(!result.ok)throw Error("Local provider registry unavailable (HTTP "+result.status+"). Manual quote remains available.");
+   const text=await result.text();if(text.length>20000)throw Error("Provider registry exceeds approved size.");
+   providers=validateLicensedCatalog(JSON.parse(text));
+   providerSelect.replaceChildren();
+   if(!providers.length){
+    providerSelect.append(new Option("No approved provider connected",""));
+    providerStatus.textContent="No live provider has verified ad-supported commercial display rights in the current deployment. Manual inputs and CSV tools remain available.";
+    return;
+   }
+   for(const source of providers)providerSelect.append(new Option(source.label+" · "+source.symbol,source.id));
+   providerStatus.textContent=providers.length+" owner-reviewed commercial quote source(s) configured. Review independent source license and freshness before relying on any figure.";
+   providerSelect.disabled=false;providerBtn.disabled=false;
+  }catch(err){providerStatus.textContent="License catalog unavailable: "+errorText(err)+" Manual quotes remain available.";}
+ }
+ loadCatalog();
+ form.addEventListener("submit",ev=>{
+  ev.preventDefault();
+  try{
+   const value=val(form,"asOf"),iso=value.length===16?value+":00Z":value.endsWith("Z")?value:value+"Z";
+   const quote=manualQuote({symbol:val(form,"symbol").trim().toUpperCase(),priceUSD:val(form,"priceUSD"),asOf:iso});
+   lead(out,quote.symbol+" · "+fmt(quote.priceUSD,6)+" USD manual quote","User-entered example, not a live price. As of "+quote.asOf+". Historical and stale-source labels always remain visible.");
+   stats(out,[["Source","Manual entry"],["Snapshot timestamp (UTC)",quote.asOf],["Live provider","None used"]]);
+   setExport(form,[quote],["symbol","priceUSD","asOf","sourceName","ageSeconds","stale"]);
+  }catch(err){fail(out,err);}
+ });
+ providerBtn.addEventListener("click",async()=>{
+  const source=providers.find(x=>x.id===providerSelect.value);
+  if(!source){fail(providerOut,Error("No owner-approved provider selected."));return;}
+  providerBtn.disabled=true;
+  try{
+   const quote=await fetchLicensedQuote(source);
+   lead(providerOut,quote.symbol+" · "+fmt(quote.priceUSD,6)+" USD "+(quote.stale?"STALE":"source-reported recent"),"Source: "+quote.sourceName+" · "+quote.asOf+". "+(quote.stale?"Quote is older than the approved refresh interval.":"As-of timestamp comes from the provider, not an independently confirmed exchange trade."));
+   stats(providerOut,[["Quote age",fmt(quote.ageSeconds,0)+" seconds"],["Publisher license evidence",quote.licenseProof],["Primary data endpoint",quote.sourceUrl]]);
+   const p=make("p","Provider permission record: ");
+   const link=make("a","Open licensing evidence");link.href=quote.licenseProof;link.target="_blank";link.rel="noopener noreferrer";p.append(link);providerOut.append(p);
+   setExport(form,[quote],["symbol","priceUSD","asOf","sourceName","sourceUrl","licenseProof","ageSeconds","stale"]);
+  }catch(err){fail(providerOut,err);}
+  finally{providerBtn.disabled=false;}
+ });
+}
 function setupIssuance(form,out){
  form.addEventListener("submit",ev=>{
   ev.preventDefault();
@@ -422,7 +469,7 @@ function setupBackups(){
 for(const form of document.querySelectorAll("form[data-cm-portfolio]")){
  const out=tx("portfolio-output",form);
  const job=form.dataset.cmPortfolio;
- const handlers={journal:setupJournal,costbasis:setupCostBasis,performance:setupPerformance,market:setupMarket,backtest:setupBacktest,compare:setupCompare,safety:setupSafety,fees:setupFees,emission:setupEmission,risk:setupRisk,issuance:setupIssuance};
+ const handlers={journal:setupJournal,costbasis:setupCostBasis,performance:setupPerformance,market:setupMarket,backtest:setupBacktest,compare:setupCompare,safety:setupSafety,fees:setupFees,emission:setupEmission,risk:setupRisk,issuance:setupIssuance,["licensed-data"]:setupLicensedData};
  if(handlers[job])handlers[job](form,out);
  tx("download-csv",form)?.addEventListener("click",()=>{
   if(!form._export?.rows?.length)return;
