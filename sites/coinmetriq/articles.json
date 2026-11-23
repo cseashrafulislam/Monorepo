@@ -31,7 +31,8 @@
           "https://developer.bitcoin.org/devguide/transactions.html"
         ]
       ],
-      "publishedAt": "2026-11-23"
+      "publishedAt": "2026-11-23",
+      "status": "published"
     },
     {
       "slug": "time-weighted-return-versus-xirr",
@@ -62,7 +63,8 @@
           "https://www.gipsstandards.org/"
         ]
       ],
-      "publishedAt": "2026-11-23"
+      "publishedAt": "2026-11-23",
+      "status": "published"
     },
     {
       "slug": "crypto-backtesting-without-look-ahead",
@@ -93,7 +95,8 @@
           "https://developer.bitcoin.org/"
         ]
       ],
-      "publishedAt": "2026-11-23"
+      "publishedAt": "2026-11-23",
+      "status": "published"
     },
     {
       "slug": "crypto-wallet-phishing-and-token-approvals",
@@ -132,7 +135,8 @@
           "https://support.metamask.io/privacy-and-security/staying-safe-in-web3/signature-phishing/"
         ]
       ],
-      "publishedAt": "2026-11-23"
+      "publishedAt": "2026-11-23",
+      "status": "published"
     },
     {
       "slug": "bitcoin-block-reward-versus-fees",
@@ -171,7 +175,8 @@
           "https://github.com/bitcoin/bitcoin"
         ]
       ],
-      "publishedAt": "2026-11-23"
+      "publishedAt": "2026-11-23",
+      "status": "published"
     },
     {
       "slug": "network-fee-rate-versus-transaction-size",
@@ -206,7 +211,8 @@
           "https://developer.bitcoin.org/reference/block_chain.html"
         ]
       ],
-      "publishedAt": "2026-11-23"
+      "publishedAt": "2026-11-23",
+      "status": "published"
     },
     {
       "slug": "staking-apr-versus-apy-explained",
@@ -237,7 +243,8 @@
           "https://ethereum.org/en/staking/"
         ]
       ],
-      "publishedAt": "2026-11-23"
+      "publishedAt": "2026-11-23",
+      "status": "published"
     },
     {
       "slug": "liquidity-pool-impermanent-loss-example",
@@ -268,7 +275,8 @@
           "https://docs.uniswap.org/contracts/v2/concepts/protocol-overview/how-uniswap-works"
         ]
       ],
-      "publishedAt": "2026-11-23"
+      "publishedAt": "2026-11-23",
+      "status": "published"
     }
   ]
 }
