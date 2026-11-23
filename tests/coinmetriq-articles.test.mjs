@@ -13,6 +13,7 @@ test("CoinMetriq has eight distinct longer source-backed original research guide
   assert.ok(g.excerpt.length>45);
   assert.ok(g.paragraphs.length>=4);
   assert.ok(g.paragraphs.every(([h,t])=>h.length>5&&t.length>100));
+  assert.equal(g.status,"published");
   assert.ok(g.href.startsWith("/"));
   assert.match(g.publishedAt,/^\d{4}-\d{2}-\d{2}$/);
   assert.ok(g.sources?.length>0);
