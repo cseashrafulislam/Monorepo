@@ -1,6 +1,6 @@
 # CoinMetriq: source-first article publishing
 
-CoinMetriq is a free, registration-free crypto educational research product. The article catalog lives at \`sites/coinmetriq/articles.json\`. The original three formula explainers are currently in the site renderer; eight additional source-backed articles live in the catalog. All new entries should use this catalog rather than editing HTML or manually copying pages.
+CoinMetriq is a free, registration-free crypto educational research product. The article catalog lives at \`sites/coinmetriq/articles.json\`. The original three formula explainers are currently in the site renderer; ten additional source-backed articles live in the catalog. All new entries should use this catalog rather than editing HTML or manually copying pages.
 
 ## How to publish
 
