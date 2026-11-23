@@ -37,8 +37,8 @@ test("Published guide routes have HTML, real links and Article schema",()=>{
   assert.ok(html.includes(site.name));
  }
 });
-test("Existing short topic overviews remain noindex and original tool remains functional",()=>{
- const sample=fs.readFileSync(path.join(root,"topics","crypto-glossary","index.html"),"utf8");
+test("Jurisdiction-sensitive tax topic remains noindex and original tool remains functional",()=>{
+ const sample=fs.readFileSync(path.join(root,"topics","crypto-tax-concepts","index.html"),"utf8");
  assert.ok(sample.includes('content="noindex,follow"'));
  assert.ok(fs.existsSync(path.join(root,"tools","token-market-cap","index.html")));
 });
