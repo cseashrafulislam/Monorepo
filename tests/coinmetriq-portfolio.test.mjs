@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
 import {parseCsv,parseTradesCsv,calculateCostBasis,calculateTwr,calculateXirr,SAMPLE_TRADES_CSV,exportTradesCsv,DEFAULT_TRADE_MAPPING,isoDay} from "../sites/coinmetriq/ledger-core.mjs";
-import {parseOhlcvCsv,backtestSma,summarizeOhlcv,parsePairsCsv,analyzeCorrelation,comparePortfolios,recoveryStats} from "../sites/coinmetriq/market-core.mjs";
+import {parseOhlcvCsv,backtestSma,summarizeOhlcv,parsePairsCsv,analyzeCorrelation,comparePortfolios,recoveryStats,rollingVolatility,parseSupplySchedule,summarizeSupplySchedule} from "../sites/coinmetriq/market-core.mjs";
 import {encryptJournal,decryptJournal} from "../sites/coinmetriq/backup-core.mjs";
 import {portfolioRoutes} from "../sites/coinmetriq/portfolio-pages.mjs";
 const root="dist/coinmetriq";
@@ -88,7 +88,7 @@ test("AES-GCM encrypted backup restores, rejects tampering and wrong password",a
  await assert.rejects(decryptJournal(broken,"a long test passphrase 123"),/corrupted|invalid/i);
 });
 test("Eleven indexable working portfolio pages and original routes coexist",()=>{
- const routes=portfolioRoutes();assert.equal(routes.length,11);
+ const routes=portfolioRoutes();assert.equal(routes.length,12);
  const sitemap=fs.readFileSync(path.join(root,"sitemap.xml"),"utf8");
  for(const route of routes){
   const html=page(route);
@@ -108,4 +108,16 @@ test("Eleven indexable working portfolio pages and original routes coexist",()=>
  assert.ok(old.includes("Token market cap"));
  const topic=page("/topics/crypto-glossary/");
  assert.ok(topic.includes('content="noindex,follow"'));
+});
+
+test("Rolling realized volatility and user-dated token emission schedule",()=>{
+ const raw="date,open,high,low,close,volume\n2026-01-01,100,106,99,104,950\n2026-01-02,104,108,101,103,900\n2026-01-03,103,111,102,109,1000\n2026-01-04,109,112,106,110,1100\n2026-01-05,110,111,103,105,980";
+ const bars=parseOhlcvCsv(raw),rolling=rollingVolatility(bars,{window:3});
+ assert.equal(rolling.points.length,2);
+ assert.ok(rolling.points.every(x=>Number.isFinite(x.value)&&x.value>=0));
+ const schedule=parseSupplySchedule("date,circulating,unlock\n2026-01-01,10000000,0\n2026-02-01,12500000,2500000\n2026-03-01,13500000,1000000");
+ const result=summarizeSupplySchedule(schedule);
+ assert.equal(result.end,13500000);
+ assert.ok(Math.abs(result.changePct-35)<1e-8);
+ assert.throws(()=>parseSupplySchedule("date,circulating,unlock\n2026-01-01,100,0\n2026-01-01,120,20"),/increasing/);
 });
