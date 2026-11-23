@@ -115,6 +115,11 @@ try{
  await action("/portfolio/token-emission/","document.querySelector(\'[data-cm-portfolio=emission]\').requestSubmit()","[data-cm-portfolio-output]","supply change");
  await action("/portfolio/risk-lab/","document.querySelector(\'[data-cm-risk-example]\').click();document.querySelector(\'[data-cm-portfolio=risk]\').requestSubmit()","[data-cm-portfolio-output]","historical one-day");
  await action("/portfolio/issuance-audit/","document.querySelector(\'[data-cm-portfolio=issuance]\').requestSubmit()","[data-cm-portfolio-output]","maximum block subsidy");
+ await action("/portfolio/licensed-data/","document.querySelector('[data-cm-portfolio=licensed-data]').requestSubmit()","[data-cm-portfolio-output]","manual quote");
+ const manualOnly=await until(()=>evaluate('document.querySelector("[data-cm-provider-status]")?.textContent?.includes("No live provider")'),20000,"license catalog loaded");
+ const providerDisabled=await evaluate('document.querySelector("[data-cm-provider-fetch]")?.disabled');
+ if(!manualOnly||!providerDisabled)throw Error("Unapproved quote provider should remain disabled.");
+
  await open("/portfolio/backups/");
  const cryptoResult=await evaluate('(async()=>{const m=await import("/assets/backup-core.mjs");const rows=[{id:"Q1",date:"2026-01-01",asset:"BTC",side:"BUY",qty:.1,price:1000,fee:1,tag:"demo"}];const b=await m.encryptJournal(rows,"long test password 123");const restored=await m.decryptJournal(b,"long test password 123");let failed=false;try{await m.decryptJournal(b,"another long password 123")}catch{failed=true}return {rows:restored.length,wrongPasswordRejected:failed,cipher:b.cipher}})()');
  if(cryptoResult.rows!==1||!cryptoResult.wrongPasswordRejected||cryptoResult.cipher!=="AES-256-GCM")throw Error("Browser AES-GCM roundtrip invalid "+JSON.stringify(cryptoResult));
